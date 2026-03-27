@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#0e5138",
+              "tertiary": "#e9c400",
+              "primary": "#95d4b3",
+              "error": "#ffb4ab",
+              "surface-container-highest": "#353534",
+              "background": "#131313",
+              "surface-dim": "#131313",
+              "on-error-container": "#ffdad6",
+              "surface": "#131313",
+              "surface-container-low": "#1c1b1b",
+              "primary-fixed-dim": "#95d4b3",
+              "on-surface-variant": "#c1c8c2",
+              "on-primary": "#003824",
+              "on-secondary-container": "#9fb6de",
+              "inverse-primary": "#2c694e",
+              "secondary-container": "#30486a",
+              "on-background": "#e5e2e1",
+              "error-container": "#93000a",
+              "primary-container": "#00452e",
+              "surface-container-high": "#2a2a2a",
+              "primary-fixed": "#b1f0ce",
+              "on-tertiary": "#3b2f00",
+              "on-primary-container": "#76b394",
+              "on-secondary": "#183152",
+              "tertiary-fixed-dim": "#e9c400",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container": "#201f1f",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-container": "#4c3e00",
+              "on-secondary-fixed-variant": "#30486a",
+              "on-tertiary-fixed-variant": "#554600",
+              "on-secondary-fixed": "#001c3b",
+              "surface-bright": "#393939",
+              "tertiary-fixed": "#ffe171",
+              "secondary-fixed": "#d5e3ff",
+              "secondary": "#b0c8f0",
+              "outline-variant": "#414844",
+              "outline": "#8b938d",
+              "inverse-on-surface": "#313030",
+              "on-tertiary-fixed": "#221b00",
+              "surface-tint": "#95d4b3",
+              "tertiary-container": "#c9a800",
+              "secondary-fixed-dim": "#b0c8f0",
+              "on-surface": "#e5e2e1",
+              "on-error": "#690005",
+              "on-primary-fixed": "#002114",
+              "surface-variant": "#353534"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-[240px] fixed left-0 top-0 z-50 flex flex-col py-6 bg-[#1c1b1b] border-r border-outline-variant/5">
+<div class="px-6 mb-10 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary font-bold text-xl">sports_rugby</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-on-surface tracking-tighter leading-none">RFC ANALYTICS</h1>
+<p class="font-headline font-bold tracking-[0.2em] uppercase text-[8px] text-primary">Elite Division</p>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all duration-200 font-headline font-bold tracking-tight uppercase text-xs group" href="#">
+<span class="material-symbols-outlined text-xl opacity-70 group-hover:opacity-100" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] text-primary border-l-2 border-tertiary rounded-r-lg font-headline font-bold tracking-tight uppercase text-xs shadow-sm shadow-black/20" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="groups">groups</span>
+<span>Squad</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all duration-200 font-headline font-bold tracking-tight uppercase text-xs group" href="#">
+<span class="material-symbols-outlined text-xl opacity-70 group-hover:opacity-100" data-icon="strategy">strategy</span>
+<span>Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all duration-200 font-headline font-bold tracking-tight uppercase text-xs group" href="#">
+<span class="material-symbols-outlined text-xl opacity-70 group-hover:opacity-100" data-icon="fitness_center">fitness_center</span>
+<span>Training</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all duration-200 font-headline font-bold tracking-tight uppercase text-xs group" href="#">
+<span class="material-symbols-outlined text-xl opacity-70 group-hover:opacity-100" data-icon="search_check">search_check</span>
+<span>Scouting</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all duration-200 font-headline font-bold tracking-tight uppercase text-xs group" href="#">
+<span class="material-symbols-outlined text-xl opacity-70 group-hover:opacity-100" data-icon="sports_rugby">sports_rugby</span>
+<span>Matches</span>
+</a>
+</nav>
+<div class="px-3 mt-auto pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 px-4 py-4 mb-4 bg-surface-container-low/50 rounded-xl">
+<img alt="Director of Rugby" class="w-10 h-10 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuMS7EsSCLdfgAY2LUi1cSMkKjEahP_5sid2I3k6oQOukaEuM1BSyyde7PfAjt-RkxrftzUrocoILXMAnhLoVlFrjyH6HAoXB_xXA2HxwN-Z8CNwu9E1eJ58s7ny--KxZ6BMB1VyGNRTS26GoQYGJhPMahzxcqW3OKPPYy_vLqkylw_zyl8e8au5HTK-WTnxIHnaZA3Qd8PYrtcgu-9ox5GG3gK_tbbQpjSccF6LJNA-us4PqamRD3GTw62CoXQijqYm0wbhYzoqy0"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-on-surface truncate font-headline uppercase tracking-tight">D. Rugby</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Elite Status</p>
+</div>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface transition-all font-headline font-bold tracking-tight uppercase text-[10px] group" href="#">
+<span class="material-symbols-outlined text-lg opacity-70 group-hover:opacity-100" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-error transition-all font-headline font-bold tracking-tight uppercase text-[10px] group" href="#">
+<span class="material-symbols-outlined text-lg opacity-70 group-hover:opacity-100" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 h-16 z-40 flex justify-between items-center px-8 w-full bg-[#131313]/90 backdrop-blur-md dark:bg-[#131313]/90 font-['Inter'] text-sm font-medium tracking-wide left-[240px]">
+<div class="flex items-center gap-6">
+<span class="text-[#e5e2e1] opacity-60">Sat 14 Oct</span>
+<span class="text-[#e9c400] font-bold border-b-2 border-[#e9c400] pb-1">Next: Harlequins (H)</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="help_outline">help_outline</span>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/20">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface">Director of Rugby</p>
+<p class="text-[10px] opacity-50 uppercase tracking-tighter">Status: Elite</p>
+</div>
+<img class="w-8 h-8 rounded-full border border-primary/20 bg-surface-container-high" data-alt="Manager Profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuMS7EsSCLdfgAY2LUi1cSMkKjEahP_5sid2I3k6oQOukaEuM1BSyyde7PfAjt-RkxrftzUrocoILXMAnhLoVlFrjyH6HAoXB_xXA2HxwN-Z8CNwu9E1eJ58s7ny--KxZ6BMB1VyGNRTS26GoQYGJhPMahzxcqW3OKPPYy_vLqkylw_zyl8e8au5HTK-WTnxIHnaZA3Qd8PYrtcgu-9ox5GG3gK_tbbQpjSccF6LJNA-us4PqamRD3GTw62CoXQijqYm0wbhYzoqy0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-16 min-h-screen ml-[240px]">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Page Header & Filters -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+<div>
+<h2 class="text-4xl font-headline font-black text-on-surface tracking-tighter mb-2">SQUAD ROSTER</h2>
+<p class="text-on-surface-variant font-body">Manage your elite personnel and player development paths.</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button class="px-6 py-2 rounded-lg bg-surface-container-high text-primary font-bold text-sm transition-all shadow-sm">First Team</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all">Reserves</button>
+<button class="px-6 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-medium text-sm transition-all">Academy</button>
+</div>
+</div>
+<!-- Squad Stats Overview (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-2 border-primary transition-all hover:bg-surface-container">
+<p class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Squad Size</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">32 <span class="text-sm font-normal opacity-40">/ 45</span></h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-2 border-tertiary transition-all hover:bg-surface-container">
+<p class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Avg. Fitness</p>
+<h3 class="text-3xl font-headline font-bold text-tertiary">92%</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-2 border-secondary transition-all hover:bg-surface-container">
+<p class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Wage Budget</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">£4.2M <span class="text-sm font-normal opacity-40">p/a</span></h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-2 border-outline transition-all hover:bg-surface-container">
+<p class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Avg. Age</p>
+<h3 class="text-3xl font-headline font-bold text-on-surface">26.4</h3>
+</div>
+</div>
+<!-- Squad Table -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest/50 border-b border-outline-variant/5">
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Position</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Player Name</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-center">Age</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Fitness</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Morale</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Last 5 Form</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-widest text-on-surface-variant text-right">Value</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Player Row 1 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded bg-primary-container/30 text-primary text-[10px] font-bold uppercase tracking-tighter">Hooker</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-10 h-10 rounded-xl bg-surface-container-highest" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXoPl_s4DLhk6JSnwx-pirXI9cB2sm7YfEqIVT1wh5mxINe_rB0kBAyYylV9u-EwJIubxW9tH43Vszz-vB0pym8Vp8DtEoJSumT0YqBD7cyv1vgiU1srhDVA5k62RR7VO8UmMyt6lbV-fhkODEJwOC3aFpNi8d-m1M1qochDfvFGGlq6F2e8F6ieuaIj4Ee67EmO8XAAR3ELcKFdpxFkPajDdgHy7R-Aqg2pAp3F3PfPLy4dPrX9rjHdTYvCfMuOOWkmVvi9zhCjEo"/>
+<span class="absolute -bottom-1 -right-1 w-3 h-3 bg-tertiary rounded-full border-2 border-surface-container-low" title="Star Player"></span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-none mb-1 group-hover:text-primary transition-colors">MARCUS THORPE</p>
+<p class="text-[10px] text-on-surface-variant font-medium uppercase">England • Full-time</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body text-sm text-on-surface-variant">29</td>
+<td class="px-6 py-5">
+<div class="w-24">
+<div class="flex justify-between text-[10px] font-bold text-primary mb-1">
+<span>98%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 98%"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+<span class="text-xs font-bold text-tertiary">Perfect</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary-container text-primary rounded">D</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-headline font-bold text-on-surface">£14.2M</td>
+</tr>
+<!-- Player Row 2 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded bg-secondary-container/30 text-secondary text-[10px] font-bold uppercase tracking-tighter">Scrum Half</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-10 h-10 rounded-xl bg-surface-container-highest" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmCudRn5ADIVHYU-OQ6qYGcocWa1s_JcNjA9OmkxsCk2bAoP_s2MZMcEfYsP5M6aBv_tiXDluy3Qez3eSqeu5ryUcfI1Xu7sGCkwcYo8jRt03KZClUnH_u42-pPlGc0YDcF5KAs7L3h-N0X7m9vW0qxbj2dyK_fouCYE83raGH97bee3g5eVlc4U0iueTnh1AT3SIaEYtc4x031XSDToe1Q1KEdcs767Xc0t6fTRGNc3FsM70ik15i92EsXpMQ_FBfgKSyezW4PnYf"/>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-none mb-1 group-hover:text-primary transition-colors">ANTOINE D'ARCY</p>
+<p class="text-[10px] text-on-surface-variant font-medium uppercase">France • Full-time</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body text-sm text-on-surface-variant">24</td>
+<td class="px-6 py-5">
+<div class="w-24">
+<div class="flex justify-between text-[10px] font-bold text-on-surface-variant mb-1">
+<span>82%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-on-surface-variant" style="width: 82%"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+<span class="text-xs font-bold text-on-surface">Superb</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-error text-on-error rounded">L</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary-container text-primary rounded">D</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-headline font-bold text-on-surface">£8.5M</td>
+</tr>
+<!-- Player Row 3 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded bg-outline-variant/30 text-on-surface-variant text-[10px] font-bold uppercase tracking-tighter">Lock</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-10 h-10 rounded-xl bg-surface-container-highest" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdZDLHZUOqIj92FXxgveJpFuJkPSxYoWtckcZqCHHZTUTxpF-SS3yRMfB-EArf9dizfUKFOEFi95iV1cnOueOHS44gLBTkOCCyBcM5r4iiAoWNetyX6mwvdMNS8wP7vvWYhRo9WNg_G2ismU5nU16pCbH_x3MHqBKDg8P5dtD_Aa0geBbMQyrSgeqUUoSLijqtJT-j70W9GtQTY7srE08FqGeRvvRr2F-8tv4lxx9nvW8QbQ25w_dLJKlZQGgVnz6PMR9YnlbcgfXW"/>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-none mb-1 group-hover:text-primary transition-colors">FINN MCLINTOCK</p>
+<p class="text-[10px] text-on-surface-variant font-medium uppercase">Scotland • Full-time</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body text-sm text-on-surface-variant">32</td>
+<td class="px-6 py-5">
+<div class="w-24">
+<div class="flex justify-between text-[10px] font-bold text-error mb-1">
+<span>45%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 45%"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-lg" data-icon="sentiment_neutral">sentiment_neutral</span>
+<span class="text-xs font-bold text-error">Frustrated</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-1 opacity-50">
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-surface-container-highest rounded">-</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-surface-container-highest rounded">-</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-surface-container-highest rounded">-</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary-container text-primary rounded">D</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-headline font-bold text-on-surface">£2.1M</td>
+</tr>
+<!-- Player Row 4 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors group">
+<td class="px-6 py-5">
+<span class="px-2 py-1 rounded bg-primary-container/30 text-primary text-[10px] font-bold uppercase tracking-tighter">Flanker</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img class="w-10 h-10 rounded-xl bg-surface-container-highest" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdDI9RjwoEdBvoVusjsdaPrl9MkYgrL0I0I-inoB4R1SPZsKhQ8BWLurUg8GyIm9NLq8vJYHk5GWmgI-_bfGfdBUYEEyeUwz7cJJ4NA775g3oCw__z0CxxhWlJtg4qrdAjttKFQfb9l8P8k75efwDV6g5qHDX3xS6nWOfsnnrVQDGFXVb3lbTzxrxlbmUZjz0wgvgj7XiKWnmAFQ9hWbp4WRmRAydJLr84iBa1ujliirD8xtBBePDqe5H6OVjrdz-9YiWCdPLDER3S"/>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-none mb-1 group-hover:text-primary transition-colors">KWAME ADDO</p>
+<p class="text-[10px] text-on-surface-variant font-medium uppercase">South Africa • Full-time</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center font-body text-sm text-on-surface-variant">27</td>
+<td class="px-6 py-5">
+<div class="w-24">
+<div class="flex justify-between text-[10px] font-bold text-primary mb-1">
+<span>100%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 100%"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+<span class="text-xs font-bold text-on-surface">Very Happy</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-1">
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary text-on-primary rounded">W</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-primary-container text-primary rounded">D</span>
+<span class="w-5 h-5 flex items-center justify-center text-[9px] font-bold bg-error text-on-error rounded">L</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-headline font-bold text-on-surface">£11.8M</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-low border-t border-outline-variant/10 flex items-center justify-between">
+<p class="text-xs text-on-surface-variant">Showing 1-12 of 32 Squad Members</p>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<span class="text-xs font-bold px-3 py-1 bg-primary/20 text-primary rounded">1</span>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Contextual Action (Bottom Bar) -->
+<div class="mt-8 flex justify-end gap-4">
+<button class="px-6 py-3 bg-surface-container-highest rounded-md border-l-2 border-tertiary text-on-surface font-bold font-headline text-xs uppercase tracking-widest hover:brightness-110 transition-all">
+                    Register Squad
+                </button>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-md shadow-lg font-headline text-xs uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all">
+                    Finalize Team Sheet
+                </button>
+</div>
+</div>
+</main>
+</body></html>

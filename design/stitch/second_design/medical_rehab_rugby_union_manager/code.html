@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stade de Rugby - Medical &amp; Rehab Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#343d96",
+                        "on-primary-fixed-variant": "#23501e",
+                        "primary": "#a1d494",
+                        "outline": "#8d928c",
+                        "surface-container-low": "#181c22",
+                        "on-error": "#690005",
+                        "on-tertiary": "#2f3131",
+                        "on-primary": "#0a3909",
+                        "on-secondary-fixed": "#000767",
+                        "secondary-container": "#343d96",
+                        "outline-variant": "#434843",
+                        "primary-container": "#043405",
+                        "on-surface": "#dfe2eb",
+                        "background": "#10141a",
+                        "on-tertiary-container": "#929393",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "inverse-on-surface": "#2d3137",
+                        "inverse-surface": "#dfe2eb",
+                        "on-primary-container": "#6e9f64",
+                        "primary-fixed": "#bcf0ae",
+                        "surface-container-lowest": "#0a0e14",
+                        "tertiary": "#c6c6c6",
+                        "on-background": "#dfe2eb",
+                        "tertiary-container": "#2a2c2c",
+                        "on-primary-fixed": "#002201",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "secondary-fixed": "#e0e0ff",
+                        "primary-fixed-dim": "#a1d494",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#353940",
+                        "surface-container-high": "#262a31",
+                        "on-secondary-container": "#a8afff",
+                        "surface-dim": "#10141a",
+                        "surface": "#10141a",
+                        "surface-container": "#1c2026",
+                        "surface-variant": "#31353c",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#1b247f",
+                        "surface-tint": "#a1d494",
+                        "surface-container-highest": "#31353c",
+                        "on-surface-variant": "#c3c8c1",
+                        "secondary": "#bdc2ff",
+                        "inverse-primary": "#3b6934",
+                        "error-container": "#93000a"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #10141a;
+            color: #dfe2eb;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex flex-col fixed left-0 top-0 h-screen z-40 border-r border-[#31353c]/20 bg-[#181c22] w-64">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-on-primary">sports_rugby</span>
+</div>
+<div>
+<p class="font-['Inter'] text-xs uppercase font-bold tracking-widest text-primary">London Irish</p>
+<p class="font-['Inter'] text-[10px] text-on-surface-variant uppercase">Premiership Rugby</p>
+</div>
+</div>
+<nav class="flex-1 mt-4">
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">groups</span> Squad
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">strategy</span> Tactics
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">swap_horiz</span> Transfers
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">fitness_center</span> Training
+            </a>
+<a class="flex items-center gap-3 bg-[#a1d494]/10 text-[#a1d494] border-l-4 border-[#a1d494] px-6 py-3 font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">medical_services</span> Medical Room
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">account_balance</span> Infrastructure
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-6 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">handshake</span> Boardroom
+            </a>
+</nav>
+<div class="p-4">
+<button class="w-full bg-primary text-on-primary py-3 font-['Inter'] text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">
+                Tactical Briefing
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 bg-[#10141a] z-30 sticky top-0">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-['Space_Grotesk'] font-bold text-[#a1d494] uppercase tracking-tight">Stade de Rugby</h1>
+<div class="flex gap-6 font-['Space_Grotesk'] text-sm">
+<span class="text-[#c3c8c1]">Finance: <strong class="text-white">£4.2M</strong></span>
+<span class="text-[#c3c8c1]">12 Oct 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-[#c3c8c1] hover:bg-[#31353c] transition-colors rounded">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-[#c3c8c1] hover:bg-[#31353c] transition-colors rounded">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<button class="bg-primary-container text-primary px-6 py-2 font-['Inter'] text-xs font-bold uppercase tracking-widest hover:bg-[#0a4a0a] transition-all">
+                    Next Match
+                </button>
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="Manager Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCBsWursuG2EVeo-aujJmJ9fL9FAAJgy1x9ATh95zxM9K3S6piOyuMJzuHljGLaklmyTCOJiRYo0Btl2Td6fsYhqiRCutRhTbmx1J_fls7jQeun6z01XG9_6uwy54VN1OWYhF1vxdXTzxuyFW1rhwfxmlclwSL4jfzUfaY8rUnRH6gKY7eUbze9tL6A7g09vFPhj-0j6tdr_JIchjv99bOsjxfQOLDb2GYJkvH6soLevtnsgRbh3jKS5P9QjbqKJyJMZAGsWIoOd89"/>
+</div>
+</header>
+<!-- Screen Content -->
+<div class="p-8 flex-1 space-y-8">
+<!-- Hero Stats / Sports Science Insights -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary shadow-sm">
+<p class="font-['Public_Sans'] text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Overall Squad Health</p>
+<h3 class="font-['Space_Grotesk'] text-4xl font-bold text-primary mt-2">84%</h3>
+<div class="mt-4 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[84%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-secondary shadow-sm">
+<p class="font-['Public_Sans'] text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Fatigue Index</p>
+<h3 class="font-['Space_Grotesk'] text-4xl font-bold text-secondary mt-2">High</h3>
+<p class="text-[10px] text-on-surface-variant mt-2">4 Players at high risk of soft-tissue strain</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-error shadow-sm">
+<p class="font-['Public_Sans'] text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Active Injuries</p>
+<h3 class="font-['Space_Grotesk'] text-4xl font-bold text-error mt-2">5</h3>
+<p class="text-[10px] text-on-surface-variant mt-2">Average: 4.2 weeks out</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border-l-4 border-primary shadow-sm">
+<p class="font-['Public_Sans'] text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Physio Capacity</p>
+<h3 class="font-['Space_Grotesk'] text-4xl font-bold text-primary mt-2">92%</h3>
+<p class="text-[10px] text-on-surface-variant mt-2">Staff workload optimized</p>
+</div>
+</section>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Injury List (Left Column) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container-low rounded-lg overflow-hidden">
+<div class="px-6 py-4 bg-surface-container border-b border-outline-variant/10 flex justify-between items-center">
+<h2 class="font-['Space_Grotesk'] font-bold text-lg uppercase tracking-wider text-white">Injury List &amp; Rehab</h2>
+<span class="font-['Public_Sans'] text-[10px] bg-error/10 text-error px-2 py-1 rounded">Action Required: 2</span>
+</div>
+<div class="divide-y divide-outline-variant/5">
+<!-- Player Row 1 -->
+<div class="p-6 grid grid-cols-12 gap-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-4 flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjtImTdhwowy1_2MPSUYaFCQ0tf3nalBTITpn-8rLrzG66juMY6gj5WchX-uS-vfi9AJ8KQF8bC-yZmWCFNEy0V8gkbzTFRhPNVjwopMMBhm1ObSVEralLExA_zb9d5QWaG0QoKpPQb59c_7k3xbddNBWYCZZt9U7e8mJwrBdzZbNeXhGBNN5hRQ5JJcz_peCL9C72RuFce-GVj_WnYrxLHKR9cdRhBfJVBDkJPDcJnWlKnIAPnsU_8_JF5NyNXbkG-B0CFD_qnust"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-error flex items-center justify-center rounded-full text-[8px] font-bold text-on-error">!</div>
+</div>
+<div>
+<p class="font-['Inter'] font-bold text-on-surface">M. Vunipola</p>
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase">Prop / Starter</p>
+</div>
+</div>
+<div class="col-span-3">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-1">Injury Type</p>
+<p class="font-['Inter'] text-sm text-error font-medium">ACL Rupture (Grade 3)</p>
+</div>
+<div class="col-span-3">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-2">Recovery Progress</p>
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%]"></div>
+</div>
+<span class="font-['Space_Grotesk'] text-xs font-bold text-on-surface">65%</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-1">Return Date</p>
+<p class="font-['Inter'] text-sm text-white font-bold">14 Jan 2024</p>
+</div>
+</div>
+<!-- Player Row 2 -->
+<div class="p-6 grid grid-cols-12 gap-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-4 flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCanIuwZnBUfbUWGkvDx3RVsGS6JrsVIKge2AAQdUPz6fTqg6yvPU6Yb862wLMJA3zic8zarW4ygecGsRbk27roEpazrraYeGgPRFKNydDxxk1ImwvewNCIQcw08OT6UQcIKOh5dwLzyLW9UepqnNndZaV8jyFzn4u37cHlTDAfZTqlK63KBtgC8cabacrwuaHmcWSNRDW9bfB156fX-nzTybQBb0vp844n7HduvfHv-0JjXUkbuyuzyUWSSHplQdWgXwzpJtfUDXSn"/>
+</div>
+<div>
+<p class="font-['Inter'] font-bold text-on-surface">O. Farrell</p>
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase">Fly-Half / Captain</p>
+</div>
+</div>
+<div class="col-span-3">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-1">Injury Type</p>
+<p class="font-['Inter'] text-sm text-secondary font-medium">Hamstring Strain (Grade 1)</p>
+</div>
+<div class="col-span-3">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-2">Recovery Progress</p>
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%]"></div>
+</div>
+<span class="font-['Space_Grotesk'] text-xs font-bold text-on-surface">90%</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-1">Return Date</p>
+<p class="font-['Inter'] text-sm text-white font-bold">19 Oct 2023</p>
+</div>
+</div>
+<!-- Player Row 3 -->
+<div class="p-6 grid grid-cols-12 gap-4 items-center hover:bg-surface-container-high transition-colors">
+<div class="col-span-4 flex items-center gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded bg-surface-container-highest object-cover" data-alt="Rugby Player Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6E50_8cmhtj5CaMflyotwV_F9CTCmd04AvowIMJG-EU4cOhHwtZE9rvMdjRtCcTVCJ4jKJ_h0QVS8re9dQFDpUwRGUwQu2qGxoOPiskxJzOmOArA4sA9cX7IfAAajEd9lc0gClOgbScD4ptPW7_6lsjsVIKzQpPyq-z4CmR2rQioSJNstyZkRVKgNZQEtl0B6niSjS2wWvdK517c2R-DP6lUgfmGZZBWH_-gBiqa2EHkA--hPVsXB0KVt68D3M_Z6EvGYW4xIxdPT"/>
+</div>
+<div>
+<p class="font-['Inter'] font-bold text-on-surface">E. Daly</p>
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase">Fullback / Core</p>
+</div>
+</div>
+<div class="col-span-3">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-1">Injury Type</p>
+<p class="font-['Inter'] text-sm text-on-surface-variant font-medium">Concussion Protocol</p>
+</div>
+<div class="col-span-3">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-2">Recovery Progress</p>
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[20%]"></div>
+</div>
+<span class="font-['Space_Grotesk'] text-xs font-bold text-on-surface">20%</span>
+</div>
+</div>
+<div class="col-span-2 text-right">
+<p class="font-['Public_Sans'] text-[10px] text-on-surface-variant uppercase mb-1">Return Date</p>
+<p class="font-['Inter'] text-sm text-white font-bold">25 Oct 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Specialist Appointments Section -->
+<div class="bg-surface-container-low p-6 rounded-lg">
+<h2 class="font-['Space_Grotesk'] font-bold text-lg uppercase tracking-wider text-white mb-6">World-Class Specialist Referral</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-high p-4 border-t-2 border-primary-container group hover:bg-surface-variant transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-3">neurology</span>
+<h4 class="font-['Inter'] font-bold text-sm text-white mb-1">Knee Clinic London</h4>
+<p class="text-[10px] text-on-surface-variant mb-4">Reduces ACL recovery by 2-3 weeks.</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="font-['Space_Grotesk'] text-xs font-bold text-primary">£45k</span>
+<span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 border-t-2 border-primary-container group hover:bg-surface-variant transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-3">precision_manufacturing</span>
+<h4 class="font-['Inter'] font-bold text-sm text-white mb-1">Zurich Bio-Regen</h4>
+<p class="text-[10px] text-on-surface-variant mb-4">Experimental muscle repair. Instant 50% progress.</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="font-['Space_Grotesk'] text-xs font-bold text-primary">£120k</span>
+<span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 border-t-2 border-primary-container group hover:bg-surface-variant transition-all cursor-pointer">
+<span class="material-symbols-outlined text-primary mb-3">psychology</span>
+<h4 class="font-['Inter'] font-bold text-sm text-white mb-1">Mayo Clinic US</h4>
+<p class="text-[10px] text-on-surface-variant mb-4">Elite Concussion recovery &amp; screening.</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="font-['Space_Grotesk'] text-xs font-bold text-primary">£25k</span>
+<span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Stats & Risk Assessment -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Tactical Pitch Fatigue Heatmap -->
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden h-[340px]">
+<h2 class="font-['Space_Grotesk'] font-bold text-sm uppercase tracking-widest text-white mb-4">Fatigue Distribution</h2>
+<div class="relative w-full h-[240px] bg-surface-container border border-outline-variant/20 rounded">
+<!-- Pitch Markings (SVG Placeholder Overlay) -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute inset-0 border-2 border-white/40 m-2"></div>
+<div class="absolute top-1/2 left-0 w-full h-px bg-white/40"></div>
+<div class="absolute top-[20%] left-0 w-full h-px bg-white/40"></div>
+<div class="absolute top-[80%] left-0 w-full h-px bg-white/40"></div>
+</div>
+<!-- Player Heat Nodes -->
+<div class="absolute top-[10%] left-[50%] -translate-x-1/2 w-3 h-3 bg-error rounded-full shadow-[0_0_10px_#ffb4ab]"></div>
+<div class="absolute top-[30%] left-[20%] w-3 h-3 bg-primary rounded-full"></div>
+<div class="absolute top-[30%] left-[80%] w-3 h-3 bg-primary rounded-full"></div>
+<div class="absolute top-[45%] left-[50%] -translate-x-1/2 w-4 h-4 bg-error rounded-full animate-pulse shadow-[0_0_15px_#ffb4ab]"></div>
+<div class="absolute top-[60%] left-[15%] w-3 h-3 bg-secondary rounded-full"></div>
+<div class="absolute top-[60%] left-[85%] w-3 h-3 bg-secondary rounded-full"></div>
+<div class="absolute top-[85%] left-[50%] -translate-x-1/2 w-3 h-3 bg-primary rounded-full"></div>
+</div>
+<div class="mt-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-error rounded-full"></span>
+<span class="text-[10px] uppercase text-on-surface-variant font-bold">Critical Risk</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<span class="text-[10px] uppercase text-on-surface-variant font-bold">Fit</span>
+</div>
+</div>
+</div>
+<!-- Risk Analysis Card -->
+<div class="bg-surface-container-low p-6 rounded-lg">
+<h2 class="font-['Space_Grotesk'] font-bold text-sm uppercase tracking-widest text-white mb-6">Injury Risk Predictor</h2>
+<div class="space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-['Inter'] font-bold text-sm text-on-surface">B. Earl</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Hamstring Overload</p>
+</div>
+<span class="text-error font-['Space_Grotesk'] font-bold">82% RISK</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-['Inter'] font-bold text-sm text-on-surface">J. George</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Cervical Fatigue</p>
+</div>
+<span class="text-secondary font-['Space_Grotesk'] font-bold">45% RISK</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="font-['Inter'] font-bold text-sm text-on-surface">M. Itoje</p>
+<p class="text-[10px] text-on-surface-variant uppercase">Ankle Stability</p>
+</div>
+<span class="text-primary font-['Space_Grotesk'] font-bold">12% RISK</span>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-surface-container-highest text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20 hover:bg-primary hover:text-on-primary transition-all">
+                            Review Training Loads
+                        </button>
+</div>
+<!-- Medical Staff -->
+<div class="bg-surface-container-low p-6 rounded-lg">
+<h2 class="font-['Space_Grotesk'] font-bold text-sm uppercase tracking-widest text-white mb-6">Medical Department</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded grayscale group-hover:grayscale-0 transition-all object-cover" data-alt="Staff Doctor Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcipCTCHg0tyc7X2HKUKcZDfT0juoevGTBvw-yJ-EBEtdE5yPnBsjrEVXGN7dEY9aMw3nNyrdMTWJtZKaJmiqxpb4pEMtQ82v1Z1w-GKdeiD2F5TxyGpjfIkpwHtyzWOjXFNQP-0KUyMfFj8NvsM63g2r1g_DgyFZRIeSOkAYlq0GrbZIld_xh2zdBgH-Lzl5M3clX30l5Hr2pEbHovh2PJIyngXy-iLEVjdKodYSwBlTg30Ew8SRrSErORULva9-NnHT7rSw1URbf"/>
+<div>
+<p class="font-['Inter'] font-bold text-xs text-on-surface">Dr. Elena Rodriguez</p>
+<p class="text-[9px] text-on-surface-variant uppercase">Chief Medical Officer</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded grayscale object-cover" data-alt="Staff Physio Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVkoF9EAaok6QUD083QFyvj0_2E4uSKmVrxCt06ZiN5qTjQ8DbxFPhFNFKFORaeJyjRyYqzixDx6QSy5m50EImMU9de0JJ0VcdOKrineFuPktr3MPvEPPRBe_caDJiockL242hxUzrMGVqu2sdy5jZc1JToyDdMqlaZzCq16_EBuWbkphgWMicp7lwMxIadVKgkBEhd-lQWlblY070znTs6VenzSOrVmnfx8hAt6RXdXBRX35pksRCNIhBxGVxzTOTHAzlBdENs_3E"/>
+<div>
+<p class="font-['Inter'] font-bold text-xs text-on-surface">Simon Peters</p>
+<p class="text-[9px] text-on-surface-variant uppercase">Lead Physiotherapist</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

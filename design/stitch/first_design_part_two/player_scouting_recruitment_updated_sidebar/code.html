@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PitchSide Pro | Global Scouting Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#0e5138",
+              "on-secondary-fixed-variant": "#30486a",
+              "surface-container-highest": "#353534",
+              "background": "#131313",
+              "surface-tint": "#95d4b3",
+              "surface-bright": "#393939",
+              "surface": "#131313",
+              "outline": "#8b938d",
+              "on-secondary-container": "#9fb6de",
+              "on-tertiary": "#3b2f00",
+              "inverse-surface": "#e5e2e1",
+              "surface-container-lowest": "#0e0e0e",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "on-surface": "#e5e2e1",
+              "surface-variant": "#353534",
+              "surface-container-high": "#2a2a2a",
+              "primary-fixed": "#b1f0ce",
+              "secondary-fixed-dim": "#b0c8f0",
+              "tertiary-fixed": "#ffe171",
+              "on-primary-fixed": "#002114",
+              "tertiary-fixed-dim": "#e9c400",
+              "surface-container": "#201f1f",
+              "primary-fixed-dim": "#95d4b3",
+              "on-primary": "#003824",
+              "secondary-fixed": "#d5e3ff",
+              "primary-container": "#00452e",
+              "tertiary-container": "#c9a800",
+              "tertiary": "#e9c400",
+              "on-tertiary-fixed": "#221b00",
+              "on-surface-variant": "#c1c8c2",
+              "on-primary-container": "#76b394",
+              "outline-variant": "#414844",
+              "on-error-container": "#ffdad6",
+              "secondary": "#b0c8f0",
+              "on-tertiary-container": "#4c3e00",
+              "on-tertiary-fixed-variant": "#554600",
+              "on-secondary": "#183152",
+              "error": "#ffb4ab",
+              "surface-container-low": "#1c1b1b",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#30486a",
+              "surface-dim": "#131313",
+              "primary": "#95d4b3",
+              "on-background": "#e5e2e1",
+              "inverse-primary": "#2c694e",
+              "on-secondary-fixed": "#001c3b"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        background: rgba(53, 53, 52, 0.6);
+        backdrop-filter: blur(20px);
+      }
+      .primary-gradient {
+        background: linear-gradient(135deg, #95d4b3 0%, #00452e 100%);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #131313;
+        color: #e5e2e1;
+      }
+      h1, h2, h3, .brand-font {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<nav class="h-screen w-[240px] fixed left-0 top-0 z-50 flex flex-col py-6 bg-[#1c1b1b] border-r border-outline-variant/10">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-xl font-bold">analytics</span>
+</div>
+<div>
+<span class="text-lg font-black text-[#e9c400] tracking-tighter brand-font block leading-none">RFC ANALYTICS</span>
+<p class="text-[9px] text-on-surface-variant tracking-[0.2em] font-bold uppercase mt-1">Elite Division</p>
+</div>
+</div>
+</div>
+<div class="flex-grow space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">dashboard</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold tracking-tight uppercase">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">groups</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold tracking-tight uppercase">Squad</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">strategy</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold tracking-tight uppercase">Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">fitness_center</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold tracking-tight uppercase">Training</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-[#2a2a2a] text-primary border-l-4 border-[#e9c400]" href="#">
+<span class="material-symbols-outlined text-xl">search_check</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold tracking-tight uppercase">Scouting</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">sports_rugby</span>
+<span class="font-['Space_Grotesk'] text-sm font-bold tracking-tight uppercase">Matches</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant/10">
+<a class="flex items-center gap-3 px-6 py-4 text-[#e5e2e1] opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all group" href="#">
+<div class="w-6 h-6 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkFWAhBi2ceszj02FvSGyXo71lzArNGS5shtLKOGjShaW3-QbQjYhDtyxfjmzmEZ9jgCMkk_x8AmSY02MxmJ9YPA0lDdhvqGDETbqc1wBV2VEsFbsvMkymBsu7b1fj1cMgG2erNJjA_Vj21MTT2l8O3jQ0tJM7MRBD0UnEhS9sFODUEd7oIumTCjEHkFfqY52J5IHPSTkVe2wLYvL73B4U_pTd2dQQEB_g700dNo4wdI4d6ZljQCLaLtmR3FeTXXugZqxzEzIwsqg8"/>
+</div>
+<span class="font-['Space_Grotesk'] text-xs font-bold tracking-tight uppercase">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-4 text-error opacity-60 hover:opacity-100 hover:bg-[#2a2a2a] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="font-['Space_Grotesk'] text-xs font-bold tracking-tight uppercase">Logout</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-[240px] h-16 z-40 flex justify-between items-center px-8 bg-[#131313]/90 backdrop-blur-md">
+<div class="flex items-center gap-8">
+<nav class="flex items-center gap-6 font-['Inter'] text-sm font-medium tracking-wide">
+<a class="text-[#e9c400] font-bold border-b-2 border-[#e9c400] pb-1" href="#">Global Scouting</a>
+<a class="text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] transition-colors" href="#">Shortlist</a>
+<a class="text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] transition-colors" href="#">Transfer Hub</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant absolute left-3 top-1/2 -translate-y-1/2 text-lg">search</span>
+<input class="bg-surface-container-high border-none rounded-full py-1.5 pl-10 pr-4 text-xs focus:ring-1 focus:ring-primary w-64 transition-all" placeholder="Quick Search..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full border border-background"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Manager Profile" class="w-full h-full object-cover" data-alt="Manager Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkFWAhBi2ceszj02FvSGyXo71lzArNGS5shtLKOGjShaW3-QbQjYhDtyxfjmzmEZ9jgCMkk_x8AmSY02MxmJ9YPA0lDdhvqGDETbqc1wBV2VEsFbsvMkymBsu7b1fj1cMgG2erNJjA_Vj21MTT2l8O3jQ0tJM7MRBD0UnEhS9sFODUEd7oIumTCjEHkFfqY52J5IHPSTkVe2wLYvL73B4U_pTd2dQQEB_g700dNo4wdI4d6ZljQCLaLtmR3FeTXXugZqxzEzIwsqg8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-[240px] pt-16 min-h-screen">
+<div class="p-8 max-w-[1600px] mx-auto space-y-8">
+<!-- Global Scouting Hub Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-black tracking-tight text-on-background uppercase mb-2">Global Scouting Hub</h1>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">6 Scouts Active</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium text-on-surface-variant uppercase tracking-widest">28 Matches Analyzed (24h)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-bold text-xs uppercase tracking-widest rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                        Advanced Filters
+                    </button>
+<button class="px-6 py-2.5 primary-gradient text-on-primary font-bold text-xs uppercase tracking-widest rounded-lg transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add_location">add_location</span>
+                        Assign New Scout
+                    </button>
+</div>
+</div>
+<!-- Regional Search Map & Quick Filters (Bento Layout) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Map Section -->
+<div class="col-span-12 lg:col-span-8 h-[400px] bg-surface-container-low relative overflow-hidden rounded-xl border border-outline-variant/10">
+<div class="absolute inset-0 bg-neutral-900 opacity-20 z-0"></div>
+<img class="w-full h-full object-cover mix-blend-luminosity opacity-40" data-alt="Stylized dark world map showing scouting density" data-location="World" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA103Srs1yEcVe1FZdloyiMKnqzf3QAPh6F651mTUvsl9kS9-uPanLqULZhNpfoxZRNJ_ahO5EJHCTvEGhZlDg7wAgna-Q_-p20pkDXPVQN7HZBTcWnRYvN-3_ht5SeliKgaK3x4CjheM8CnvPPI4t9JyyDIQ6dINyPG-uA4T7DwOFS6k_c0pR5B_OwhK9yvCBf1laWAzmOfeCfRQ84_I40T-qnTL6P8_MfcCprPIIiub0KVokURPc27MuElY_2ZCHeJJJf_CuxXlv-"/>
+<!-- Map Overlays (Scout Locations) -->
+<div class="absolute top-1/4 left-1/3 group cursor-pointer">
+<div class="w-4 h-4 bg-tertiary rounded-full ring-4 ring-tertiary/20"></div>
+<div class="hidden group-hover:block absolute top-6 left-0 glass-effect p-3 rounded-lg border border-outline-variant/20 min-w-[150px] z-10">
+<p class="text-[10px] uppercase font-bold text-tertiary mb-1">South Africa</p>
+<p class="text-xs font-medium">Jean-Luc Verwey</p>
+<p class="text-[10px] text-on-surface-variant">Focus: Power Props</p>
+</div>
+</div>
+<div class="absolute bottom-1/4 right-1/4 group cursor-pointer">
+<div class="w-4 h-4 bg-primary rounded-full ring-4 ring-primary/20"></div>
+<div class="hidden group-hover:block absolute bottom-6 right-0 glass-effect p-3 rounded-lg border border-outline-variant/20 min-w-[150px] z-10">
+<p class="text-[10px] uppercase font-bold text-primary mb-1">New Zealand</p>
+<p class="text-xs font-medium">Liam O'Connell</p>
+<p class="text-[10px] text-on-surface-variant">Focus: Backline Speed</p>
+</div>
+</div>
+<div class="absolute top-1/3 left-1/2 group cursor-pointer">
+<div class="w-4 h-4 bg-primary rounded-full ring-4 ring-primary/20"></div>
+<div class="hidden group-hover:block absolute top-6 left-0 glass-effect p-3 rounded-lg border border-outline-variant/20 min-w-[150px] z-10">
+<p class="text-[10px] uppercase font-bold text-primary mb-1">France</p>
+<p class="text-xs font-medium">Antoine Bernard</p>
+<p class="text-[10px] text-on-surface-variant">Focus: Tactical Kicking</p>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 flex gap-4">
+<div class="glass-effect px-4 py-2 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Top Target Origin</p>
+<p class="text-sm font-bold">Oceania (42%)</p>
+</div>
+<div class="glass-effect px-4 py-2 rounded-lg border border-outline-variant/10">
+<p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Avg Score</p>
+<p class="text-sm font-bold text-tertiary">78.4 / 100</p>
+</div>
+</div>
+</div>
+<!-- Advanced Filters -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container rounded-xl p-6 border border-outline-variant/5">
+<h3 class="text-lg font-bold uppercase tracking-tight mb-6">Search Parameters</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-2">Position Profile</label>
+<select class="w-full bg-surface-container-high border-none border-b-2 border-outline-variant text-sm py-2 px-0 focus:ring-0 focus:border-primary transition-all">
+<option>All Positions</option>
+<option>Fly-half (10)</option>
+<option>Prop (1 / 3)</option>
+<option>Fullback (15)</option>
+<option>Second Row (4 / 5)</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-2">Min Age</label>
+<input class="w-full bg-surface-container-high border-none border-b-2 border-outline-variant text-sm py-2 px-0 focus:ring-0 focus:border-primary transition-all" type="number" value="18"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-2">Max Age</label>
+<input class="w-full bg-surface-container-high border-none border-b-2 border-outline-variant text-sm py-2 px-0 focus:ring-0 focus:border-primary transition-all" type="number" value="24"/>
+</div>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-2">KPI Priority</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 border border-primary/30 rounded text-[10px] font-bold text-primary uppercase">Kicking Accuracy</span>
+<span class="px-3 py-1 bg-surface-container-highest border border-outline-variant/30 rounded text-[10px] font-bold text-on-surface-variant uppercase cursor-pointer hover:border-primary transition-colors">Tackle Success</span>
+<span class="px-3 py-1 bg-surface-container-highest border border-outline-variant/30 rounded text-[10px] font-bold text-on-surface-variant uppercase cursor-pointer hover:border-primary transition-colors">Turnovers Won</span>
+<span class="px-3 py-1 bg-surface-container-highest border border-outline-variant/30 rounded text-[10px] font-bold text-on-surface-variant uppercase cursor-pointer hover:border-primary transition-colors">Lineout Steals</span>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-highest hover:bg-surface-container-high text-tertiary font-black uppercase text-xs tracking-[0.2em] rounded border-l-2 border-tertiary transition-all">
+                            Run Dynamic Search
+                        </button>
+</div>
+</div>
+</div>
+<!-- Top Scout Recommendations -->
+<div>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-black uppercase tracking-tight">Top Scout Recommendations</h2>
+<a class="text-xs font-bold text-primary uppercase tracking-widest hover:underline" href="#">View All Matches</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- Player Card 1 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden group border border-outline-variant/5 hover:border-primary/20 transition-all">
+<div class="h-48 relative overflow-hidden">
+<img alt="Player" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Rugby player portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_LvfSMWMjfF4kiW5GBbPeGCO0aS_HiAtHjiaka11fIoEJKhYNFG1V0mXNfiHtVv8mACNYwL2f1bzW_nXKgcx_6PK_unE-HpEeyoaP-J46nRIJm7QW-i7DxjceDqIp4gPaTM1T-jiZtQHCIRogVzKIPv2uyhNJALm29vheEW0K6eSY5-1Ng1mfjR9kdHKUqoQZMIDF2qTs0etq8WEHLsAtIV3SDypj_KpBLFoOJUK9Rg5FVmyNsOBAB-rA8ipJlXG7pdQ8TsbU7mMI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute top-4 left-4 glass-effect px-2 py-1 rounded text-[10px] font-black text-tertiary uppercase">A+ Prospect</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-lg font-bold leading-tight uppercase">Sione Manu</h4>
+<p class="text-xs text-on-surface-variant font-medium">Age 21 • Auckland Blues</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Market Value</p>
+<p class="text-sm font-black text-primary">€1.4M</p>
+</div>
+</div>
+<div class="flex items-center gap-1 mb-6 text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary font-bold text-[10px] uppercase tracking-widest rounded transition-all">
+                                Full Scouting Report
+                            </button>
+</div>
+</div>
+<!-- Player Card 2 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden group border border-outline-variant/5 hover:border-primary/20 transition-all">
+<div class="h-48 relative overflow-hidden">
+<img alt="Player" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract athlete graphic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkRPupfCwW7S4L7FojnGGy30nBFcK9SJuXyu1b3h1YJnKzIHWM2A4J8a5bNrGZop2xRIC28CYgKBGA9Y7RFvPABN5LmtgHlM2fpiV5UByZ7pGp0JNyzZmB1v6PMltXMvqraXkmDTHkc5jvd9rv0olPIfvVQo1iDUlLiZMgbpSGM4ox_H72pSPuSzqrD1caOiQ1MVOoYymUzK_7K0h8nJuBE4jZ1eTrc4xW_f7DhVSRAnptng6UpStzA9FMiTayBvfTbt14lJng0zCY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute top-4 left-4 glass-effect px-2 py-1 rounded text-[10px] font-black text-tertiary uppercase">Elite Speed</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-lg font-bold leading-tight uppercase">Luka Vercing</h4>
+<p class="text-xs text-on-surface-variant font-medium">Age 23 • Stade Toulousain</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Market Value</p>
+<p class="text-sm font-black text-primary">€2.8M</p>
+</div>
+</div>
+<div class="flex items-center gap-1 mb-6 text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary font-bold text-[10px] uppercase tracking-widest rounded transition-all">
+                                Full Scouting Report
+                            </button>
+</div>
+</div>
+<!-- Player Card 3 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden group border border-outline-variant/5 hover:border-primary/20 transition-all">
+<div class="h-48 relative overflow-hidden">
+<img alt="Player" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Rugby player profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgUPvdjoF9I9Sd76JPB639yW4AKXkwk7gkm2nP7Iyq-sPiaHyDZFZe1egSn2UiBVrZzz94oMHsR-oskmi3cF1tVk3xscFURC82w0ahlETiPKLmu1GV0uSafOlpLLKB-uNRpMDskquB1vMQvRFp-LVJAboVqzk8ZX2KROCaK8J6D7f7VTemDzUYuvsSm713ajMf4nZhgeFa3s412Egt_6PbaB4i3W7-4_aJ94rXjJdDO20Opcci2BDXQ6aUUkUmgvwoTlqBPJhk_b9F"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute top-4 left-4 glass-effect px-2 py-1 rounded text-[10px] font-black text-tertiary uppercase">Hidden Gem</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-lg font-bold leading-tight uppercase">Marcus Vane</h4>
+<p class="text-xs text-on-surface-variant font-medium">Age 19 • Bristol Bears Academy</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Market Value</p>
+<p class="text-sm font-black text-primary">€450K</p>
+</div>
+</div>
+<div class="flex items-center gap-1 mb-6 text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0.5;">star</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary font-bold text-[10px] uppercase tracking-widest rounded transition-all">
+                                Full Scouting Report
+                            </button>
+</div>
+</div>
+<!-- Player Card 4 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden group border border-outline-variant/5 hover:border-primary/20 transition-all">
+<div class="h-48 relative overflow-hidden">
+<img alt="Player" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dynamic rugby action shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmvMJNdUgY1koB8-W_mZUUWngf-l8gj-4b_3fYgGGHS2CBymQfaMHdV9VB9t4u6hB85WBscdzsSDkMKwdN9azUl6qiNqiw_zqV7W166HrGf3Z26axA1zmxstsxJKc8GWB_uVfX7FxQhWH-1nbuLV7vFj6Kn9fEcLPoUoOqki0gxN128HdltY4IjsYkQ0LVuHBYW7wArGl8MKlnGv9s6SrB3z7TWMMcntRhh49YhhIbP57OZKGkX20bo2JxECDdNsw4SGvMsgnT-Zm-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute top-4 left-4 glass-effect px-2 py-1 rounded text-[10px] font-black text-tertiary uppercase">Hard Hitter</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="text-lg font-bold leading-tight uppercase">Tomos Griffiths</h4>
+<p class="text-xs text-on-surface-variant font-medium">Age 24 • Scarlets</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Market Value</p>
+<p class="text-sm font-black text-primary">€850K</p>
+</div>
+</div>
+<div class="flex items-center gap-1 mb-6 text-tertiary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-primary hover:text-on-primary font-bold text-[10px] uppercase tracking-widest rounded transition-all">
+                                Full Scouting Report
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Scouting Shortlist Table -->
+<div class="bg-surface-container rounded-xl overflow-hidden border border-outline-variant/5">
+<div class="p-6 border-b border-outline-variant/10 flex items-center justify-between">
+<h2 class="text-xl font-black uppercase tracking-tight">Active Shortlist</h2>
+<span class="text-xs font-medium text-on-surface-variant">12 Players Shortlisted</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Player</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant text-center">Form</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Status</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant">Scout Grade</th>
+<th class="px-6 py-4 text-[10px] uppercase font-black tracking-widest text-on-surface-variant text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Player profile thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABbzxywZqlXhMBXEoJyqMBTAnNPt25GN4FqqYwLoVqD31ZQ2TzWknAurUl0SKnRasnWnbuMESpFR41Y7jANkdsVxC7i4eDEr0PX6hu65wxJ8MLANbQ98qowHNzE86Yi5SnUTkd3jhhAyVJPaAAZT1U8EZ_QrkdW5RlrxHFSl7kKecbmCBfV4z6Nqp5HlY31g0YOumf5RT-NwgQp8bLVfSRQh3z89VoVbI9IBA1HXBKaPgDwRrh0GDB5KgJ3RNmFffTpfpx6jaboyj5"/>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-tight">Elias Thorne</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-medium">Fly-half • Leicester Tigers</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex justify-center gap-1">
+<div class="w-1.5 h-6 bg-primary rounded-full"></div>
+<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+<div class="w-1.5 h-5 bg-error rounded-full"></div>
+<div class="w-1.5 h-7 bg-primary rounded-full"></div>
+<div class="w-1.5 h-9 bg-primary rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-xs font-medium">Fit &amp; Available</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-black text-tertiary">84 <small class="font-medium text-on-surface-variant">/ 100</small></span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest text-[10px] font-bold uppercase tracking-widest rounded hover:text-primary transition-all">Request Report</button>
+<button class="px-3 py-1.5 bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded hover:bg-primary hover:text-on-primary transition-all">Make Offer</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Player profile thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzbl6oC4LUVCi7seypsveLBwf0ZeUkjquuIACi7HkBQuZUWO6Mafv_Bz_gqKSzzPwYhqmgUxKNdne1VRtBCENvY6amjdgIgVpnc2Oe5og4pEqiRIIf76uU8qe4uEp5Xp30qYdard6kQW0k4dozdJ8tum9NTog-H3ulCnzBoWWpEbe-Uw7LM6L7CBnq0jU4S063yZDn1ZdftC76KerWfPC12MrubjGX2rNngvXdckkcHCUqETreY4GHjWkiEW0pJdRC2KHgk3UNHxzx"/>
+</div>
+<div>
+<p class="text-sm font-bold uppercase tracking-tight">Jack McRea</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-medium">Hooker • Glasgow Warriors</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex justify-center gap-1">
+<div class="w-1.5 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1.5 h-5 bg-tertiary rounded-full"></div>
+<div class="w-1.5 h-6 bg-tertiary rounded-full"></div>
+<div class="w-1.5 h-6 bg-tertiary rounded-full"></div>
+<div class="w-1.5 h-4 bg-tertiary rounded-full"></div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-xs font-medium">Knee Injury (2 Weeks)</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-sm font-black text-tertiary">79 <small class="font-medium text-on-surface-variant">/ 100</small></span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest text-[10px] font-bold uppercase tracking-widest rounded hover:text-primary transition-all">Request Report</button>
+<button class="px-3 py-1.5 bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded hover:bg-primary hover:text-on-primary transition-all">Make Offer</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB (Suppressed on this specialized screen as per mandate, but keeping the slot for hierarchy) -->
+</body></html>

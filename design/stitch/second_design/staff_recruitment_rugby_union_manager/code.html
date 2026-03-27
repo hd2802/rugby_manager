@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Recruitment | London Warriors RFC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8d928c",
+                        "on-background": "#dfe2eb",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#2f3131",
+                        "on-primary-fixed": "#002201",
+                        "tertiary": "#c6c6c6",
+                        "surface-container-low": "#181c22",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary": "#a1d494",
+                        "on-surface-variant": "#c3c8c1",
+                        "surface-container-high": "#262a31",
+                        "on-primary-container": "#6e9f64",
+                        "surface-variant": "#31353c",
+                        "on-secondary-fixed": "#000767",
+                        "surface-container": "#1c2026",
+                        "on-primary": "#0a3909",
+                        "on-tertiary-container": "#929393",
+                        "primary-fixed-dim": "#a1d494",
+                        "secondary-container": "#343d96",
+                        "outline-variant": "#434843",
+                        "on-primary-fixed-variant": "#23501e",
+                        "surface": "#10141a",
+                        "surface-bright": "#353940",
+                        "inverse-surface": "#dfe2eb",
+                        "surface-container-highest": "#31353c",
+                        "secondary": "#bdc2ff",
+                        "on-secondary": "#1b247f",
+                        "inverse-on-surface": "#2d3137",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "background": "#10141a",
+                        "surface-container-lowest": "#0a0e14",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary-fixed": "#e0e0ff",
+                        "inverse-primary": "#3b6934",
+                        "primary-fixed": "#bcf0ae",
+                        "on-secondary-container": "#a8afff",
+                        "on-surface": "#dfe2eb",
+                        "primary-container": "#043405",
+                        "surface-dim": "#10141a",
+                        "on-error": "#690005",
+                        "tertiary-container": "#2a2c2c",
+                        "surface-tint": "#a1d494",
+                        "error-container": "#93000a"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .font-label { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Component -->
+<nav class="fixed left-0 top-0 h-full z-40 flex flex-col items-center py-6 bg-[#181c22] dark:bg-slate-900 h-screen w-20 border-r border-white/5 shadow-2xl shadow-black/50">
+<div class="mb-10">
+<span class="text-[#a1d494] font-black tracking-tighter text-xl font-headline">RW</span>
+</div>
+<div class="flex flex-col gap-8 flex-1">
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 bg-[#31353c] text-[#a1d494] border-l-4 border-[#a1d494] py-2 px-1">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Squad</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="strategy">strategy</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Tactics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Transfers</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Training</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="sports_rugby">sports_rugby</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Match Day</span>
+</button>
+</div>
+<div class="mt-auto">
+<img alt="Club Crest" class="w-10 h-10 opacity-80" data-alt="Rugby Club Crest London Warriors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAImOSMGjsY5Dvyveih_SQFBo2sJ-jOyVJk3kEv70UcKS_3Sm8TpesyII9DwSV9L3p0EdJVuhNeHjWVXxkC3YObK9yiQJvUDEb0zY24Fld94RfdHwF_FN-HRgPxoO3zQOWyokbRaFYpJSsGKmfvoA_k8EZSlyKFbNm9gBAewQgq7nuQJ6YWYR_0hK7yidbulmH6b_tcvSj3h01KaCC8yv0xZczuSi6KhDvamVBTPnFfZjHDxJK2yY7z2dPE6ErMnry3Dn-Fm3yMC5Az"/>
+</div>
+</nav>
+<!-- TopAppBar Component -->
+<header class="fixed top-0 right-0 left-20 z-30 px-8 flex justify-between items-center bg-[#10141a]/80 backdrop-blur-md border-b border-[#31353c]/30 h-16">
+<div class="flex items-center gap-8">
+<h1 class="font-black text-lg text-white tracking-widest font-headline uppercase">London Warriors RFC</h1>
+<div class="flex gap-6">
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-[#a1d494] font-bold">12 OCT 2024</span>
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-slate-300">£14.2M Surplus</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:bg-white/5 p-2 rounded transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-white/5 p-2 rounded transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary font-headline font-bold uppercase px-6 py-2 text-xs tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                Continue
+            </button>
+<img alt="Manager Profile" class="w-8 h-8 rounded-full bg-surface-container-highest" data-alt="Manager Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgheaMUxdOseXerN7LnyFuRM2_J_Pxfc48lDliOd_5S3i9dj7SgqI0a0egcSTZs5zihP9nEUIDnfP6TEdqRw7umln-Zb8GwXIAeGPNR5NZQ-j7lUdpUGYbJJRyaHtNvU180MwrnrHWgC5DDLCYUMGlixcYdhBDSG6Y6dF1MKWa7w0OoZiMe86oO0z2jSU9uw_7r3xLrzt4vJT1bhpgV0w7ht4WtXmpbeOv3bolcGBbM8bfZ78aqRivqXWB9k7XI44ITOmSczqwp7YA"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-20 pt-16 min-h-screen bg-background text-on-surface">
+<div class="p-8 max-w-[1600px] mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<span class="text-primary font-label text-xs uppercase tracking-[0.2em] font-bold">HR &amp; Operations</span>
+<h2 class="text-4xl font-headline font-black uppercase tracking-tighter mt-1">Staff Recruitment</h2>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-high px-4 py-2 border-l-2 border-primary">
+<span class="block text-[10px] text-on-surface-variant uppercase font-label font-bold">Available Budget</span>
+<span class="text-lg font-headline font-bold">£2.4M / Year</span>
+</div>
+<div class="bg-surface-container-high px-4 py-2 border-l-2 border-secondary">
+<span class="block text-[10px] text-on-surface-variant uppercase font-label font-bold">Open Vacancies</span>
+<span class="text-lg font-headline font-bold text-secondary">03</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Recruitment Filters & Active Search -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-6">
+<!-- Tactical Filters -->
+<div class="bg-surface-container-low p-1 flex gap-1 rounded-lg">
+<button class="bg-surface-container-highest text-primary font-headline text-xs font-bold uppercase tracking-widest px-6 py-3 flex-1">All Staff</button>
+<button class="hover:bg-surface-container-high text-on-surface-variant font-headline text-xs font-bold uppercase tracking-widest px-6 py-3 flex-1 transition-colors">Coaching</button>
+<button class="hover:bg-surface-container-high text-on-surface-variant font-headline text-xs font-bold uppercase tracking-widest px-6 py-3 flex-1 transition-colors">Medical</button>
+<button class="hover:bg-surface-container-high text-on-surface-variant font-headline text-xs font-bold uppercase tracking-widest px-6 py-3 flex-1 transition-colors">Recruitment</button>
+</div>
+<!-- Staff List (Editorial Cards) -->
+<div class="flex flex-col gap-4">
+<!-- Staff Item 1: Coaching -->
+<div class="group bg-surface-container-high p-6 flex items-center gap-6 border-l-4 border-transparent hover:border-primary transition-all duration-300">
+<div class="w-16 h-16 bg-surface-container-highest flex items-center justify-center rounded-sm overflow-hidden relative">
+<img alt="Staff Member" class="w-full h-full object-cover" data-alt="Portrait of experienced rugby coach" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB38NxTn082RF5jULcD4BoAAkC2yrJa04ELolrxDkIG2X0T-kQbqJEPcITUGlg_5i8z8na62fCHZlVmaQQ9jwzGZxs8VyXSl1NiOdAvM1FFxJV_hsXQx1W0ZUOkghsJBNf2kzlInQIr4BVg7GBlCe45n652dWjDPENufNZT_dfRMeiBGhGLPr9uxsPdnzSijBJ_PW6x5yEV7635yAs8Le0KBPvnl-pDWduVaPiGr8KUVNDt1MesgZACUd5Vg-ykN9n7Md-TUeRdZluA"/>
+<div class="absolute bottom-0 right-0 bg-primary text-on-primary text-[8px] font-bold px-1 uppercase font-headline">Gold</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Jean-Luc Martens</h3>
+<span class="text-[10px] font-label font-black uppercase text-on-surface-variant tracking-widest">Coaching Specialist • Forwards</span>
+</div>
+<div class="text-right">
+<span class="block text-[10px] text-on-surface-variant uppercase font-label font-bold">Wage Demand</span>
+<span class="text-lg font-headline font-bold text-primary">£145k /yr</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-2">
+<span class="block text-[9px] text-on-surface-variant uppercase font-label font-bold mb-1">Experience</span>
+<span class="text-sm font-headline font-medium">18 Years (Elite)</span>
+</div>
+<div class="bg-surface-container-low p-2">
+<span class="block text-[9px] text-on-surface-variant uppercase font-label font-bold mb-1">Specialty</span>
+<span class="text-sm font-headline font-medium text-secondary">Lineout Specialist</span>
+</div>
+<div class="flex items-center gap-2 px-2">
+<div class="flex-1 bg-surface-container-highest h-1">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+<span class="text-xs font-headline font-bold">85 Rep</span>
+</div>
+</div>
+</div>
+<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary p-3 transition-all">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</button>
+</div>
+<!-- Staff Item 2: Physio -->
+<div class="group bg-surface-container-high p-6 flex items-center gap-6 border-l-4 border-transparent hover:border-secondary transition-all duration-300">
+<div class="w-16 h-16 bg-surface-container-highest flex items-center justify-center rounded-sm overflow-hidden relative">
+<img alt="Staff Member" class="w-full h-full object-cover" data-alt="Portrait of medical professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe55WIAWBtT8e1VhBChIb5wcDOm7vNxINNN-Pvg-zwx1tmErzJ3kHJZIfhWAE0nYdftvKYSk3vVJ1FmYlk_kVsnE2cgbbpDy4wenEKppdSRBV716i8P0PqYxgRUFrqAnaXFSrL5x8FYqJl7Efsasiohk_-3PFri5ZJ-y-3wKSb75SKGOcLfjMsEEEhJg5iki4T25cfmv_8j8wsZPgqN3h5cC0YAcWCpyY-Bh6Ea530JpI-1lcwzF0PaddmESw16hCyF-p9CEgGkXjP"/>
+<div class="absolute bottom-0 right-0 bg-secondary text-on-secondary text-[8px] font-bold px-1 uppercase font-headline">Pro</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight group-hover:text-secondary transition-colors">Dr. Sarah Vance</h3>
+<span class="text-[10px] font-label font-black uppercase text-on-surface-variant tracking-widest">Medical • Head Physiotherapist</span>
+</div>
+<div class="text-right">
+<span class="block text-[10px] text-on-surface-variant uppercase font-label font-bold">Wage Demand</span>
+<span class="text-lg font-headline font-bold text-secondary">£92k /yr</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-2">
+<span class="block text-[9px] text-on-surface-variant uppercase font-label font-bold mb-1">Experience</span>
+<span class="text-sm font-headline font-medium">9 Years (Prem)</span>
+</div>
+<div class="bg-surface-container-low p-2">
+<span class="block text-[9px] text-on-surface-variant uppercase font-label font-bold mb-1">Specialty</span>
+<span class="text-sm font-headline font-medium text-secondary">Hamstring Rehab</span>
+</div>
+<div class="flex items-center gap-2 px-2">
+<div class="flex-1 bg-surface-container-highest h-1">
+<div class="bg-secondary h-full w-[72%]"></div>
+</div>
+<span class="text-xs font-headline font-bold">72 Rep</span>
+</div>
+</div>
+</div>
+<button class="bg-surface-container-highest hover:bg-secondary hover:text-on-secondary p-3 transition-all">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</button>
+</div>
+<!-- Staff Item 3: Scout -->
+<div class="group bg-surface-container-high p-6 flex items-center gap-6 border-l-4 border-transparent hover:border-primary transition-all duration-300">
+<div class="w-16 h-16 bg-surface-container-highest flex items-center justify-center rounded-sm overflow-hidden relative">
+<img alt="Staff Member" class="w-full h-full object-cover" data-alt="Portrait of rugby talent scout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZuAlZ4zrRsfDu6rbYYBTkMfuoiBaEoFPuhL9QnQLI-ct-QtNrmveLcUILI3Xn2lXGhBlN5DxakEXuqt0Y1D88d28Ohrw-0xPAZloNgwihff-AQ3AekCvGUHJgtXC3En24Emryc8nteDr-IZBos0zbuLFwQ7WxfNOZUOBQtJoVOAT3_qiof0TwJ2ILR1TD783SapKAwIb_V0GwiZ-AnTZNZ_Mk9ycrec07t34xbrvNnzEEqo2x7fUs6Xy-ifDu3PXM2XiKm8ji71-Q"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-headline font-bold uppercase tracking-tight group-hover:text-primary transition-colors">Marcus Thorne</h3>
+<span class="text-[10px] font-label font-black uppercase text-on-surface-variant tracking-widest">Recruitment • Lead Scout</span>
+</div>
+<div class="text-right">
+<span class="block text-[10px] text-on-surface-variant uppercase font-label font-bold">Wage Demand</span>
+<span class="text-lg font-headline font-bold text-primary">£65k /yr</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-2">
+<span class="block text-[9px] text-on-surface-variant uppercase font-label font-bold mb-1">Region</span>
+<span class="text-sm font-headline font-medium">Oceania &amp; NZ</span>
+</div>
+<div class="bg-surface-container-low p-2">
+<span class="block text-[9px] text-on-surface-variant uppercase font-label font-bold mb-1">Focus</span>
+<span class="text-sm font-headline font-medium text-secondary">Youth Pathways</span>
+</div>
+<div class="flex items-center gap-2 px-2">
+<div class="flex-1 bg-surface-container-highest h-1">
+<div class="bg-primary h-full w-[60%]"></div>
+</div>
+<span class="text-xs font-headline font-bold">60 Rep</span>
+</div>
+</div>
+</div>
+<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary p-3 transition-all">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sidebar: Staff Hierarchy & Details -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Staff Hierarchy Chart -->
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-8xl" data-icon="account_tree">account_tree</span>
+</div>
+<h4 class="font-headline font-bold uppercase tracking-widest text-xs mb-8 text-primary">Staff Hierarchy</h4>
+<div class="flex flex-col items-center gap-6 relative">
+<!-- Director -->
+<div class="w-48 bg-surface-container-highest p-3 text-center border-t-2 border-primary z-10 shadow-lg">
+<span class="block text-[9px] font-label font-bold uppercase text-on-surface-variant">Director of Rugby</span>
+<span class="text-sm font-headline font-black">Alex Ferguson (You)</span>
+</div>
+<!-- Connecting Lines (CSS based) -->
+<div class="h-6 w-0.5 bg-outline-variant/30"></div>
+<!-- Middle Tier -->
+<div class="flex gap-4 w-full justify-center relative">
+<div class="flex-1 bg-surface-container p-2 text-center border-t border-outline-variant/20">
+<span class="block text-[8px] font-label font-bold uppercase text-on-surface-variant">Head Coach</span>
+<span class="text-xs font-headline font-bold">E. Jones</span>
+</div>
+<div class="flex-1 bg-surface-container p-2 text-center border-t border-outline-variant/20">
+<span class="block text-[8px] font-label font-bold uppercase text-on-surface-variant">Medical Chief</span>
+<span class="text-xs font-headline font-bold">S. Vance</span>
+</div>
+</div>
+<div class="flex w-full px-8 gap-2 justify-between">
+<div class="h-6 w-0.5 bg-outline-variant/20 mx-auto"></div>
+<div class="h-6 w-0.5 bg-outline-variant/20 mx-auto"></div>
+</div>
+<!-- Lower Tier -->
+<div class="grid grid-cols-4 gap-2 w-full">
+<div class="bg-surface-container-high aspect-square flex items-center justify-center border border-white/5" title="Attack Coach">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="sports">sports</span>
+</div>
+<div class="bg-surface-container-high aspect-square flex items-center justify-center border border-white/5" title="Defense Coach">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="shield">shield</span>
+</div>
+<div class="bg-surface-container-high aspect-square flex items-center justify-center border-dashed border-2 border-primary/40 group cursor-pointer" title="VACANT">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="add">add</span>
+</div>
+<div class="bg-surface-container-high aspect-square flex items-center justify-center border border-white/5" title="S&amp;C Lead">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="fitness_center">fitness_center</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Department Analysis Bento -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="analytics">analytics</span>
+<span class="text-[10px] font-label font-bold uppercase text-on-surface-variant">Coaching Efficiency</span>
+<div class="text-2xl font-headline font-black">74%</div>
+<div class="w-full bg-surface-container-low h-1 mt-1">
+<div class="bg-primary h-full w-[74%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-high p-4 flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="healing">healing</span>
+<span class="text-[10px] font-label font-bold uppercase text-on-surface-variant">Recovery Rate</span>
+<div class="text-2xl font-headline font-black">+12%</div>
+<span class="text-[9px] text-secondary font-bold font-label">Above League Avg</span>
+</div>
+<div class="bg-surface-container-high p-4 col-span-2">
+<div class="flex justify-between items-center mb-4">
+<h5 class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">Staff Morale</h5>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 font-bold uppercase">Optimal</span>
+</div>
+<div class="flex gap-1 h-8 items-end">
+<div class="flex-1 bg-primary/40 h-[60%]"></div>
+<div class="flex-1 bg-primary/50 h-[70%]"></div>
+<div class="flex-1 bg-primary/60 h-[80%]"></div>
+<div class="flex-1 bg-primary/80 h-[90%]"></div>
+<div class="flex-1 bg-primary h-[95%]"></div>
+<div class="flex-1 bg-primary h-full"></div>
+<div class="flex-1 bg-primary h-[90%]"></div>
+</div>
+</div>
+</div>
+<!-- Market Insight -->
+<div class="bg-primary-container p-6 rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+<h4 class="font-headline font-bold uppercase text-sm text-primary tracking-tight">Market Insight</h4>
+</div>
+<p class="text-xs font-body text-on-surface-variant leading-relaxed">
+                            There is currently a high supply of <span class="text-on-surface font-bold">Scouts</span> in the Northern Hemisphere market. Wage demands for recruitment staff are down by 8.4%. Consider expanding your scouting network now.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

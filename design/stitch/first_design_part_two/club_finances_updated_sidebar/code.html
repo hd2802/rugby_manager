@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Club Finances | PitchSide Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed": "#002114",
+                        "primary-container": "#00452e",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#c9a800",
+                        "on-primary-container": "#76b394",
+                        "on-secondary": "#183152",
+                        "tertiary": "#e9c400",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-tertiary": "#3b2f00",
+                        "outline-variant": "#414844",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#b1f0ce",
+                        "surface-container-highest": "#353534",
+                        "on-error": "#690005",
+                        "surface-bright": "#393939",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "secondary-fixed-dim": "#b0c8f0",
+                        "outline": "#8b938d",
+                        "surface-variant": "#353534",
+                        "background": "#131313",
+                        "on-secondary-container": "#9fb6de",
+                        "on-surface-variant": "#c1c8c2",
+                        "secondary": "#b0c8f0",
+                        "on-surface": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "primary": "#95d4b3",
+                        "on-tertiary-container": "#4c3e00",
+                        "on-primary": "#003824",
+                        "secondary-container": "#30486a",
+                        "on-tertiary-fixed-variant": "#554600",
+                        "inverse-primary": "#2c694e",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#30486a",
+                        "error-container": "#93000a",
+                        "surface-tint": "#95d4b3",
+                        "surface": "#131313",
+                        "on-secondary-fixed": "#001c3b",
+                        "secondary-fixed": "#d5e3ff",
+                        "surface-container": "#201f1f",
+                        "primary-fixed-dim": "#95d4b3",
+                        "tertiary-fixed": "#ffe171"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .gradient-cta {
+            background: linear-gradient(135deg, #95d4b3 0%, #00452e 100%);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30">
+<!-- SideNavBar (Mobile hidden, Web visible) -->
+<aside class="hidden md:flex flex-col h-screen fixed left-0 top-0 bg-[#1c1b1b] py-6 z-50 shadow-2xl overflow-y-auto" style="width: 240px;">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary font-bold">sports_rugby</span>
+</div>
+<div>
+<h1 class="font-display text-[#e9c400] font-bold text-lg leading-none tracking-tight">PITCHSIDE</h1>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mt-1">Elite Manager</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface/70 px-6 py-3 hover:bg-[#201f1f] transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">dashboard</span>
+<span class="font-display text-sm font-medium">Dashboard</span>
+</a>
+<a class="bg-[#2a2a2a] text-[#95d4b3] border-l-4 border-primary px-6 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-display text-sm font-medium">Finances</span>
+</a>
+<a class="text-on-surface/70 px-6 py-3 hover:bg-[#201f1f] transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">school</span>
+<span class="font-display text-sm font-medium">Academy</span>
+</a>
+<a class="text-on-surface/70 px-6 py-3 hover:bg-[#201f1f] transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">campaign</span>
+<span class="font-display text-sm font-medium">Marketing</span>
+</a>
+<a class="text-on-surface/70 px-6 py-3 hover:bg-[#201f1f] transition-all flex items-center gap-3 group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary">tactic</span>
+<span class="font-display text-sm font-medium">Strategy</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/10 pt-4 space-y-1">
+<div class="px-4 py-4 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#201f1f] cursor-pointer mb-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-2xl">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-display text-sm font-bold text-on-surface truncate">Marcus Vane</p>
+<p class="text-[10px] text-on-surface-variant truncate">General Manager</p>
+</div>
+</div>
+<button class="w-full flex items-center gap-3 px-3 py-2 text-on-surface/50 hover:text-error transition-colors font-display text-xs font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-lg">logout</span>
+        Logout
+    </button>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-40 bg-[#131313] transition-all" style="padding-left: 264px;">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[#e5e2e1] tracking-tighter font-headline">PitchSide Pro</span>
+<div class="h-4 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<h2 class="hidden md:block font-headline font-bold text-primary tracking-tight">Financial Overview</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-6 mr-6">
+<a class="text-[#95d4b3] border-b-2 border-[#95d4b3] pb-1 font-label text-xs uppercase tracking-widest font-bold" href="#">Overview</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#95d4b3] transition-colors duration-200 font-label text-xs uppercase tracking-widest font-bold" href="#">Transactions</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#95d4b3] transition-colors duration-200 font-label text-xs uppercase tracking-widest font-bold" href="#">Budgets</a>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+<button class="p-1 rounded-full border-2 border-outline-variant/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-3xl">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="min-h-screen pb-24 md:pb-8" style="padding-left: 240px;">
+<div class="max-w-7xl mx-auto px-6 py-8">
+<!-- Hero Stats Bento -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<!-- Main Balance Card -->
+<div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl transition-all group-hover:bg-primary/10"></div>
+<div>
+<p class="text-on-surface-variant text-xs uppercase tracking-[0.2em] font-bold mb-2">Total Club Liquidity</p>
+<h3 class="font-headline text-5xl font-black text-on-surface tracking-tighter">£14.2M</h3>
+</div>
+<div class="mt-8 flex items-end justify-between">
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-4 py-2 rounded-lg border-l-2 border-primary">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Monthly Burn</p>
+<p class="text-primary font-headline font-bold">£1.4M</p>
+</div>
+<div class="bg-surface-container-high px-4 py-2 rounded-lg border-l-2 border-tertiary">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Projected End</p>
+<p class="text-tertiary font-headline font-bold">£16.8M</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary/20 text-6xl">account_balance</span>
+</div>
+</div>
+<!-- Secondary Accents -->
+<div class="bg-surface-container-low rounded-xl p-6 border-l-2 border-primary flex flex-col justify-center">
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold mb-1">Transfer Budget</p>
+<p class="font-headline text-3xl font-bold text-on-surface">£4.5M</p>
+<div class="w-full bg-surface-container-high h-1.5 mt-4 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%] rounded-full"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2">65% of Seasonal Allocation Used</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 border-l-2 border-tertiary flex flex-col justify-center">
+<p class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold mb-1">Wage Ceiling</p>
+<p class="font-headline text-3xl font-bold text-on-surface">£850K</p>
+<p class="text-tertiary text-xs font-bold mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        +£12K Weekly Margin
+                    </p>
+</div>
+</div>
+<!-- Visualization Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<!-- Main Graph -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-xl p-8 relative">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h4 class="font-headline text-xl font-bold text-on-surface">Profit &amp; Loss Performance</h4>
+<p class="text-on-surface-variant text-xs mt-1">Rolling 12-month fiscal volatility analysis</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] font-bold rounded-lg text-primary">REALTIME</span>
+<span class="px-3 py-1 bg-surface-container-high text-[10px] font-bold rounded-lg text-on-surface-variant">FY 23/24</span>
+</div>
+</div>
+<!-- Simplified Visual Graph Placeholder -->
+<div class="relative h-64 w-full flex items-end gap-1">
+<div class="flex-1 bg-surface-container-high h-[40%] rounded-t-sm relative group">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-t-sm shadow-[0_-10px_20px_rgba(149,212,179,0.1)]"></div>
+<div class="flex-1 bg-surface-container-high h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[75%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[90%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-tertiary h-[30%] rounded-t-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[50%] rounded-t-sm"></div>
+<!-- Line Graph Overlap -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none">
+<path class="drop-shadow-lg" d="M0 200 Q 100 150, 200 180 T 400 100 T 600 140 T 800 80" fill="none" stroke="#95d4b3" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+<span>Jul</span><span>Sep</span><span>Nov</span><span>Jan</span><span>Mar</span><span>May</span>
+</div>
+</div>
+<!-- Recommendation Section -->
+<div class="glass-panel border-l-4 border-tertiary rounded-xl p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">insights</span>
+<h4 class="font-headline text-lg font-bold text-on-surface">Strategy Advisor</h4>
+</div>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-highest/40 rounded-lg">
+<p class="text-tertiary text-[10px] font-bold uppercase tracking-widest mb-2">Liquidity Alert</p>
+<p class="text-sm text-on-surface leading-relaxed">
+                                Current cash reserves allow for <span class="font-bold text-primary">25% increase</span> in Academy investment without breaching Tier 1 protocols.
+                            </p>
+</div>
+<div class="p-4 bg-surface-container-highest/40 rounded-lg">
+<p class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest mb-2">Tactical Shift</p>
+<p class="text-sm text-on-surface leading-relaxed">
+                                Negotiate sponsorship extensions now to hedge against projected broadcast dip in Q4.
+                            </p>
+</div>
+<button class="w-full py-3 border border-tertiary/30 hover:bg-tertiary hover:text-on-tertiary text-tertiary font-bold text-xs uppercase tracking-widest transition-all rounded-lg">
+                            Execute Re-Allocation
+                        </button>
+</div>
+</div>
+</div>
+<!-- Revenue & Expenditure Split -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Revenue Streams -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<h5 class="font-headline text-lg font-bold mb-6 flex justify-between">
+                        Revenue Distribution
+                        <span class="text-primary text-xs">Total: £32.1M</span>
+</h5>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-sm">Broadcast Rights</span>
+</div>
+<span class="font-headline font-bold">£18.4M</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full">
+<div class="bg-primary h-full w-[57%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-[#5eb384]"></span>
+<span class="text-sm">Commercial Partnerships</span>
+</div>
+<span class="font-headline font-bold">£8.2M</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full">
+<div class="bg-[#5eb384] h-full w-[25%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-[#3a7052]"></span>
+<span class="text-sm">Matchday &amp; Gate</span>
+</div>
+<span class="font-headline font-bold">£4.1M</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full">
+<div class="bg-[#3a7052] h-full w-[13%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-[#1e3b2b]"></span>
+<span class="text-sm">Merchandise</span>
+</div>
+<span class="font-headline font-bold">£1.4M</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full">
+<div class="bg-[#1e3b2b] h-full w-[5%]"></div>
+</div>
+</div>
+</div>
+<!-- Expenditure Breakdown -->
+<div class="bg-surface-container-low rounded-xl p-8">
+<h5 class="font-headline text-lg font-bold mb-6 flex justify-between">
+                        Expenditure Profile
+                        <span class="text-error text-xs">Total: £17.9M</span>
+</h5>
+<div class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/10">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold mb-1">Player Wages</p>
+<p class="font-headline text-lg font-bold">£11.2M</p>
+<p class="text-[10px] text-error mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">arrow_upward</span> 4.2% YoY
+                                </p>
+</div>
+<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/10">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold mb-1">Staff &amp; Ops</p>
+<p class="font-headline text-lg font-bold">£3.4M</p>
+<p class="text-[10px] text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">arrow_downward</span> 1.5% YoY
+                                </p>
+</div>
+<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/10">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold mb-1">Stadium/Estate</p>
+<p class="font-headline text-lg font-bold">£2.1M</p>
+<p class="text-[10px] text-on-surface-variant mt-1">Maintenance cap reached</p>
+</div>
+<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant/10">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold mb-1">Academy</p>
+<p class="font-headline text-lg font-bold text-tertiary">£1.2M</p>
+<p class="text-[10px] text-tertiary/60 mt-1 uppercase font-black">Strategic Priority</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden bg-[#1c1b1b]/95 backdrop-blur-md border-t border-[#414844]/15 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 p-2 active:scale-90 transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:text-[#95d4b3]">home</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#00452e] text-[#95d4b3] rounded-xl p-2 scale-110 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Finances</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 p-2 active:scale-90 transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:text-[#95d4b3]">travel_explore</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Academy</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 p-2 active:scale-90 transition-all duration-150 group" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:text-[#95d4b3]">hub</span>
+<span class="font-label text-[10px] uppercase tracking-widest mt-1">Marketing</span>
+</a>
+</nav>
+</body></html>

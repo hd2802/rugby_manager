@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#001c3b",
+              "tertiary-fixed": "#ffe171",
+              "tertiary-container": "#c9a800",
+              "error-container": "#93000a",
+              "on-secondary-container": "#9fb6de",
+              "on-secondary": "#183152",
+              "surface-container-lowest": "#0e0e0e",
+              "tertiary": "#e9c400",
+              "secondary-fixed-dim": "#b0c8f0",
+              "tertiary-fixed-dim": "#e9c400",
+              "outline": "#8b938d",
+              "primary-fixed": "#b1f0ce",
+              "primary": "#95d4b3",
+              "on-primary-fixed-variant": "#0e5138",
+              "background": "#131313",
+              "secondary-container": "#30486a",
+              "surface-container-low": "#1c1b1b",
+              "on-surface-variant": "#c1c8c2",
+              "surface-variant": "#353534",
+              "surface-tint": "#95d4b3",
+              "secondary-fixed": "#d5e3ff",
+              "on-error-container": "#ffdad6",
+              "surface-container": "#201f1f",
+              "inverse-primary": "#2c694e",
+              "inverse-surface": "#e5e2e1",
+              "surface-bright": "#393939",
+              "on-tertiary": "#3b2f00",
+              "on-error": "#690005",
+              "surface-dim": "#131313",
+              "on-secondary-fixed-variant": "#30486a",
+              "outline-variant": "#414844",
+              "on-primary-container": "#76b394",
+              "inverse-on-surface": "#313030",
+              "secondary": "#b0c8f0",
+              "primary-container": "#00452e",
+              "on-primary-fixed": "#002114",
+              "on-background": "#e5e2e1",
+              "surface": "#131313",
+              "surface-container-high": "#2a2a2a",
+              "on-surface": "#e5e2e1",
+              "on-tertiary-container": "#4c3e00",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed": "#221b00",
+              "on-primary": "#003824",
+              "primary-fixed-dim": "#95d4b3",
+              "surface-container-highest": "#353534",
+              "on-tertiary-fixed-variant": "#554600"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(24px);
+        }
+        .radar-grid-oct {
+            clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1c1b1b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 10px;
+        }
+        .technical-line {
+            background-image: linear-gradient(90deg, #414844 50%, transparent 50%);
+            background-size: 8px 1px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/90 backdrop-blur-md flex justify-between items-center h-16 px-6 border-b border-outline-variant/10">
+<div class="text-2xl font-black text-[#95d4b3] uppercase tracking-wider font-headline">PitchSide Pro</div>
+<div class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-[#95d4b3] border-b-2 border-[#95d4b3] transition-colors duration-200" href="#">Player Progress</a>
+<a class="text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Drill Library</a>
+<a class="text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Tactics</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#95d4b3] cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-[#95d4b3] cursor-pointer">account_circle</span>
+</div>
+</nav>
+<!-- Side Navigation Shell (Desktop) -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#1c1b1b] hidden lg:flex flex-col py-6 pt-20 border-r border-outline-variant/10">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary">sports_rugby</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-[#e5e2e1] font-headline leading-none">PitchSide Pro</h3>
+<p class="text-[10px] uppercase tracking-widest text-outline">Elite Rugby Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-[#2a2a2a] text-[#95d4b3] border-l-4 border-tertiary transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-medium text-sm">Player Progress</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="font-medium text-sm">Drill Library</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span class="font-medium text-sm">Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-md font-bold text-xs uppercase tracking-widest shadow-lg hover:opacity-90 transition-all border border-primary/20">
+            Submit Team Sheet
+        </button>
+<div class="pt-4 border-t border-outline-variant/10">
+<a class="flex items-center gap-3 py-2 text-[#e5e2e1] opacity-60 text-sm hover:text-primary" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+            </a>
+<a class="flex items-center gap-3 py-2 text-[#e5e2e1] opacity-60 text-sm hover:text-error" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+            </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-16 min-h-screen bg-background p-4 md:p-8">
+<!-- Player Header Profile -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="relative">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden bg-surface-container-high relative z-10 border border-outline-variant/30">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="Rugby player professional headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7oeKD2CBtQKFnay8p1d2OOPngnCvzfTWLvtJD5lWU6wQIGfrJNMJYNluowVeIdFgjF2eEZ1v17ggxdtqIjzB305QIOjM4uQoGfl_nVKSudLZVDVhCF0h-EilAzz-odj_RkhZi1-iGmn7tLD2Zr_iPP7dCvjQpXZ48R6sIR-6JCZmk70iMd-4ZpjxC6uKMZ-b_TbsWINssZjcN4ng-k_TEPkpkBbgY4GXuixpinukj5cNJokNn92_QZyYWRhHWXFKrCSnBsdMPopd2"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-tertiary text-on-tertiary px-3 py-1 font-headline font-bold text-xl rounded-lg z-20 shadow-xl border border-black/20">
+                    88
+                </div>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="bg-primary-container text-primary text-[10px] font-bold px-2 py-0.5 rounded tracking-tighter uppercase border border-primary/20">Elite Prospect</span>
+<span class="text-tertiary material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tighter uppercase leading-none">Marcus Vane</h1>
+<p class="text-on-surface-variant font-medium text-lg mt-1 tracking-wide">Fly-half <span class="mx-2 text-outline-variant">|</span> Age 23 <span class="mx-2 text-outline-variant">|</span> England</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-highest border border-outline-variant/30 text-on-surface font-semibold text-sm hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-sm group-hover:text-tertiary">edit_note</span>
+                Log Coaching Session
+            </button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-high border border-outline-variant/30 text-on-surface font-semibold text-sm hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-sm group-hover:text-primary">ios_share</span>
+                Export PDF
+            </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+<!-- High-Fidelity Tactical Radar Chart -->
+<section class="md:col-span-5 bg-surface-container-low p-6 md:p-8 rounded-xl relative overflow-hidden group border border-outline-variant/10">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface tracking-tight">Tactical Intelligence</h3>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-1">8-Attribute Granular Analysis</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant opacity-50">data_exploration</span>
+</div>
+<div class="relative w-full aspect-square flex items-center justify-center">
+<!-- Octagonal Radar Background -->
+<div class="absolute inset-0 flex items-center justify-center opacity-20">
+<div class="w-full h-full border border-outline radar-grid-oct scale-[1.0]"></div>
+<div class="absolute inset-0 border border-outline radar-grid-oct scale-[0.75]"></div>
+<div class="absolute inset-0 border border-outline radar-grid-oct scale-[0.50]"></div>
+<div class="absolute inset-0 border border-outline radar-grid-oct scale-[0.25]"></div>
+<!-- Radial Lines -->
+<div class="absolute h-full w-[1px] bg-outline/40 top-0 left-1/2"></div>
+<div class="absolute w-full h-[1px] bg-outline/40 top-1/2 left-0"></div>
+<div class="absolute h-full w-[1px] bg-outline/40 top-0 left-1/2 rotate-45"></div>
+<div class="absolute h-full w-[1px] bg-outline/40 top-0 left-1/2 -rotate-45"></div>
+</div>
+<!-- Radar Data Layer -->
+<svg class="absolute inset-0 w-full h-full" viewbox="0 0 200 200">
+<!-- Data Polygon -->
+<polygon fill="rgba(149, 212, 179, 0.15)" points="100,10 170,55 190,100 160,165 100,185 45,160 15,100 40,40" stroke="#95d4b3" stroke-linejoin="round" stroke-width="1.5"></polygon>
+<!-- Attribute Markers -->
+<circle cx="100" cy="10" fill="#e9c400" r="2.5"></circle> <!-- Kick Accuracy -->
+<circle cx="170" cy="55" fill="#95d4b3" r="2"></circle> <!-- Vision -->
+<circle cx="190" cy="100" fill="#95d4b3" r="2"></circle> <!-- Passing -->
+<circle cx="160" cy="165" fill="#95d4b3" r="2"></circle> <!-- Ruck Eff -->
+<circle cx="100" cy="185" fill="#95d4b3" r="2"></circle> <!-- Tackling -->
+<circle cx="45" cy="160" fill="#95d4b3" r="2"></circle> <!-- Def Read -->
+<circle cx="15" cy="100" fill="#95d4b3" r="2"></circle> <!-- Support -->
+<circle cx="40" cy="40" fill="#95d4b3" r="2"></circle> <!-- Speed -->
+</svg>
+<!-- Technical Labels -->
+<div class="absolute top-0 text-[9px] font-bold uppercase text-tertiary">Kick Accuracy</div>
+<div class="absolute top-[18%] right-0 text-[9px] font-bold uppercase text-on-surface-variant">Vision</div>
+<div class="absolute top-1/2 -right-4 -translate-y-1/2 text-[9px] font-bold uppercase text-on-surface-variant">Passing</div>
+<div class="absolute bottom-[10%] right-[10%] text-[9px] font-bold uppercase text-on-surface-variant text-right">Ruck Efficiency</div>
+<div class="absolute bottom-0 text-[9px] font-bold uppercase text-on-surface-variant">Tackling</div>
+<div class="absolute bottom-[10%] left-[10%] text-[9px] font-bold uppercase text-on-surface-variant text-left">Defensive Read</div>
+<div class="absolute top-1/2 -left-8 -translate-y-1/2 text-[9px] font-bold uppercase text-on-surface-variant">LB Support</div>
+<div class="absolute top-[18%] left-0 text-[9px] font-bold uppercase text-on-surface-variant">Sprint Burst</div>
+</div>
+<div class="mt-14 pt-8 border-t border-outline-variant/10 grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<span class="text-[9px] text-outline uppercase font-bold tracking-tighter">Overall Performance</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-headline font-bold text-primary leading-none">88.4</span>
+<span class="text-[10px] text-primary font-bold">+1.2</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 items-end">
+<span class="text-[9px] text-outline uppercase font-bold tracking-tighter">Tactical IQ Rating</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-headline font-bold text-on-surface leading-none">94.0</span>
+<span class="text-[10px] text-tertiary font-bold">TOP 3%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Growth Projection & Role Mastery -->
+<section class="md:col-span-7 space-y-6">
+<!-- Growth Projection Graph -->
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-headline text-lg font-bold text-on-surface">Growth Projection</h3>
+<p class="text-[10px] text-outline uppercase tracking-widest">Predicted vs. Actual Progression (6M)</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-0.5 bg-primary"></div>
+<span class="text-[9px] font-bold text-outline">ACTUAL</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-0.5 border-b border-dashed border-outline-variant"></div>
+<span class="text-[9px] font-bold text-outline">PREDICTED</span>
+</div>
+</div>
+</div>
+<div class="h-32 w-full relative group">
+<!-- Graph Placeholder SVG -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 400 100">
+<!-- Grid Lines -->
+<line class="stroke-outline-variant/20" x1="0" x2="400" y1="25" y2="25"></line>
+<line class="stroke-outline-variant/20" x1="0" x2="400" y1="50" y2="50"></line>
+<line class="stroke-outline-variant/20" x1="0" x2="400" y1="75" y2="75"></line>
+<!-- Predicted Path (Dashed) -->
+<path d="M 0,80 C 100,75 200,60 300,55 400,45" fill="none" stroke="#414844" stroke-dasharray="4" stroke-width="1"></path>
+<!-- Actual Path (Solid Primary) -->
+<path d="M 0,85 C 80,82 150,65 250,45 320,40 400,30" fill="none" stroke="#95d4b3" stroke-width="2"></path>
+<!-- Annotation Points -->
+<circle cx="250" cy="45" fill="#95d4b3" r="3"></circle>
+<circle cx="400" cy="30" fill="#95d4b3" r="3"></circle>
+</svg>
+<!-- Vertical Annotations -->
+<div class="absolute -bottom-6 left-0 text-[8px] font-bold text-outline">OCT '23</div>
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[8px] font-bold text-outline">JAN '24</div>
+<div class="absolute -bottom-6 right-0 text-[8px] font-bold text-outline">MAR '24</div>
+<!-- Tech Highlight -->
+<div class="absolute top-0 right-1/4 bg-surface-container-highest/80 backdrop-blur px-2 py-1 border border-outline-variant/30 rounded text-[9px] opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-primary font-bold">SURGE:</span> Elite Kicking Efficiency
+                    </div>
+</div>
+</div>
+<!-- Role Mastery Breakdown -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 relative overflow-hidden">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">psychology</span>
+<h4 class="font-headline font-bold text-sm text-on-surface">Tactical Playmaker</h4>
+</div>
+<span class="text-[10px] font-bold text-primary">ELITE</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[10px] uppercase font-bold text-outline">
+<span>Mastery</span>
+<span>96%</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 96%"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">Top 1% in offensive phase organization and defensive line freezing.</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 relative overflow-hidden">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg">directions_run</span>
+<h4 class="font-headline font-bold text-sm text-on-surface">Box-to-Box Engine</h4>
+</div>
+<span class="text-[10px] font-bold text-outline">PRO</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[10px] uppercase font-bold text-outline">
+<span>Mastery</span>
+<span>78%</span>
+</div>
+<div class="h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 78%"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant leading-relaxed">High work rate in transitional phases; needs improved aerobic recovery.</p>
+</div>
+</div>
+</div>
+<!-- Progress Timeline (Compressed) -->
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-lg font-bold text-on-surface">Milestones</h3>
+<span class="px-2 py-0.5 bg-surface-container-highest text-[9px] font-bold rounded uppercase border border-outline-variant/20 text-outline">Season 24/25</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start relative before:absolute before:left-[11px] before:top-6 before:bottom-0 before:w-[1px] before:bg-outline-variant/30">
+<div class="w-6 h-6 rounded-full border border-primary flex items-center justify-center shrink-0 bg-background z-10">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+</div>
+<div class="pb-4">
+<div class="flex justify-between items-center w-full">
+<h5 class="text-xs font-bold text-on-surface uppercase tracking-tight">Kicking Accuracy Spike</h5>
+<span class="text-[9px] font-bold text-outline">MAR 12</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Achieved 85% success rate from tee during regional qualifiers.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-6 h-6 rounded-full border border-tertiary flex items-center justify-center shrink-0 bg-background z-10">
+<span class="material-symbols-outlined text-[10px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<div class="flex justify-between items-center w-full">
+<h5 class="text-xs font-bold text-tertiary uppercase tracking-tight">Senior Debut</h5>
+<span class="text-[9px] font-bold text-outline">FEB 28</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">First professional start. Technical execution marked at 9.2/10.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Coach's Feedback & Quick Metrics -->
+<section class="md:col-span-8 bg-surface-container-low p-6 rounded-xl glass-panel border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-tertiary">analytics</span>
+<h3 class="font-headline text-xl font-bold text-on-surface tracking-tight">Technical Directives</h3>
+</div>
+<div class="space-y-6">
+<div class="bg-[#131313]/50 p-6 rounded-lg relative border border-outline-variant/10">
+<div class="absolute top-0 right-0 p-3">
+<div class="flex gap-1.5">
+<div class="w-1 h-1 rounded-full bg-primary/40"></div>
+<div class="w-1 h-1 rounded-full bg-primary/70"></div>
+<div class="w-1 h-1 rounded-full bg-primary"></div>
+</div>
+</div>
+<p class="text-sm italic text-on-surface font-light leading-relaxed mb-6">
+                        "Marcus is evolving into a true tactical architect. His vision from the pocket is unparalleled in the current roster. We are prioritizing his communication during defensive transitions. The objective is to make him the primary decision-maker for all 22m exit strategies."
+                    </p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Head coach portrait avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzDKJzoGE21DSsaUym6_fVYdefisvjLh0iocy1PBN--hIgxvhohFwZ1KMBe03s_DtDfIrLj2N8sQ0uimhhFKqO9u9B734yazZFv7URRnu2iTAUbUAqbF_NydUtZA9TPIepucP1nWtQ_kZUXDc2vk-3ZNeHGORxinhiSi-z-dmU2xICzitn6ZMrXMDUqAzimG_KYDn7hzQYVqwFfMbiRFjTDRZMSGNK5KO_zqor1p5dy2ZmsAijwNElTa1O2arw0OgFMwcBDpbHWclG"/>
+</div>
+<div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface">J. Sterling</span>
+<p class="text-[8px] text-outline uppercase">Performance Director</p>
+</div>
+</div>
+<span class="text-[9px] font-bold text-outline-variant">UPDATED 2H AGO</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-highest/20 border-l-2 border-primary">
+<span class="text-[9px] font-bold text-primary uppercase tracking-tighter">Exit Strategy</span>
+<div class="text-[11px] text-on-surface mt-1 font-medium">Clearance efficiency up 14% vs last season.</div>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-highest/20 border-l-2 border-tertiary">
+<span class="text-[9px] font-bold text-tertiary uppercase tracking-tighter">Line Engagement</span>
+<div class="text-[11px] text-on-surface mt-1 font-medium">Average 4.2 line-break assists per 80 mins.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Stats -->
+<section class="md:col-span-4 grid grid-cols-2 gap-4 h-full">
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
+<span class="text-[9px] font-bold uppercase tracking-widest text-outline">Availability</span>
+<div>
+<div class="text-2xl font-headline font-bold text-primary">100%</div>
+<div class="text-[9px] text-on-surface-variant mt-1 uppercase font-bold">Optimal Condition</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 flex flex-col justify-between">
+<span class="text-[9px] font-bold uppercase tracking-widest text-outline">Market Index</span>
+<div>
+<div class="text-2xl font-headline font-bold text-on-surface">£4.2M</div>
+<div class="text-[9px] text-primary flex items-center gap-0.5 mt-1 font-bold">
+<span class="material-symbols-outlined text-[10px]">trending_up</span> +12.4%
+                    </div>
+</div>
+</div>
+<div class="col-span-2 bg-surface-container-low p-5 rounded-xl border border-outline-variant/10 flex items-center justify-between">
+<div>
+<span class="text-[9px] font-bold uppercase tracking-widest text-outline block mb-1">Contract Maturity</span>
+<div class="text-sm font-bold text-on-surface">Exp. June 2027</div>
+</div>
+<button class="text-primary font-bold text-[9px] uppercase border border-primary/30 px-3 py-1.5 rounded hover:bg-primary/10 transition-colors">Negotiate Renewal</button>
+</div>
+<!-- Technical Tooltip Style element -->
+<div class="col-span-2 p-4 bg-surface-container-lowest border border-dashed border-outline-variant/30 rounded-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-[9px] font-bold uppercase text-outline">Next Match Focus</span>
+</div>
+<p class="text-[10px] text-on-surface-variant leading-tight">Exploit deep-field defensive gaps. Focus on 50/22 kick opportunities against Leicester's back-three structure.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#1c1b1b] h-16 flex justify-around items-center z-50 border-t border-outline-variant/10">
+<button class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#95d4b3]">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-[10px]">Progress</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="text-[10px]">Drills</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60">
+<span class="material-symbols-outlined">strategy</span>
+<span class="text-[10px]">Tactics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Profile</span>
+</button>
+</nav>
+</body></html>

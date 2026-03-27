@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tactics Board | London Warriors RFC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-fixed-dim": "#a1d494",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary": "#1b247f",
+                        "inverse-primary": "#3b6934",
+                        "primary-container": "#043405",
+                        "secondary": "#bdc2ff",
+                        "outline-variant": "#434843",
+                        "on-secondary-fixed": "#000767",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed-variant": "#23501e",
+                        "tertiary-container": "#2a2c2c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "primary": "#a1d494",
+                        "on-primary": "#0a3909",
+                        "surface-container-highest": "#31353c",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "on-surface-variant": "#c3c8c1",
+                        "outline": "#8d928c",
+                        "surface-variant": "#31353c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-primary-fixed": "#002201",
+                        "on-tertiary-container": "#929393",
+                        "on-background": "#dfe2eb",
+                        "inverse-on-surface": "#2d3137",
+                        "surface": "#10141a",
+                        "surface-container-high": "#262a31",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "surface-dim": "#10141a",
+                        "on-secondary-container": "#a8afff",
+                        "surface-container": "#1c2026",
+                        "on-surface": "#dfe2eb",
+                        "on-tertiary": "#2f3131",
+                        "surface-bright": "#353940",
+                        "secondary-container": "#343d96",
+                        "surface-container-low": "#181c22",
+                        "primary-fixed": "#bcf0ae",
+                        "background": "#10141a",
+                        "inverse-surface": "#dfe2eb",
+                        "surface-tint": "#a1d494",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary-container": "#6e9f64",
+                        "surface-container-lowest": "#0a0e14",
+                        "error": "#ffb4ab",
+                        "tertiary": "#c6c6c6"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .pitch-grid {
+            background-image: linear-gradient(to right, rgba(141, 146, 140, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(141, 146, 140, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            background: rgba(49, 53, 60, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col items-center py-6 h-screen w-20 flex flex-col border-r border-[#31353c]/20 bg-[#181c22] dark:bg-slate-900 shadow-2xl shadow-black/50">
+<div class="mb-10">
+<span class="text-[#a1d494] font-black tracking-tighter text-xl">RW</span>
+</div>
+<nav class="flex flex-col gap-6 items-center w-full">
+<div class="group flex flex-col items-center gap-1 cursor-pointer text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-xs font-bold">Dashboard</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-xs font-bold">Squad</span>
+</div>
+<!-- ACTIVE TAB: Tactics -->
+<div class="group flex flex-col items-center gap-1 cursor-pointer w-full py-3 bg-[#31353c] text-[#a1d494] border-l-4 border-[#a1d494] Active: scale-95 origin-center transition-transform">
+<span class="material-symbols-outlined" data-icon="strategy">strategy</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-xs font-bold">Tactics</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-xs font-bold">Transfers</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-xs font-bold">Training</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="sports_rugby">sports_rugby</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-xs font-bold">Match Day</span>
+</div>
+</nav>
+<div class="mt-auto">
+<img alt="Club Crest" class="w-10 h-10 rounded-full border border-outline-variant/30" data-alt="Official London Warriors RFC Crest Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOBu-nPw59L4ChIQTnc9XSM39flWgbiWtvtx5DLRTzIZ9SwWXyA0OGMu_H7xM-yVp0qxSjFrkHLuVy3RfSQnt-ddlrB0T39dJXZCIZaysrNj5yMBRPTyOCHm5kOztEaWOscy-osWR9X9eXLclVxaf8d0PwwQ6dZTusPXE0uIinlzXmReMvyf1B4QGbNzsFvGEC1xXgso0QlBQe6b-B7phhtLWWxhKLUSA61SbhofIKJV15CU74ZMG10EF55ao4caPR5E0nvVRZ0kT3"/>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-20 z-30 px-8 flex justify-between items-center bg-[#10141a]/80 backdrop-blur-md docked full-width h-16 border-b border-[#31353c]/30">
+<div class="flex items-center gap-8">
+<h1 class="font-black text-lg text-white tracking-widest uppercase">London Warriors RFC</h1>
+<div class="flex gap-6 items-center">
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-[#a1d494] font-bold">12 OCT 2024</span>
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-slate-300">£14.2M Surplus</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded transition-colors" data-icon="settings">settings</button>
+<button class="bg-primary text-on-primary px-6 py-2 font-headline font-bold uppercase tracking-wider text-sm hover:brightness-110 active:scale-95 transition-all">Continue</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pl-20 pt-16 min-h-screen">
+<div class="p-8 grid grid-cols-12 gap-6">
+<!-- Left Column: Team & Player Instructions -->
+<div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+<!-- Tactical Profile Card -->
+<section class="bg-surface-container-high p-6 flex flex-col gap-4">
+<h2 class="font-headline text-xl font-black uppercase tracking-tighter text-primary">Team Philosophy</h2>
+<div class="flex flex-col gap-4">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Attacking Style</label>
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-headline font-bold">Wide Expansion</span>
+<span class="material-symbols-outlined text-primary" data-icon="swap_horiz">swap_horiz</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Defensive Intensity</label>
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-headline font-bold">High Press Drift</span>
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Kicking Strategy</label>
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-headline font-bold">Territorial Pressure</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="distance">distance</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Set Piece Instructions -->
+<section class="bg-surface-container-high p-6 flex flex-col gap-4">
+<h2 class="font-headline text-xl font-black uppercase tracking-tighter text-on-surface">Set-Piece Focus</h2>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest border-l-2 border-primary">
+<span class="material-symbols-outlined text-primary" data-icon="sports_rugby">sports_rugby</span>
+<div>
+<p class="text-xs font-bold text-white uppercase">Scrum Strategy</p>
+<p class="text-[11px] text-on-surface-variant">Drive &amp; Eight-man pick</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest border-l-2 border-outline">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="format_list_bulleted">format_list_bulleted</span>
+<div>
+<p class="text-xs font-bold text-white uppercase">Lineout Call</p>
+<p class="text-[11px] text-on-surface-variant">Short pod, quick release</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest border-l-2 border-secondary">
+<span class="material-symbols-outlined text-secondary" data-icon="flag">flag</span>
+<div>
+<p class="text-xs font-bold text-white uppercase">Penalties</p>
+<p class="text-[11px] text-on-surface-variant">Corner if &lt; 10m to gain</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Middle Column: Tactical Pitch -->
+<div class="col-span-12 lg:col-span-6">
+<div class="relative aspect-[3/4] bg-surface-container-low border border-outline-variant/20 overflow-hidden shadow-2xl rounded-xl">
+<!-- Pitch Markings -->
+<div class="absolute inset-0 pitch-grid opacity-30"></div>
+<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-outline/20"></div> <!-- Halfway Line -->
+<div class="absolute inset-x-0 top-[22%] h-px border-t border-dashed border-outline/30"></div> <!-- 22m Line -->
+<div class="absolute inset-x-0 bottom-[22%] h-px border-t border-dashed border-outline/30"></div> <!-- 22m Line -->
+<!-- Player Tokens -->
+<!-- Forwards -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[120%] flex flex-col items-center gap-1 group cursor-grab active:cursor-grabbing">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg border-2 border-primary-fixed shadow-primary/20">2</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded tracking-wider">Hooker</span>
+</div>
+<div class="absolute left-[35%] top-1/2 -translate-x-1/2 -translate-y-[110%] flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg">1</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">Prop</span>
+</div>
+<div class="absolute left-[65%] top-1/2 -translate-x-1/2 -translate-y-[110%] flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg">3</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">Prop</span>
+</div>
+<!-- Halves -->
+<div class="absolute left-[40%] top-[65%] -translate-x-1/2 flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg border-2 border-white/20">9</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">Scrum Half</span>
+</div>
+<div class="absolute left-[55%] top-[72%] -translate-x-1/2 flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg border-2 border-white/20">10</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">Fly Half</span>
+</div>
+<!-- Backs -->
+<div class="absolute left-[15%] top-[75%] -translate-x-1/2 flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg">11</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">L-Wing</span>
+</div>
+<div class="absolute left-[85%] top-[75%] -translate-x-1/2 flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg">14</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">R-Wing</span>
+</div>
+<div class="absolute left-1/2 bottom-[10%] -translate-x-1/2 flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center font-headline font-bold text-lg shadow-lg ring-4 ring-primary/20">15</div>
+<span class="bg-surface-container-highest/80 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white uppercase rounded">Full Back</span>
+</div>
+<!-- Tactical Overlays -->
+<div class="absolute top-8 left-8 glass-panel border border-white/5 p-4 rounded-lg">
+<h3 class="font-headline font-black text-sm uppercase tracking-widest text-primary-fixed-dim">Tactical Overview</h3>
+<p class="text-[11px] text-on-surface-variant max-w-[140px] leading-tight mt-1">Focus on phase-play continuity. Exploiting the channels between 10 and 12.</p>
+</div>
+<div class="absolute bottom-8 right-8 flex flex-col gap-2">
+<button class="bg-surface-bright/80 backdrop-blur-md p-3 rounded-full text-on-surface hover:text-primary transition-colors shadow-lg">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+</button>
+<button class="bg-surface-bright/80 backdrop-blur-md p-3 rounded-full text-on-surface hover:text-error transition-colors shadow-lg">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Player Stats & Bench -->
+<div class="col-span-12 lg:col-span-3 flex flex-col gap-6">
+<!-- Bench List -->
+<section class="bg-surface-container-high p-6 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h2 class="font-headline text-xl font-black uppercase tracking-tighter text-on-surface">The Finisher Bench</h2>
+<span class="text-[10px] font-label font-bold text-on-surface-variant uppercase">Substitutes (16-23)</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between p-3 bg-surface-container-low hover:bg-surface-bright transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant group-hover:text-primary">16</span>
+<span class="font-body text-sm font-semibold">T. Jenkins</span>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Hooker</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low hover:bg-surface-bright transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant group-hover:text-primary">17</span>
+<span class="font-body text-sm font-semibold">M. O'Sullivan</span>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Prop</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low hover:bg-surface-bright transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant group-hover:text-primary">18</span>
+<span class="font-body text-sm font-semibold">L. Khumalo</span>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Prop</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low hover:bg-surface-bright transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant group-hover:text-primary">19</span>
+<span class="font-body text-sm font-semibold">R. Sterling</span>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Lock</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low hover:bg-surface-bright transition-colors group cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-on-surface-variant group-hover:text-primary">20</span>
+<span class="font-body text-sm font-semibold">A. Dupont</span>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant uppercase">Back Row</span>
+</div>
+</div>
+</section>
+<!-- Individual Instruction Panel -->
+<section class="bg-primary-container border-l-4 border-primary p-6 flex flex-col gap-3">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-12 h-12 bg-surface-container-highest rounded flex items-center justify-center overflow-hidden">
+<img alt="Selected Player" class="w-full h-full object-cover" data-alt="Rugby player profile silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGN6D0ZBNKP6Z2HfMZ5L8kFOGzcs3jWaaLss8ZrOYBSRv0O54w9HgFhM2CKJZ2k0mY3eQga0VFENdH8U9LhP4FD62Wc9SFQQeWBUJQjV6i10okM8CqQolAV2i4P2waagLGkY1NbDegfWfQ7atMOxzp2QSeOzS1hjHXn2CMxi8dgvAN3s95aqhCxOyGxsCSrTEW8gvp9gh8LGdn2vjli3HdM8ywSnJdHs8-ro9HSMwnL5v5QTSAG5x7GcwN03Ol_maRi5cn2NSSyYF8"/>
+</div>
+<div>
+<h3 class="font-headline font-black text-white leading-tight">Marcus Smith</h3>
+<p class="text-[10px] font-label font-bold text-primary tracking-widest uppercase">Fly Half (No. 10)</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest/40 p-3 rounded">
+<h4 class="text-[10px] font-bold text-white uppercase mb-2">Role Instructions</h4>
+<ul class="text-[11px] text-on-surface-variant space-y-2">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] mt-0.5 text-primary" data-icon="check_circle">check_circle</span>
+                                Play flat on the line to engage defensive locks
+                            </li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] mt-0.5 text-primary" data-icon="check_circle">check_circle</span>
+                                Target outside shoulder of 12 on phase 3
+                            </li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] mt-0.5 text-primary" data-icon="check_circle">check_circle</span>
+                                Kick for corners only in opposition 22m
+                            </li>
+</ul>
+</div>
+<button class="w-full py-2 border border-primary/30 text-primary font-headline font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">Edit Player Rules</button>
+</section>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressing as per mandate since it's a Details/Tactics screen) -->
+<!-- Navigation Suppression Logic: Only SideNav and TopBar shown for high-level management -->
+</body></html>

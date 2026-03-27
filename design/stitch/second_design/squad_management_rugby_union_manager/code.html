@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-fixed-dim": "#a1d494",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary": "#1b247f",
+                        "inverse-primary": "#3b6934",
+                        "primary-container": "#043405",
+                        "secondary": "#bdc2ff",
+                        "outline-variant": "#434843",
+                        "on-secondary-fixed": "#000767",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed-variant": "#23501e",
+                        "tertiary-container": "#2a2c2c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "primary": "#a1d494",
+                        "on-primary": "#0a3909",
+                        "surface-container-highest": "#31353c",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "on-surface-variant": "#c3c8c1",
+                        "outline": "#8d928c",
+                        "surface-variant": "#31353c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-primary-fixed": "#002201",
+                        "on-tertiary-container": "#929393",
+                        "on-background": "#dfe2eb",
+                        "inverse-on-surface": "#2d3137",
+                        "surface": "#10141a",
+                        "surface-container-high": "#262a31",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "surface-dim": "#10141a",
+                        "on-secondary-container": "#a8afff",
+                        "surface-container": "#1c2026",
+                        "on-surface": "#dfe2eb",
+                        "on-tertiary": "#2f3131",
+                        "surface-bright": "#353940",
+                        "secondary-container": "#343d96",
+                        "surface-container-low": "#181c22",
+                        "primary-fixed": "#bcf0ae",
+                        "background": "#10141a",
+                        "inverse-surface": "#dfe2eb",
+                        "surface-tint": "#a1d494",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary-container": "#6e9f64",
+                        "surface-container-lowest": "#0a0e14",
+                        "error": "#ffb4ab",
+                        "tertiary": "#c6c6c6"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #10141a; }
+        ::-webkit-scrollbar-thumb { background: #31353c; }
+        .glass-panel {
+            background: rgba(49, 53, 60, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col items-center py-6 h-screen w-20 bg-[#181c22] dark:bg-slate-900 border-r border-white/5 shadow-2xl shadow-black/50">
+<div class="mb-10">
+<span class="text-[#a1d494] font-black tracking-tighter text-xl">LW</span>
+</div>
+<nav class="flex flex-col gap-4 w-full px-2">
+<a class="flex flex-col items-center py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-[#31353c]/50" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center py-3 rounded-lg bg-[#31353c] text-[#a1d494] border-l-4 border-[#a1d494]" href="#">
+<span class="material-symbols-outlined mb-1">groups</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Squad</span>
+</a>
+<a class="flex flex-col items-center py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-[#31353c]/50" href="#">
+<span class="material-symbols-outlined mb-1">strategy</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Tactics</span>
+</a>
+<a class="flex flex-col items-center py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-[#31353c]/50" href="#">
+<span class="material-symbols-outlined mb-1">payments</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Transfers</span>
+</a>
+<a class="flex flex-col items-center py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-[#31353c]/50" href="#">
+<span class="material-symbols-outlined mb-1">fitness_center</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Training</span>
+</a>
+<a class="flex flex-col items-center py-3 rounded-lg text-slate-400 hover:text-white transition-colors hover:bg-[#31353c]/50" href="#">
+<span class="material-symbols-outlined mb-1">sports_rugby</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Match Day</span>
+</a>
+</nav>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-20 z-30 px-8 h-16 flex justify-between items-center bg-[#10141a]/80 backdrop-blur-md border-b border-[#31353c]/30">
+<div class="flex items-center gap-6">
+<h1 class="font-black text-lg text-white tracking-widest uppercase">London Warriors RFC</h1>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex gap-4">
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-[#a1d494]">12 OCT 2024</span>
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-slate-300">£14.2M Surplus</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-colors rounded-lg">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-colors rounded-lg">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-headline font-bold text-xs uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                Continue
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-20 pt-16 min-h-screen bg-surface">
+<div class="p-8 max-w-[1600px] mx-auto">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline text-5xl font-black uppercase tracking-tighter text-white mb-2">First Team Squad</h2>
+<p class="font-label text-sm text-on-surface-variant tracking-wide">Managing 34 active professional contracts for the 24/25 Season.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex bg-surface-container-low rounded-lg p-1">
+<button class="px-4 py-2 bg-surface-container-highest text-primary font-label text-xs font-bold uppercase tracking-wider rounded">All Players</button>
+<button class="px-4 py-2 text-on-surface-variant font-label text-xs font-bold uppercase tracking-wider hover:text-white transition-colors">By Position</button>
+<button class="px-4 py-2 text-on-surface-variant font-label text-xs font-bold uppercase tracking-wider hover:text-white transition-colors">By Value</button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Filters & Depth Chart Sidebar -->
+<div class="col-span-12 lg:col-span-3 space-y-6">
+<!-- Filters -->
+<section class="bg-surface-container-low p-6 rounded-lg">
+<h3 class="font-headline text-xs font-bold uppercase tracking-widest text-primary mb-6">Tactical Filters</h3>
+<div class="space-y-4">
+<div>
+<label class="font-label text-[10px] font-bold uppercase text-outline mb-2 block">Position Group</label>
+<select class="w-full bg-surface-container-highest border-none text-on-surface text-sm font-body rounded-md focus:ring-1 focus:ring-primary">
+<option>All Units</option>
+<option>Front Row</option>
+<option>Second Row</option>
+<option>Back Row</option>
+<option>Half-Backs</option>
+<option>Three-Quarters</option>
+</select>
+</div>
+<div>
+<label class="font-label text-[10px] font-bold uppercase text-outline mb-2 block">Contract Status</label>
+<select class="w-full bg-surface-container-highest border-none text-on-surface text-sm font-body rounded-md focus:ring-1 focus:ring-primary">
+<option>Active</option>
+<option>Expiring (12m)</option>
+<option>Transfer Listed</option>
+<option>Loaned Out</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Depth Chart / Squad Hierarchy -->
+<section class="bg-surface-container-low p-6 rounded-lg">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-xs font-bold uppercase tracking-widest text-primary">Depth Chart</h3>
+<span class="material-symbols-outlined text-sm text-outline">info</span>
+</div>
+<div class="space-y-4">
+<!-- Position Row -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label text-[10px] font-black text-white uppercase tracking-tighter">Fly Half (10)</span>
+<span class="text-[10px] text-on-primary font-bold bg-primary px-1.5 rounded">Elite</span>
+</div>
+<div class="space-y-1">
+<div class="bg-surface-container-highest p-2 rounded flex justify-between items-center border-l-2 border-primary">
+<span class="text-xs font-medium">M. Smith</span>
+<span class="text-[10px] text-outline">88 OVR</span>
+</div>
+<div class="bg-surface-container-highest/40 p-2 rounded flex justify-between items-center">
+<span class="text-xs font-medium text-on-surface-variant">F. Russell</span>
+<span class="text-[10px] text-outline">82 OVR</span>
+</div>
+</div>
+</div>
+<!-- Position Row -->
+<div class="group">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label text-[10px] font-black text-white uppercase tracking-tighter">Hooker (2)</span>
+<span class="text-[10px] text-secondary font-bold bg-secondary-container px-1.5 rounded">Stable</span>
+</div>
+<div class="space-y-1">
+<div class="bg-surface-container-highest p-2 rounded flex justify-between items-center border-l-2 border-secondary">
+<span class="text-xs font-medium">J. George</span>
+<span class="text-[10px] text-outline">85 OVR</span>
+</div>
+<div class="bg-surface-container-highest/40 p-2 rounded flex justify-between items-center">
+<span class="text-xs font-medium text-on-surface-variant">T. Dan</span>
+<span class="text-[10px] text-outline">79 OVR</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Main Player Table Area -->
+<div class="col-span-12 lg:col-span-9">
+<div class="bg-surface-container-low rounded-lg overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="py-4 px-6 font-label text-[10px] font-bold uppercase tracking-widest text-outline">Position</th>
+<th class="py-4 px-6 font-label text-[10px] font-bold uppercase tracking-widest text-outline">Player</th>
+<th class="py-4 px-6 font-label text-[10px] font-bold uppercase tracking-widest text-outline text-center">Age/Nat</th>
+<th class="py-4 px-6 font-label text-[10px] font-bold uppercase tracking-widest text-outline">Value</th>
+<th class="py-4 px-3 font-label text-[10px] font-bold uppercase tracking-widest text-primary text-center">Str</th>
+<th class="py-4 px-3 font-label text-[10px] font-bold uppercase tracking-widest text-primary text-center">Tck</th>
+<th class="py-4 px-3 font-label text-[10px] font-bold uppercase tracking-widest text-primary text-center">Hnd</th>
+<th class="py-4 px-3 font-label text-[10px] font-bold uppercase tracking-widest text-primary text-center">Ruk</th>
+<th class="py-4 px-6 font-label text-[10px] font-bold uppercase tracking-widest text-outline text-right">Form</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Player Row -->
+<tr class="hover:bg-surface-bright/20 transition-colors group cursor-pointer">
+<td class="py-4 px-6">
+<span class="font-headline text-xs font-bold text-secondary uppercase tracking-tight">Prop</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden border border-white/10">
+<img alt="Player Portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqaB2svG9EZrC-OlbLIO9QS_DdeADzYRK6gzGSfpzvuLRu1BQEYezjvJF-nbW1_ebZi-3RRdHBZg2ANngU54v6W6SCKAmaNBptL8h4zbYBRHOHjhkrFA_vIFxMYB1-IvYMQtBbp5q49OsRag0WNLzE9buOxXIRC-NPpS9uLShphM-IjQVlPcXKk0D_p63GVh1kEWVBOumIKOgwhskQ-aOyuO3KayVAg6YC1hbvv17wEtltBM_zsHt4O3zLkjsemMaVn177svgju1z_"/>
+</div>
+<div>
+<div class="font-body text-sm font-bold text-white">Ellis Genge</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-wider">Captain</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-center">
+<div class="font-body text-sm text-on-surface-variant">29 / ENG</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body text-sm font-medium text-white">£4.8M</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">94</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">88</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">72</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">91</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-1">
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary/40"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+</div>
+</td>
+</tr>
+<!-- Player Row -->
+<tr class="hover:bg-surface-bright/20 transition-colors group cursor-pointer">
+<td class="py-4 px-6">
+<span class="font-headline text-xs font-bold text-secondary uppercase tracking-tight">Lock</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden border border-white/10">
+<img alt="Player Portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a tall rugby lock" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYNgICqnG8sTszIF7XhdW7_BhpdJQSPwX95wwhMPc2TqFYPd1D-DDArwIyiA0O4lLHNTh_SiFnnMLWOjZoE8tQsSOjOQ3Xwe4H1XRp_dNI5eial5Nq-RZESYGMn1dj7WFd-130_PMqAP_26LBFHu2mI6gH6hTVUsNz5U6amRY38OfDv0nUIqU85crvyXVl_yKzZxok7OTHXG-H1CXA8Sj8S3SlqumuSEyjunU-GOjhoAj883CHLJZlsH0xrq0gUMJOKRLh6tapQoL_"/>
+</div>
+<div>
+<div class="font-body text-sm font-bold text-white">Maro Itoje</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-wider">Star Player</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-center">
+<div class="font-body text-sm text-on-surface-variant">29 / ENG</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body text-sm font-medium text-white">£5.2M</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">89</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">95</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">81</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">96</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-1">
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+</div>
+</td>
+</tr>
+<!-- Player Row -->
+<tr class="hover:bg-surface-bright/20 transition-colors group cursor-pointer">
+<td class="py-4 px-6">
+<span class="font-headline text-xs font-bold text-secondary uppercase tracking-tight">Hooker</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden border border-white/10">
+<img alt="Player Portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a professional hooker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0vIk4_3AAudUcJnCsznotVys4tMOtuoaBzxF3jjlM-MRPLsLDYOoO-aQDc7DQTzq4H9nxLxcIFqWkKRx54gZxscl5CsHduE6UWMvS3rT-rFZb2HspVBJo6HcOKVDD67h2Wtv_hNCdJtrtWnPhl-eWMuPLOSji0-TksO9ayuHr8wxDjkmsKSOVXTv3NJRwsVr4gUJGO1pnFwDSZ0Tixhi860U3CcPwdSdIs5OiHRn7yCowkMz-MujAOObBlniblbhMRXK19DEsNTtS"/>
+</div>
+<div>
+<div class="font-body text-sm font-bold text-white">Jamie George</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-wider">Veteran</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-center">
+<div class="font-body text-sm text-on-surface-variant">33 / ENG</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body text-sm font-medium text-white">£2.1M</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">82</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">85</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">88</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">84</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-1">
+<div class="w-1.5 h-3 bg-error-container"></div>
+<div class="w-1.5 h-3 bg-primary/40"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+</div>
+</td>
+</tr>
+<!-- Player Row -->
+<tr class="hover:bg-surface-bright/20 transition-colors group cursor-pointer bg-surface-container-highest/20">
+<td class="py-4 px-6">
+<span class="font-headline text-xs font-bold text-secondary uppercase tracking-tight">Flanker</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden border border-white/10">
+<img alt="Player Portrait" class="w-full h-full object-cover" data-alt="Rugby player profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE5SnTQQw_14RIoCcnKTfmdUkBWB-GalAHYBFhqrqP1trTU4MrFitiuzU5t2YWKOh1JxbO78Pp5ZW2Q1ZA1iwNk8RCgFj2Y7ayeOv7YC-yRR6QkLevCIJ_q176w25sl_rWtjvR7Tk4PV6-4CCaez1oU1CkeRIyrju2vb-80Ha2WrbvnhMnJ-NIRzW5EKjjsmrDDiCC6mCaRUet7Qr71KupT8fzDodflx4iUukQVj0d3pjA7uRyLDGBuObUO-JnnM_WnQ7EMq8fIoV1"/>
+</div>
+<div>
+<div class="font-body text-sm font-bold text-white">Ben Earl</div>
+<div class="font-label text-[10px] text-outline uppercase tracking-wider">Highly Valued</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6 text-center">
+<div class="font-body text-sm text-on-surface-variant">26 / ENG</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body text-sm font-medium text-white">£4.1M</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">87</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">90</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">84</div>
+</td>
+<td class="py-4 px-3 text-center">
+<div class="w-8 h-8 flex items-center justify-center bg-primary-container/30 text-primary font-headline font-bold text-xs rounded">88</div>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex justify-end gap-1">
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+<div class="w-1.5 h-3 bg-primary"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Action Bar for Table -->
+<div class="mt-4 flex justify-between items-center text-on-surface-variant font-label text-[10px] uppercase tracking-widest px-2">
+<div>Showing 4 of 34 Players</div>
+<div class="flex gap-4">
+<button class="hover:text-white">Previous</button>
+<span class="text-primary font-bold">1</span>
+<button class="hover:text-white">2</button>
+<button class="hover:text-white">3</button>
+<button class="hover:text-white">Next</button>
+</div>
+</div>
+<!-- Floating Player Insight Card (Simulated On Selection/Hover) -->
+<div class="mt-8 glass-panel p-6 rounded-lg border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-9xl">analytics</span>
+</div>
+<div class="flex gap-8 relative z-10">
+<div class="w-32 h-32 bg-surface-container-highest rounded border border-white/10 flex-shrink-0">
+<img alt="Focused Player" class="w-full h-full object-cover grayscale" data-alt="Rugby player profile portrait in black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNxEjWNXvihDgalkfcc3aFq2IKTGhUonKO593cyvWDOI26IroTy8PGreZSiLbBtv6GuuykJ6JKDRcOG-uYxUxSUqTUIRhHZ9mPTzvwyaQ9Ov-qJngT2tUYZ40AkNNxjdcFDXWT7xtf7YtrvFVEdBbTjo1ifdK-xJoYe7h--FQM_-mfMhy2V5wG3MWvVk83Bt7x1rjGb5_FAMS9pRA3SFx0DVikCclWflBbYNQoM_CMvAFMBGvL39Ze68Wo7QMJWcP1oM-TekCDBR_6"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline text-2xl font-black uppercase text-white">Ellis Genge</h4>
+<div class="flex gap-4 items-center mt-1">
+<span class="text-xs text-primary font-bold tracking-widest uppercase">Loosehead Prop</span>
+<span class="w-1 h-1 bg-outline rounded-full"></span>
+<span class="text-xs text-outline uppercase tracking-widest">Bristol Bear Academy</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-label font-bold text-outline uppercase">Overall Rating</div>
+<div class="text-4xl font-headline font-black text-primary">89</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-6 mt-6">
+<div class="bg-surface-container-lowest p-3 rounded">
+<div class="text-[10px] text-outline font-bold uppercase mb-1">Scrummaging</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 96%"></div>
+</div>
+<div class="mt-1 text-right text-xs font-bold">96</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded">
+<div class="text-[10px] text-outline font-bold uppercase mb-1">Mobility</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+<div class="mt-1 text-right text-xs font-bold">78</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded">
+<div class="text-[10px] text-outline font-bold uppercase mb-1">Mentality</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+</div>
+<div class="mt-1 text-right text-xs font-bold">92</div>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded">
+<div class="text-[10px] text-outline font-bold uppercase mb-1">Discipline</div>
+<div class="w-full bg-white/5 h-1.5 rounded-full">
+<div class="bg-error-container h-full rounded-full" style="width: 54%"></div>
+</div>
+<div class="mt-1 text-right text-xs font-bold text-error">54</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB - Restricted to Dashboard/Squad for High-Impact Managerial Actions -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform z-50 group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+<span class="absolute right-16 bg-surface-container-high text-white text-[10px] font-bold uppercase tracking-widest px-3 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Recruit Player</span>
+</button>
+</body></html>

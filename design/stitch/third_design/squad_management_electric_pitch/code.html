@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#c7d5f3",
+                        "inverse-primary": "#006a70",
+                        "outline-variant": "#3b4861",
+                        "primary-dim": "#00e2ee",
+                        "tertiary-container": "#cafd00",
+                        "surface-container-highest": "#102645",
+                        "surface-container": "#061934",
+                        "on-primary-fixed-variant": "#006065",
+                        "primary-container": "#00f1fe",
+                        "surface-tint": "#99f7ff",
+                        "error-container": "#9f0519",
+                        "primary": "#99f7ff",
+                        "on-tertiary-container": "#4a5e00",
+                        "tertiary-fixed-dim": "#beee00",
+                        "on-error": "#490006",
+                        "on-secondary-fixed-variant": "#45536c",
+                        "on-background": "#dbe6ff",
+                        "primary-fixed": "#00f1fe",
+                        "tertiary": "#f3ffca",
+                        "secondary-container": "#39475f",
+                        "on-tertiary-fixed": "#3a4a00",
+                        "on-surface-variant": "#9eabc8",
+                        "secondary-fixed-dim": "#b9c7e4",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-fixed": "#cafd00",
+                        "surface-container-low": "#02132b",
+                        "inverse-on-surface": "#48556e",
+                        "surface-bright": "#152c4e",
+                        "on-primary-container": "#00555a",
+                        "on-tertiary-fixed-variant": "#526900",
+                        "primary-fixed-dim": "#00e2ee",
+                        "surface-container-high": "#0b203d",
+                        "on-tertiary": "#516700",
+                        "on-secondary-fixed": "#29364e",
+                        "on-secondary-container": "#c3d1ee",
+                        "tertiary-dim": "#beee00",
+                        "surface-variant": "#102645",
+                        "secondary-dim": "#b9c7e4",
+                        "error": "#ff716c",
+                        "error-dim": "#d7383b",
+                        "on-secondary": "#3c4962",
+                        "background": "#010e24",
+                        "outline": "#687690",
+                        "on-surface": "#dbe6ff",
+                        "on-primary-fixed": "#004145",
+                        "secondary-fixed": "#c7d5f3",
+                        "on-primary": "#005f64",
+                        "surface-dim": "#010e24",
+                        "inverse-surface": "#f9f9ff",
+                        "surface": "#010e24",
+                        "on-error-container": "#ffa8a3"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(11, 32, 61, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .pitch-texture {
+            background-image: radial-gradient(circle at 2px 2px, rgba(153, 247, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full h-16 flex justify-between items-center px-6 z-50 bg-slate-950/80 backdrop-blur-md shadow-[0_0_15px_rgba(153,247,255,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold italic text-cyan-400 font-['Space_Grotesk'] tracking-tight">RFC COMMAND</span>
+<nav class="hidden md:flex gap-6 items-center h-full">
+<a class="text-cyan-300 border-b-2 border-cyan-400 h-16 flex items-center px-2 font-headline uppercase text-xs tracking-widest transition-all" href="#">SQUAD</a>
+<a class="text-slate-400 hover:bg-slate-800/50 hover:text-cyan-300 h-16 flex items-center px-2 font-headline uppercase text-xs tracking-widest transition-all" href="#">TACTICS</a>
+<a class="text-slate-400 hover:bg-slate-800/50 hover:text-cyan-300 h-16 flex items-center px-2 font-headline uppercase text-xs tracking-widest transition-all" href="#">MATCH DAY</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary text-sm">search</span>
+<input class="bg-surface-container-highest border-0 border-b border-outline-variant/30 text-xs font-label px-10 py-2 focus:ring-0 focus:border-primary w-48 transition-all" placeholder="SEARCH SQUAD..." type="text"/>
+</div>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col pt-16 border-r border-slate-800/50 z-40 bg-slate-950">
+<div class="p-6 border-b border-slate-900">
+<h2 class="text-cyan-400 font-['Space_Grotesk'] font-black text-lg tracking-tighter">STRATEGIST ONE</h2>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-semibold">Elite Division</p>
+</div>
+<nav class="flex-1 overflow-y-auto py-4">
+<div class="px-3 mb-2">
+<a class="flex items-center gap-4 px-4 py-3 bg-gradient-to-r from-cyan-500/20 to-transparent border-l-4 border-cyan-400 text-cyan-400 shadow-[0_0_10px_rgba(153,247,255,0.2)] group transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Squad</span>
+</a>
+</div>
+<div class="px-3 space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">strategy</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Tactics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">swap_horizontal_circle</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Transfers</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">fitness_center</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Training</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">sports_rugby</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Match Day</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">account_balance</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Boardroom</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-all group" href="#">
+<span class="material-symbols-outlined text-xl">medical_services</span>
+<span class="font-['Inter'] uppercase tracking-widest text-xs font-semibold">Medical Room</span>
+</a>
+</div>
+</nav>
+<div class="p-6 mt-auto">
+<button class="w-full py-3 bg-gradient-to-r from-cyan-500 to-cyan-400 text-on-primary text-[10px] font-black uppercase tracking-widest rounded-sm hover:brightness-110 active:scale-95 transition-all">
+                SIMULATE NEXT DAY
+            </button>
+<div class="flex justify-between mt-6 px-2">
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">settings</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">help_outline</span></button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen pitch-texture bg-surface">
+<div class="max-w-[1600px] mx-auto p-8 grid grid-cols-12 gap-8">
+<!-- Page Header & Filters -->
+<div class="col-span-12 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
+<div>
+<h1 class="font-headline text-5xl font-bold tracking-tighter text-on-surface">FIRST TEAM SQUAD</h1>
+<p class="text-tertiary font-label text-sm uppercase tracking-widest mt-1">Status: Season In-Progress | Round 12</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Position Group</label>
+<select class="bg-surface-container-high border-0 border-b border-outline-variant/30 text-xs font-label py-2.5 px-4 pr-10 focus:ring-0 focus:border-primary text-secondary">
+<option>ALL POSITIONS</option>
+<option>FORWARDS</option>
+<option>BACKS</option>
+<option>FRONT ROW</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Contract Status</label>
+<select class="bg-surface-container-high border-0 border-b border-outline-variant/30 text-xs font-label py-2.5 px-4 pr-10 focus:ring-0 focus:border-primary text-secondary">
+<option>ANY STATUS</option>
+<option>FULL-TIME</option>
+<option>EXPIRING</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Left Column: Squad Table -->
+<div class="col-span-12 xl:col-span-8 space-y-4">
+<div class="bg-surface-container-low rounded-lg p-1 overflow-hidden">
+<table class="w-full text-left border-separate border-spacing-y-2 px-2">
+<thead>
+<tr class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-black">
+<th class="pb-2 pl-4">Player</th>
+<th class="pb-2">Position</th>
+<th class="pb-2 text-center">Strength</th>
+<th class="pb-2 text-center">Tackling</th>
+<th class="pb-2 text-center">Handling</th>
+<th class="pb-2 text-center">Rucking</th>
+<th class="pb-2 text-center">Form</th>
+<th class="pb-2 pr-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="space-y-4">
+<!-- Active/Selected Row -->
+<tr class="bg-surface-bright group cursor-pointer transition-all duration-300">
+<td class="py-4 pl-4 border-l-4 border-primary">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm tracking-tight text-on-surface">ELLIS GENGE</p>
+<p class="text-[10px] text-primary uppercase font-black">Leicester Tigers</p>
+</div>
+</div>
+</td>
+<td class="py-4"><span class="text-[10px] font-bold bg-secondary-container/50 text-secondary px-2 py-1 rounded">LOOSEHEAD PROP</span></td>
+<td class="py-4 text-center font-headline font-bold text-lg text-tertiary">92</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">88</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">76</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">90</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary/20 rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary/20 rounded-full"></div>
+</div>
+</td>
+<td class="py-4 pr-4 text-right">
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+</td>
+</tr>
+<!-- Secondary Row -->
+<tr class="bg-surface-container-high hover:bg-surface-bright group cursor-pointer transition-all duration-200">
+<td class="py-4 pl-4 border-l-4 border-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm tracking-tight text-on-surface">MARO ITOJE</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Saracens</p>
+</div>
+</div>
+</td>
+<td class="py-4"><span class="text-[10px] font-bold bg-secondary-container/30 text-secondary px-2 py-1 rounded">SECOND ROW</span></td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">85</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">94</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">82</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">96</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+</div>
+</td>
+<td class="py-4 pr-4 text-right">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward_ios</span>
+</td>
+</tr>
+<tr class="bg-surface-container-high hover:bg-surface-bright group cursor-pointer transition-all duration-200">
+<td class="py-4 pl-4 border-l-4 border-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container-highest rounded flex items-center justify-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm tracking-tight text-on-surface">BEN YOUNGS</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Leicester Tigers</p>
+</div>
+</div>
+</td>
+<td class="py-4"><span class="text-[10px] font-bold bg-secondary-container/30 text-secondary px-2 py-1 rounded">SCRUM HALF</span></td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">68</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">72</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">95</td>
+<td class="py-4 text-center font-headline font-bold text-lg text-on-surface">64</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary/20 rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary/20 rounded-full"></div>
+<div class="w-1 h-4 bg-tertiary/20 rounded-full"></div>
+</div>
+</td>
+<td class="py-4 pr-4 text-right">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_forward_ios</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Squad Totals / Bench Summary -->
+<div class="grid grid-cols-4 gap-4">
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col gap-1 border-b-2 border-primary/20">
+<span class="text-[10px] font-black tracking-widest text-on-surface-variant uppercase">SQUAD AVG RATING</span>
+<span class="text-3xl font-headline font-bold text-primary">84.2</span>
+</div>
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col gap-1 border-b-2 border-tertiary/20">
+<span class="text-[10px] font-black tracking-widest text-on-surface-variant uppercase">ACTIVE SQUAD</span>
+<span class="text-3xl font-headline font-bold text-tertiary">32/45</span>
+</div>
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col gap-1">
+<span class="text-[10px] font-black tracking-widest text-on-surface-variant uppercase">INJURY LIST</span>
+<span class="text-3xl font-headline font-bold text-error">03</span>
+</div>
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col gap-1">
+<span class="text-[10px] font-black tracking-widest text-on-surface-variant uppercase">WAGE TOTAL</span>
+<span class="text-3xl font-headline font-bold text-on-surface">£4.2M</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Player Profile Detail -->
+<div class="col-span-12 xl:col-span-4">
+<div class="glass-panel border border-primary/20 rounded-lg p-6 flex flex-col gap-8 relative overflow-hidden shadow-[0_0_40px_rgba(0,241,254,0.05)]">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-[160px]">sports_rugby</span>
+</div>
+<div class="flex items-start gap-4 z-10">
+<div class="w-24 h-24 bg-surface-container-highest rounded border-2 border-primary overflow-hidden relative">
+<img alt="Player Portrait" class="w-full h-full object-cover grayscale brightness-125 contrast-125" data-alt="Rugby player profile portrait athletic man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6EScPvh7VAOG7aCsAno0N4-AIt_wqJJwtDYoDyFXq5FVV2xG4BELoCaaB4-Yj6VQOq4s6SvIQPUBCQQvo3yjoGsDdJSruZQ6oYEndEIlSuKkaJAIadjkjMxEIW3q3h7x58MNDrTsKev30P_ypYSIPAfD_5Hwbs-sBrBxweiO09dsJD7oh1C3hHZSC0QEvBx5zjpwEwMiPvf_tidlGAh6rReGCjOz5emBawC-BGnRCCvXfTLHLe0KBz7JI9aY1TmxRLbOdYf4mMpdV"/>
+<div class="absolute bottom-0 w-full bg-primary text-on-primary text-[10px] font-black text-center py-0.5">ACTIVE</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h2 class="font-headline text-3xl font-bold leading-none tracking-tighter">ELLIS GENGE</h2>
+<p class="text-primary font-bold tracking-widest text-xs mt-1 uppercase">Loosehead Prop | Age: 28</p>
+</div>
+<div class="text-right">
+<p class="font-headline text-4xl font-black text-tertiary">91</p>
+<p class="text-[8px] font-black text-on-surface-variant uppercase tracking-widest">OVERALL</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6 z-10">
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">
+<span>Scrummaging</span>
+<span class="text-primary">95</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary/50 to-primary w-[95%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">
+<span>Mobility</span>
+<span class="text-primary">84</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary/50 to-primary w-[84%]"></div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">
+<span>Mentality</span>
+<span class="text-tertiary">89</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary/50 to-tertiary w-[89%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-1">
+<span>Discipline</span>
+<span class="text-error">62</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-error/50 to-error w-[62%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4 z-10">
+<h3 class="text-[10px] font-black tracking-[0.3em] text-on-surface-variant uppercase border-b border-outline-variant/20 pb-2">Player Biography</h3>
+<p class="text-xs leading-relaxed text-secondary font-light">Known as "Baby Rhino," Genge is a destructive force in the scrum and a high-impact ball carrier. His aggressive style often breaks gain lines but requires careful discipline management from the coaching staff.</p>
+</div>
+<div class="mt-auto space-y-3 z-10">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary font-black uppercase text-xs tracking-[0.2em] rounded-sm shadow-[0_4px_10px_rgba(0,241,254,0.2)] hover:scale-[1.02] transition-transform active:scale-95">
+                            ASSIGN TRAINING FOCUS
+                        </button>
+<button class="w-full py-3 bg-transparent border border-primary/40 text-primary font-black uppercase text-xs tracking-[0.2em] rounded-sm hover:bg-primary/5 transition-colors">
+                            OPEN CONTRACT RENEWAL
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB for Squad Page -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center gap-3 bg-tertiary px-6 py-4 rounded-full shadow-[0_8px_20px_rgba(202,253,0,0.3)] hover:-translate-y-1 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-tertiary text-2xl font-bold">add</span>
+<span class="text-on-tertiary font-headline font-bold text-sm tracking-tight">ADD NEW PLAYER</span>
+</button>
+</div>
+</body></html>

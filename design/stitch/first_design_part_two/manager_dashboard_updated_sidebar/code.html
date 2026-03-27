@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rugby Manager Dashboard | RFC Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#0e5138",
+              "tertiary": "#e9c400",
+              "primary": "#95d4b3",
+              "error": "#ffb4ab",
+              "surface-container-highest": "#353534",
+              "background": "#131313",
+              "surface-dim": "#131313",
+              "on-error-container": "#ffdad6",
+              "surface": "#131313",
+              "surface-container-low": "#1c1b1b",
+              "primary-fixed-dim": "#95d4b3",
+              "on-surface-variant": "#c1c8c2",
+              "on-primary": "#003824",
+              "on-secondary-container": "#9fb6de",
+              "inverse-primary": "#2c694e",
+              "secondary-container": "#30486a",
+              "on-background": "#e5e2e1",
+              "error-container": "#93000a",
+              "primary-container": "#00452e",
+              "surface-container-high": "#2a2a2a",
+              "primary-fixed": "#b1f0ce",
+              "on-tertiary": "#3b2f00",
+              "on-primary-container": "#76b394",
+              "on-secondary": "#183152",
+              "tertiary-fixed-dim": "#e9c400",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container": "#201f1f",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary-container": "#4c3e00",
+              "on-secondary-fixed-variant": "#30486a",
+              "on-tertiary-fixed-variant": "#554600",
+              "on-secondary-fixed": "#001c3b",
+              "surface-bright": "#393939",
+              "tertiary-fixed": "#ffe171",
+              "secondary-fixed": "#d5e3ff",
+              "secondary": "#b0c8f0",
+              "outline-variant": "#414844",
+              "outline": "#8b938d",
+              "inverse-on-surface": "#313030",
+              "on-tertiary-fixed": "#221b00",
+              "surface-tint": "#95d4b3",
+              "tertiary-container": "#c9a800",
+              "secondary-fixed-dim": "#b0c8f0",
+              "on-surface": "#e5e2e1",
+              "on-error": "#690005",
+              "on-primary-fixed": "#002114",
+              "surface-variant": "#353534"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pitch-gradient {
+            background: linear-gradient(135deg, #95d4b3 0%, #00452e 100%);
+        }
+        .glass-panel {
+            background-color: rgba(53, 53, 52, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-[240px] fixed left-0 top-0 z-50 flex flex-col py-6 bg-[#1c1b1b] border-r border-white/5 shadow-2xl">
+<div class="px-6 mb-8"><div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-tertiary/20 rounded-lg flex items-center justify-center border border-tertiary/30">
+<span class="material-symbols-outlined text-tertiary">shield</span>
+</div>
+<div>
+<div class="text-xl font-black text-on-surface tracking-tighter font-headline leading-tight">RFC <span class="text-tertiary">ANALYTICS</span></div>
+<div class="text-[10px] font-headline font-bold tracking-[0.2em] uppercase text-on-surface-variant opacity-60">Elite Division</div>
+</div>
+</div></div>
+<nav class="flex-1 space-y-1"><div class="space-y-1">
+<a class="flex items-center gap-4 px-6 py-3.5 bg-[#2a2a2a] text-[#95d4b3] border-l-4 border-[#95d4b3] font-headline font-bold tracking-widest uppercase text-xs transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+        Dashboard
+    </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-on-surface/60 font-headline font-bold tracking-widest uppercase text-xs hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+        Squad
+    </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-on-surface/60 font-headline font-bold tracking-widest uppercase text-xs hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">strategy</span>
+        Tactics
+    </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-on-surface/60 font-headline font-bold tracking-widest uppercase text-xs hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+        Training
+    </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-on-surface/60 font-headline font-bold tracking-widest uppercase text-xs hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">search_check</span>
+        Scouting
+    </a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-on-surface/60 font-headline font-bold tracking-widest uppercase text-xs hover:bg-white/5 hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_rugby</span>
+        Matches
+    </a>
+</div></nav>
+<div class="px-6 mt-auto"><div class="space-y-4">
+<button class="w-full pitch-gradient text-on-primary font-headline font-black py-3.5 rounded-lg uppercase tracking-widest text-[10px] shadow-lg active:scale-[0.98] transition-all">
+        Next Match
+    </button>
+<div class="pt-4 border-t border-white/5">
+<div class="flex items-center gap-3 p-2 mb-2 rounded-lg bg-white/5">
+<img alt="Profile" class="w-8 h-8 rounded-md object-cover border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7EXSLu0Xei4x7ghHE-VziwAa4AeobCtiFdPGYXO3-vtpNaFxq_qzsktuPXHd-Rr8aTCaCO_RQn2NLY2cBrb_FiHmDaYYlBOxQkUnua5Xr_PLVIpqHBRY9JbN0tET1VChxHMc0sFnd8rzN7X6B-5ilVTcFz95Vxew6YK0phhuIM1FCDcdDOhFQpGeOm3IfRrySNH_TVY6FruJCmhP0AtZizieYODR0NGPJaXGNi0fMNh6NhZydZPUkd9rigWomv8RgAs-hsjh3RhEK"/>
+<div class="flex-1 min-w-0">
+<p class="text-[10px] font-headline font-black text-on-surface truncate uppercase tracking-tighter">Alex Mercer</p>
+<p class="text-[8px] text-tertiary font-bold uppercase tracking-widest">Head Coach</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm">logout</span>
+</button>
+</div>
+<div class="flex justify-between px-2">
+<a class="text-on-surface/40 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+</a>
+<a class="text-on-surface/40 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+<a class="text-on-surface/40 hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+</a>
+</div>
+</div>
+</div></div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-[240px] h-16 z-40 flex justify-between items-center px-8 bg-[#131313]/90 backdrop-blur-md">
+<div class="flex items-center gap-8 font-['Inter'] text-sm font-medium tracking-wide">
+<span class="text-[#e9c400] font-bold border-b-2 border-[#e9c400] pb-1">Sat 14 Oct</span>
+<span class="text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] transition-colors cursor-pointer">Next: Harlequins (H)</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] cursor-pointer">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-tertiary rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] cursor-pointer">help_outline</span>
+<div class="h-8 w-px bg-outline-variant opacity-20 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-tertiary tracking-widest">Head Coach</p>
+<p class="text-xs font-headline font-bold text-on-surface">Alex Mercer</p>
+</div>
+<img alt="Manager Profile" class="w-10 h-10 rounded-xl object-cover border border-outline-variant/30" data-alt="Close up portrait of a rugby manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7EXSLu0Xei4x7ghHE-VziwAa4AeobCtiFdPGYXO3-vtpNaFxq_qzsktuPXHd-Rr8aTCaCO_RQn2NLY2cBrb_FiHmDaYYlBOxQkUnua5Xr_PLVIpqHBRY9JbN0tET1VChxHMc0sFnd8rzN7X6B-5ilVTcFz95Vxew6YK0phhuIM1FCDcdDOhFQpGeOm3IfRrySNH_TVY6FruJCmhP0AtZizieYODR0NGPJaXGNi0fMNh6NhZydZPUkd9rigWomv8RgAs-hsjh3RhEK"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-[240px] pt-16 min-h-screen bg-surface">
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Hero Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-headline font-black tracking-tighter text-on-surface">MANAGER'S OFFICE</h1>
+<p class="text-on-surface-variant font-medium">Welcome back, Coach. High intensity expected for the London Derby.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-lg border-l-2 border-tertiary">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Club Reputation</p>
+<p class="text-lg font-headline font-bold text-tertiary">ELITE ★★★★☆</p>
+</div>
+<div class="bg-surface-container-low px-4 py-2 rounded-lg border-l-2 border-primary">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Board Confidence</p>
+<p class="text-lg font-headline font-bold text-primary">88%</p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Next Match Card (Priority 1) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl overflow-hidden flex flex-col md:flex-row shadow-2xl relative">
+<div class="absolute top-4 right-4 bg-tertiary text-on-tertiary text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-tighter">Matchday 12</div>
+<div class="w-full md:w-1/3 bg-surface-container-high p-8 flex flex-col justify-center items-center text-center">
+<div class="mb-4">
+<img alt="Harlequins Crest" class="w-20 h-20" data-alt="Harlequins rugby club circular crest logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIL4wEfqaN1QrEMH8RRZJ9YjdBqA1BbWl5j9dW8_TIFFPkXwjbSCIfGepkLloNb7Re8bMvzJnRWeXIL0L0ak2RmsG2OyFKGdbOLgTphfbVqHBei9v7xvoL0n4re5xZJdeImQiXyvdMGc5McN7vskI-ATB-GDv2L1EE-nnLFeIPVGLlr8oHFJxaPAym7q9QAj7sKfEnTQ0buCUcOy7_yas_zf4UhBHonB0Te5Lgm53szCVG0bNGZ5dH-D9rcMsqzSN5Xj8N9rmqCzGw"/>
+</div>
+<h2 class="font-headline font-black text-2xl tracking-tight">HARLEQUINS</h2>
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-widest mt-1">Away - Twickenham</p>
+<div class="mt-6 flex gap-1">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+</div>
+<div class="w-full md:w-2/3 p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<h3 class="font-headline font-bold text-lg text-primary tracking-tight">TACTICAL PREVIEW</h3>
+<p class="text-on-surface-variant leading-relaxed text-sm">Quins are favoring a wide attacking game. Their fly-half is in peak form. Expect heavy pressure on the set piece. We need to maintain a high defensive line and dominate the breakdown.</p>
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="bg-surface-container px-4 py-3 rounded-lg">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant mb-1">Win Probability</p>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-headline font-black text-on-surface">62%</span>
+<span class="text-primary text-xs pb-1 font-bold">▲ 4%</span>
+</div>
+</div>
+<div class="bg-surface-container px-4 py-3 rounded-lg">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant mb-1">Key Threat</p>
+<p class="text-on-surface font-bold">Marcus Smith</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-end gap-3">
+<button class="px-6 py-2 bg-surface-container-highest text-on-surface text-xs font-bold uppercase tracking-widest rounded-md hover:bg-surface-bright transition-colors border-l-2 border-tertiary">Scouting Report</button>
+<button class="px-6 py-2 pitch-gradient text-on-primary text-xs font-bold uppercase tracking-widest rounded-md active:scale-95 transition-transform">Team Selection</button>
+</div>
+</div>
+</div>
+<!-- Recent Form (Priority 2) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low p-6 rounded-xl space-y-6">
+<h3 class="font-headline font-bold text-sm text-on-surface-variant uppercase tracking-widest">Recent Form</h3>
+<div class="flex justify-between items-center bg-surface-container p-4 rounded-lg">
+<div class="flex gap-2">
+<span class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-black text-xs">W</span>
+<span class="w-8 h-8 rounded-lg bg-error text-on-error flex items-center justify-center font-black text-xs">L</span>
+<span class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-black text-xs">W</span>
+<span class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-black text-xs">W</span>
+<span class="w-8 h-8 rounded-lg bg-outline-variant text-on-surface flex items-center justify-center font-black text-xs">D</span>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">League Position</p>
+<p class="text-xl font-headline font-black text-tertiary">3RD</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm border-b border-outline-variant/10 pb-2">
+<span class="text-on-surface-variant">Last Result</span>
+<span class="font-bold text-on-surface">24 - 12 (vs Bath)</span>
+</div>
+<div class="flex justify-between items-center text-sm border-b border-outline-variant/10 pb-2">
+<span class="text-on-surface-variant">Tries Scored (L5)</span>
+<span class="font-bold text-on-surface">18</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Disciplines (Yellows)</span>
+<span class="font-bold text-error">2</span>
+</div>
+</div>
+<button class="w-full text-center py-3 text-primary-fixed-dim hover:text-primary text-xs font-bold uppercase tracking-widest transition-colors">View Detailed Analytics</button>
+</div>
+<!-- Squad Status (Priority 3) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-sm text-on-surface-variant uppercase tracking-widest">Squad Status</h3>
+<span class="text-[10px] font-bold text-primary bg-primary-container/30 px-2 py-1 rounded">28 FIT / 32 TOTAL</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container p-4 rounded-lg space-y-2">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Fitness Levels</p>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-headline font-black">92%</span>
+<div class="flex-1 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-lg space-y-2">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Morale</p>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-headline font-black text-tertiary">High</span>
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sentiment_very_satisfied</span>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-lg space-y-2">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant">Medical Room</p>
+<div class="flex items-center gap-3">
+<span class="text-2xl font-headline font-black text-error">4</span>
+<span class="text-[10px] font-bold text-on-surface-variant">Injured</span>
+</div>
+</div>
+</div>
+<div class="mt-6 overflow-hidden rounded-lg">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-highest/30">
+<tr>
+<th class="px-4 py-3 font-bold text-on-surface-variant text-[10px] uppercase">Player</th>
+<th class="px-4 py-3 font-bold text-on-surface-variant text-[10px] uppercase">Position</th>
+<th class="px-4 py-3 font-bold text-on-surface-variant text-[10px] uppercase">Status</th>
+<th class="px-4 py-3 font-bold text-on-surface-variant text-[10px] uppercase text-right">Rating</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-bold">Ellis Genge</td>
+<td class="px-4 py-3 text-on-surface-variant">Loosehead Prop</td>
+<td class="px-4 py-3"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span>Match Fit</span></td>
+<td class="px-4 py-3 text-right font-headline font-bold text-tertiary">8.4</td>
+</tr>
+<tr class="bg-surface-container/30 hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-bold">Maro Itoje</td>
+<td class="px-4 py-3 text-on-surface-variant">Second Row</td>
+<td class="px-4 py-3"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span>Match Fit</span></td>
+<td class="px-4 py-3 text-right font-headline font-bold text-tertiary">9.1</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-bold">Danny Care</td>
+<td class="px-4 py-3 text-on-surface-variant">Scrum-half</td>
+<td class="px-4 py-3"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-error"></span>Injured (1w)</span></td>
+<td class="px-4 py-3 text-right font-headline font-bold text-on-surface-variant">7.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Inbox Preview (Priority 4) -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-low p-6 rounded-xl flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-sm text-on-surface-variant uppercase tracking-widest">Manager's Inbox</h3>
+<span class="w-6 h-6 bg-tertiary text-on-tertiary rounded-full flex items-center justify-center text-[10px] font-black">3</span>
+</div>
+<div class="flex-1 space-y-1">
+<!-- Message 1 -->
+<div class="group p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-all border-l-2 border-primary cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold uppercase text-primary tracking-widest">Medical Staff</span>
+<span class="text-[10px] text-on-surface-variant">2h ago</span>
+</div>
+<h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors">Fitness Update: Danny Care</h4>
+<p class="text-xs text-on-surface-variant line-clamp-1">Scan results show a minor hamstring strain. Estimated recovery...</p>
+</div>
+<!-- Message 2 -->
+<div class="group p-4 rounded-lg bg-surface-container/50 hover:bg-surface-container-high transition-all border-l-2 border-transparent cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Chief Scout</span>
+<span class="text-[10px] text-on-surface-variant">5h ago</span>
+</div>
+<h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors">New Talent: South Africa U20</h4>
+<p class="text-xs text-on-surface-variant line-clamp-1">I've identified a promising fly-half in the Currie Cup youth system...</p>
+</div>
+<!-- Message 3 -->
+<div class="group p-4 rounded-lg bg-surface-container/50 hover:bg-surface-container-high transition-all border-l-2 border-transparent cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<span class="text-[10px] font-bold uppercase text-on-surface-variant tracking-widest">Board Member</span>
+<span class="text-[10px] text-on-surface-variant">Yesterday</span>
+</div>
+<h4 class="font-bold text-sm mb-1 group-hover:text-primary transition-colors">Stadium Expansion Plans</h4>
+<p class="text-xs text-on-surface-variant line-clamp-1">The council has approved the preliminary designs for the North Stand...</p>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-highest/50 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-surface-container-highest transition-colors">Open Inbox Full View</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB Suppression: FAB not rendered on Dashboard as per instructions -->
+</body></html>

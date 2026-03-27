@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFC COMMAND - Tactics Board</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#c7d5f3",
+                        "inverse-primary": "#006a70",
+                        "outline-variant": "#3b4861",
+                        "primary-dim": "#00e2ee",
+                        "tertiary-container": "#cafd00",
+                        "surface-container-highest": "#102645",
+                        "surface-container": "#061934",
+                        "on-primary-fixed-variant": "#006065",
+                        "primary-container": "#00f1fe",
+                        "surface-tint": "#99f7ff",
+                        "error-container": "#9f0519",
+                        "primary": "#99f7ff",
+                        "on-tertiary-container": "#4a5e00",
+                        "tertiary-fixed-dim": "#beee00",
+                        "on-error": "#490006",
+                        "on-secondary-fixed-variant": "#45536c",
+                        "on-background": "#dbe6ff",
+                        "primary-fixed": "#00f1fe",
+                        "tertiary": "#f3ffca",
+                        "secondary-container": "#39475f",
+                        "on-tertiary-fixed": "#3a4a00",
+                        "on-surface-variant": "#9eabc8",
+                        "secondary-fixed-dim": "#b9c7e4",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-fixed": "#cafd00",
+                        "surface-container-low": "#02132b",
+                        "inverse-on-surface": "#48556e",
+                        "surface-bright": "#152c4e",
+                        "on-primary-container": "#00555a",
+                        "on-tertiary-fixed-variant": "#526900",
+                        "primary-fixed-dim": "#00e2ee",
+                        "surface-container-high": "#0b203d",
+                        "on-tertiary": "#516700",
+                        "on-secondary-fixed": "#29364e",
+                        "on-secondary-container": "#c3d1ee",
+                        "tertiary-dim": "#beee00",
+                        "surface-variant": "#102645",
+                        "secondary-dim": "#b9c7e4",
+                        "error": "#ff716c",
+                        "error-dim": "#d7383b",
+                        "on-secondary": "#3c4962",
+                        "background": "#010e24",
+                        "outline": "#687690",
+                        "on-surface": "#dbe6ff",
+                        "on-primary-fixed": "#004145",
+                        "secondary-fixed": "#c7d5f3",
+                        "on-primary": "#005f64",
+                        "surface-dim": "#010e24",
+                        "inverse-surface": "#f9f9ff",
+                        "surface": "#010e24",
+                        "on-error-container": "#ffa8a3"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pitch-grid {
+            background-image: radial-gradient(circle at 2px 2px, rgba(153, 247, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(11, 32, 61, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-16 flex justify-between items-center px-6 z-50 bg-slate-950/80 backdrop-blur-md shadow-[0_0_15px_rgba(153,247,255,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold italic text-cyan-400 font-['Space_Grotesk'] tracking-tight">RFC COMMAND</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 font-['Space_Grotesk'] uppercase tracking-widest text-xs font-semibold hover:bg-slate-800/50 hover:text-cyan-300 transition-all px-3 py-1" href="#">Dashboard</a>
+<a class="text-cyan-300 border-b-2 border-cyan-400 font-['Space_Grotesk'] uppercase tracking-widest text-xs font-semibold px-3 py-1" href="#">Tactics</a>
+<a class="text-slate-400 font-['Space_Grotesk'] uppercase tracking-widest text-xs font-semibold hover:bg-slate-800/50 hover:text-cyan-300 transition-all px-3 py-1" href="#">Squad</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-cyan-400 hover:bg-slate-800/50 rounded transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<button class="p-2 text-cyan-400 hover:bg-slate-800/50 rounded transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</button>
+<button class="p-2 text-cyan-400 hover:bg-slate-800/50 rounded transition-all active:scale-95 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-tertiary rounded-full shadow-[0_0_8px_#f3ffca]"></span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col pt-16 border-r border-slate-800/50 z-40 bg-slate-950">
+<div class="p-6">
+<h2 class="text-cyan-400 font-['Space_Grotesk'] font-black tracking-tighter text-2xl">STRATEGIST ONE</h2>
+<p class="text-slate-500 font-['Inter'] uppercase tracking-widest text-[10px] font-semibold mt-1">Elite Division</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-2 space-y-1">
+<div class="px-4 py-2 text-slate-600 text-[10px] font-bold tracking-widest uppercase">Management</div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="groups">groups</span>
+<span>Squad</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-cyan-500/20 to-transparent border-l-4 border-cyan-400 text-cyan-400 shadow-[0_0_10px_rgba(153,247,255,0.2)] transition-all duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="strategy">strategy</span>
+<span>Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="swap_horizontal_circle">swap_horizontal_circle</span>
+<span>Transfers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="fitness_center">fitness_center</span>
+<span>Training</span>
+</a>
+<div class="px-4 py-6">
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-xs tracking-widest uppercase rounded shadow-[0_0_20px_rgba(153,247,255,0.2)] hover:shadow-[0_0_30px_rgba(153,247,255,0.4)] transition-all active:scale-95">
+                    SIMULATE NEXT DAY
+                </button>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-900">
+<div class="flex items-center gap-4 px-2 py-2">
+<div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center overflow-hidden border border-cyan-400/30">
+<img alt="Club Crest" class="w-full h-full object-cover" data-alt="Rugby club crest with a shield motif" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnqck0BmV9iSm_Y5FeXqwJyh31O31_Oho8gtwjMCH7pgeqJwa4Q8HGF5tzc7h4IkmQevsr9nrTrEWaWsLh5lEL-Me2yRBEJYe8eqhyh8dcQK7bm2V72q5WiGAzIWvWBYYfdIhlNeV6erOSQn3Wz1L2HXdzhFUTPjLcdcxPLhPySCP5I3daMSbAlIt_H-NpSpQHc4Y_bVnnFlw59eel0t6CjuMT_3sFbZjdUPdoRTpJ2jXMUKBFWGZ1vLrr9lKvWLA0nUAuOeEGG4tA"/>
+</div>
+<div class="flex-1">
+<p class="text-[10px] font-bold text-slate-300">Harlequins RFC</p>
+<p class="text-[8px] text-cyan-400/70">TWICKENHAM STOOP</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-16 h-screen flex overflow-hidden">
+<!-- Tactical Canvas -->
+<section class="flex-1 relative bg-surface overflow-hidden pitch-grid">
+<!-- Pitch Markings Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none border-[1px] border-primary/40 m-8">
+<div class="absolute top-0 bottom-0 left-1/2 w-[1px] bg-primary/40"></div>
+<div class="absolute top-1/4 bottom-1/4 left-0 right-0 border-y border-primary/40"></div>
+</div>
+<!-- Header Info -->
+<div class="absolute top-8 left-8 z-10">
+<h1 class="font-headline text-4xl font-extrabold text-on-surface tracking-tighter uppercase leading-none">WAR ROOM</h1>
+<p class="font-label text-tertiary text-[10px] tracking-[0.3em] font-bold mt-2">ACTIVE PHASE: ATTACKING EXPANSION</p>
+</div>
+<!-- Player Pitch Visualization -->
+<div class="relative w-full h-full flex items-center justify-center p-20">
+<!-- Defensive/Scrum Layout Representation -->
+<div class="grid grid-cols-5 grid-rows-4 gap-8 w-full max-w-4xl h-full max-h-[600px]">
+<!-- Prop 1 -->
+<div class="col-start-2 row-start-1 flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary shadow-[0_0_15px_rgba(153,247,255,0.3)] flex items-center justify-center font-headline font-black text-primary text-xl relative group cursor-pointer hover:bg-primary hover:text-on-primary transition-all">
+                            1
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-tertiary rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Genge</span>
+</div>
+<!-- Hooker 2 -->
+<div class="col-start-3 row-start-1 flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary shadow-[0_0_15px_rgba(153,247,255,0.3)] flex items-center justify-center font-headline font-black text-primary text-xl cursor-pointer hover:bg-primary hover:text-on-primary transition-all">2</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">George</span>
+</div>
+<!-- Prop 3 -->
+<div class="col-start-4 row-start-1 flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary shadow-[0_0_15px_rgba(153,247,255,0.3)] flex items-center justify-center font-headline font-black text-primary text-xl cursor-pointer hover:bg-primary hover:text-on-primary transition-all">3</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Sinckler</span>
+</div>
+<!-- Second Row 4 & 5 -->
+<div class="col-start-2 row-start-2 flex flex-col items-center gap-2 -translate-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">4</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Itoje</span>
+</div>
+<div class="col-start-4 row-start-2 flex flex-col items-center gap-2 -translate-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">5</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Chessum</span>
+</div>
+<!-- Back Row 6, 8, 7 -->
+<div class="col-start-1 row-start-2 flex flex-col items-center gap-2 translate-x-12 translate-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">6</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Lawes</span>
+</div>
+<div class="col-start-3 row-start-2 flex flex-col items-center gap-2 translate-y-8">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">8</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Earl</span>
+</div>
+<div class="col-start-5 row-start-2 flex flex-col items-center gap-2 -translate-x-12 translate-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">7</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Curry</span>
+</div>
+<!-- Halves 9 & 10 -->
+<div class="col-start-2 row-start-3 flex flex-col items-center gap-2 -translate-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">9</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Care</span>
+</div>
+<div class="col-start-3 row-start-3 flex flex-col items-center gap-2 translate-y-12">
+<div class="w-12 h-12 rounded-lg bg-surface-bright border-2 border-tertiary shadow-[0_0_20px_rgba(243,255,202,0.4)] flex items-center justify-center font-headline font-black text-tertiary text-xl scale-110 ring-4 ring-tertiary/20">10</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">M. Smith</span>
+</div>
+<!-- Backs 12, 13 -->
+<div class="col-start-4 row-start-3 flex flex-col items-center gap-2 translate-y-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">12</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Tuilagi</span>
+</div>
+<div class="col-start-5 row-start-3 flex flex-col items-center gap-2 translate-y-12">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">13</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Marchant</span>
+</div>
+<!-- Back Three 11, 15, 14 -->
+<div class="col-start-1 row-start-4 flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">11</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Arundell</span>
+</div>
+<div class="col-start-3 row-start-4 flex flex-col items-center gap-2 translate-y-8">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">15</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">Steward</span>
+</div>
+<div class="col-start-5 row-start-4 flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border-2 border-primary flex items-center justify-center font-headline font-black text-primary text-xl">14</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/60">May</span>
+</div>
+</div>
+</div>
+<!-- Floating Quick Stats -->
+<div class="absolute bottom-8 left-8 flex gap-4">
+<div class="glass-panel p-4 border-l-2 border-tertiary">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Team Fatigue</p>
+<div class="flex items-end gap-2 mt-1">
+<span class="text-2xl font-headline font-bold text-on-surface leading-none">14%</span>
+<span class="text-[10px] text-tertiary mb-1">OPTIMAL</span>
+</div>
+</div>
+<div class="glass-panel p-4 border-l-2 border-primary">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Cohesion Index</p>
+<div class="flex items-end gap-2 mt-1">
+<span class="text-2xl font-headline font-bold text-on-surface leading-none">88.4</span>
+<span class="material-symbols-outlined text-primary text-sm mb-1" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tactical Panels Sidebar -->
+<aside class="w-96 bg-surface-container-low border-l border-slate-800/50 flex flex-col overflow-y-auto">
+<!-- Section: Team Philosophy -->
+<div class="p-6 border-b border-slate-800/30">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-sm tracking-widest text-primary uppercase">Team Philosophy</h3>
+<span class="material-symbols-outlined text-primary-dim text-lg" data-icon="psychology">psychology</span>
+</div>
+<div class="space-y-4">
+<div class="p-3 bg-surface-container-high rounded flex justify-between items-center group cursor-pointer hover:bg-surface-bright transition-colors">
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Attacking Style</p>
+<p class="text-xs font-semibold text-on-surface">Wide Expansion</p>
+</div>
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-3 bg-surface-container-high rounded flex justify-between items-center group cursor-pointer hover:bg-surface-bright transition-colors">
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Defensive Intensity</p>
+<p class="text-xs font-semibold text-on-surface">High Press Drift</p>
+</div>
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-3 bg-surface-container-high rounded flex justify-between items-center group cursor-pointer hover:bg-surface-bright transition-colors">
+<div>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Kicking Strategy</p>
+<p class="text-xs font-semibold text-on-surface">Territorial Pressure</p>
+</div>
+<span class="material-symbols-outlined text-slate-600 group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Section: Set-Piece Focus -->
+<div class="p-6 border-b border-slate-800/30">
+<h3 class="font-headline font-bold text-sm tracking-widest text-primary uppercase mb-4">Set-Piece Focus</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 bg-surface-container rounded-lg border border-outline-variant/20 hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-2xl text-secondary" data-icon="sports_rugby">sports_rugby</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Scrum</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-surface-container rounded-lg border border-outline-variant/20 hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-2xl text-secondary" data-icon="height">height</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Lineout</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-surface-container rounded-lg border border-outline-variant/20 hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-2xl text-secondary" data-icon="target">target</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Penalties</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-surface-container-high ring-1 ring-primary/50 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-2xl text-tertiary" data-icon="edit_square">edit_square</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">Edit Calls</span>
+</button>
+</div>
+</div>
+<!-- Section: Role Instructions (Active Player: Marcus Smith) -->
+<div class="p-6 bg-surface-container-highest/50 border-b border-tertiary/20">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-12 h-12 bg-slate-800 rounded-lg overflow-hidden border border-tertiary/40">
+<img alt="Marcus Smith Profile" class="w-full h-full object-cover" data-alt="Portrait of rugby player Marcus Smith" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX8EXnR6XJct_b398_HIYH6opP_ttoOsOvEtREDEPtEWTqy2C7Qze4lg5jmxLP6lIQgAon617SSIJMKAHiN91N0yVN9CG8nc6PzOE2Knl2NIu44hqMft8LBJ27kE6tbh6g3bQPdtyxziRhA7wqsgCyq_3aVmArqnBSUXmi_wTsdvm5E8bOYTVwoGKjTwuUdnE1npWvhRBO04Ehsjhe-WUFEmW4N1zpcCw4y_HRb5LOcJ1KagI-9sWv8NhEfDStT4KSe5Rqofv8Kvx0"/>
+</div>
+<div>
+<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest leading-none">Primary Playmaker</p>
+<h4 class="font-headline font-bold text-lg text-on-surface">Marcus Smith</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded uppercase font-bold tracking-tighter">FLY HALF</span>
+<span class="text-[10px] bg-tertiary/20 text-tertiary px-2 py-0.5 rounded uppercase font-bold tracking-tighter">FORM: A+</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-500">Kick vs Run Bias</span>
+<span class="text-on-surface font-mono">25/75</span>
+</div>
+<div class="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-gradient-to-r from-primary to-tertiary rounded-full shadow-[0_0_8px_#99f7ff]"></div>
+</div>
+<div class="pt-2">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Instructions</p>
+<ul class="space-y-2">
+<li class="flex items-center gap-2 text-[11px] text-on-surface/80">
+<span class="w-1 h-1 bg-tertiary rounded-full"></span>
+                                Flatten defensive line on phase 2
+                            </li>
+<li class="flex items-center gap-2 text-[11px] text-on-surface/80">
+<span class="w-1 h-1 bg-tertiary rounded-full"></span>
+                                Target outside shoulder of 12
+                            </li>
+<li class="flex items-center gap-2 text-[11px] text-on-surface/80">
+<span class="w-1 h-1 bg-tertiary rounded-full"></span>
+                                Tactical cross-field if wide overlap &gt; 2
+                            </li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Section: The Finisher Bench -->
+<div class="p-6 mb-20">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-sm tracking-widest text-primary uppercase">The Finisher Bench</h3>
+<span class="text-[10px] font-bold text-slate-500">8 AVAILABLE</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-3 p-2 bg-surface-container rounded border border-outline-variant/10 hover:border-primary/30 cursor-grab active:cursor-grabbing group">
+<div class="w-8 h-8 rounded bg-slate-900 flex items-center justify-center font-headline font-black text-slate-500 group-hover:text-primary text-xs">16</div>
+<div class="flex-1">
+<p class="text-[11px] font-bold text-on-surface">Jamie Blamire</p>
+<p class="text-[9px] text-slate-500 uppercase tracking-widest">Hooker</p>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 bg-error rounded-full"></div>
+<span class="text-[9px] font-bold text-error">94%</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 bg-surface-container rounded border border-outline-variant/10 hover:border-primary/30 cursor-grab active:cursor-grabbing group">
+<div class="w-8 h-8 rounded bg-slate-900 flex items-center justify-center font-headline font-black text-slate-500 group-hover:text-primary text-xs">17</div>
+<div class="flex-1">
+<p class="text-[11px] font-bold text-on-surface">Beno Obano</p>
+<p class="text-[9px] text-slate-500 uppercase tracking-widest">Loosehead Prop</p>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 bg-tertiary rounded-full"></div>
+<span class="text-[9px] font-bold text-tertiary">100%</span>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 bg-surface-container rounded border border-outline-variant/10 hover:border-primary/30 cursor-grab active:cursor-grabbing group">
+<div class="w-8 h-8 rounded bg-slate-900 flex items-center justify-center font-headline font-black text-slate-500 group-hover:text-primary text-xs">21</div>
+<div class="flex-1">
+<p class="text-[11px] font-bold text-on-surface">Alex Mitchell</p>
+<p class="text-[9px] text-slate-500 uppercase tracking-widest">Scrum Half</p>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 bg-tertiary rounded-full"></div>
+<span class="text-[9px] font-bold text-tertiary">100%</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation (Mobile Only Shell) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full h-16 bg-slate-950 flex justify-around items-center px-4 z-50 border-t border-slate-900">
+<button class="flex flex-col items-center gap-1 text-cyan-400">
+<span class="material-symbols-outlined" data-icon="strategy" style="font-variation-settings: 'FILL' 1;">strategy</span>
+<span class="text-[8px] font-bold uppercase tracking-widest">Tactics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-[8px] font-bold uppercase tracking-widest">Squad</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="sports_rugby">sports_rugby</span>
+<span class="text-[8px] font-bold uppercase tracking-widest">Match</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[8px] font-bold uppercase tracking-widest">Admin</span>
+</button>
+</div>
+</body></html>

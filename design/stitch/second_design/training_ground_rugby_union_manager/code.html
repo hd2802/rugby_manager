@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Training Ground | London Warriors RFC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-fixed-dim": "#a1d494",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary": "#1b247f",
+                        "inverse-primary": "#3b6934",
+                        "primary-container": "#043405",
+                        "secondary": "#bdc2ff",
+                        "outline-variant": "#434843",
+                        "on-secondary-fixed": "#000767",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed-variant": "#23501e",
+                        "tertiary-container": "#2a2c2c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "primary": "#a1d494",
+                        "on-primary": "#0a3909",
+                        "surface-container-highest": "#31353c",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "on-surface-variant": "#c3c8c1",
+                        "outline": "#8d928c",
+                        "surface-variant": "#31353c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-primary-fixed": "#002201",
+                        "on-tertiary-container": "#929393",
+                        "on-background": "#dfe2eb",
+                        "inverse-on-surface": "#2d3137",
+                        "surface": "#10141a",
+                        "surface-container-high": "#262a31",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "surface-dim": "#10141a",
+                        "on-secondary-container": "#a8afff",
+                        "surface-container": "#1c2026",
+                        "on-surface": "#dfe2eb",
+                        "on-tertiary": "#2f3131",
+                        "surface-bright": "#353940",
+                        "secondary-container": "#343d96",
+                        "surface-container-low": "#181c22",
+                        "primary-fixed": "#bcf0ae",
+                        "background": "#10141a",
+                        "inverse-surface": "#dfe2eb",
+                        "surface-tint": "#a1d494",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary-container": "#6e9f64",
+                        "surface-container-lowest": "#0a0e14",
+                        "error": "#ffb4ab",
+                        "tertiary": "#c6c6c6"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #10141a;
+            color: #dfe2eb;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar (Shared Component) -->
+<nav class="fixed left-0 top-0 h-full z-40 flex flex-col items-center py-6 bg-[#181c22] border-r border-white/5 shadow-2xl shadow-black/50 w-20">
+<div class="mb-10">
+<span class="text-[#a1d494] font-black tracking-tighter text-xl">RW</span>
+</div>
+<div class="flex flex-col gap-8 flex-1">
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Squad</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="strategy">strategy</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Tactics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Transfers</span>
+</button>
+<button class="flex flex-col items-center gap-1 bg-[#31353c] text-[#a1d494] border-l-4 border-[#a1d494] py-2 px-1 w-20">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Training</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="sports_rugby">sports_rugby</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Match Day</span>
+</button>
+</div>
+</nav>
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-20 z-30 px-8 h-16 flex justify-between items-center bg-[#10141a]/80 backdrop-blur-md border-b border-[#31353c]/30">
+<div class="flex items-center gap-6">
+<h1 class="font-black text-lg text-white tracking-widest uppercase">London Warriors RFC</h1>
+<div class="flex gap-4 items-center">
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-slate-300">12 OCT 2024</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-[#a1d494] font-bold">£14.2M SURPLUS</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-white/5 p-2 rounded transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-white/5 p-2 rounded transition-colors" data-icon="settings">settings</span>
+</div>
+<button class="bg-primary text-on-primary font-headline font-bold uppercase tracking-wider px-6 py-1.5 text-sm hover:brightness-110 active:scale-95 transition-all">
+                Continue
+            </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-20 pt-24 px-8 pb-12">
+<div class="max-w-[1600px] mx-auto space-y-10">
+<!-- Page Header -->
+<div class="flex justify-between items-end border-b border-outline-variant/20 pb-6">
+<div>
+<span class="text-primary font-label uppercase tracking-widest text-xs font-bold mb-2 block">Performance Center</span>
+<h2 class="font-headline text-5xl font-black uppercase tracking-tighter">Training Ground</h2>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high border border-outline-variant/30 text-on-surface px-4 py-2 text-xs font-headline font-bold uppercase tracking-widest hover:bg-surface-bright transition-colors">
+                        Edit Schedule
+                    </button>
+<button class="bg-surface-container-high border border-outline-variant/30 text-on-surface px-4 py-2 text-xs font-headline font-bold uppercase tracking-widest hover:bg-surface-bright transition-colors">
+                        Staff Meetings
+                    </button>
+</div>
+</div>
+<!-- Bento Layout: Schedule & Coaching -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Weekly Schedule (Col 1-8) -->
+<section class="col-span-8 bg-surface-container-low p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_month">calendar_month</span>
+                            Weekly Schedule
+                        </h3>
+<span class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Focus: Tactical Fluidity</span>
+</div>
+<div class="grid grid-cols-7 gap-px bg-outline-variant/20">
+<!-- Days of week -->
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Mon</div>
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Tue</div>
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Wed</div>
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Thu</div>
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Fri</div>
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Sat</div>
+<div class="bg-surface-container-high p-3 text-center text-xs font-headline font-bold text-on-surface-variant uppercase">Sun</div>
+<!-- Slots Row 1: AM -->
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10">
+<div class="bg-primary/10 border-l-2 border-primary p-2">
+<span class="block text-[10px] font-black uppercase text-primary mb-1">Physical</span>
+<p class="text-[11px] font-bold leading-tight">Max Strength Circuit</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10">
+<div class="bg-secondary/10 border-l-2 border-secondary p-2">
+<span class="block text-[10px] font-black uppercase text-secondary mb-1">Tactical</span>
+<p class="text-[11px] font-bold leading-tight">Phase Play Patterns</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10">
+<div class="flex items-center justify-center h-full">
+<span class="text-[10px] font-bold text-on-surface-variant/40 uppercase">Rest Day</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10">
+<div class="bg-surface-container-highest border-l-2 border-white/20 p-2">
+<span class="block text-[10px] font-black uppercase text-on-surface-variant mb-1">Unit Work</span>
+<p class="text-[11px] font-bold leading-tight">Scrum: Engagement Speed</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10">
+<div class="bg-primary/10 border-l-2 border-primary p-2">
+<span class="block text-[10px] font-black uppercase text-primary mb-1">Physical</span>
+<p class="text-[11px] font-bold leading-tight">High Speed Running</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10 bg-[#23501e]/20">
+<div class="flex flex-col items-center justify-center h-full">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="sports_rugby">sports_rugby</span>
+<span class="text-[10px] font-black text-primary uppercase">Match Day</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] border-b border-outline-variant/10">
+<div class="bg-surface-container-highest border-l-2 border-white/20 p-2">
+<span class="block text-[10px] font-black uppercase text-on-surface-variant mb-1">Technical</span>
+<p class="text-[11px] font-bold leading-tight">Match Recovery</p>
+</div>
+</div>
+<!-- Slots Row 2: PM -->
+<div class="bg-surface-container-lowest p-3 min-h-[100px]">
+<div class="bg-surface-container-highest border-l-2 border-white/20 p-2">
+<span class="block text-[10px] font-black uppercase text-on-surface-variant mb-1">Technical</span>
+<p class="text-[11px] font-bold leading-tight">Catch &amp; Pass Drills</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px]">
+<div class="bg-secondary/10 border-l-2 border-secondary p-2">
+<span class="block text-[10px] font-black uppercase text-secondary mb-1">Tactical</span>
+<p class="text-[11px] font-bold leading-tight">Lineout Variation</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px]">
+<div class="flex items-center justify-center h-full">
+<span class="text-[10px] font-bold text-on-surface-variant/40 uppercase">Rest Day</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px]">
+<div class="bg-secondary/10 border-l-2 border-secondary p-2">
+<span class="block text-[10px] font-black uppercase text-secondary mb-1">Tactical</span>
+<p class="text-[11px] font-bold leading-tight">Defensive Spacing</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px]">
+<div class="bg-surface-container-highest border-l-2 border-white/20 p-2">
+<span class="block text-[10px] font-black uppercase text-on-surface-variant mb-1">Unit Work</span>
+<p class="text-[11px] font-bold leading-tight">Lineout: Pod Tech</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px] bg-[#23501e]/20"></div>
+<div class="bg-surface-container-lowest p-3 min-h-[100px]">
+<div class="flex items-center justify-center h-full">
+<span class="text-[10px] font-bold text-on-surface-variant/40 uppercase">Day Off</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Coaching Staff (Col 9-12) -->
+<section class="col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-high p-6 flex-1">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline text-lg font-bold uppercase tracking-tight">Coaching Panel</h3>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest hover:underline">Manage Staff</button>
+</div>
+<div class="space-y-4">
+<!-- Coach Item -->
+<div class="flex items-center gap-4 p-3 bg-surface-container-low border-l-2 border-primary-fixed-dim">
+<img alt="Coach A" class="w-10 h-10 bg-surface-container-highest object-cover" data-alt="Head Coach profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjf7-PgrXW1SVnVAviMGd-42GW2sAGMaen-7_Ug2lBgAxsdOPqcnCq5jtTDd6-LkSpTQH4u9ksRZPuMFyO5Ym-NZNXNzeuNsDhNQN4GfSIk6vOrSVTyrQSmcpXsav7tntUMCINvsPDQxgfL4_8IoGkxjG50uojnzrAp5lTzFaDNIXiM85uN4KZpzXH5M8yuEl_CYzml0fHcjmQ3HCDnaILF_NdTyxhbReU9kVsbSN0JL9IlEFbvi55uHzhDk4p_nz6VV9rscZDiNuB"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="text-xs font-bold font-headline uppercase">Mark Beaumont</h4>
+<span class="text-primary font-black text-xs">88</span>
+</div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Head of Rugby / Tactical</p>
+</div>
+</div>
+<!-- Coach Item -->
+<div class="flex items-center gap-4 p-3 bg-surface-container-low border-l-2 border-secondary">
+<img alt="Coach B" class="w-10 h-10 bg-surface-container-highest object-cover" data-alt="Forwards coach profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK_KqAYJsLchuE2kY2GHezBsT6fS1FOfDJOmxqBCU5Hbfi2DwMnirR86gGg0z5FLGmhWb8XNPsFsLcOzvMplW3PkWDAsn6ArrrmO_DKCmByXt94My7gWid3qSwmZ9WeGBrtZD6h987yIme_6t7cnLB0YUpyQAEM60bVkCInd8rog_GxookKTDWZUHkx_XP7_wY9aNgGa1FUIH5yfNgNL5jmgCI3853cjaw9lNgyWnrAXhka1CE-yYnouw9tMI-fdUAM5KzgOHtA8CV"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="text-xs font-bold font-headline uppercase">Toby Strauss</h4>
+<span class="text-secondary font-black text-xs">84</span>
+</div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Forwards Coach / Set Piece</p>
+</div>
+</div>
+<!-- Coach Item -->
+<div class="flex items-center gap-4 p-3 bg-surface-container-low border-l-2 border-primary">
+<img alt="Coach C" class="w-10 h-10 bg-surface-container-highest object-cover" data-alt="Strength coach profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDriYkUOBgEcWXOyfFt4U-2OZqOR-vOBOZhv-23tbUhAm8GII6WBLCs-1Iv0DkD5LLIa1AHhPT6chRIYKY98A87OJvOcsZ8vJNe8LZvyvsQaUR3B6hagIfjbf9IEXxRpi4cT3sU_mYSapVm6oQoiyXGj02OJhiSTIKBnYkubIFMLvipTONjm9TGzr7EJuB2lFDnWLbUJwEXGQAkVZespt7SrLAAUxuDHZwhUffQw9fWuv_V7Svx30k6TS3ND5ptbHl5mk5jpEk2PiZs"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="text-xs font-bold font-headline uppercase">Sarah Jenkins</h4>
+<span class="text-primary font-black text-xs">91</span>
+</div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Head of S&amp;C / Physical</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/5 border border-primary/20 p-6 flex items-center justify-between">
+<div>
+<span class="text-[10px] font-black text-primary uppercase block tracking-[0.2em] mb-1">Session Effectiveness</span>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-black font-headline tracking-tighter text-primary">A-</span>
+<span class="text-[10px] text-on-surface-variant font-medium">Optimal Workload</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="trending_up">trending_up</span>
+</div>
+</section>
+</div>
+<!-- Player Training List -->
+<section class="bg-surface-container-low p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-2xl font-black uppercase tracking-tighter">Squad Development</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 bg-surface-container-highest px-3 py-1.5 rounded-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-label uppercase tracking-widest w-40 p-0 placeholder:text-outline/50" placeholder="Search Player..." type="text"/>
+</div>
+<button class="bg-surface-container-highest p-1.5 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/30 font-label text-[10px] uppercase tracking-[0.15em] text-on-surface-variant">
+<th class="pb-4 font-bold">Player Name</th>
+<th class="pb-4 font-bold">Primary Role</th>
+<th class="pb-4 font-bold">Focus Area</th>
+<th class="pb-4 font-bold text-center">Intensity</th>
+<th class="pb-4 font-bold">Progress (Weekly)</th>
+<th class="pb-4 font-bold text-right">Fatigue Risk</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Player Row 1 -->
+<tr class="group hover:bg-surface-bright/40 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden">
+<img alt="Player 1" class="w-full h-full object-cover" data-alt="Portrait of a rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArfrB6zTALsKN4AulvMSIS9Zg66jLicXJN4jRRfqpcHoaiLACYo-euMQnTk8tPk7edgnOkURFDAB6ehWS8WKxKRKiowsA-zWKZ7ZCYtBtp9vpAzmrHyEihCxnZDoh8wbYQj7euY4xYYL85Z2UoCMFV1Ij5grox5RzxRbi-_yjYP7MqMMjUF4EoJexg_Gfv5JnQESdLrR3-rEzEusOJ1ydHobkpP5My0tCsBgvkElua3vPXGQXAfE8Xm8Uq1qWwIPsL1IP77moQtUiC"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline uppercase">M. Itoje</div>
+<div class="text-[10px] text-on-surface-variant/70 uppercase font-medium">Lock</div>
+</div>
+</div>
+</td>
+<td class="py-4">
+<span class="text-[11px] font-bold uppercase text-on-surface-variant">Defensive Pillar</span>
+</td>
+<td class="py-4">
+<div class="inline-flex items-center gap-2 bg-primary/10 px-2 py-1 border-l-2 border-primary">
+<span class="text-[10px] font-black uppercase text-primary">Jackalling</span>
+</div>
+</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-outline-variant/30"></span>
+</div>
+</td>
+<td class="py-4">
+<div class="w-full max-w-[120px]">
+<div class="flex justify-between text-[9px] font-black uppercase mb-1">
+<span class="text-primary">+1.4%</span>
+<span class="text-on-surface-variant">Lv 84</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+<div class="bg-primary h-full w-[84%]"></div>
+</div>
+</div>
+</td>
+<td class="py-4 text-right">
+<span class="text-[11px] font-bold text-primary uppercase">Low</span>
+</td>
+</tr>
+<!-- Player Row 2 -->
+<tr class="group hover:bg-surface-bright/40 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden">
+<img alt="Player 2" class="w-full h-full object-cover" data-alt="Portrait of a rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCki_ZhnLxM2FVZoj3T49SD0sDm0a0ONjAFGND0uGfOi0lH-BbtrktW5fS3JkJaLAfDx52cUlgZzeibowa63g5WAPi0hpBp_beyYS7oyCTF_8pigE1GiDn4qJWvwXU6Wq98AycUmngIDe7JggWB7dxTxRqxo_Zi0t3QEIcmbAJePAPCQfKBGddeh-3rl4BEDc9JE2GYjVbCa4UM3eaKtqXKgyQV9qgi2rBE4_7-zcxDOA3cryVfhmCeunrDMSr_KRiWEO-fnv8GCg_T"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline uppercase">F. Russell</div>
+<div class="text-[10px] text-on-surface-variant/70 uppercase font-medium">Fly Half</div>
+</div>
+</div>
+</td>
+<td class="py-4">
+<span class="text-[11px] font-bold uppercase text-on-surface-variant">Playmaker</span>
+</td>
+<td class="py-4">
+<div class="inline-flex items-center gap-2 bg-secondary/10 px-2 py-1 border-l-2 border-secondary">
+<span class="text-[10px] font-black uppercase text-secondary">Place Kicking</span>
+</div>
+</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-outline-variant/30"></span>
+<span class="w-3 h-1.5 bg-outline-variant/30"></span>
+</div>
+</td>
+<td class="py-4">
+<div class="w-full max-w-[120px]">
+<div class="flex justify-between text-[9px] font-black uppercase mb-1">
+<span class="text-primary">+0.8%</span>
+<span class="text-on-surface-variant">Lv 91</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+<div class="bg-primary h-full w-[91%]"></div>
+</div>
+</div>
+</td>
+<td class="py-4 text-right">
+<span class="text-[11px] font-bold text-on-surface-variant uppercase">Normal</span>
+</td>
+</tr>
+<!-- Player Row 3 -->
+<tr class="group hover:bg-surface-bright/40 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden">
+<img alt="Player 3" class="w-full h-full object-cover" data-alt="Portrait of a rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-cWTH2CA8t5sR__W-Nrilfq1DSAApTaCc8smLVswlC82Z8ZRXWfWY0A0aQDiEDza3f1lY2Opa_5c1MtkL1aO8zX5wNpJxUTz3SZ1l75inxzJ2j-kIZtZtaTnw1Ckpky5OOWBvtxkXK77qltRKpeLO_umemW5yOXKeNTy7Qj98OmWD3aIks-t0VjA7r70fdgZ7evTMHb40DdBqDBvo39WVIySlatFXw5EvkvfvsV9RYekBaxhWL8YGLXJioewb_es17uQj66eKJwOm"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline uppercase">E. Genge</div>
+<div class="text-[10px] text-on-surface-variant/70 uppercase font-medium">Prop</div>
+</div>
+</div>
+</td>
+<td class="py-4">
+<span class="text-[11px] font-bold uppercase text-on-surface-variant">Ball Carrier</span>
+</td>
+<td class="py-4">
+<div class="inline-flex items-center gap-2 bg-surface-container-highest px-2 py-1 border-l-2 border-white/20">
+<span class="text-[10px] font-black uppercase text-on-surface-variant">Scrummaging</span>
+</div>
+</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-primary"></span>
+</div>
+</td>
+<td class="py-4">
+<div class="w-full max-w-[120px]">
+<div class="flex justify-between text-[9px] font-black uppercase mb-1">
+<span class="text-primary">+2.1%</span>
+<span class="text-on-surface-variant">Lv 78</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]"></div>
+</div>
+</div>
+</td>
+<td class="py-4 text-right">
+<span class="text-[11px] font-bold text-error uppercase">High Warning</span>
+</td>
+</tr>
+<!-- Player Row 4 -->
+<tr class="group hover:bg-surface-bright/40 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-surface-container-highest rounded-full overflow-hidden">
+<img alt="Player 4" class="w-full h-full object-cover" data-alt="Portrait of a rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPNOOKtwVZKAxtQKa59EHIXjBkqQHp2SbTq-OUpeHRpAUcQzlm9vWrJTuVBPtJD3zO1DNLYXCojxPP4cQIM-szL-r2Qo-Ba0em_T7WwyVGFBSCUWqIMzorhschwWteLDiRlKkFcTaORFI5CECK-MjEUexS6hnd3ZbKt5GFl-IJQj1XciUPrjhEz3QxemBleV71NjJZ0DrSnOzXjcp6ykILZD_kbNlPS01s6eNjwVRUQsPbi6UbqQfSQraLZZVDsm7YfRayFvVRH6Ow"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline uppercase">A. Dupont</div>
+<div class="text-[10px] text-on-surface-variant/70 uppercase font-medium">Scrum Half</div>
+</div>
+</div>
+</td>
+<td class="py-4">
+<span class="text-[11px] font-bold uppercase text-on-surface-variant">Creative Hub</span>
+</td>
+<td class="py-4">
+<div class="inline-flex items-center gap-2 bg-primary/10 px-2 py-1 border-l-2 border-primary">
+<span class="text-[10px] font-black uppercase text-primary">Box Kicking</span>
+</div>
+</td>
+<td class="py-4 text-center">
+<div class="flex justify-center gap-0.5">
+<span class="w-3 h-1.5 bg-primary"></span>
+<span class="w-3 h-1.5 bg-outline-variant/30"></span>
+<span class="w-3 h-1.5 bg-outline-variant/30"></span>
+<span class="w-3 h-1.5 bg-outline-variant/30"></span>
+</div>
+</td>
+<td class="py-4">
+<div class="w-full max-w-[120px]">
+<div class="flex justify-between text-[9px] font-black uppercase mb-1">
+<span class="text-primary">+0.3%</span>
+<span class="text-on-surface-variant">Lv 95</span>
+</div>
+<div class="h-1 bg-surface-container-highest w-full overflow-hidden">
+<div class="bg-primary h-full w-[95%]"></div>
+</div>
+</div>
+</td>
+<td class="py-4 text-right">
+<span class="text-[11px] font-bold text-primary uppercase">Low</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-8 flex justify-center">
+<button class="text-xs font-headline font-bold uppercase tracking-[0.2em] border border-outline-variant/40 px-8 py-3 hover:bg-surface-bright transition-all">
+                        View Full Squad List
+                    </button>
+</div>
+</section>
+<!-- Bottom Tactical Quick-Actions -->
+<div class="grid grid-cols-4 gap-6">
+<div class="bg-surface-container-high p-5 border-l-4 border-secondary flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="lightbulb">lightbulb</span>
+<div>
+<h4 class="text-xs font-black font-headline uppercase tracking-wider mb-1">Coach Tip</h4>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">The Scrum pod is showing fatigue. Consider shifting Tuesday's tactical work to recovery focus.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-5 border-l-4 border-primary-fixed-dim flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="emergency">emergency</span>
+<div>
+<h4 class="text-xs font-black font-headline uppercase tracking-wider mb-1">Medical Report</h4>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">3 Players cleared for full training today. Lock department back to 100% capacity.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-5 border-l-4 border-outline flex items-start gap-4 col-span-2">
+<span class="material-symbols-outlined text-outline" data-icon="analytics">analytics</span>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="text-xs font-black font-headline uppercase tracking-wider mb-1">Seasonal Progress</h4>
+<span class="text-[10px] font-bold text-primary">+12% vs. Last Month</span>
+</div>
+<div class="flex gap-2 mt-2">
+<div class="h-1 flex-1 bg-primary/20 overflow-hidden"><div class="h-full bg-primary w-2/3"></div></div>
+<div class="h-1 flex-1 bg-secondary/20 overflow-hidden"><div class="h-full bg-secondary w-1/2"></div></div>
+<div class="h-1 flex-1 bg-surface-container-highest overflow-hidden"><div class="h-full bg-outline w-1/4"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Club Infrastructure | PitchSide Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#c9a800",
+              "inverse-primary": "#2c694e",
+              "on-secondary-fixed": "#001c3b",
+              "secondary-container": "#30486a",
+              "on-tertiary-fixed": "#221b00",
+              "primary-fixed-dim": "#95d4b3",
+              "on-tertiary": "#3b2f00",
+              "on-primary": "#003824",
+              "on-error-container": "#ffdad6",
+              "on-surface": "#e5e2e1",
+              "surface-container": "#201f1f",
+              "surface": "#131313",
+              "surface-container-highest": "#353534",
+              "surface-variant": "#353534",
+              "surface-bright": "#393939",
+              "background": "#131313",
+              "inverse-on-surface": "#313030",
+              "tertiary": "#e9c400",
+              "surface-container-high": "#2a2a2a",
+              "inverse-surface": "#e5e2e1",
+              "on-background": "#e5e2e1",
+              "on-secondary-fixed-variant": "#30486a",
+              "on-tertiary-container": "#4c3e00",
+              "error-container": "#93000a",
+              "tertiary-fixed": "#ffe171",
+              "on-surface-variant": "#c1c8c2",
+              "on-primary-container": "#76b394",
+              "surface-tint": "#95d4b3",
+              "surface-dim": "#131313",
+              "error": "#ffb4ab",
+              "surface-container-lowest": "#0e0e0e",
+              "outline": "#8b938d",
+              "on-primary-fixed": "#002114",
+              "on-secondary-container": "#9fb6de",
+              "on-secondary": "#183152",
+              "outline-variant": "#414844",
+              "on-primary-fixed-variant": "#0e5138",
+              "primary-container": "#00452e",
+              "secondary": "#b0c8f0",
+              "primary": "#95d4b3",
+              "tertiary-fixed-dim": "#e9c400",
+              "surface-container-low": "#1c1b1b",
+              "on-tertiary-fixed-variant": "#554600",
+              "secondary-fixed": "#d5e3ff",
+              "primary-fixed": "#b1f0ce",
+              "on-error": "#690005",
+              "secondary-fixed-dim": "#b0c8f0"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-surface-container-low flex flex-col h-full py-6 shadow-2xl shadow-black/50 hidden md:flex">
+<div class="px-6 mb-8">
+<h2 class="text-tertiary font-headline font-bold uppercase tracking-widest text-lg">Highlanders RFC</h2>
+<p class="text-on-surface-variant text-xs font-medium uppercase tracking-tighter">Elite Tier</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface/40 py-3 px-6 hover:text-on-surface flex items-center gap-3 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label text-sm font-medium">Dashboard</span>
+</a>
+<a class="bg-gradient-to-r from-primary-container to-transparent border-l-4 border-primary text-on-surface py-3 px-6 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-label text-sm font-medium">Infrastructure</span>
+</a>
+<a class="text-on-surface/40 py-3 px-6 hover:text-on-surface flex items-center gap-3 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">mic</span>
+<span class="font-label text-sm font-medium">Press Room</span>
+</a>
+<a class="text-on-surface/40 py-3 px-6 hover:text-on-surface flex items-center gap-3 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label text-sm font-medium">Roster</span>
+</a>
+<a class="text-on-surface/40 py-3 px-6 hover:text-on-surface flex items-center gap-3 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label text-sm font-medium">Analytics</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded font-bold text-sm uppercase tracking-wider active:scale-95 transition-transform">
+                Match Day
+            </button>
+<div class="pt-4 space-y-1">
+<a class="text-on-surface/40 py-2 hover:text-on-surface flex items-center gap-3 text-sm" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> Settings
+                </a>
+<a class="text-on-surface/40 py-2 hover:text-on-surface flex items-center gap-3 text-sm" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span> Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen pb-24 md:pb-12">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-surface-container-low px-6 py-3 flex justify-between items-center w-full">
+<div class="flex items-center gap-4">
+<h1 class="font-headline font-bold tracking-tight text-xl text-on-surface uppercase tracking-widest">PitchSide Pro</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-1.5 gap-2 border border-outline-variant/15">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 text-on-surface w-48" placeholder="Search facilities..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-6 md:p-10 max-w-7xl mx-auto space-y-10">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline text-4xl font-extrabold text-on-surface leading-none mb-2">Infrastructure Hub</h2>
+<p class="text-on-surface-variant font-medium tracking-wide">Strategic facility management and capital expansion</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-high px-4 py-2 border-l-2 border-tertiary">
+<span class="block text-[10px] uppercase text-on-surface-variant tracking-widest mb-1">Total Assets</span>
+<span class="text-xl font-headline font-bold text-tertiary">$142.5M</span>
+</div>
+<div class="bg-surface-container-high px-4 py-2 border-l-2 border-primary">
+<span class="block text-[10px] uppercase text-on-surface-variant tracking-widest mb-1">Efficiency</span>
+<span class="text-xl font-headline font-bold text-primary">88%</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid: Stadium & Stats -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Stadium Overview -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-xl overflow-hidden relative group">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<img alt="Professional sports stadium aerial view" class="w-full h-full object-cover" data-alt="Aerial view of a professional rugby stadium pitch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-OpBsXm80gtxAQXHaFCKi9PZRElWWMhD3Z8vrWfdOqZAZitPnw7supvnRO-zCVLRHyqFgxO01MYF1FifyJlwls9mVna8jTreKSmKRmpPwBytrQs65XLPmfD0w6-Cunkp_ZklKUsdh_ue5-tjpZt6iJP8E6BM4EafwKPl0Kw9HZ6wM49LlReMcWq5p6h12ok7c6gAhbwvPxACzNEpeo5n53NVe67k475h0AFvW-tH0Cy--QA8msO0DyTPpeQ5f416pSurl12-jw32v"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+</div>
+<div class="relative p-8 h-full flex flex-col justify-between min-h-[400px]">
+<div class="flex justify-between items-start">
+<div>
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">Main Asset</span>
+<h3 class="font-headline text-3xl font-bold text-on-surface">Highlands Stadium</h3>
+</div>
+<button class="glass-panel p-3 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all active:scale-95">
+<span class="material-symbols-outlined text-primary">zoom_in</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+<div class="bg-surface-container/80 backdrop-blur px-5 py-4 rounded-lg border-l-2 border-primary-container">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Capacity</p>
+<p class="text-3xl font-headline font-bold">15,000</p>
+<div class="w-full bg-outline-variant/20 h-1 mt-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+<div class="bg-surface-container/80 backdrop-blur px-5 py-4 rounded-lg border-l-2 border-primary-container">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Rev / Match</p>
+<p class="text-3xl font-headline font-bold text-on-surface">$2.4M</p>
+<p class="text-xs text-primary mt-2 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +12.4%
+                                </p>
+</div>
+<div class="bg-surface-container/80 backdrop-blur px-5 py-4 rounded-lg border-l-2 border-primary-container">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest mb-1">Condition</p>
+<p class="text-3xl font-headline font-bold text-tertiary">92%</p>
+<p class="text-xs text-on-surface-variant mt-2">Optimal range</p>
+</div>
+</div>
+<div class="mt-10 flex gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-3 rounded-md font-bold text-sm uppercase tracking-widest shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all active:scale-95">
+                                Upgrade Stand
+                            </button>
+<button class="bg-surface-container-highest/80 hover:bg-surface-container-highest px-8 py-3 rounded-md font-bold text-sm uppercase tracking-widest text-on-surface transition-all active:scale-95">
+                                Virtual Tour
+                            </button>
+</div>
+</div>
+</div>
+<!-- Maintenance & Staffing Side Card -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl flex-1 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-headline font-bold text-lg uppercase tracking-tight">Estate Staff</h4>
+<span class="material-symbols-outlined text-on-surface-variant">engineering</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center bg-surface-container p-3 rounded">
+<span class="text-sm font-medium">Groundskeepers</span>
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant text-xs">Tier 1 Elite</span>
+<span class="text-primary font-bold">12</span>
+</div>
+</div>
+<div class="flex justify-between items-center bg-surface-container p-3 rounded">
+<span class="text-sm font-medium">Security Detachment</span>
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant text-xs">External Cont.</span>
+<span class="text-primary font-bold">48</span>
+</div>
+</div>
+<div class="flex justify-between items-center bg-surface-container p-3 rounded">
+<span class="text-sm font-medium">Medical Support</span>
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant text-xs">On-Call</span>
+<span class="text-primary font-bold">06</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/15">
+<div class="flex justify-between items-center mb-4">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Annual Maintenance Cost</p>
+<span class="text-lg font-headline font-bold text-error">$850k</span>
+</div>
+<button class="w-full py-2.5 rounded border border-outline-variant/30 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-high transition-colors">
+                                Review Contracts
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Facility Tiers Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline text-2xl font-bold tracking-tight">Facility Infrastructure</h3>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-widest">Optimized Growth</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Training Ground -->
+<div class="bg-surface-container-low group relative overflow-hidden rounded-xl border-l-2 border-primary">
+<div class="p-6">
+<div class="flex justify-between mb-6">
+<div class="p-2 bg-surface-container-high rounded-lg group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Current Status</p>
+<p class="text-lg font-headline font-bold text-on-surface">Tier 3</p>
+</div>
+</div>
+<h4 class="text-xl font-bold mb-2">Training Ground</h4>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">High-performance athletic lab and tactical pitch complex.</p>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Player Recovery</span>
+<span class="text-on-surface font-bold">+15%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full">
+<div class="bg-primary h-full w-[60%]"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high hover:bg-surface-container-highest text-primary font-bold text-[10px] uppercase tracking-widest rounded transition-all flex items-center justify-center gap-2">
+                                Upgrade to Tier 4 <span class="material-symbols-outlined text-xs">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- Medical Wing -->
+<div class="bg-surface-container-low group relative overflow-hidden rounded-xl border-l-2 border-tertiary">
+<div class="p-6">
+<div class="flex justify-between mb-6">
+<div class="p-2 bg-surface-container-high rounded-lg group-hover:bg-tertiary/20 transition-colors">
+<span class="material-symbols-outlined text-tertiary">medical_services</span>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Current Status</p>
+<p class="text-lg font-headline font-bold text-on-surface">Tier 2</p>
+</div>
+</div>
+<h4 class="text-xl font-bold mb-2">Medical Wing</h4>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Advanced physiotherapy and rehabilitation clinic.</p>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Injury Duration</span>
+<span class="text-tertiary font-bold">-10%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full">
+<div class="bg-tertiary h-full w-[40%]"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high hover:bg-surface-container-highest text-tertiary font-bold text-[10px] uppercase tracking-widest rounded transition-all flex items-center justify-center gap-2">
+                                Upgrade to Tier 3 <span class="material-symbols-outlined text-xs">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- Academy House -->
+<div class="bg-surface-container-low group relative overflow-hidden rounded-xl border-l-2 border-secondary">
+<div class="p-6">
+<div class="flex justify-between mb-6">
+<div class="p-2 bg-surface-container-high rounded-lg group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary">school</span>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Current Status</p>
+<p class="text-lg font-headline font-bold text-on-surface">Tier 4</p>
+</div>
+</div>
+<h4 class="text-xl font-bold mb-2">Academy House</h4>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-2">Elite residential and educational facility for youth prospects.</p>
+<div class="space-y-3 mb-8">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Youth Intake</span>
+<span class="text-secondary font-bold">Elite</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full">
+<div class="bg-secondary h-full w-[90%]"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high hover:bg-surface-container-highest text-secondary font-bold text-[10px] uppercase tracking-widest rounded transition-all flex items-center justify-center gap-2">
+                                Manage Academy <span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Strategic Expansion Roadmap -->
+<section class="bg-surface-container-low rounded-xl p-8">
+<div class="flex items-center gap-4 mb-10">
+<span class="material-symbols-outlined text-primary text-3xl">timeline</span>
+<div>
+<h3 class="font-headline text-2xl font-bold tracking-tight">Expansion Roadmap</h3>
+<p class="text-sm text-on-surface-variant uppercase tracking-widest font-medium">Q3 2024 — Q2 2025</p>
+</div>
+</div>
+<div class="relative">
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/20 -translate-y-1/2"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+<!-- Step 1 -->
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(149,212,179,0.3)] mx-auto md:mx-0">
+<span class="material-symbols-outlined text-on-primary text-sm">check</span>
+</div>
+<div class="text-center md:text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest mb-1">Completed</p>
+<h5 class="font-bold text-sm">North Stand WiFi</h5>
+<p class="text-xs text-on-surface-variant mt-1">Fiber-optic install</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(149,212,179,0.3)] mx-auto md:mx-0">
+<span class="material-symbols-outlined text-on-primary text-sm">sync</span>
+</div>
+<div class="text-center md:text-left">
+<p class="text-[10px] text-primary font-bold uppercase tracking-widest mb-1">In Progress</p>
+<h5 class="font-bold text-sm">Cryo-Pod Unit</h5>
+<p class="text-xs text-on-surface-variant mt-1">Med-Wing Extension</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center mx-auto md:mx-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">lock_clock</span>
+</div>
+<div class="text-center md:text-left opacity-50">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Phase 3</p>
+<h5 class="font-bold text-sm">Hospitality Suites</h5>
+<p class="text-xs text-on-surface-variant mt-1">West Stand VIP Hub</p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="space-y-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center mx-auto md:mx-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">pending</span>
+</div>
+<div class="text-center md:text-left opacity-50">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Phase 4</p>
+<h5 class="font-bold text-sm">Hybrid Surface</h5>
+<p class="text-xs text-on-surface-variant mt-1">Desso Grass Master</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe bg-surface-container-low/90 backdrop-blur-xl md:hidden z-50 border-t border-outline-variant/15 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-on-surface/50 py-1 hover:text-primary active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[10px] uppercase tracking-tighter mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-surface-container-high text-primary rounded-xl py-1 px-3 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">stadium</span>
+<span class="font-label text-[10px] uppercase tracking-tighter mt-1">Stadium</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface/50 py-1 hover:text-primary active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label text-[10px] uppercase tracking-tighter mt-1">Media</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface/50 py-1 hover:text-primary active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label text-[10px] uppercase tracking-tighter mt-1">Squad</span>
+</a>
+</nav>
+</body></html>

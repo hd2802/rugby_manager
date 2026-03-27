@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Media Center - Stade de Rugby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#343d96",
+              "on-primary-fixed-variant": "#23501e",
+              "primary": "#a1d494",
+              "outline": "#8d928c",
+              "surface-container-low": "#181c22",
+              "on-error": "#690005",
+              "on-tertiary": "#2f3131",
+              "on-primary": "#0a3909",
+              "on-secondary-fixed": "#000767",
+              "secondary-container": "#343d96",
+              "outline-variant": "#434843",
+              "primary-container": "#043405",
+              "on-surface": "#dfe2eb",
+              "background": "#10141a",
+              "on-tertiary-container": "#929393",
+              "tertiary-fixed": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-tertiary-fixed": "#1a1c1c",
+              "tertiary-fixed-dim": "#c6c6c6",
+              "inverse-on-surface": "#2d3137",
+              "inverse-surface": "#dfe2eb",
+              "on-primary-container": "#6e9f64",
+              "primary-fixed": "#bcf0ae",
+              "surface-container-lowest": "#0a0e14",
+              "tertiary": "#c6c6c6",
+              "on-background": "#dfe2eb",
+              "tertiary-container": "#2a2c2c",
+              "on-primary-fixed": "#002201",
+              "secondary-fixed-dim": "#bdc2ff",
+              "secondary-fixed": "#e0e0ff",
+              "primary-fixed-dim": "#a1d494",
+              "on-error-container": "#ffdad6",
+              "surface-bright": "#353940",
+              "surface-container-high": "#262a31",
+              "on-secondary-container": "#a8afff",
+              "surface-dim": "#10141a",
+              "surface": "#10141a",
+              "surface-container": "#1c2026",
+              "surface-variant": "#31353c",
+              "error": "#ffb4ab",
+              "on-secondary": "#1b247f",
+              "surface-tint": "#a1d494",
+              "surface-container-highest": "#31353c",
+              "on-surface-variant": "#c3c8c1",
+              "secondary": "#bdc2ff",
+              "inverse-primary": "#3b6934",
+              "error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Public Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #10141a;
+        color: #dfe2eb;
+      }
+      .glass-card {
+        background: rgba(49, 53, 60, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #10141a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #31353c;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-hidden">
+<!-- TopAppBar Execution -->
+<header class="bg-[#10141a] font-['Space_Grotesk'] tracking-tight flex justify-between items-center w-full px-6 py-3 fixed top-0 z-50 bg-[#181c22] border-none">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#a1d494] uppercase">Stade de Rugby</span>
+<div class="hidden md:flex gap-6">
+<span class="text-[#c3c8c1] font-['Public_Sans'] text-sm">Finance: £4.2M</span>
+<span class="text-[#c3c8c1] font-['Public_Sans'] text-sm">12 Oct 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined p-2 text-[#c3c8c1] hover:bg-[#31353c] transition-colors">notifications</button>
+<button class="material-symbols-outlined p-2 text-[#c3c8c1] hover:bg-[#31353c] transition-colors">settings</button>
+</div>
+<button class="bg-primary text-on-primary font-bold uppercase px-4 py-1.5 text-xs tracking-wider transition-all hover:opacity-90">Next Match</button>
+<img class="w-8 h-8 rounded-full border border-primary/20" data-alt="Manager Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGJfoBfU7n5EbWn6DJHeEXtXQIm3AeIulz-9BxetPPwpm6c0Q3v_Ja-Q8eA9xscI4Z6ku2Nic3rBDCfJxhuokHO2WMNIvCDYOR1b-B5EJXVzUKl7l49OfE2jZiHX_joiNmIfYuWcrUEjsZWtddaeekXMYQeL7bj9r8zCyUnIaTh-Lm5kTSyuJfj0-hil0sVsJeXCrI_lPWF381J_foXfvazZhjBq_AeeI3iqWAphle9j76_qij5G52BcAZr5kUMSz3yxmt2IULVO5-"/>
+</div>
+</header>
+<!-- SideNavBar Execution -->
+<aside class="flex flex-col fixed left-0 top-0 h-screen z-40 border-r border-[#31353c]/20 bg-[#181c22] w-64 pt-16">
+<div class="p-6 border-b border-[#31353c]/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary/20 flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary">sports_rugby</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm tracking-tight">London Irish</p>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Premiership Rugby</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4 overflow-y-auto">
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">groups</span> Squad
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">strategy</span> Tactics
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">swap_horiz</span> Transfers
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">fitness_center</span> Training
+            </a>
+<!-- Active State: Media Center (Inferred as Dashboard/Boardroom sibling) -->
+<a class="flex items-center gap-3 bg-[#a1d494]/10 text-[#a1d494] border-l-4 border-[#a1d494] px-4 py-3 font-['Inter'] text-sm uppercase font-semibold tracking-wider transition-transform Active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">rss_feed</span> Media Center
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">account_balance</span> Infrastructure
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">handshake</span> Boardroom
+            </a>
+</nav>
+<div class="p-4">
+<button class="w-full bg-surface-container-highest text-primary font-bold uppercase py-3 text-xs tracking-tighter hover:bg-primary hover:text-on-primary transition-all">
+                Tactical Briefing
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 h-screen overflow-hidden flex flex-col">
+<!-- Header Section -->
+<div class="px-8 py-6 flex justify-between items-end border-b border-outline-variant/10">
+<div>
+<h1 class="font-headline text-4xl font-extrabold tracking-tighter uppercase text-on-surface">Media Hub</h1>
+<p class="font-label text-sm text-on-surface-variant tracking-widest mt-1 uppercase">Club Communication &amp; Public Perception</p>
+</div>
+<!-- Reputation Meter -->
+<div class="flex gap-8">
+<div class="text-right">
+<p class="font-label text-[10px] text-on-surface-variant uppercase mb-1">Domestic Profile</p>
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-xl text-primary">A+</span>
+<div class="h-1.5 w-32 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary w-[92%]"></div>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label text-[10px] text-on-surface-variant uppercase mb-1">Global Profile</p>
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-xl text-secondary">B</span>
+<div class="h-1.5 w-32 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary w-[65%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="flex-1 p-8 grid grid-cols-12 gap-6 overflow-y-auto">
+<!-- Column 1: News & Press (Asymmetric Layout) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
+<!-- Press Conference Interface -->
+<section class="bg-surface-container-low p-6 flex flex-col gap-4">
+<div class="flex justify-between items-center border-b border-outline-variant/20 pb-4">
+<h2 class="font-headline font-bold text-lg uppercase tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">mic</span> Press Interface
+                        </h2>
+<span class="font-label text-[10px] bg-error-container text-on-error-container px-2 py-0.5 font-bold uppercase">Mandatory</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface-container-highest p-4 group cursor-pointer border-l-4 border-primary/40 hover:border-primary transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-[10px] text-primary uppercase font-bold tracking-widest">Pre-Match Briefing</span>
+<span class="font-label text-[10px] text-on-surface-variant italic">In 2 hours</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface leading-tight">Vs Leicester Tigers: Tactical expectations &amp; injury updates.</h3>
+<p class="text-xs text-on-surface-variant mt-2 font-body">The media is focused on the return of your fly-half from injury.</p>
+</div>
+<div class="bg-surface-container-high p-4 opacity-70 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Monthly Review</span>
+<span class="font-label text-[10px] text-on-surface-variant italic">18 Oct</span>
+</div>
+<h3 class="font-headline font-bold text-on-surface-variant leading-tight">Boardroom &amp; Infrastructure Updates</h3>
+</div>
+</div>
+<button class="w-full bg-primary/10 border border-primary/20 text-primary font-bold uppercase py-3 text-xs tracking-widest hover:bg-primary hover:text-on-primary transition-all">
+                        Enter Press Room
+                    </button>
+</section>
+<!-- Player Interviews Log -->
+<section class="bg-surface-container-low p-6 flex-1">
+<h2 class="font-headline font-bold text-lg uppercase tracking-tight mb-6 flex items-center gap-2 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-secondary">forum</span> Player Interactions
+                    </h2>
+<div class="space-y-4">
+<!-- Interaction Card -->
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest object-cover" data-alt="Rugby player headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM_jWsslvjkHXN1kJi4xol9a-NpOHWqQ6d4X_PSyngUJHyuz6BOrqV3-rTuN79TxOXh7yg4qXYHbgCkXDdgBMDRzD3CKiuMzUm6ProwYi65e7psDX2pE3Tl4pvyZ5Fy-QFlp-3785NZlpeg7gMwpKJsLL53XLvzWwZ7lYpBwFGMa9u4fa9oTLw_Ri4OrWUmOARNYGJGwnIeuke6Bue857x0h-wf9iIE1YVN6FNIkM0keKijTH_6S8yDhTivC8xqSGXTrOHN5D-vpq-"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline font-bold text-sm">Marcus O'Shea</span>
+<span class="text-[10px] text-primary font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span> +5 Morale
+                                    </span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Discussed defensive positioning. Player felt supported and valued by the tactical shift.</p>
+</div>
+</div>
+<!-- Interaction Card -->
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest object-cover" data-alt="Rugby player headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAedq6gwKVKYOQ0A3L7qW68h2KEX_z8okbDIt5Zq1va0Y7dRZADJyuUNwaATR5niEfY1dzmu9sEJtauAd5eiPapqzuomaRhCutXnwFcIuoLDbdVUhg917If7rKn3P05DFVHI42vqmUKP_1uYlTfwvr58NccQ6Q_T8Kw4EGhhDHYxTRjivmNsgXxuwnj-kdKpahd4TDmswRdJiW20GSVl2v5bznexnr7MSwaUavSM7MDancCqVhj3Lf9t15zkwY921X7zQtoSzF2nISV"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline font-bold text-sm">Liam Vunipola</span>
+<span class="text-[10px] text-error font-bold flex items-center">
+<span class="material-symbols-outlined text-xs">trending_down</span> -2 Morale
+                                    </span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Post-match debrief regarding discipline. Player disagreed with officiating criticism.</p>
+</div>
+</div>
+<!-- Interaction Card -->
+<div class="flex gap-4 items-start">
+<img class="w-10 h-10 rounded-lg bg-surface-container-highest object-cover" data-alt="Rugby player headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqgLH6h7KER95X6mYePYNQKHdTtJgVz27TrEazwwWFJNwmdPudCYalWWTEovIoC4jg8MZGjOho_CGWCK4eHfNIVEdgTwWLvb888xWSpHn_UxpkFcN5-e3JT03rmk2CEs_ylycEPUv8zSNPIq8C9JbExXgx6AuJj7ZGmT1zOb8Afb-rmZ5rAgKb-w2rUqJCd002KcAFjt9j_ykBUOiTb6w7CK67RyoGM-DgimLE6LKjq2VPZnJfgx01RbdBfdAL2L--2AxyYT6ZPtv-"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline font-bold text-sm">David Kruge</span>
+<span class="text-[10px] text-on-surface-variant font-bold flex items-center">
+                                         Neutral
+                                    </span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Standard contract discussion. No immediate impact on performance.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Column 2: Social Feed & Sentiment (High Density) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-6">
+<!-- Fan Sentiment & Trending -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-4 text-center">
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Fan Approval</p>
+<p class="font-headline font-bold text-3xl text-primary">84%</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center">
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Media Heat</p>
+<p class="font-headline font-bold text-3xl text-secondary">HIGH</p>
+</div>
+<div class="bg-surface-container-low p-4 text-center">
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Club Reach</p>
+<p class="font-headline font-bold text-3xl text-on-surface">2.1M</p>
+</div>
+</div>
+<!-- Social Media Feed -->
+<section class="bg-surface-container-low flex-1 flex flex-col">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center">
+<h2 class="font-headline font-bold text-lg uppercase tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">dynamic_feed</span> Social Grid
+                        </h2>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-[10px] uppercase font-bold text-on-surface-variant">Live Feed</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Social Post -->
+<div class="glass-card p-5 border-l-2 border-secondary/30 relative overflow-hidden">
+<div class="flex gap-4 items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center font-headline font-bold text-secondary">LI</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-headline font-bold text-sm">RugbyBeat News <span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span></p>
+<p class="font-label text-[10px] text-on-surface-variant">2m ago</p>
+</div>
+<p class="text-xs text-on-surface-variant">@RugbyBeat_Official</p>
+</div>
+</div>
+<p class="text-sm font-body leading-relaxed text-on-surface mb-4">
+                                RUMOR: London Irish looking to activate the release clause for French international scrum-half. If this goes through, they are serious contenders this season. #RugbyTransfers #LondonIrish
+                            </p>
+<div class="flex gap-6 text-on-surface-variant">
+<span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">chat_bubble</span> 1.2k
+                                </span>
+<span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">repeat</span> 450
+                                </span>
+<span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span> 3.1k
+                                </span>
+</div>
+</div>
+<!-- Fan Post -->
+<div class="bg-surface-container-high/40 p-5 border-l-2 border-outline-variant/30">
+<div class="flex gap-4 items-start mb-4">
+<img class="w-10 h-10 rounded-full bg-surface-container-highest object-cover" data-alt="Fan Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY6Uv7zFkFz_ftiUZ6lvxa9KAChz6nANeabO4wBCZJhrxzpzM3GhVar94rjNHjVjcH4YQx7v8s_A6ovVqg6jfhhj8_ztEpd_CIOuCxXlRqvKJdBmtZJwcKjREiDmQBxF82glYL-DpEjwjjJgbeU3nFfenYBJVkaA-XU4PF9UKULloq7XxmZI0y0wVhq4FCukibFcCzkCO7zIW7Nh8SvzDkc3002Bre6Y8N4yeNRkbnWaHIS5Wu-TeYCjQ3N3lSUL7iReXcagCQw1eF"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-headline font-bold text-sm">Sarah 'The Hook' J.</p>
+<p class="font-label text-[10px] text-on-surface-variant">15m ago</p>
+</div>
+<p class="text-xs text-on-surface-variant">@IrishFanatic</p>
+</div>
+</div>
+<p class="text-sm font-body leading-relaxed text-on-surface-variant mb-4 italic">
+                                "The defensive line looked shaky last weekend. We need more aggression at the breakdown. Hoping the Manager sorts it before Leicester."
+                            </p>
+<div class="flex gap-6 text-on-surface-variant">
+<span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">chat_bubble</span> 82
+                                </span>
+<span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">favorite</span> 156
+                                </span>
+</div>
+</div>
+<!-- Player Post -->
+<div class="glass-card p-5 border-l-2 border-primary/30">
+<div class="flex gap-4 items-start mb-4">
+<img class="w-12 h-12 rounded-full border border-primary/40 p-0.5 object-cover" data-alt="Player Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9xchShngQk4HlN39zjhLccJbbyfD02t1WUifAGhRGURJOfyUW5PHOOQ5AAR6Fal6y0WJh6WcU89A6X-T7TdS8Mvw1Ca0MPp82X5iF28wFIJtlBVM2HueiUnPZ_chIdAaUNN5eJxmlLZaU8VXpXNaKWk_sZpC78nXYTlaZHeVFeszllp7BQHRUAx2rqTVrV_xuyNDUqbE23UWo1drHM2KeXlABuMy4EZJFoZQIz_KUILwxQvn55_u2oPz4buBTjm6UyJ9GWibFGwaK"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-headline font-bold text-sm">Marcus O'Shea <span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span></p>
+<p class="font-label text-[10px] text-on-surface-variant">1h ago</p>
+</div>
+<p class="text-xs text-on-surface-variant">@MOshea_Official</p>
+</div>
+</div>
+<p class="text-sm font-body leading-relaxed text-on-surface mb-4">
+                                Big session today with the boys. Focus is 100% on the Saturday clash. We go again! ☘️💪
+                            </p>
+<div class="flex gap-6 text-on-surface-variant">
+<span class="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span> 12.8k
+                                </span>
+</div>
+</div>
+</div>
+<!-- Trending Section -->
+<div class="p-6 bg-surface-container-highest flex gap-6 overflow-x-auto whitespace-nowrap">
+<div class="flex-none">
+<p class="font-label text-[10px] text-on-surface-variant uppercase mb-1">Trending Topics</p>
+<div class="flex gap-4">
+<span class="text-xs font-headline font-bold text-primary">#LITigers</span>
+<span class="text-xs font-headline font-bold text-on-surface">#SixNationsWatch</span>
+<span class="text-xs font-headline font-bold text-on-surface">#IrishRugby</span>
+<span class="text-xs font-headline font-bold text-secondary">#O'SheaReturn</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed as per rules for Details/Settings/Transactional screens, but keeping for Home-adjacent Media Center navigation if desired - choosing to suppress for focus) -->
+</body></html>

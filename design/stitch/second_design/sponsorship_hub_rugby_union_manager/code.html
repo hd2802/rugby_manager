@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sponsorship Hub | Stade de Rugby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#343d96",
+              "on-primary-fixed-variant": "#23501e",
+              "primary": "#a1d494",
+              "outline": "#8d928c",
+              "surface-container-low": "#181c22",
+              "on-error": "#690005",
+              "on-tertiary": "#2f3131",
+              "on-primary": "#0a3909",
+              "on-secondary-fixed": "#000767",
+              "secondary-container": "#343d96",
+              "outline-variant": "#434843",
+              "primary-container": "#043405",
+              "on-surface": "#dfe2eb",
+              "background": "#10141a",
+              "on-tertiary-container": "#929393",
+              "tertiary-fixed": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#454747",
+              "on-tertiary-fixed": "#1a1c1c",
+              "tertiary-fixed-dim": "#c6c6c6",
+              "inverse-on-surface": "#2d3137",
+              "inverse-surface": "#dfe2eb",
+              "on-primary-container": "#6e9f64",
+              "primary-fixed": "#bcf0ae",
+              "surface-container-lowest": "#0a0e14",
+              "tertiary": "#c6c6c6",
+              "on-background": "#dfe2eb",
+              "tertiary-container": "#2a2c2c",
+              "on-primary-fixed": "#002201",
+              "secondary-fixed-dim": "#bdc2ff",
+              "secondary-fixed": "#e0e0ff",
+              "primary-fixed-dim": "#a1d494",
+              "on-error-container": "#ffdad6",
+              "surface-bright": "#353940",
+              "surface-container-high": "#262a31",
+              "on-secondary-container": "#a8afff",
+              "surface-dim": "#10141a",
+              "surface": "#10141a",
+              "surface-container": "#1c2026",
+              "surface-variant": "#31353c",
+              "error": "#ffb4ab",
+              "on-secondary": "#1b247f",
+              "surface-tint": "#a1d494",
+              "surface-container-highest": "#31353c",
+              "on-surface-variant": "#c3c8c1",
+              "secondary": "#bdc2ff",
+              "inverse-primary": "#3b6934",
+              "error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Public Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(49, 53, 60, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#10141a] border-none flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#a1d494] uppercase font-['Space_Grotesk'] tracking-tight">Stade de Rugby</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#c3c8c1] hover:bg-[#31353c] transition-colors px-3 py-1 font-['Space_Grotesk'] tracking-tight" href="#">Finance: £4.2M</a>
+<a class="text-[#c3c8c1] hover:bg-[#31353c] transition-colors px-3 py-1 font-['Space_Grotesk'] tracking-tight" href="#">12 Oct 2023</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 px-4 py-1.5 bg-primary-container text-primary rounded-lg">
+<span class="material-symbols-outlined text-sm">handshake</span>
+<span class="font-bold text-sm font-['Space_Grotesk'] uppercase">Sponsorship Hub</span>
+</div>
+<button class="bg-primary text-on-primary font-bold py-1.5 px-4 rounded-lg uppercase text-sm font-['Space_Grotesk'] transition-all active:opacity-80">Next Match</button>
+<div class="flex gap-2">
+<button class="p-2 text-[#c3c8c1] hover:bg-[#31353c] rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-[#c3c8c1] hover:bg-[#31353c] rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Manager Profile Picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_uzmtKXWP-OfICVHaZELpH7O4NUqHypTE75atb41rt92XmLHNjxmdBP6zigNiX8919ZpRj4T0FsxQWWoVvlNGwmbu1lmBGj2bWkpFxCk7WmkO2HGCCbxib-geX-u2ugWNdx2W3Y5DiK-v5FLOE3Ju41tDgept2O8m0wruCjRBeudEoz8Lt0bX7q8T6riryd9naVPms2vcCU5oQUdLyxpukZAVyxJJh9XlJPbRxPs0kwi2wdBFRycBQZr4vNFCmKAwys-Lhq4k7Krm"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="flex flex-col fixed left-0 top-0 h-screen z-40 border-r border-[#31353c]/20 bg-[#181c22] w-64 pt-20">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container flex items-center justify-center rounded">
+<span class="material-symbols-outlined text-primary">sports_rugby</span>
+</div>
+<div>
+<p class="text-on-surface font-headline font-bold text-sm uppercase tracking-wider">London Irish</p>
+<p class="text-on-surface-variant text-[10px] uppercase font-bold opacity-60 tracking-[0.1em]">Premiership Rugby</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">groups</span> Squad
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">strategy</span> Tactics
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">swap_horiz</span> Transfers
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">fitness_center</span> Training
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">sports_rugby</span> Match Day
+            </a>
+<a class="flex items-center gap-3 text-[#c3c8c1] px-4 py-3 opacity-70 hover:bg-[#31353c] hover:opacity-100 transition-all font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">account_balance</span> Infrastructure
+            </a>
+<a class="flex items-center gap-3 bg-[#a1d494]/10 text-[#a1d494] border-l-4 border-[#a1d494] px-4 py-3 scale-[0.98] font-['Inter'] text-sm uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined">handshake</span> Boardroom
+            </a>
+</nav>
+<div class="p-6">
+<button class="w-full bg-[#31353c] hover:bg-primary hover:text-on-primary py-3 rounded text-[10px] font-bold uppercase tracking-[0.2em] transition-all">
+                Tactical Briefing
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 px-10 pb-10">
+<!-- Header Section -->
+<div class="mb-10 flex justify-between items-end">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-headline font-bold uppercase tracking-tighter text-on-surface mb-2">Sponsorship Hub</h1>
+<p class="text-on-surface-variant font-body">Manage global partnerships, kit deals, and naming rights to maximize commercial revenue and stadium development.</p>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold tracking-widest text-outline">Total Commercial Value</p>
+<p class="text-3xl font-headline font-bold text-primary">£14.85M <span class="text-sm font-normal text-on-surface-variant">/ yr</span></p>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- 1. Current Kit Deal (Large Left) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-lg p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">apparel</span>
+</div>
+<h2 class="text-2xl font-headline font-bold uppercase tracking-tight mb-8">Official Kit Partnership</h2>
+<div class="grid grid-cols-2 gap-8 relative z-10">
+<!-- Technical Partner -->
+<div class="bg-surface-container-highest p-6 rounded-lg border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] uppercase font-bold tracking-widest text-secondary mb-1">Technical Partner</p>
+<h3 class="text-xl font-headline font-bold">ARMOR ATHLETICS</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Contract Ends</span>
+<span class="text-on-surface font-bold">MAY 2025</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Annual Fee</span>
+<span class="text-on-surface font-bold">£2,400,000</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Kit Tier</span>
+<span class="text-on-surface font-bold">PREMIUM ELITE</span>
+</div>
+</div>
+</div>
+<!-- Jersey Sponsor -->
+<div class="bg-surface-container-highest p-6 rounded-lg border-l-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] uppercase font-bold tracking-widest text-primary mb-1">Jersey Sponsor</p>
+<h3 class="text-xl font-headline font-bold">ZENITH LOGISTICS</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">check_circle</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Contract Ends</span>
+<span class="text-on-surface font-bold">JUN 2024</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Annual Fee</span>
+<span class="text-on-surface font-bold">£5,150,000</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Exposure Rating</span>
+<span class="text-primary font-bold">94% GLOBAL</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 py-2 px-6 rounded font-label text-xs font-bold uppercase tracking-widest transition-all">Review Kit Assets</button>
+<button class="text-on-surface-variant hover:text-on-surface py-2 px-6 rounded font-label text-xs font-bold uppercase tracking-widest transition-all">Renegotiation Clauses</button>
+</div>
+</div>
+<!-- 2. Commercial Reach Analytics (Right) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-lg p-6 flex flex-col">
+<h2 class="text-xl font-headline font-bold uppercase tracking-tight mb-6">Commercial Reach</h2>
+<div class="flex-1 flex flex-col justify-center">
+<div class="relative h-48 w-full flex items-center justify-center mb-6">
+<!-- Abstract Radial Chart Representation -->
+<div class="absolute inset-0 border-[16px] border-surface-container-highest rounded-full"></div>
+<div class="absolute inset-0 border-[16px] border-primary rounded-full border-t-transparent border-l-transparent" style="transform: rotate(45deg);"></div>
+<div class="text-center">
+<p class="text-3xl font-headline font-bold text-on-surface">68%</p>
+<p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant">Global Reach</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary rounded-full"></span>
+<span class="text-xs font-label uppercase font-bold">International Market</span>
+</div>
+<span class="text-sm font-bold">£8.2M Impact</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-secondary rounded-full"></span>
+<span class="text-xs font-label uppercase font-bold">Regional Hub</span>
+</div>
+<span class="text-sm font-bold">£4.1M Impact</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-surface-variant rounded-full"></span>
+<span class="text-xs font-label uppercase font-bold">Digital Presence</span>
+</div>
+<span class="text-sm font-bold">£2.55M Impact</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Stadium Naming Rights (Bottom Left) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-lg p-6 group">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-headline font-bold uppercase tracking-tight">Naming Rights</h2>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stadium</span>
+</div>
+<div class="mb-6 h-32 w-full rounded-lg overflow-hidden bg-surface-container-highest relative">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Rugby stadium aerial view at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuIGQC6bJicupLKikX0dogdPs4475C4whbe4ssR9dycH-PmWPwwXM-LgRcwfEGo4yWv_hT-nzal0kmiRoO69oRXFF1ecOH5Ct7YgB1jc2hHyECvrikpC0MV5xlHkwJijQGD7QOFCjpyhTIzT6qvzuDyCG0_xBO2W0d_zE35m5s0BHnXMZxiFywo98c9gtLtJWUnsXZRDBfRcXMaU9BDzj0Mv_MtnS7yQuzeqxtYigv3k3NJyt29ObDAHnaxAgykx0WYZmBnRey0Xus"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<p class="text-[10px] uppercase font-bold text-primary tracking-widest">Active Deal</p>
+<h3 class="text-lg font-headline font-bold tracking-tight">THE AXA ARENA</h3>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Contract Value</span>
+<span class="text-on-surface font-bold">£3.2M / SEASON</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Remaining</span>
+<span class="text-on-surface font-bold">3 YEARS</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Brand Loyalty</span>
+<span class="text-primary font-bold">EXCELLENT</span>
+</div>
+</div>
+<button class="w-full bg-surface-container-highest hover:bg-surface-bright py-3 rounded text-[10px] font-bold uppercase tracking-widest transition-all">Stadium Expansion Project</button>
+</div>
+<!-- 4. Negotiation Suite (Bottom Right/Center) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-lg p-6">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-headline font-bold uppercase tracking-tight">Negotiation Suite</h2>
+<div class="flex gap-2">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+</div>
+<div class="space-y-3">
+<!-- Prospective Deal 1 -->
+<div class="bg-surface-container hover:bg-surface-container-high p-4 rounded-lg flex items-center justify-between transition-all cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">flight_takeoff</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg leading-tight">ORION AIRWAYS</h4>
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant">Airlines &amp; Travel</p>
+</div>
+</div>
+<div class="flex gap-12 items-center">
+<div class="text-center">
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant mb-1">Duration</p>
+<p class="text-sm font-bold">5 YEARS</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant mb-1">Projection</p>
+<p class="text-sm font-bold text-primary">£6.5M p/a</p>
+</div>
+<button class="bg-primary text-on-primary font-bold py-2 px-4 rounded text-[10px] uppercase tracking-widest">Negotiate</button>
+</div>
+</div>
+<!-- Prospective Deal 2 -->
+<div class="bg-surface-container hover:bg-surface-container-high p-4 rounded-lg flex items-center justify-between transition-all cursor-pointer border border-transparent hover:border-outline-variant/30">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">payments</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg leading-tight">NOVA BANKING</h4>
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant">Financial Services</p>
+</div>
+</div>
+<div class="flex gap-12 items-center">
+<div class="text-center">
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant mb-1">Duration</p>
+<p class="text-sm font-bold">3 YEARS</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant mb-1">Projection</p>
+<p class="text-sm font-bold text-primary">£4.8M p/a</p>
+</div>
+<button class="bg-primary text-on-primary font-bold py-2 px-4 rounded text-[10px] uppercase tracking-widest">Negotiate</button>
+</div>
+</div>
+<!-- Prospective Deal 3 -->
+<div class="bg-surface-container hover:bg-surface-container-high p-4 rounded-lg flex items-center justify-between transition-all cursor-pointer border border-transparent hover:border-outline-variant/30 opacity-60">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 bg-surface-container-highest rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">bolt</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg leading-tight">PULSE ENERGY</h4>
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant">Sustainability</p>
+</div>
+</div>
+<div class="flex gap-12 items-center">
+<div class="text-center">
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant mb-1">Duration</p>
+<p class="text-sm font-bold">4 YEARS</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] font-label uppercase font-bold tracking-widest text-on-surface-variant mb-1">Projection</p>
+<p class="text-sm font-bold text-primary">£3.9M p/a</p>
+</div>
+<button class="bg-surface-container-highest text-on-surface-variant font-bold py-2 px-4 rounded text-[10px] uppercase tracking-widest cursor-not-allowed">Locked</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Toast/Notification Layer (Subtle) -->
+<div class="fixed bottom-6 right-6 z-50">
+<div class="glass-card border border-primary/20 p-4 rounded-lg shadow-2xl flex items-center gap-4 max-w-sm">
+<div class="w-10 h-10 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-primary mb-0.5">Commercial Opportunity</p>
+<p class="text-sm text-on-surface">Jersey Sponsor 'Zenith' is open to early renewal talks.</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+</body></html>

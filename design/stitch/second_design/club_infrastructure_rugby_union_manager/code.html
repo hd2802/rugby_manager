@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Club Infrastructure | London Warriors RFC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#8d928c",
+              "on-background": "#dfe2eb",
+              "error": "#ffb4ab",
+              "on-error-container": "#ffdad6",
+              "on-tertiary": "#2f3131",
+              "on-primary-fixed": "#002201",
+              "tertiary": "#c6c6c6",
+              "surface-container-low": "#181c22",
+              "secondary-fixed-dim": "#bdc2ff",
+              "tertiary-fixed-dim": "#c6c6c6",
+              "on-tertiary-fixed-variant": "#454747",
+              "primary": "#a1d494",
+              "on-surface-variant": "#c3c8c1",
+              "surface-container-high": "#262a31",
+              "on-primary-container": "#6e9f64",
+              "surface-variant": "#31353c",
+              "on-secondary-fixed": "#000767",
+              "surface-container": "#1c2026",
+              "on-primary": "#0a3909",
+              "on-tertiary-container": "#929393",
+              "primary-fixed-dim": "#a1d494",
+              "secondary-container": "#343d96",
+              "outline-variant": "#434843",
+              "on-primary-fixed-variant": "#23501e",
+              "surface": "#10141a",
+              "surface-bright": "#353940",
+              "inverse-surface": "#dfe2eb",
+              "surface-container-highest": "#31353c",
+              "secondary": "#bdc2ff",
+              "on-secondary": "#1b247f",
+              "inverse-on-surface": "#2d3137",
+              "tertiary-fixed": "#e2e2e2",
+              "on-secondary-fixed-variant": "#343d96",
+              "background": "#10141a",
+              "surface-container-lowest": "#0a0e14",
+              "on-tertiary-fixed": "#1a1c1c",
+              "secondary-fixed": "#e0e0ff",
+              "inverse-primary": "#3b6934",
+              "primary-fixed": "#bcf0ae",
+              "on-secondary-container": "#a8afff",
+              "on-surface": "#dfe2eb",
+              "primary-container": "#043405",
+              "surface-dim": "#10141a",
+              "on-error": "#690005",
+              "tertiary-container": "#2a2c2c",
+              "surface-tint": "#a1d494",
+              "error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Public Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(rgba(161, 212, 148, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full z-40 flex flex-col items-center py-6 bg-[#181c22] dark:bg-slate-900 w-20 border-r border-white/5 shadow-2xl shadow-black/50">
+<div class="mb-10">
+<span class="text-[#a1d494] font-black tracking-tighter text-xl">WAR</span>
+</div>
+<nav class="flex flex-col gap-4 w-full px-2">
+<button class="flex flex-col items-center py-3 gap-1 group text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center py-3 gap-1 group text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Squad</span>
+</button>
+<button class="flex flex-col items-center py-3 gap-1 group text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">strategy</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Tactics</span>
+</button>
+<button class="flex flex-col items-center py-3 gap-1 group text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Transfers</span>
+</button>
+<button class="flex flex-col items-center py-3 gap-1 group text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Training</span>
+</button>
+<button class="flex flex-col items-center py-3 gap-1 group text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">sports_rugby</span>
+<span class="font-['Space_Grotesk'] uppercase tracking-wider text-[10px] font-bold">Match Day</span>
+</button>
+</nav>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-20 z-30 px-8 flex justify-between items-center bg-[#10141a]/80 backdrop-blur-md h-16 border-b border-[#31353c]/30">
+<div class="flex items-center gap-6">
+<h1 class="font-black text-lg text-white tracking-widest uppercase">London Warriors RFC</h1>
+<div class="hidden md:flex gap-4 items-center">
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-slate-300">12 OCT 2024</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="font-['Space_Grotesk'] font-medium text-sm tracking-tight text-primary">£14.2M Surplus</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-300 hover:bg-white/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-300 hover:bg-white/5 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="ml-4 bg-primary text-on-primary px-6 py-2 font-headline font-bold uppercase text-xs tracking-widest hover:brightness-110 active:scale-95 transition-all">
+                Continue
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-20 pt-24 px-8 pb-12">
+<!-- Header Section -->
+<section class="mb-10">
+<div class="flex flex-col gap-1">
+<span class="font-label text-primary text-xs font-bold tracking-[0.2em] uppercase">Operations Control</span>
+<h2 class="font-headline text-5xl font-black text-white tracking-tighter">CLUB INFRASTRUCTURE</h2>
+</div>
+</section>
+<!-- Bento Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Stadium Overview (Twickenham Stoop Style Blueprint) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low relative overflow-hidden h-[500px] border-l-4 border-primary/20">
+<div class="absolute inset-0 blueprint-grid opacity-40"></div>
+<div class="relative z-10 p-8 flex flex-col h-full">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl font-bold text-white uppercase tracking-tight">Warrior Park Stadium</h3>
+<p class="font-label text-on-surface-variant text-xs uppercase tracking-widest">Current capacity: 14,800</p>
+</div>
+<div class="bg-surface-container-highest/80 backdrop-blur p-4 flex flex-col items-end">
+<span class="font-label text-[10px] text-primary uppercase font-bold">Pitch Status</span>
+<span class="font-headline text-xl font-bold text-white italic">ELITE TURF</span>
+</div>
+</div>
+<!-- Stadium Illustration Area -->
+<div class="flex-grow flex items-center justify-center relative py-10">
+<!-- Stylized Blueprint Lines -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[80%] h-[60%] border border-primary/10 rounded-xl"></div>
+<div class="absolute w-[85%] h-[65%] border border-primary/5 rounded-2xl"></div>
+</div>
+<div class="relative w-full max-w-2xl h-64 bg-surface-container-highest/30 rounded-lg flex items-center justify-center">
+<img alt="Stadium Blueprint" class="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale" data-alt="Technical architectural drawing of a modern rugby stadium layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRBnCXVfrNssI0jtnFgJLpps6HZYZK3IsoswuQaVq7Eqk_bm2Vnqzoe2YOeUF4eDIXsc9fxRGI9-GN1VUg2KtcbY7idjrJXno-XKylq9jE3KXSiktfMiZ0dOn5bVpjGxR4iHjNt02abuRJlgwoojmxW7BRJN9922u_O4_QmjkuSL3W_FNBqaJMOhPnNeCMUAebakBZRaqA_lMMTZPzdFWtznj67eoXhAOU7H8nLCGWfedL8YNSMBYl5E-MP7U_OZoGPEU7latXxVtn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<!-- Tactical Callouts -->
+<div class="absolute top-1/4 left-1/4 flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(161,212,148,0.8)]"></div>
+<div class="h-12 w-px bg-primary/40"></div>
+<div class="bg-surface-container-highest/90 border border-primary/20 px-3 py-1 text-[10px] font-label text-white uppercase backdrop-blur-sm">
+                                    North Stand [Upgraded]
+                                </div>
+</div>
+<div class="absolute bottom-1/3 right-1/4 flex flex-col items-center">
+<div class="bg-surface-container-highest/90 border border-primary/20 px-3 py-1 text-[10px] font-label text-white uppercase backdrop-blur-sm">
+                                    South Terrace [Expansion Ready]
+                                </div>
+<div class="h-8 w-px bg-primary/40"></div>
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_rgba(189,194,255,0.8)]"></div>
+</div>
+</div>
+</div>
+<!-- Stats Footer -->
+<div class="grid grid-cols-3 gap-8 mt-auto border-t border-white/5 pt-6">
+<div>
+<span class="block font-label text-[10px] text-on-surface-variant uppercase mb-1">Weekly Revenue</span>
+<span class="font-headline text-lg font-bold text-white">£480,250</span>
+</div>
+<div>
+<span class="block font-label text-[10px] text-on-surface-variant uppercase mb-1">Fan Satisfaction</span>
+<span class="font-headline text-lg font-bold text-primary">88%</span>
+</div>
+<div>
+<span class="block font-label text-[10px] text-on-surface-variant uppercase mb-1">Maintenance Cost</span>
+<span class="font-headline text-lg font-bold text-white">£22k / wk</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Maintenance & Status -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<!-- Training Grounds Card -->
+<div class="bg-surface-container-high p-6 flex-grow border-b-2 border-primary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<h3 class="font-headline text-lg font-bold text-white uppercase tracking-tight">Training High-Performance Centre</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="font-label text-sm text-on-surface-variant">Gym Level 4</span>
+<span class="font-headline text-sm font-bold text-white italic">ELITE</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest overflow-hidden">
+<div class="w-4/5 h-full bg-primary shadow-[0_0_10px_rgba(161,212,148,0.5)]"></div>
+</div>
+<div class="bg-primary/5 p-4 border-l-2 border-primary/30">
+<p class="font-label text-xs text-primary leading-relaxed">
+<span class="font-bold">IMPACT:</span> Improved Gym increases Strength training efficiency by 5% for all senior squad members.
+                            </p>
+</div>
+<div class="mt-8">
+<button class="w-full bg-surface-container-highest hover:bg-surface-bright text-white py-3 font-headline text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">construction</span>
+                                Plan Upgrade [£2.5M]
+                            </button>
+</div>
+</div>
+</div>
+<!-- Medical Suite Card -->
+<div class="bg-surface-container-high p-6 flex-grow border-b-2 border-secondary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary">medical_services</span>
+<h3 class="font-headline text-lg font-bold text-white uppercase tracking-tight">Advanced Medical Suite</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label text-xs text-on-surface-variant uppercase font-bold">Recovery Rate</span>
+<span class="font-label text-xs text-secondary font-bold">+12%</span>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-xs font-label text-on-surface">
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+                                Cryotherapy Chamber: <span class="text-white ml-auto">ACTIVE</span>
+</li>
+<li class="flex items-center gap-2 text-xs font-label text-on-surface">
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+                                Hydrotherapy Pool: <span class="text-white ml-auto">UPGRADING</span>
+</li>
+</ul>
+<div class="mt-6 pt-4 border-t border-white/5">
+<div class="flex justify-between items-center">
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Staff capacity</span>
+<span class="font-label text-[10px] text-white">8 / 10 Specialist Physiotherapists</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Detail Rows -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Data Widget 1: Youth Academy -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="font-label text-[10px] font-black text-primary uppercase tracking-widest">Academy Level 3</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">school</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-white uppercase">The Academy Forge</h4>
+<p class="font-label text-xs text-on-surface-variant leading-relaxed">Currently producing 3 regional prospects per season. Expansion will unlock Tier 1 recruitment.</p>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Maintenance</span>
+<span class="font-label text-xs text-white">£4.5k / wk</span>
+</div>
+</div>
+<!-- Data Widget 2: Media & Commercial -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="font-label text-[10px] font-black text-primary uppercase tracking-widest">Commercial Hub</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">campaign</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-white uppercase">Hospitality Suites</h4>
+<p class="font-label text-xs text-on-surface-variant leading-relaxed">Corporate revenue up 15% following the 'Platinum Lounge' renovation.</p>
+<div class="mt-auto pt-4 flex items-center justify-between">
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Projected ROI</span>
+<span class="font-label text-xs text-primary font-bold">18 Months</span>
+</div>
+</div>
+<!-- Data Widget 3: Maintenance Status -->
+<div class="bg-surface-container-low p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<span class="font-label text-[10px] font-black text-primary uppercase tracking-widest">Facility Integrity</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">settings_suggest</span>
+</div>
+<h4 class="font-headline text-xl font-bold text-white uppercase">Grounds Crew</h4>
+<div class="space-y-3">
+<div class="flex justify-between text-[10px] font-label uppercase">
+<span class="text-on-surface-variant">Surface Integrity</span>
+<span class="text-white">92%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="w-[92%] h-full bg-primary"></div>
+</div>
+</div>
+<div class="mt-auto pt-4">
+<button class="text-primary font-headline text-[10px] font-black uppercase tracking-widest hover:underline transition-all">Schedule Intensive Overhaul</button>
+</div>
+</div>
+</div>
+<!-- Detailed Upgrade Path Table (High Information Density) -->
+<div class="col-span-12 bg-surface-container-low overflow-hidden">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h3 class="font-headline text-xl font-bold text-white uppercase tracking-tight">Pending Infrastructure Projects</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] font-label font-bold text-on-surface-variant uppercase">Filter: All</span>
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] font-label font-bold text-on-surface-variant uppercase">Sort: Priority</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-highest/50">
+<th class="px-6 py-4 font-label text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Project Name</th>
+<th class="px-6 py-4 font-label text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Category</th>
+<th class="px-6 py-4 font-label text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Cost Est.</th>
+<th class="px-6 py-4 font-label text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Timeline</th>
+<th class="px-6 py-4 font-label text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Key Benefit</th>
+<th class="px-6 py-4 font-label text-[10px] font-black text-on-surface-variant uppercase tracking-widest text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 font-headline text-sm font-bold text-white">Pitch Undersoil Heating</td>
+<td class="px-6 py-5 font-label text-xs text-on-surface-variant">Stadium</td>
+<td class="px-6 py-5 font-headline text-sm font-medium text-white">£850,000</td>
+<td class="px-6 py-5 font-label text-xs text-on-surface-variant">4 Weeks</td>
+<td class="px-6 py-5 font-label text-xs text-primary">Prevents match cancellations in Winter</td>
+<td class="px-6 py-5 text-right">
+<button class="px-4 py-2 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest group-hover:bg-primary group-hover:text-on-primary transition-all">Authorize</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 font-headline text-sm font-bold text-white">Data Analysis Lab (Tier 2)</td>
+<td class="px-6 py-5 font-label text-xs text-on-surface-variant">Tactical</td>
+<td class="px-6 py-5 font-headline text-sm font-medium text-white">£1,200,000</td>
+<td class="px-6 py-5 font-label text-xs text-on-surface-variant">6 Weeks</td>
+<td class="px-6 py-5 font-label text-xs text-primary">+10% Scouting accuracy in Southern Hemisphere</td>
+<td class="px-6 py-5 text-right">
+<button class="px-4 py-2 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest group-hover:bg-primary group-hover:text-on-primary transition-all">Authorize</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5 font-headline text-sm font-bold text-white">Bio-Mechanical Sensor Rig</td>
+<td class="px-6 py-5 font-label text-xs text-on-surface-variant">Medical</td>
+<td class="px-6 py-5 font-headline text-sm font-medium text-white">£450,000</td>
+<td class="px-6 py-5 font-label text-xs text-on-surface-variant">2 Weeks</td>
+<td class="px-6 py-5 font-label text-xs text-primary">Early warning for hamstring stress</td>
+<td class="px-6 py-5 text-right">
+<button class="px-4 py-2 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest group-hover:bg-primary group-hover:text-on-primary transition-all">Authorize</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB Suppression: FAB is only for primary actions like "Schedule Training" or "Buy Player". Not shown here as requested. -->
+</body></html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFC COMMAND - Tactical Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary": "#c7d5f3",
+                        "inverse-primary": "#006a70",
+                        "outline-variant": "#3b4861",
+                        "primary-dim": "#00e2ee",
+                        "tertiary-container": "#cafd00",
+                        "surface-container-highest": "#102645",
+                        "surface-container": "#061934",
+                        "on-primary-fixed-variant": "#006065",
+                        "primary-container": "#00f1fe",
+                        "surface-tint": "#99f7ff",
+                        "error-container": "#9f0519",
+                        "primary": "#99f7ff",
+                        "on-tertiary-container": "#4a5e00",
+                        "tertiary-fixed-dim": "#beee00",
+                        "on-error": "#490006",
+                        "on-secondary-fixed-variant": "#45536c",
+                        "on-background": "#dbe6ff",
+                        "primary-fixed": "#00f1fe",
+                        "tertiary": "#f3ffca",
+                        "secondary-container": "#39475f",
+                        "on-tertiary-fixed": "#3a4a00",
+                        "on-surface-variant": "#9eabc8",
+                        "secondary-fixed-dim": "#b9c7e4",
+                        "surface-container-lowest": "#000000",
+                        "tertiary-fixed": "#cafd00",
+                        "surface-container-low": "#02132b",
+                        "inverse-on-surface": "#48556e",
+                        "surface-bright": "#152c4e",
+                        "on-primary-container": "#00555a",
+                        "on-tertiary-fixed-variant": "#526900",
+                        "primary-fixed-dim": "#00e2ee",
+                        "surface-container-high": "#0b203d",
+                        "on-tertiary": "#516700",
+                        "on-secondary-fixed": "#29364e",
+                        "on-secondary-container": "#c3d1ee",
+                        "tertiary-dim": "#beee00",
+                        "surface-variant": "#102645",
+                        "secondary-dim": "#b9c7e4",
+                        "error": "#ff716c",
+                        "error-dim": "#d7383b",
+                        "on-secondary": "#3c4962",
+                        "background": "#010e24",
+                        "outline": "#687690",
+                        "on-surface": "#dbe6ff",
+                        "on-primary-fixed": "#004145",
+                        "secondary-fixed": "#c7d5f3",
+                        "on-primary": "#005f64",
+                        "surface-dim": "#010e24",
+                        "inverse-surface": "#f9f9ff",
+                        "surface": "#010e24",
+                        "on-error-container": "#ffa8a3"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(11, 32, 61, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .pitch-grid {
+            background-image: radial-gradient(circle at 2px 2px, rgba(153, 247, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-16 flex justify-between items-center px-6 z-50 bg-slate-950/80 backdrop-blur-md shadow-[0_0_15px_rgba(153,247,255,0.1)]">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold italic text-cyan-400 font-['Space_Grotesk'] tracking-tight">RFC COMMAND</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-cyan-300 border-b-2 border-cyan-400 py-5 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 transition-all" href="#">DASHBOARD</a>
+<a class="text-slate-400 py-5 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-cyan-300 transition-all" href="#">ROSTER</a>
+<a class="text-slate-400 py-5 font-['Space_Grotesk'] tracking-tight hover:bg-slate-800/50 hover:text-cyan-300 transition-all" href="#">ANALYSIS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-cyan-400 hover:bg-slate-800/50 transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="p-2 text-cyan-400 hover:bg-slate-800/50 transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+<button class="p-2 text-cyan-400 hover:bg-slate-800/50 transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col pt-16 border-r border-slate-800/50 z-40 bg-slate-950">
+<div class="p-6 border-b border-slate-900">
+<h2 class="text-cyan-400 font-['Space_Grotesk'] font-black">STRATEGIST ONE</h2>
+<p class="font-['Inter'] uppercase tracking-widest text-[10px] font-semibold text-slate-500">Elite Division</p>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-500/20 to-transparent border-l-4 border-cyan-400 text-cyan-400 shadow-[0_0_10px_rgba(153,247,255,0.2)] font-['Inter'] uppercase tracking-widest text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">groups</span> Squad
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">strategy</span> Tactics
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">swap_horizontal_circle</span> Transfers
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">fitness_center</span> Training
+                </a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:text-slate-200 hover:bg-slate-900/80 transition-colors duration-200 font-['Inter'] uppercase tracking-widest text-xs font-semibold" href="#">
+<span class="material-symbols-outlined text-lg">sports_rugby</span> Match Day
+                </a>
+</nav>
+</div>
+<div class="p-4 border-t border-slate-900">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 font-headline font-bold text-xs tracking-widest rounded-sm hover:shadow-[0_0_15px_rgba(153,247,255,0.4)] transition-all active:scale-95">
+                SIMULATE NEXT DAY
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-background pitch-grid">
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Dashboard Header -->
+<div class="flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-headline font-bold tracking-tight text-on-background">COMMAND CENTER</h1>
+<p class="text-on-surface-variant font-medium">Matchday -2 | Optimal Weather Conditions</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant/20 text-tertiary text-[10px] font-bold tracking-tighter uppercase">Live System: Active</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline-variant/20 text-primary text-[10px] font-bold tracking-tighter uppercase">Sync Status: 100%</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Next Match Preview (Hero Section) -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-low relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10"></div>
+<img alt="Aerial view of a rugby stadium at night with bright floodlights" class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Aerial view of a rugby stadium at night with bright floodlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe5Rj4UThhSsXBQRbkxStb1Hrpyc81ZQ-GWm2Y2skGqFQjsh-_tfWuY9yGmQuU_H6nj2RH791Ertw9eqxJeqCoYIGiPGn7mOUwC_y5DN5dRarFepxDPNyDGzAslarLQs9ifg_EQ24z92YXA1DKyfSMavIOp0Sp8Hc08Bj7lQn6-KgLpN8dOPXB8Vh5uxF3Qj28IWcCqZm7nGYl0Y651lOmUQ2cKxIFfQUaRG41WV5_Zu3Yypupr89EBntzDf1PAlLz-0qM3hrLAuPm"/>
+<div class="relative z-20 p-8 h-full flex flex-col justify-between min-h-[400px]">
+<div class="flex items-center gap-4">
+<span class="bg-primary text-on-primary text-[10px] font-black px-2 py-0.5 tracking-tighter uppercase">Upcoming Fixture</span>
+<span class="text-on-surface-variant text-xs font-semibold tracking-widest uppercase">Gallagher Premiership - Round 14</span>
+</div>
+<div class="flex items-center justify-between max-w-2xl py-12">
+<div class="text-center">
+<div class="w-24 h-24 bg-surface-bright flex items-center justify-center mb-4 border-2 border-primary/20 shadow-[0_0_20px_rgba(153,247,255,0.1)]">
+<span class="material-symbols-outlined text-5xl text-primary">shield</span>
+</div>
+<h3 class="font-headline text-2xl font-bold tracking-tight">WARRIORS</h3>
+<p class="text-[10px] text-tertiary font-bold tracking-widest uppercase">Home</p>
+</div>
+<div class="text-center">
+<div class="font-headline text-6xl font-black text-outline-variant/30 italic">VS</div>
+</div>
+<div class="text-center">
+<div class="w-24 h-24 bg-surface-bright flex items-center justify-center mb-4 border-2 border-secondary/20 shadow-[0_0_20px_rgba(199,213,243,0.1)]">
+<span class="material-symbols-outlined text-5xl text-secondary">token</span>
+</div>
+<h3 class="font-headline text-2xl font-bold tracking-tight">TIGERS</h3>
+<p class="text-[10px] text-on-surface-variant font-bold tracking-widest uppercase">Away</p>
+</div>
+</div>
+<div class="flex gap-8 border-t border-outline-variant/10 pt-6">
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Win Probability</p>
+<div class="flex items-center gap-3">
+<div class="h-1.5 w-32 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary w-[68%]"></div>
+</div>
+<span class="text-primary font-headline font-bold">68%</span>
+</div>
+</div>
+<button class="ml-auto flex items-center gap-2 text-tertiary text-xs font-bold tracking-widest hover:translate-x-1 transition-transform">
+                                MATCH PREP <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- League Standings Widget -->
+<section class="col-span-12 lg:col-span-4 bg-surface-container-high p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<h4 class="font-headline font-bold text-lg">GALLAGHER PREMIERSHIP</h4>
+<span class="material-symbols-outlined text-on-surface-variant">leaderboard</span>
+</div>
+<div class="space-y-1 flex-1">
+<!-- Table Header -->
+<div class="grid grid-cols-12 text-[10px] font-bold text-on-surface-variant tracking-widest uppercase pb-2 px-2 border-b border-outline-variant/10">
+<div class="col-span-1">#</div>
+<div class="col-span-7">Club</div>
+<div class="col-span-2 text-center">PTS</div>
+<div class="col-span-2 text-center">+/-</div>
+</div>
+<!-- Table Rows -->
+<div class="grid grid-cols-12 items-center px-2 py-3 bg-surface-bright/50 border-l-2 border-primary">
+<div class="col-span-1 text-xs font-bold text-primary">4</div>
+<div class="col-span-7 text-xs font-bold">WARRIORS</div>
+<div class="col-span-2 text-center text-xs font-headline font-bold">42</div>
+<div class="col-span-2 text-center text-xs text-tertiary">+124</div>
+</div>
+<div class="grid grid-cols-12 items-center px-2 py-3 hover:bg-surface-bright transition-colors">
+<div class="col-span-1 text-xs font-bold text-on-surface-variant">5</div>
+<div class="col-span-7 text-xs font-bold">SARACENS</div>
+<div class="col-span-2 text-center text-xs font-headline font-bold">41</div>
+<div class="col-span-2 text-center text-xs text-secondary">+88</div>
+</div>
+<div class="grid grid-cols-12 items-center px-2 py-3 hover:bg-surface-bright transition-colors">
+<div class="col-span-1 text-xs font-bold text-on-surface-variant">6</div>
+<div class="col-span-7 text-xs font-bold">TIGERS</div>
+<div class="col-span-2 text-center text-xs font-headline font-bold">39</div>
+<div class="col-span-2 text-center text-xs text-error">-12</div>
+</div>
+<div class="grid grid-cols-12 items-center px-2 py-3 hover:bg-surface-bright transition-colors">
+<div class="col-span-1 text-xs font-bold text-on-surface-variant">7</div>
+<div class="col-span-7 text-xs font-bold">EXETER</div>
+<div class="col-span-2 text-center text-xs font-headline font-bold">38</div>
+<div class="col-span-2 text-center text-xs text-secondary">+15</div>
+</div>
+</div>
+<button class="mt-6 w-full py-3 border border-outline-variant/20 text-[10px] font-bold tracking-widest uppercase hover:bg-surface-variant transition-colors">View Full Table</button>
+</section>
+<!-- Squad Readiness Status -->
+<section class="col-span-12 lg:col-span-5 bg-surface-container-high p-6 space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">medical_services</span>
+<h4 class="font-headline font-bold text-lg uppercase tracking-tight">SQUAD READINESS</h4>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="Rugby player profile portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a professional rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbiZoQLIcM9DYvSy_wGypF0D2XCKLPEutBBd2mQ6PI2ivQwyVsl5Ch3-n6evTcjE-F5jqq2uVHych2ApuMvnTLqn-3GAfMrWr0rGFkT4arm1B9M1n3py05Pjsdyjlw1WglGuEX8iuHtPWeGLf6XuURgsuhbeCGgjBgfu5ZPjRaSJuR6VDTa3vE-qfMRUI4Kq6AZr5xXnQx6RjCQifekvXYZOZaD-s-e-An44w-0u9sZATxzjc2O5JGKGeSxgAaM00bUuxkNjSiueWD"/>
+</div>
+<div>
+<p class="text-sm font-bold">M. ITOJE</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Lock</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(243,255,202,0.8)]"></div>
+<span class="text-[10px] font-black text-tertiary uppercase tracking-tighter">Match Fit</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="Rugby player profile portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a professional rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxGShFtMclpsEItBNyOBnE9JwwZe57CeC4JcLlF6x5x-3BcaeUlSy1iZlOa_LogJV8L8rYBC9-iXO6nFbcE6_42fvkqFsEtK4Gu9P0c-OMAKKJG7_Sn7dR4OCrF7NmVerAXJGK_aqvinsofK0eZyDfXfxMGYcmM9vMCX4GAa1Fvl6nIuv1l8nXO77UTxh8lsQmTW2OXfq-rVpDpC0GNNU-yKkXOjb9gtqT74rIWh7ufHFT_To9hPGHfD0gD4QHgANnsJ49gIynF1CH"/>
+</div>
+<div>
+<p class="text-sm font-bold">O. FARRELL</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Fly-Half</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(153,247,255,0.6)]"></div>
+<span class="text-[10px] font-black text-primary uppercase tracking-tighter">Rehab (95%)</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center overflow-hidden border border-outline-variant/20 grayscale">
+<img alt="Rugby player profile portrait" class="w-full h-full object-cover" data-alt="Close up portrait of a professional rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB4DqAkZk3kW0Ut_vjY7J_SNrlSYN7HLNLga-kfcdBf1_wqSfEXqTiBfEpwt3aesdILQw9w8YT5BSvV43IZ5a8dqjipMXnU6bqAPZRQkUWfBMADw-cwIPIZdDGkecfdMJvr5Q43PEmm2RWtb4qM3HNFAF77jesZKoo7Aht4sgImG40OfUnxmx2AxjcUXqtRKqovTFDZfVV5ECsV1gK-kh3qU7v8sEjfJRl3Fqgu67X5vHkHlIVy_AmMiVl7dGAntFYULr6vbRKoYkp"/>
+</div>
+<div>
+<p class="text-sm font-bold opacity-60">E. GENGE</p>
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Prop</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error shadow-[0_0_8px_rgba(255,113,108,0.6)]"></div>
+<span class="text-[10px] font-black text-error uppercase tracking-tighter">Injured</span>
+</div>
+</div>
+</div>
+</section>
+<!-- World Rugby News Feed -->
+<section class="col-span-12 lg:col-span-4 bg-surface-container-high p-6 flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-headline font-bold text-lg">GLOBAL FEED</h4>
+<span class="material-symbols-outlined text-primary text-sm">rss_feed</span>
+</div>
+<div class="space-y-6 flex-1">
+<article class="group cursor-pointer">
+<p class="text-[10px] text-tertiary font-bold uppercase tracking-widest mb-1">Breaking News</p>
+<h5 class="font-headline text-sm font-bold group-hover:text-primary transition-colors">Six Nations schedule confirmed for next three cycles.</h5>
+<p class="text-[10px] text-on-surface-variant mt-2 italic">2 mins ago • World Rugby</p>
+</article>
+<article class="group cursor-pointer">
+<p class="text-[10px] text-secondary font-bold uppercase tracking-widest mb-1">Transfer Rumor</p>
+<h5 class="font-headline text-sm font-bold group-hover:text-primary transition-colors">Antoine Dupont linked with massive Japanese League move.</h5>
+<p class="text-[10px] text-on-surface-variant mt-2 italic">1 hour ago • Rugby Pass</p>
+</article>
+<article class="group cursor-pointer">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Analysis</p>
+<h5 class="font-headline text-sm font-bold group-hover:text-primary transition-colors">How the 50-22 rule is fundamentally changing defensive shapes.</h5>
+<p class="text-[10px] text-on-surface-variant mt-2 italic">4 hours ago • Technical Dept.</p>
+</article>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/10">
+<a class="text-[10px] font-bold text-primary tracking-widest uppercase flex items-center gap-2" href="#">More News <span class="material-symbols-outlined text-xs">open_in_new</span></a>
+</div>
+</section>
+<!-- Staff Inbox -->
+<section class="col-span-12 lg:col-span-3 bg-surface-container-high p-6 space-y-4">
+<div class="flex items-center justify-between">
+<h4 class="font-headline font-bold text-lg tracking-tight">STAFF INBOX</h4>
+<div class="bg-error text-on-error text-[10px] font-black px-1.5 rounded-full">3</div>
+</div>
+<div class="space-y-2">
+<div class="p-3 bg-surface-bright/30 border-l-2 border-tertiary cursor-pointer hover:bg-surface-bright transition-colors">
+<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest mb-1">Medical</p>
+<p class="text-xs font-bold truncate">Genge's scans returned...</p>
+</div>
+<div class="p-3 bg-surface-container-low border-l-2 border-outline-variant/30 cursor-pointer hover:bg-surface-bright transition-colors">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Finance</p>
+<p class="text-xs font-bold truncate">New sponsorship terms...</p>
+</div>
+<div class="p-3 bg-surface-container-low border-l-2 border-outline-variant/30 cursor-pointer hover:bg-surface-bright transition-colors">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Scouting</p>
+<p class="text-xs font-bold truncate">U20 Prop found in Fiji...</p>
+</div>
+</div>
+<button class="w-full mt-4 flex items-center justify-center gap-2 py-2 text-[10px] font-black text-on-background tracking-widest uppercase hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">mail</span> OPEN COMM-LINK
+                    </button>
+</section>
+</div>
+</div>
+</main>
+<!-- Tactical Overlay Texture -->
+<div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] overflow-hidden">
+<div class="absolute inset-0 bg-[linear-gradient(rgba(153,247,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(153,247,255,0.1)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+</div>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Press Room | PitchSide Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#c9a800",
+                        "inverse-primary": "#2c694e",
+                        "on-secondary-fixed": "#001c3b",
+                        "secondary-container": "#30486a",
+                        "on-tertiary-fixed": "#221b00",
+                        "primary-fixed-dim": "#95d4b3",
+                        "on-tertiary": "#3b2f00",
+                        "on-primary": "#003824",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#393939",
+                        "background": "#131313",
+                        "inverse-on-surface": "#313030",
+                        "tertiary": "#e9c400",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-surface": "#e5e2e1",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#30486a",
+                        "on-tertiary-container": "#4c3e00",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffe171",
+                        "on-surface-variant": "#c1c8c2",
+                        "on-primary-container": "#76b394",
+                        "surface-tint": "#95d4b3",
+                        "surface-dim": "#131313",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline": "#8b938d",
+                        "on-primary-fixed": "#002114",
+                        "on-secondary-container": "#9fb6de",
+                        "on-secondary": "#183152",
+                        "outline-variant": "#414844",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "primary-container": "#00452e",
+                        "secondary": "#b0c8f0",
+                        "primary": "#95d4b3",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#554600",
+                        "secondary-fixed": "#d5e3ff",
+                        "primary-fixed": "#b1f0ce",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#b0c8f0"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .press-room-overlay {
+            background: linear-gradient(0deg, rgba(19,19,19,1) 0%, rgba(19,19,19,0.4) 50%, rgba(19,19,19,0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#131313] dark:bg-[#131313] docked full-width top-0 z-50 flex justify-between items-center w-full px-6 py-3 bg-[#1c1b1b]">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[#e5e2e1] uppercase tracking-widest font-['Space_Grotesk']">PitchSide Pro</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#e5e2e1]/60 font-['Space_Grotesk'] font-bold tracking-tight hover:bg-[#2a2a2a] transition-colors duration-200 px-3 py-1" href="#">Dashboard</a>
+<a class="text-[#e5e2e1]/60 font-['Space_Grotesk'] font-bold tracking-tight hover:bg-[#2a2a2a] transition-colors duration-200 px-3 py-1" href="#">Infrastructure</a>
+<a class="text-[#95d4b3] border-b-2 border-[#95d4b3] font-['Space_Grotesk'] font-bold tracking-tight px-3 py-1" href="#">Press Room</a>
+<a class="text-[#e5e2e1]/60 font-['Space_Grotesk'] font-bold tracking-tight hover:bg-[#2a2a2a] transition-colors duration-200 px-3 py-1" href="#">Roster</a>
+<a class="text-[#e5e2e1]/60 font-['Space_Grotesk'] font-bold tracking-tight hover:bg-[#2a2a2a] transition-colors duration-200 px-3 py-1" href="#">Analytics</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#95d4b3] active:scale-95 transition-transform">notifications</button>
+<button class="material-symbols-outlined text-[#95d4b3] active:scale-95 transition-transform">account_circle</button>
+</div>
+</header>
+<div class="flex h-[calc(100vh-56px)] overflow-hidden">
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden md:flex flex-col h-full py-6 bg-[#1c1b1b] dark:bg-[#1c1b1b] w-64 fixed left-0 top-0 z-40 shadow-2xl shadow-black/50 font-['Inter'] text-sm font-medium">
+<div class="px-6 mb-8 mt-12">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-tertiary">
+<span class="material-symbols-outlined text-tertiary">shield</span>
+</div>
+<div>
+<h2 class="text-[#e9c400] font-bold block">Highlanders RFC</h2>
+<span class="text-on-surface-variant text-xs opacity-60">Elite Tier</span>
+</div>
+</div>
+</div>
+<nav class="flex flex-col flex-grow">
+<a class="text-[#e5e2e1]/40 py-3 px-4 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-all hover:translate-x-1 duration-150 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                </a>
+<a class="text-[#e5e2e1]/40 py-3 px-4 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-all hover:translate-x-1 duration-150 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">business_center</span> Infrastructure
+                </a>
+<a class="bg-gradient-to-r from-[#00452e] to-transparent border-l-4 border-[#95d4b3] text-[#e5e2e1] py-3 px-4 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-primary">mic</span> Press Room
+                </a>
+<a class="text-[#e5e2e1]/40 py-3 px-4 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-all hover:translate-x-1 duration-150 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">groups</span> Roster
+                </a>
+<a class="text-[#e5e2e1]/40 py-3 px-4 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-all hover:translate-x-1 duration-150 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">insights</span> Analytics
+                </a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-3 rounded-md font-bold uppercase tracking-wider text-xs active:scale-95 transition-transform">
+                    Match Day
+                </button>
+</div>
+<div class="mt-auto border-t border-outline-variant/15 pt-4">
+<a class="text-[#e5e2e1]/40 py-2 px-6 hover:text-[#e5e2e1] flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> Settings
+                </a>
+<a class="text-[#e5e2e1]/40 py-2 px-6 hover:text-[#e5e2e1] flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span> Support
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-64 relative flex flex-col bg-surface">
+<!-- Media Room Cinematic View -->
+<div class="relative w-full h-[614px] overflow-hidden">
+<img alt="Cinematic Press Conference Room" class="w-full h-full object-cover grayscale opacity-50" data-alt="Cinematic Press Conference Room with journalists and cameras" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmKrJXLKLowFluQZIyZfiTMBEr5DMj0o8fMODsMK-OJ8zHY2PKchpGf0_rHEsHyyH4M_wX8S06HBXlFqpAUlSG4dgrGQ2DvxYTnLh3jAwz_VuV2CJbG1LCq2K1Ns0QiFV_RCd2OYcH9tmmGrMTRcwKU5uoftxfTyXcjCdWctc6aeQyMD0zaRQt5y46XLVO8JMrz3IyZxTfIXKAK99-Ex3TU_AuTl2uoubG05cvntQLPIiaW1ki5Yvk6bVjKbZ2yL8WnfWJzdmRDOi_"/>
+<!-- Overlay Gradients for Cinematic Feel -->
+<div class="absolute inset-0 press-room-overlay"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/50"></div>
+<!-- Journalist Interaction Area -->
+<div class="absolute bottom-12 left-12 right-12 z-10 flex items-end justify-between">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-widest">Live</span>
+<span class="text-tertiary font-headline font-bold uppercase tracking-tight">BBC Sport</span>
+</div>
+<h1 class="text-4xl font-headline font-black text-on-surface leading-tight tracking-tight mb-2">
+                            "How do you respond to the rumors about Marcus Vane's transfer?"
+                        </h1>
+<p class="text-on-surface-variant italic opacity-80">Marcus Vane was seen at the London airport this morning, fueling speculation.</p>
+</div>
+<!-- Real-time Sentiment Gauge -->
+<div class="hidden lg:flex flex-col gap-4 bg-surface-container-high/60 backdrop-blur-xl p-6 rounded-xl border-l-2 border-primary shadow-2xl">
+<div>
+<div class="flex justify-between text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mb-1">
+<span>Journalist Approval</span>
+<span class="text-primary">68%</span>
+</div>
+<div class="w-48 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 68%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mb-1">
+<span>Fan Perception</span>
+<span class="text-tertiary">42%</span>
+</div>
+<div class="w-48 h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interaction & Sidebar Bento -->
+<div class="flex-grow p-8 grid grid-cols-12 gap-6 items-start">
+<!-- Response Options (Asymmetric Layout) -->
+<div class="col-span-12 lg:col-span-8 space-y-4">
+<div class="flex items-center gap-2 mb-2 text-xs font-bold tracking-widest uppercase text-on-surface-variant/50">
+<span class="material-symbols-outlined text-xs">chat_bubble</span> Select Response
+                    </div>
+<button class="w-full group text-left p-5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all border-l-4 border-transparent hover:border-primary flex items-center justify-between">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary block mb-1">Ambitious</span>
+<span class="text-lg font-headline font-medium">"Marcus is a world-class talent, and we have every intention of keeping him at the center of our project."</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-primary">arrow_forward</span>
+</button>
+<button class="w-full group text-left p-5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all border-l-4 border-transparent hover:border-error flex items-center justify-between">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-error block mb-1">Defensive</span>
+<span class="text-lg font-headline font-medium">"I don't discuss individual contract situations in the press. We focus on the next match."</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity text-error">arrow_forward</span>
+</button>
+<div class="grid grid-cols-2 gap-4">
+<button class="group text-left p-5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all border-l-4 border-transparent hover:border-tertiary flex flex-col justify-between h-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary block mb-1">Elite Diplomacy</span>
+<span class="text-base font-headline leading-tight">"Speculation is part of the game. We're in dialogue with Marcus."</span>
+<span class="material-symbols-outlined self-end mt-4 opacity-0 group-hover:opacity-100 transition-opacity text-tertiary">arrow_forward</span>
+</button>
+<button class="group text-left p-5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all border-l-4 border-transparent hover:border-on-surface-variant flex flex-col justify-between h-full">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block mb-1">No Comment</span>
+<span class="text-base font-headline leading-tight">"Next question, please."</span>
+<span class="material-symbols-outlined self-end mt-4 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Press Pack Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6 border-l-2 border-tertiary">
+<h3 class="font-headline font-black text-xl mb-4 tracking-tight uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">newspaper</span> Press Pack
+                        </h3>
+<div class="space-y-4">
+<div class="group cursor-default">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[10px] font-bold text-primary tracking-widest uppercase">Hot Topic</span>
+<span class="text-[10px] text-on-surface-variant opacity-60">2m ago</span>
+</div>
+<p class="text-sm font-medium leading-snug">Rival clubs circling Vane after contract leak.</p>
+</div>
+<div class="h-[1px] bg-outline-variant/10"></div>
+<div class="group cursor-default">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Injury Update</span>
+<span class="text-[10px] text-on-surface-variant opacity-60">15m ago</span>
+</div>
+<p class="text-sm font-medium leading-snug">Captain Henderson cleared for Sunday's clash.</p>
+</div>
+<div class="h-[1px] bg-outline-variant/10"></div>
+<div class="group cursor-default">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">Fan Chatter</span>
+<span class="text-[10px] text-on-surface-variant opacity-60">1h ago</span>
+</div>
+<p class="text-sm font-medium leading-snug">"Tactical Architect" approach praised by supporters.</p>
+</div>
+</div>
+</div>
+<!-- Trending Topics -->
+<div class="bg-surface-container rounded-xl p-6">
+<h4 class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mb-4">Trending in Rugby World</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-xs font-medium text-on-surface-variant">#VaneExit</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-xs font-medium text-on-surface-variant">#HighlandersRFC</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-xs font-medium text-on-surface-variant">#SixNationsSpeculation</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-xs font-medium text-on-surface-variant">#TacticalReform</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe bg-[#1c1b1b]/90 backdrop-blur-xl z-50 rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.5)] border-t border-[#414844]/15">
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 py-1 font-['Inter'] text-[10px] uppercase tracking-tighter hover:text-[#95d4b3]" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 py-1 font-['Inter'] text-[10px] uppercase tracking-tighter hover:text-[#95d4b3]" href="#">
+<span class="material-symbols-outlined mb-1">stadium</span>
+            Stadium
+        </a>
+<a class="flex flex-col items-center justify-center bg-[#2a2a2a] text-[#95d4b3] rounded-xl py-1 px-3 font-['Inter'] text-[10px] uppercase tracking-tighter" href="#">
+<span class="material-symbols-outlined mb-1">campaign</span>
+            Media
+        </a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 py-1 font-['Inter'] text-[10px] uppercase tracking-tighter hover:text-[#95d4b3]" href="#">
+<span class="material-symbols-outlined mb-1">person_search</span>
+            Squad
+        </a>
+</nav>
+</body></html>

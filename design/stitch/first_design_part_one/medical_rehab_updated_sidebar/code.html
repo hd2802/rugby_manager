@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rugby Manager Pro - Medical Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#2a2a2a",
+              "surface": "#131313",
+              "inverse-on-surface": "#313030",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "surface-container": "#201f1f",
+              "on-tertiary": "#3b2f00",
+              "on-surface": "#e5e2e1",
+              "on-secondary-container": "#9fb6de",
+              "surface-dim": "#131313",
+              "background": "#131313",
+              "surface-container-low": "#1c1b1b",
+              "secondary-container": "#30486a",
+              "primary-fixed": "#b1f0ce",
+              "surface-bright": "#393939",
+              "surface-tint": "#95d4b3",
+              "secondary-fixed": "#d5e3ff",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-container": "#76b394",
+              "tertiary": "#e9c400",
+              "error": "#ffb4ab",
+              "surface-container-lowest": "#0e0e0e",
+              "inverse-primary": "#2c694e",
+              "primary-fixed-dim": "#95d4b3",
+              "on-tertiary-fixed-variant": "#554600",
+              "on-secondary": "#183152",
+              "secondary-fixed-dim": "#b0c8f0",
+              "on-error-container": "#ffdad6",
+              "on-secondary-fixed": "#001c3b",
+              "outline-variant": "#414844",
+              "secondary": "#b0c8f0",
+              "primary-container": "#00452e",
+              "on-tertiary-fixed": "#221b00",
+              "tertiary-fixed-dim": "#e9c400",
+              "primary": "#95d4b3",
+              "tertiary-container": "#c9a800",
+              "on-primary-fixed-variant": "#0e5138",
+              "on-primary": "#003824",
+              "surface-container-highest": "#353534",
+              "on-background": "#e5e2e1",
+              "tertiary-fixed": "#ffe171",
+              "surface-variant": "#353534",
+              "on-tertiary-container": "#4c3e00",
+              "on-primary-fixed": "#002114",
+              "outline": "#8b938d",
+              "on-surface-variant": "#c1c8c2",
+              "on-secondary-fixed-variant": "#30486a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="bg-[#131313] dark:bg-[#131313] docked full-width top-0 z-50 border-b-0 bg-[#1c1b1b] flex justify-between items-center w-full px-6 py-3 max-w-full">
+<div class="text-xl font-black text-[#e5e2e1] tracking-tighter">Rugby Manager Pro</div>
+<nav class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold text-lg uppercase tracking-tight">
+<a class="text-[#e5e2e1]/60 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-colors duration-200" href="#">Finances</a>
+<a class="text-[#95d4b3] border-b-2 border-[#95d4b3] pb-1 hover:bg-[#2a2a2a] transition-colors duration-200" href="#">Medical</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-colors duration-200" href="#">League</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#e5e2e1] hover:bg-[#2a2a2a] transition-colors duration-200" href="#">Contracts</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#2a2a2a] transition-colors duration-200 text-[#95d4b3]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-[#2a2a2a] transition-colors duration-200 text-[#95d4b3]">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Manager Profile" data-alt="Close up professional male portrait manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH5EycnXAT0DuZc-EJytzCQMniw9IDkCD73z9LMeJ-yaB7Gqrbs0Y2lrcHlTG02sHlLpFN2A5TVuUha6PmZNMqrRUbbYID6m1pmX23rx4Gf76HnVsIMSNkH8IKWz7nfGxlktI5l_2c63TCXojgrBYsoJ6XlWVpm9Wczcqnrdrpl0yD3FPK7bkshoxb9PdRpNocM00_K_Mo9kJYF9hEjcS5uh-P0kJuOyPV3cO46lZfKxK-4xsAWU9BcKK67j7cBywnp9mpquxB8Fiv"/>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="bg-[#1c1b1b] docked left-0 h-screen w-60 hidden lg:flex flex-col sticky top-0 border-r border-outline-variant/10">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined font-bold text-2xl">sports_rugby</span>
+</div>
+<div>
+<div class="text-[#e9c400] font-bold uppercase tracking-widest text-[10px] leading-none">London RFC</div>
+<div class="text-on-surface text-lg font-headline font-bold leading-none mt-1">Elite Tier</div>
+</div>
+</div>
+</div>
+<nav class="flex-grow font-['Inter'] text-sm font-medium">
+<a class="text-[#e5e2e1]/70 px-6 py-3.5 hover:bg-[#201f1f] flex items-center gap-4 transition-all hover:text-primary font-headline" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="text-[#e5e2e1]/70 px-6 py-3.5 hover:bg-[#201f1f] flex items-center gap-4 transition-all hover:text-primary font-headline" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-medium">Squad</span>
+</a>
+<a class="text-[#e5e2e1]/70 px-6 py-3.5 hover:bg-[#201f1f] flex items-center gap-4 transition-all hover:text-primary font-headline" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span class="font-medium">Tactics</span>
+</a>
+<a class="bg-[#2a2a2a] text-primary border-l-4 border-primary px-6 py-3.5 flex items-center gap-4 font-headline" href="#">
+<span class="material-symbols-outlined">healing</span>
+<span class="font-medium">Medical</span>
+</a>
+<a class="text-[#e5e2e1]/70 px-6 py-3.5 hover:bg-[#201f1f] flex items-center gap-4 transition-all hover:text-primary font-headline" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Finances</span>
+</a>
+<a class="text-[#e5e2e1]/70 px-6 py-3.5 hover:bg-[#201f1f] flex items-center gap-4 transition-all hover:text-primary font-headline" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-medium">Market</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<button class="w-full bg-primary text-on-primary font-headline font-bold py-3 rounded-lg mb-6 shadow-lg uppercase tracking-tight hover:opacity-90 transition-opacity">
+    Next Match
+</button>
+<div class="space-y-1 border-t border-outline-variant/10 pt-4 px-2">
+<a class="text-[#e5e2e1]/60 px-4 py-2 hover:bg-[#201f1f] flex items-center gap-3 text-xs font-headline rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">account_circle</span> Profile
+    </a>
+<a class="text-error/70 px-4 py-2 hover:bg-[#201f1f] flex items-center gap-3 text-xs font-headline rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">logout</span> Logout
+    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 bg-surface min-h-screen pb-24 lg:pb-8">
+<div class="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
+<!-- Medical Overview Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Primary Status: Treatment Room -->
+<section class="md:col-span-8 bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h2 class="font-headline text-2xl font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">healing</span> Treatment Room
+                            </h2>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">4 Active Recoveries</span>
+</div>
+<div class="p-0">
+<div class="grid grid-cols-1 divide-y divide-outline-variant/10">
+<!-- Player 1: Critical -->
+<div class="p-6 flex flex-wrap lg:flex-nowrap items-center gap-6 group hover:bg-surface-container transition-colors">
+<div class="relative">
+<div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-error/30">
+<img alt="Player" data-alt="Muscular rugby player portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAXqSS_SzmM0IDwNHZ0z4dvNmjs5Qvqx9NdIf0VleC-H6KnevgFXQ3jKfPfjA1CHzBi_Hfo9nx2DC3D2lnBw3yb-wOQtN0L1PiLRHYlIeaCEmrCg9Q6RRGxmIc_X_-fCdVFyg62oQOVi-517wlwuSM-Ui69l5l0w0PepkGy3Fx0HfOJd4Ky5OL5RigT2d93gEOgnRYKtCkSVTk265SDUQ0Q4kiwOmSOswzEHFythFIGILUrqM1vOqWxn342WC5aPe6Xc_wzcZc9-UF"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-error w-4 h-4 rounded-full border-2 border-surface"></div>
+</div>
+<div class="flex-1 min-w-[200px]">
+<h3 class="font-headline font-bold text-lg">Marcus Thorne</h3>
+<p class="text-sm text-on-surface-variant font-label">ACL Rupture — <span class="text-error font-medium">Critical</span></p>
+</div>
+<div class="w-full lg:w-48 space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">
+<span>Rehab Progress</span>
+<span>12%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 12%"></div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-on-surface-variant font-label uppercase">Est. Return</div>
+<div class="font-headline font-bold text-primary">145 Days</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-highest rounded-lg hover:bg-surface-container transition-all" title="Intensive Rehab">
+<span class="material-symbols-outlined text-sm">monitor_heart</span>
+</button>
+<button class="p-2 bg-surface-container-highest rounded-lg hover:bg-surface-container transition-all" title="Specialist Surgery">
+<span class="material-symbols-outlined text-sm">biotech</span>
+</button>
+</div>
+</div>
+<!-- Player 2: Moderate -->
+<div class="p-6 flex flex-wrap lg:flex-nowrap items-center gap-6 group hover:bg-surface-container transition-colors">
+<div class="relative">
+<div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-tertiary/30">
+<img alt="Player" data-alt="Athletic rugby player profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRIgjo63mQUuz6RjE43tX0YBq84rQXSbtBQCAPhgRLrrUQhIEt25E4JYoCiLIkvAE9WY99AJEAFf4XfLHgdzb4FN65gXfscwuMeje2vP9o7ZZlxzFTB2d_olTSeUEHkmw_NuAefVXX7wwtF14LyLs8hDowJD8SoVntSAf9v9osZ-lrospHoamapBHVtL2SJu9Y00m0k7maceb3HVnZEXmmWqtZIJh2q9g94JNuAvE0h8bsdXJk8EaD1jm93JBnGAu0q4KECQCcVOvO"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-tertiary w-4 h-4 rounded-full border-2 border-surface"></div>
+</div>
+<div class="flex-1 min-w-[200px]">
+<h3 class="font-headline font-bold text-lg">Liam O'Connor</h3>
+<p class="text-sm text-on-surface-variant font-label">Hamstring Grade 2 — <span class="text-tertiary font-medium">Moderate</span></p>
+</div>
+<div class="w-full lg:w-48 space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">
+<span>Rehab Progress</span>
+<span>64%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-on-surface-variant font-label uppercase">Est. Return</div>
+<div class="font-headline font-bold text-primary">12 Days</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-highest rounded-lg hover:bg-surface-container transition-all" title="Intensive Rehab">
+<span class="material-symbols-outlined text-sm">monitor_heart</span>
+</button>
+<button class="p-2 bg-surface-container-highest rounded-lg hover:bg-surface-container transition-all" title="Light Training">
+<span class="material-symbols-outlined text-sm">fitness_center</span>
+</button>
+</div>
+</div>
+<!-- Player 3: Minor -->
+<div class="p-6 flex flex-wrap lg:flex-nowrap items-center gap-6 group hover:bg-surface-container transition-colors">
+<div class="relative">
+<div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-primary/30">
+<img alt="Player" data-alt="Rugby player looking determined" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdlsTUqtPyKLx_So1kXSi76fCwDj0oLe_9x4hPrP0QqWtyeWVaqvrptQ_JVCqOPQN8hH-M9V1I2jbVfGVLaC2K91XKwe3U1DatwAUkftmWCL5lu6fB-zAHI-lvZ0k2UwhtnVPy34T0nMCUklYT1hymuOklheJEs8YDdLze5_Q3U6VK6DIltqdZ7L_0K98fopIs1JIbsEJIMu1uqbLVvp1m2a2uteyI8zjSqnXu8in_k7_wA6KLE9ddKJwxqYKTcvQUje5q8DlfyNLR"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary w-4 h-4 rounded-full border-2 border-surface"></div>
+</div>
+<div class="flex-1 min-w-[200px]">
+<h3 class="font-headline font-bold text-lg">Davey Richards</h3>
+<p class="text-sm text-on-surface-variant font-label">Concussion Protocol — <span class="text-primary font-medium">Minor</span></p>
+</div>
+<div class="w-full lg:w-48 space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">
+<span>Rehab Progress</span>
+<span>92%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-on-surface-variant font-label uppercase">Est. Return</div>
+<div class="font-headline font-bold text-primary">2 Days</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-primary/20 text-primary rounded-lg" title="Cleared for Training">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Medical Staff Side Panel -->
+<aside class="md:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-6">
+<h2 class="font-headline text-xl font-bold mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">medical_information</span> Medical Staff
+                            </h2>
+<div class="space-y-6">
+<!-- Chief Medic -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Medic" data-alt="Professional male doctor in clinical setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5OnoQCEsKeADWOjLnSJXJ5MmqNvpaSv5p2EPVj9xnub8az5WWoY4oSU0GOWqXcLLwSdMoiQbH2dTkcJWpOe9ShyX2mRmyDwdCv-PJdZ8F4jTFU5rUrkyqs0Zp63KIcel7dms0vHlB4k8JjvyD0Drhhn8j1o1a9vg9QjGWzGrwaubMGXwrauZqjTsEK05hJ_7jQ0iF9LKdK-AKFFXkNCS7IwucuUCnmOqXv1eltEgXCYKGPq8y5oRZ8j9u28Te3ZB7C3IbUkkulyai"/>
+</div>
+<div class="flex-1">
+<div class="text-xs font-bold text-tertiary uppercase tracking-tighter">Chief Medic</div>
+<div class="font-bold">Dr. Elena Vance</div>
+<div class="flex gap-1 mt-1">
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary/20 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Physio 1 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Physio" data-alt="Professional female physiotherapist portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMYFOXlZkLvF6XngP79TxkueY9AOPKlbX_5D1zLL34bb7TaYOlfqbjE4z0OygYczNvYSxTglu94ddtyIM-H4AravgyYq0w6lVA4Dwi312pSCh12re1rzu-yrfQB0xJdBxXbsLAzRySwSEBfIFwfg2J--2vHMlMzMKIZW_VfmvF-ubzh1OhBwujeD2076laDMY8wWfGRp2U3af76xkTOgR1co-trxTgqEctakf_wev-FmW3JC4175Qy_uAzHu93eQeXKuFD2Gjpd8sd"/>
+</div>
+<div class="flex-1">
+<div class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">Lead Physio</div>
+<div class="font-bold">Mark Sterling</div>
+<div class="flex gap-1 mt-1">
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary rounded-full"></div>
+<div class="h-1 w-6 bg-primary/20 rounded-full"></div>
+<div class="h-1 w-6 bg-primary/20 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 border border-outline-variant/30 text-on-surface py-2 rounded-lg text-sm font-medium hover:bg-surface-container-high transition-colors">
+                                Manage Staff
+                            </button>
+</div>
+<!-- Facility Status -->
+<div class="bg-gradient-to-br from-surface-container-high to-surface-container-low rounded-xl p-6 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">biotech</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-4">Facility Level</h3>
+<div class="text-3xl font-headline font-bold text-primary mb-2">Grade A+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Top-tier rehabilitation equipment. Injury recovery speed bonus: <span class="text-primary font-bold">+15%</span></p>
+</div>
+</aside>
+</div>
+<!-- Treatment Actions & Strategic Planning -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-low rounded-xl p-8">
+<h2 class="font-headline text-xl font-bold mb-6">Strategic Rehab Protocol</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Action 1 -->
+<div class="bg-surface-container p-5 rounded-xl border-l-2 border-tertiary flex flex-col justify-between hover:scale-[1.02] transition-transform cursor-pointer">
+<div>
+<span class="material-symbols-outlined text-tertiary mb-3">local_hospital</span>
+<div class="font-bold mb-1">Specialist Clinic</div>
+<p class="text-[11px] text-on-surface-variant uppercase font-label">Shortens severe injury time</p>
+</div>
+<div class="mt-4 text-xs font-bold text-tertiary">£45k Per Week</div>
+</div>
+<!-- Action 2 -->
+<div class="bg-surface-container p-5 rounded-xl border-l-2 border-primary flex flex-col justify-between hover:scale-[1.02] transition-transform cursor-pointer">
+<div>
+<span class="material-symbols-outlined text-primary mb-3">pool</span>
+<div class="font-bold mb-1">Intensive Rehab</div>
+<p class="text-[11px] text-on-surface-variant uppercase font-label">Focused physical therapy</p>
+</div>
+<div class="mt-4 text-xs font-bold text-primary">£12k Per Week</div>
+</div>
+<!-- Action 3 -->
+<div class="bg-surface-container p-5 rounded-xl border-l-2 border-outline-variant flex flex-col justify-between hover:scale-[1.02] transition-transform cursor-pointer opacity-60">
+<div>
+<span class="material-symbols-outlined text-on-surface-variant mb-3">fitness_center</span>
+<div class="font-bold mb-1">Light Training</div>
+<p class="text-[11px] text-on-surface-variant uppercase font-label">Maintain fitness levels</p>
+</div>
+<div class="mt-4 text-xs font-bold text-on-surface-variant">No Extra Cost</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-xl p-8 flex flex-col justify-center">
+<div class="text-center">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-headline font-bold text-lg mb-2">High Risk Alert</h3>
+<p class="text-sm text-on-surface-variant mb-6">3 key players are at high risk of soft tissue injury due to recent training load.</p>
+<button class="w-full bg-surface-container-highest text-tertiary py-3 rounded-xl text-sm font-bold uppercase tracking-widest border border-tertiary/20">
+                                Adjust Training Load
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- BottomNavBar -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313]/90 backdrop-blur-md z-50 rounded-t-xl border-t border-[#414844]/15 shadow-2xl">
+<div class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-2 hover:text-[#95d4b3]">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-2 hover:text-[#95d4b3]">
+<span class="material-symbols-outlined">sports_rugby</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Hub</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-gradient-to-br from-[#95d4b3] to-[#00452e] text-white rounded-xl p-2 scale-110 shadow-lg">
+<span class="material-symbols-outlined">healing</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Medical</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#e5e2e1]/40 p-2 hover:text-[#95d4b3]">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold tracking-widest mt-1">Office</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFC Analytics | Tactics Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#0e5138",
+                        "tertiary": "#e9c400",
+                        "primary": "#95d4b3",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353534",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#95d4b3",
+                        "on-surface-variant": "#c1c8c2",
+                        "on-primary": "#003824",
+                        "on-secondary-container": "#9fb6de",
+                        "inverse-primary": "#2c694e",
+                        "secondary-container": "#30486a",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "primary-container": "#00452e",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#b1f0ce",
+                        "on-tertiary": "#3b2f00",
+                        "on-primary-container": "#76b394",
+                        "on-secondary": "#183152",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container": "#201f1f",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-container": "#4c3e00",
+                        "on-secondary-fixed-variant": "#30486a",
+                        "on-tertiary-fixed-variant": "#554600",
+                        "on-secondary-fixed": "#001c3b",
+                        "surface-bright": "#393939",
+                        "tertiary-fixed": "#ffe171",
+                        "secondary-fixed": "#d5e3ff",
+                        "secondary": "#b0c8f0",
+                        "outline-variant": "#414844",
+                        "outline": "#8b938d",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed": "#221b00",
+                        "surface-tint": "#95d4b3",
+                        "tertiary-container": "#c9a800",
+                        "secondary-fixed-dim": "#b0c8f0",
+                        "on-surface": "#e5e2e1",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#002114",
+                        "surface-variant": "#353534"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pitch-lines {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-[240px] fixed left-0 top-0 z-50 flex flex-col py-6 bg-[#1c1b1b] border-r border-outline-variant/10">
+<div class="px-6 mb-10"><div class="flex items-center gap-3 px-6 mb-8">
+<div class="w-8 h-8 bg-tertiary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-background font-bold">analytics</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-tertiary tracking-tighter uppercase font-display leading-tight">RFC ANALYTICS</h1>
+<p class="text-[9px] text-on-surface-variant tracking-[0.2em] uppercase font-bold">Elite Division</p>
+</div>
+</div></div>
+<nav class="flex-1 space-y-1"><a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 font-display font-bold tracking-tight uppercase text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 font-display font-bold tracking-tight uppercase text-sm" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Squad</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-[#2a2a2a] text-primary border-l-4 border-tertiary font-display font-bold tracking-tight uppercase text-sm shadow-inner" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span>Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 font-display font-bold tracking-tight uppercase text-sm" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span>Training</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 font-display font-bold tracking-tight uppercase text-sm" href="#">
+<span class="material-symbols-outlined">search_check</span>
+<span>Scouting</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200 font-display font-bold tracking-tight uppercase text-sm" href="#">
+<span class="material-symbols-outlined">sports_rugby</span>
+<span>Matches</span>
+</a></nav>
+<div class="px-4 mt-auto space-y-4"><div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-md font-display font-bold text-xs tracking-tight uppercase shadow-lg shadow-primary/10 transition-transform active:scale-95">
+    Continue to Next Match
+  </button>
+<div class="pt-4 border-t border-outline-variant/20 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:text-on-surface transition-colors font-display font-bold tracking-tight uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-lg">account_circle</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2.5 text-error/70 hover:text-error transition-colors font-display font-bold tracking-tight uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div></div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-[240px] h-16 z-40 flex justify-between items-center px-8 w-auto bg-[#131313]/90 backdrop-blur-md font-body text-sm font-medium tracking-wide border-b border-outline-variant/10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4">
+<span class="text-[#e9c400] font-bold border-b-2 border-[#e9c400] pb-1 cursor-pointer">Sat 14 Oct</span>
+<span class="text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] transition-colors cursor-pointer">Next: Harlequins (H)</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-[#e5e2e1] opacity-60">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">help_outline</span>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-outline-variant/30">
+<div class="text-right">
+<p class="text-xs font-bold text-on-background">Manager Smith</p>
+<p class="text-[10px] text-tertiary">Pro License</p>
+</div>
+<img class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Manager Profile Headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2umRtvgpfT5lmaERNgtkf38dNbYSGNSzaQrn7YipOJb8TfKUvKIN87tQecgKoDl2Nwy_GAxQupKNO9oclR3J3Bo19_sWROBejxnjSe8EsWmLYyEwK7mh0wX7p19NRqRtN7PHdF4VO1mb8w3yghUM8lmP_kdk10c4LjXcsX8BEy4SyhTYJGRROu1x0Fbx1oXe4S0v1TqX-JjG3SOD94HGlCIvpYWzzafP6jU59Kf9qbh-9mfE_QNPZwzxA0UQ4QJ8W0ecsm027_MBj"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-[240px] pt-16 min-h-screen">
+<div class="p-8 grid grid-cols-12 gap-8">
+<!-- Tactical Controls (Left Panel) -->
+<div class="col-span-3 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-lg space-y-8">
+<h2 class="font-headline font-black text-xl tracking-tight uppercase border-b border-outline-variant/20 pb-4">Tactical Focus</h2>
+<!-- Set Piece Focus -->
+<div class="space-y-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block">Set Piece Focus</label>
+<div class="grid grid-cols-1 gap-2">
+<button class="text-left px-4 py-3 bg-surface-container-high border-l-2 border-tertiary text-tertiary font-bold text-xs uppercase transition-colors">Dominant Scrum</button>
+<button class="text-left px-4 py-3 bg-surface-container text-on-surface-variant font-medium text-xs uppercase hover:bg-surface-container-highest transition-colors">Quick Lineout</button>
+<button class="text-left px-4 py-3 bg-surface-container text-on-surface-variant font-medium text-xs uppercase hover:bg-surface-container-highest transition-colors">Maul Drive</button>
+</div>
+</div>
+<!-- Kicking Strategy -->
+<div class="space-y-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block">Kicking Strategy</label>
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center bg-surface-container-highest/30 p-3 rounded">
+<span class="text-xs font-semibold uppercase">Box Kick Frequency</span>
+<input class="accent-primary w-24" type="range"/>
+</div>
+<div class="flex justify-between items-center bg-surface-container-highest/30 p-3 rounded">
+<span class="text-xs font-semibold uppercase">Kick for Corner</span>
+<div class="w-10 h-5 bg-primary/20 rounded-full relative">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Defensive Line -->
+<div class="space-y-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant block">Defensive Line</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-3 bg-surface-container-highest text-on-background text-[10px] font-black uppercase border border-outline-variant/30">Blitz</button>
+<button class="py-3 bg-surface-container text-on-surface-variant text-[10px] font-black uppercase">Drift</button>
+</div>
+</div>
+</div>
+<!-- Match Analysis Mini-Card -->
+<div class="bg-gradient-to-br from-primary-container to-surface-container-low p-6 rounded-lg relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline font-bold text-primary mb-2">Win Probability</h3>
+<div class="text-4xl font-black text-on-background mb-1">68.4%</div>
+<p class="text-xs text-on-surface-variant">Based on historical scrum dominance vs Harlequins</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">analytics</span>
+</div>
+</div>
+</div>
+<!-- Visual Pitch (Center Canvas) -->
+<div class="col-span-6">
+<div class="bg-surface-container-lowest rounded-xl aspect-[3/4] relative overflow-hidden border border-outline-variant/10 shadow-2xl">
+<!-- Pitch Texture & Markings -->
+<div class="absolute inset-0 pitch-lines opacity-20"></div>
+<div class="absolute inset-0 flex flex-col justify-between py-12 px-8">
+<div class="border-t-2 border-dashed border-on-surface-variant/20 w-full"></div>
+<div class="border-t-2 border-on-surface-variant/10 w-full"></div>
+<div class="border-t-4 border-on-surface-variant/30 w-full"></div>
+<div class="border-t-2 border-on-surface-variant/10 w-full"></div>
+<div class="border-t-2 border-dashed border-on-surface-variant/20 w-full"></div>
+</div>
+<!-- Player Tokens Starting XV -->
+<!-- Forwards -->
+<div class="absolute inset-0 p-12">
+<!-- Front Row -->
+<div class="flex justify-center gap-16 mt-8">
+<div class="group relative flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20 z-10">1</div>
+<div class="absolute -bottom-8 bg-surface-container-highest/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">M. Vunipola</div>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20 z-10">2</div>
+<div class="absolute -bottom-8 bg-surface-container-highest/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase whitespace-nowrap">J. George</div>
+</div>
+<div class="group relative flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20 z-10">3</div>
+<div class="absolute -bottom-8 bg-surface-container-highest/80 backdrop-blur px-2 py-1 rounded text-[10px] font-bold uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">K. Sinckler</div>
+</div>
+</div>
+<!-- Second Row -->
+<div class="flex justify-center gap-20 mt-16">
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20">4</div>
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20">5</div>
+</div>
+<!-- Back Row -->
+<div class="flex justify-center gap-24 mt-12">
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20">6</div>
+<div class="w-12 h-12 rounded-full bg-tertiary border-4 border-tertiary-container flex items-center justify-center text-on-tertiary font-black shadow-lg shadow-tertiary/20">8</div>
+<div class="w-12 h-12 rounded-full bg-primary border-4 border-primary-container flex items-center justify-center text-on-primary font-black shadow-lg shadow-primary/20">7</div>
+</div>
+<!-- Halfbacks -->
+<div class="flex justify-center gap-12 mt-20 ml-[-80px]">
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">9</div>
+</div>
+<div class="flex justify-center gap-12 mt-4 ml-[-40px]">
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">10</div>
+</div>
+<!-- Centers & Wings -->
+<div class="flex justify-between px-10 mt-12">
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">11</div>
+<div class="flex gap-8">
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">12</div>
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">13</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">14</div>
+</div>
+<!-- Fullback -->
+<div class="flex justify-center mt-20">
+<div class="w-10 h-10 rounded-full bg-secondary border-4 border-secondary-container flex items-center justify-center text-on-secondary font-black shadow-lg">15</div>
+</div>
+</div>
+<!-- Analysis Overlay -->
+<div class="absolute bottom-6 left-6 right-6 p-4 bg-surface-variant/60 backdrop-blur-xl rounded-lg border border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="h-2 w-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-bold uppercase tracking-tight">System Optimized: Wide Channels</span>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant uppercase">Updated 2m ago</span>
+</div>
+</div>
+</div>
+<!-- Bench & Squad (Right Panel) -->
+<div class="col-span-3 space-y-6">
+<div class="bg-surface-container p-6 rounded-lg">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline font-black text-xl tracking-tight uppercase">Finishing XV</h2>
+<span class="text-tertiary material-symbols-outlined">swap_vert</span>
+</div>
+<div class="space-y-3">
+<!-- Subs List -->
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">16</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Theo Dan</p>
+<p class="text-[9px] text-primary uppercase">Hooker | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">17</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Joe Marler</p>
+<p class="text-[9px] text-primary uppercase">Prop | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">18</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Will Stuart</p>
+<p class="text-[9px] text-primary uppercase">Prop | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">19</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Ollie Chessum</p>
+<p class="text-[9px] text-primary uppercase">Lock | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">20</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Ben Earl</p>
+<p class="text-[9px] text-primary uppercase">Back Row | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">21</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Danny Care</p>
+<p class="text-[9px] text-primary uppercase">Scrum Half | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">22</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">George Ford</p>
+<p class="text-[9px] text-primary uppercase">Fly Half | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container-low rounded group hover:bg-surface-container-high transition-colors cursor-pointer">
+<span class="text-xs font-black text-on-surface-variant w-4">23</span>
+<div class="flex-1">
+<p class="text-xs font-bold uppercase">Ollie Lawrence</p>
+<p class="text-[9px] text-primary uppercase">Center | Fit</p>
+</div>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+</div>
+</div>
+</div>
+<!-- Tactics Summary Bento -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-2">Intensity</span>
+<div class="text-xl font-black text-error">HIGH</div>
+</div>
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col items-center justify-center text-center">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase mb-2">Width</span>
+<div class="text-xl font-black text-primary">WIDE</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression: On Tactics screen, FAB is generally suppressed per instructions, using page buttons instead -->
+</body></html>

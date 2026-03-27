@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PitchSide Pro | Marketing &amp; Fan Engagement</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#1c1b1b",
+              "surface-container-high": "#2a2a2a",
+              "on-background": "#e5e2e1",
+              "on-primary-fixed": "#002114",
+              "primary-container": "#00452e",
+              "error": "#ffb4ab",
+              "tertiary-container": "#c9a800",
+              "on-primary-container": "#76b394",
+              "on-secondary": "#183152",
+              "tertiary": "#e9c400",
+              "on-tertiary-fixed": "#221b00",
+              "on-tertiary": "#3b2f00",
+              "outline-variant": "#414844",
+              "on-error-container": "#ffdad6",
+              "primary-fixed": "#b1f0ce",
+              "surface-container-highest": "#353534",
+              "on-error": "#690005",
+              "surface-bright": "#393939",
+              "tertiary-fixed-dim": "#e9c400",
+              "secondary-fixed-dim": "#b0c8f0",
+              "outline": "#8b938d",
+              "surface-variant": "#353534",
+              "background": "#131313",
+              "on-secondary-container": "#9fb6de",
+              "on-surface-variant": "#c1c8c2",
+              "secondary": "#b0c8f0",
+              "on-surface": "#e5e2e1",
+              "surface-dim": "#131313",
+              "inverse-surface": "#e5e2e1",
+              "inverse-on-surface": "#313030",
+              "primary": "#95d4b3",
+              "on-tertiary-container": "#4c3e00",
+              "on-primary": "#003824",
+              "secondary-container": "#30486a",
+              "on-tertiary-fixed-variant": "#554600",
+              "inverse-primary": "#2c694e",
+              "on-primary-fixed-variant": "#0e5138",
+              "surface-container-lowest": "#0e0e0e",
+              "on-secondary-fixed-variant": "#30486a",
+              "error-container": "#93000a",
+              "surface-tint": "#95d4b3",
+              "surface": "#131313",
+              "on-secondary-fixed": "#001c3b",
+              "secondary-fixed": "#d5e3ff",
+              "surface-container": "#201f1f",
+              "primary-fixed-dim": "#95d4b3",
+              "tertiary-fixed": "#ffe171"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- Desktop Sidebar -->
+<aside class="hidden md:flex flex-col h-screen w-[240px] fixed left-0 top-0 bg-[#1c1b1b] py-6 shadow-2xl z-50 border-r border-white/5">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined font-bold">sports_rugby</span>
+</div>
+<div>
+<h1 class="font-display text-on-background font-bold text-lg leading-tight tracking-tight">Rugby Manager</h1>
+<p class="text-[10px] text-tertiary uppercase tracking-[0.2em] font-bold">Elite Division</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center text-on-surface/70 px-6 py-3 hover:bg-white/5 transition-all group" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+<span class="font-display text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center text-on-surface/70 px-6 py-3 hover:bg-white/5 transition-all group" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:text-primary transition-colors" data-icon="payments">payments</span>
+<span class="font-display text-sm font-semibold">Finances</span>
+</a>
+<a class="flex items-center text-on-surface/70 px-6 py-3 hover:bg-white/5 transition-all group" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:text-primary transition-colors" data-icon="school">school</span>
+<span class="font-display text-sm font-semibold">Academy</span>
+</a>
+<a class="bg-[#2a2a2a] text-primary border-l-4 border-primary px-6 py-3 flex items-center group shadow-lg shadow-black/20" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="campaign">campaign</span>
+<span class="font-display text-sm font-semibold">Marketing</span>
+</a>
+<a class="flex items-center text-on-surface/70 px-6 py-3 hover:bg-white/5 transition-all group" href="#">
+<span class="material-symbols-outlined mr-3 group-hover:text-primary transition-colors" data-icon="strategy">tactic</span>
+<span class="font-display text-sm font-semibold">Strategy</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<div class="px-2 mb-6">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-3 rounded-lg text-xs shadow-lg hover:brightness-110 transition-all uppercase tracking-widest font-display">
+          Submit Team Sheet
+        </button>
+</div>
+<div class="border-t border-white/5 pt-4 pb-2">
+<div class="flex items-center px-4 py-3 gap-3 hover:bg-white/5 transition-colors cursor-pointer rounded-lg mx-2 group">
+<img alt="Profile" class="w-8 h-8 rounded-full border border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmTpCEkHy88GjCuFFGO7HqGt61PYIkCqNS_RKw0FbDfBJnl2eqE5jaXUe9DW13MYBZqhn4felcyZ9iudBq5HhDV3WPhJ0olE758QTTbEbO2tGDu77FiVqSnzuZt3IDmITay5UKHm29eQzB9AgGmDUgqQDeL7spNLWaYmZuilEqyVs1lCy792KRtsRbG3VSyiSvHB0aLc6pmY-ApeRtkArgLf8MYYE7PMJ_8g6sT0oUyT8E9hxhf6QQtcVuvzOxxYV-A9yQHD7OPi0Z"/>
+<div class="flex-1">
+<p class="text-xs font-display font-bold text-on-background">Marcus Thorne</p>
+<p class="text-[10px] text-on-surface-variant font-display">General Manager</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-error transition-colors text-lg">logout</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top AppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-40 bg-[#131313] md:pl-[264px]">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary" data-icon="menu">menu</span>
+<div class="text-xl font-black text-[#e5e2e1] tracking-tighter font-['Space_Grotesk']">PitchSide Pro</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-[#95d4b3] border-b-2 border-[#95d4b3] pb-1 font-['Space_Grotesk'] font-bold text-sm" href="#">STRATEGY</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#95d4b3] transition-colors duration-200 font-['Space_Grotesk'] font-bold text-sm" href="#">ANALYTICS</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#95d4b3] transition-colors duration-200 font-['Space_Grotesk'] font-bold text-sm" href="#">MARKET</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-[#95d4b3] hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<button class="p-2 text-[#95d4b3] hover:bg-surface-container-high rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+<img alt="Club Crest" class="w-full h-full object-cover" data-alt="Official club crest with rugby elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmTpCEkHy88GjCuFFGO7HqGt61PYIkCqNS_RKw0FbDfBJnl2eqE5jaXUe9DW13MYBZqhn4felcyZ9iudBq5HhDV3WPhJ0olE758QTTbEbO2tGDu77FiVqSnzuZt3IDmITay5UKHm29eQzB9AgGmDUgqQDeL7spNLWaYmZuilEqyVs1lCy792KRtsRbG3VSyiSvHB0aLc6pmY-ApeRtkArgLf8MYYE7PMJ_8g6sT0oUyT8E9hxhf6QQtcVuvzOxxYV-A9yQHD7OPi0Z"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-[240px] p-6 pb-24 md:pb-8">
+<!-- Page Title Section -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl md:text-5xl font-headline font-black tracking-tighter text-on-background uppercase">Marketing &amp; Growth</h2>
+<p class="text-on-surface-variant font-body text-sm mt-2 max-w-xl">Strategic command center for global brand positioning and fan base architecture.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-high text-on-background text-xs font-bold rounded-lg border-l-2 border-tertiary">GENERATE REPORT</button>
+<button class="px-4 py-2 bg-primary text-on-primary text-xs font-bold rounded-lg">NEW CAMPAIGN</button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Club Reputation Score -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low p-6 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-tertiary uppercase">Club Reputation</span>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-6xl font-headline font-black text-on-background">Elite</span>
+<span class="text-tertiary material-symbols-outlined text-4xl" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<p class="text-on-surface-variant text-sm mt-4 leading-relaxed">Global Tier Ranking: <span class="text-on-background font-bold">#14</span>. Current momentum suggests a shift to 'Legendary' status within 2 seasons.</p>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10">
+<div class="flex justify-between text-[10px] mb-2 font-bold text-on-surface-variant uppercase">
+<span>Regional influence</span>
+<span>98%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- Social Media Sentiment -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-low p-6 relative overflow-hidden">
+<h3 class="text-xs font-bold tracking-widest text-on-surface-variant uppercase mb-6 flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="analytics">analytics</span>
+                    Sentiment Analysis
+                </h3>
+<div class="flex items-center justify-between gap-4 h-32">
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 85%;">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-primary font-bold text-xs">85%</div>
+</div>
+<span class="text-[9px] mt-2 text-on-surface-variant font-bold uppercase">Positive</span>
+</div>
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-outline/20 rounded-t-lg relative" style="height: 12%;">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-outline font-bold text-xs">12%</div>
+</div>
+<span class="text-[9px] mt-2 text-on-surface-variant font-bold uppercase">Neutral</span>
+</div>
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-error-container/40 rounded-t-lg relative" style="height: 3%;">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-error font-bold text-xs">3%</div>
+</div>
+<span class="text-[9px] mt-2 text-on-surface-variant font-bold uppercase">Negative</span>
+</div>
+</div>
+<div class="mt-6 p-3 bg-surface-container text-[11px] rounded border-l-2 border-primary">
+<p class="text-on-surface-variant italic">"Elite status confirmed. The tactical shift in the last match resonated perfectly with global fans." — AI Analyst</p>
+</div>
+</div>
+<!-- Global Growth Mini-Card -->
+<div class="col-span-12 lg:col-span-3 bg-surface-container-low p-6 flex flex-col justify-center border-l-2 border-primary-container">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Net Fan Growth</span>
+<div class="text-4xl font-headline font-black mt-2 text-primary">+1.2M</div>
+<div class="flex items-center gap-1 text-primary text-[10px] mt-1 font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                    14% VS LAST MONTH
+                </div>
+</div>
+<!-- Global Fanbase Growth Map -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl overflow-hidden relative min-h-[400px]">
+<div class="absolute top-6 left-6 z-10">
+<h3 class="text-xs font-bold tracking-widest text-on-surface-variant uppercase mb-1">Fan Distribution</h3>
+<div class="flex gap-4 mt-2">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-[10px] font-medium text-on-surface">Primary Market</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-[10px] font-medium text-on-surface">Growth Market</span>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 grayscale opacity-40 bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&amp;fit=crop&amp;q=80&amp;w=2000')] bg-cover bg-center" data-alt="Abstract world map background with technical grid overlay"></div>
+<!-- Interactive Heat Map Markers -->
+<div class="absolute top-1/3 left-1/4 w-4 h-4 bg-primary rounded-full animate-pulse shadow-[0_0_20px_rgba(149,212,179,0.8)]"></div>
+<div class="absolute top-1/2 left-1/2 w-6 h-6 bg-tertiary rounded-full animate-pulse shadow-[0_0_25px_rgba(233,196,0,0.8)]"></div>
+<div class="absolute bottom-1/4 right-1/3 w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_15px_rgba(149,212,179,0.8)]"></div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+<div class="bg-surface-container/80 backdrop-blur-xl p-4 rounded-lg border border-outline-variant/10">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mb-2">Hottest Region</div>
+<div class="text-lg font-headline font-bold text-on-background">Southeast Asia</div>
+<div class="text-xs text-tertiary font-medium">+42% Growth</div>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Ticket Sales Tracker -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low p-6 flex flex-col">
+<h3 class="text-xs font-bold tracking-widest text-on-surface-variant uppercase mb-6">Matchday Inventory</h3>
+<div class="space-y-6 flex-1">
+<div class="bg-surface-container p-4 rounded-lg">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[10px] font-bold text-tertiary uppercase">Home Match • Day 12</span>
+<div class="text-sm font-headline font-bold text-on-background">VS LONDON WASPS</div>
+</div>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded font-black">HIGH DEMAND</span>
+</div>
+<div class="flex justify-between text-xs mt-4 mb-1">
+<span class="text-on-surface-variant">General Admission</span>
+<span class="text-on-background font-bold">94% SOLD</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary w-[94%]"></div>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-lg">
+<div class="flex justify-between items-start mb-2">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Home Match • Day 19</span>
+<div class="text-sm font-headline font-bold text-on-background">VS TOULOUSE</div>
+</div>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded font-black">EARLY BIRD</span>
+</div>
+<div class="flex justify-between text-xs mt-4 mb-1">
+<span class="text-on-surface-variant">Hospitality Suites</span>
+<span class="text-on-background font-bold">48% SOLD</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full">
+<div class="h-full bg-tertiary w-[48%]"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-outline-variant/20 rounded-lg text-xs font-bold text-on-surface-variant hover:bg-surface-container transition-colors uppercase tracking-widest">Manage Ticket Pricing</button>
+</div>
+<!-- Marketing Campaigns & ROI Table -->
+<div class="col-span-12 bg-surface-container-low overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="text-xs font-bold tracking-widest text-on-surface-variant uppercase">Active Marketing Campaigns</h3>
+<div class="flex gap-4">
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Live</span>
+<span class="text-[10px] text-on-surface-variant flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span> Scheduled</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container">
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Campaign Name</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Channel</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Budget Spent</th>
+<th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-wider text-right">ROI Multiplier</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-headline font-bold">"THE ARCHITECTS" MINI-DOC</div>
+<div class="text-[10px] text-on-surface-variant mt-1">Player Profile Series - Asia Launch</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="video_library">video_library</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="social_distance">social_distance</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container text-primary">LIVE</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono">$142,000</td>
+<td class="px-6 py-5 text-right">
+<span class="text-lg font-headline font-black text-primary">4.8x</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-headline font-bold">ELITE MEMBERSHIP DRIVE</div>
+<div class="text-[10px] text-on-surface-variant mt-1">Premium Loyalty Subscription</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="mail">mail</span>
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="app_shortcut">app_shortcut</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-primary-container text-primary">LIVE</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono">$85,500</td>
+<td class="px-6 py-5 text-right">
+<span class="text-lg font-headline font-black text-primary">12.2x</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-6 py-5">
+<div class="text-sm font-headline font-bold">SEASON END MERCH CLEARANCE</div>
+<div class="text-[10px] text-on-surface-variant mt-1">E-commerce Flash Sale</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-surface-container-highest text-on-surface-variant">PAUSED</span>
+</td>
+<td class="px-6 py-5 text-sm font-mono">$12,000</td>
+<td class="px-6 py-5 text-right">
+<span class="text-lg font-headline font-black text-on-surface-variant">2.1x</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#1c1b1b]/95 backdrop-blur-md flex justify-around items-center px-4 pb-4 pt-2 md:hidden border-t border-[#414844]/15 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 p-2 hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 p-2 hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Finances</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#00452e] text-[#95d4b3] rounded-xl p-2 scale-110 active:scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Marketing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/50 p-2 hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest mt-1">Academy</span>
+</a>
+</nav>
+</body></html>

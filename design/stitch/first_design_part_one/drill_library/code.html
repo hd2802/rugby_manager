@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Drill Library - PitchSide Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#001c3b",
+                        "tertiary-fixed": "#ffe171",
+                        "tertiary-container": "#c9a800",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#9fb6de",
+                        "on-secondary": "#183152",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#e9c400",
+                        "secondary-fixed-dim": "#b0c8f0",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "outline": "#8b938d",
+                        "primary-fixed": "#b1f0ce",
+                        "primary": "#95d4b3",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "background": "#131313",
+                        "secondary-container": "#30486a",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#c1c8c2",
+                        "surface-variant": "#353534",
+                        "surface-tint": "#95d4b3",
+                        "secondary-fixed": "#d5e3ff",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#201f1f",
+                        "inverse-primary": "#2c694e",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "on-tertiary": "#3b2f00",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#30486a",
+                        "outline-variant": "#414844",
+                        "on-primary-container": "#76b394",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#b0c8f0",
+                        "primary-container": "#00452e",
+                        "on-primary-fixed": "#002114",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-container": "#4c3e00",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-primary": "#003824",
+                        "primary-fixed-dim": "#95d4b3",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed-variant": "#554600"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] flex justify-between items-center h-16 px-6 w-full">
+<div class="text-2xl font-black text-[#95d4b3] uppercase tracking-wider font-headline">PitchSide Pro</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<a class="font-headline font-bold tracking-tight text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Dashboard</a>
+<a class="font-headline font-bold tracking-tight text-[#95d4b3] border-b-2 border-[#95d4b3] hover:text-[#95d4b3] transition-colors duration-200" href="#">Drill Library</a>
+<a class="font-headline font-bold tracking-tight text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Tactics</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#95d4b3] cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-[#95d4b3] cursor-pointer">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#1c1b1b] hidden md:flex flex-col py-6">
+<div class="px-6 mb-10 pt-16">
+<h2 class="text-xl font-bold text-[#e5e2e1] font-headline">PitchSide Pro</h2>
+<p class="text-xs text-on-surface-variant font-medium">Elite Rugby Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-medium text-sm">Player Progress</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] text-[#95d4b3] border-l-4 border-[#e9c400] transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="font-medium text-sm">Drill Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span class="font-medium text-sm">Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full py-3 rounded-md bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-sm uppercase tracking-wide">
+                Submit Team Sheet
+            </button>
+<div class="pt-4 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 px-4 py-2 text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] text-sm" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#e5e2e1] opacity-60 hover:text-[#95d4b3] text-sm" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-20 px-6 pb-24 md:pb-12 min-h-screen">
+<!-- Hero Header Section -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl md:text-5xl font-black font-headline text-on-background tracking-tighter mb-2">DRILL LIBRARY</h1>
+<p class="text-on-surface-variant max-w-xl">Optimize your training cycles with our elite catalog of rugby-specific exercises designed by international coaching staff.</p>
+</div>
+<button class="group flex items-center gap-3 px-6 py-4 bg-surface-container-highest border-l-2 border-tertiary text-on-surface hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-tertiary">add_circle</span>
+<span class="font-bold uppercase tracking-widest text-sm">Custom Drill Creator</span>
+</button>
+</section>
+<!-- Category Bento Filter -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+<div class="p-6 bg-surface-container-low rounded-xl flex flex-col justify-between aspect-video md:aspect-auto hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">sports_rugby</span>
+<span class="font-headline font-bold text-xl">Set Piece</span>
+<p class="text-xs text-on-surface-variant mt-1">24 Drills Available</p>
+</div>
+<div class="p-6 bg-surface-container-low border-l-2 border-tertiary/30 rounded-xl flex flex-col justify-between aspect-video md:aspect-auto hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-tertiary mb-4 text-3xl">fast_forward</span>
+<span class="font-headline font-bold text-xl">Backline Play</span>
+<p class="text-xs text-on-surface-variant mt-1">18 Drills Available</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl flex flex-col justify-between aspect-video md:aspect-auto hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-secondary mb-4 text-3xl">shield</span>
+<span class="font-headline font-bold text-xl">Defense</span>
+<p class="text-xs text-on-surface-variant mt-1">32 Drills Available</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl flex flex-col justify-between aspect-video md:aspect-auto hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-error mb-4 text-3xl">timer</span>
+<span class="font-headline font-bold text-xl">Conditioning</span>
+<p class="text-xs text-on-surface-variant mt-1">15 Drills Available</p>
+</div>
+</section>
+<!-- Drill Catalog Grid -->
+<div class="mb-6 flex items-center justify-between">
+<h3 class="font-headline font-bold text-lg uppercase tracking-widest text-on-surface-variant">Recommended Exercises</h3>
+<div class="flex gap-2">
+<span class="material-symbols-outlined p-2 bg-surface-container rounded-lg cursor-pointer">filter_list</span>
+<span class="material-symbols-outlined p-2 bg-surface-container rounded-lg cursor-pointer">search</span>
+</div>
+</div>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Drill Card 1 -->
+<div class="bg-surface-container-low group flex flex-col overflow-hidden transition-all hover:bg-surface-container">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rugby players in a scrum formation during training" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPuWD7WwR3o0biyFpC8bbLbq6avSSy8VIed0itGh48UcEM7Ze37R_427ns1wJ_NtRDS1-MhFvbXii-aKrzrtbW35BaOgFllatY9Ixi5JmOMTX9BvrTG1fVXdd38yPXJOW3bmMWqkuDyVsNKYcG66zXsOMtjN9kROvgjHozjo7nZFP6WRdIab7O8oIht1z9n7DvWGIIv6T4LSQFyiB3pF9Xx8X6uIgnOOtoILL9RyslDEMEW9XXzm1fdPJmX-IY9T6BtB-yiIUZ8nL_"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-tertiary">Pro Elite</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-2xl leading-tight">Scrum Stability</h4>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Skill Focus</span>
+<span class="font-bold text-on-surface">Core/Lower Body</span>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Intensity</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary"></div>
+<div class="w-4 h-1 bg-primary/20"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Duration</span>
+<span class="font-bold text-on-surface">20 Mins</span>
+</div>
+</div>
+<button class="mt-auto py-3 border border-outline-variant/30 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">View Details</button>
+</div>
+</div>
+<!-- Drill Card 2 -->
+<div class="bg-surface-container-low group flex flex-col overflow-hidden transition-all hover:bg-surface-container">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rugby lineout jump exercise during practice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyAJ14t7NgYKFcTAxWlDagQfQL1U6XxET1zBDMCDYlrC4FN76V7Kdr1KxAuFQQ3J5OoF6nInHGnzbpZt5wLtDksrZxvdnsXG0AV1zk4W_sh4W5khUc5KuUwV8NkonsiOCmJC9HZh5kbvrECuA4lIlLqektrNPocvaDzsvdW8tiGTsfsM59WX7KSgcXDHuqxSOV1x6-HPjlyn7Tb5306_acsYGoYgyqojJUA7Im1GpGAPfUUhC7yUYGOGM-mFNwbR8sxizuwYm6KQXB"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-secondary">Set Piece</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-2xl leading-tight">Lineout Timing</h4>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Skill Focus</span>
+<span class="font-bold text-on-surface">Jumping/Coordination</span>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Intensity</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-tertiary"></div>
+<div class="w-4 h-1 bg-tertiary"></div>
+<div class="w-4 h-1 bg-tertiary/20"></div>
+<div class="w-4 h-1 bg-tertiary/20"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Duration</span>
+<span class="font-bold text-on-surface">15 Mins</span>
+</div>
+</div>
+<button class="mt-auto py-3 border border-outline-variant/30 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">View Details</button>
+</div>
+</div>
+<!-- Drill Card 3 -->
+<div class="bg-surface-container-low group flex flex-col overflow-hidden transition-all hover:bg-surface-container">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rugby player practicing a box kick on field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGKGXwVSBlBzbBJYLEZP2G1zna0wFuVLwEQeFoBJ6CheSySJAT_btxSBqd3lTNQi_dpNLbIZKLQ1Fki7PYmwSNdSOPgyNW7VbXu9sVLhlch_GyujaxAzP9-duKcnjoeLunBj1zYjk-ckvF4UPCcVci_6HPRKAfrsI1xT4bAQNWVEtgIvsVWWsrxj0dUEvj0Ljux9nmlcGqY-bLhAbeoP_qaYg_XzMvK6bpkomsI_lVapUDKVE2jheH6PD3BkfFn5KYEtmybFks9fEh"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-primary">Technical</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-2xl leading-tight">Box Kick Precision</h4>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Skill Focus</span>
+<span class="font-bold text-on-surface">Kicking Accuracy</span>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Intensity</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-secondary"></div>
+<div class="w-4 h-1 bg-secondary/20"></div>
+<div class="w-4 h-1 bg-secondary/20"></div>
+<div class="w-4 h-1 bg-secondary/20"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Duration</span>
+<span class="font-bold text-on-surface">10 Mins</span>
+</div>
+</div>
+<button class="mt-auto py-3 border border-outline-variant/30 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">View Details</button>
+</div>
+</div>
+<!-- Drill Card 4 -->
+<div class="bg-surface-container-low group flex flex-col overflow-hidden transition-all hover:bg-surface-container">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rugby defensive line drills on a grass pitch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAirGXbnOnCjQMzWq2D-mGj7pGVc2R3yPlRXmR5YcBkmnKday7_7yQHySN8QHPiGeOEH5eHT5s794OnkLCiyGQQ1a4YNSG9AahyTJFyPdFOFj7vpaloUAygW-_MBWyjK1e9Dh4ycsc-09X0YfPKFy7f6I_cIg_2n4HG_jWgzF3zOmpVztNVzP8jWZZGhA2-cEnhCNlE-JP5xsLWMbHMcmO_IHvf-YcfTX8TKzIe8YH5Dheo3B2bdi5xsW39c4jIOxOAQRmjnVchGw-H"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-error">High Intensity</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-2xl leading-tight">Blitz Defense Reps</h4>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Skill Focus</span>
+<span class="font-bold text-on-surface">Reaction/Speed</span>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Intensity</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-error"></div>
+<div class="w-4 h-1 bg-error"></div>
+<div class="w-4 h-1 bg-error"></div>
+<div class="w-4 h-1 bg-error"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Duration</span>
+<span class="font-bold text-on-surface">25 Mins</span>
+</div>
+</div>
+<button class="mt-auto py-3 border border-outline-variant/30 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">View Details</button>
+</div>
+</div>
+<!-- Drill Card 5 -->
+<div class="bg-surface-container-low group flex flex-col overflow-hidden transition-all hover:bg-surface-container">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Rugby training cones on a grass field for agility drills" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVKqc67dAA7L7HNwT4Mh8idOYKIxQRvhGYWovxfa3LquhZceV45hfxuCwHXKdU0rNSJAbD0GaWEE-kuGI-QRP0Eq7V_6h1qyUjlPe73ty991M3333m8G_x4mi4urlF6C9QHBZLOaO2jzioUVFyJL_mWbvob3j-sY9duvwnWqpn2FpG6MQMlVN5BTwvoVBVfsZrnnqK6Y8_HAkxAuZp1GPPQfmYDwdQz4xbbIZSVogjZnFno0Fl8Q5J27l376C3fEgN18RzF0PdHfuE"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-tertiary">Conditioning</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-2xl leading-tight">Interval Shuttle Runs</h4>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">bookmark</span>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Skill Focus</span>
+<span class="font-bold text-on-surface">Aerobic Capacity</span>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Intensity</span>
+<div class="flex gap-1">
+<div class="w-4 h-1 bg-error"></div>
+<div class="w-4 h-1 bg-error"></div>
+<div class="w-4 h-1 bg-error"></div>
+<div class="w-4 h-1 bg-error/20"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs uppercase tracking-tighter">
+<span class="text-on-surface-variant">Duration</span>
+<span class="font-bold text-on-surface">40 Mins</span>
+</div>
+</div>
+<button class="mt-auto py-3 border border-outline-variant/30 text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors">View Details</button>
+</div>
+</div>
+<!-- Placeholder for asymmetric layout -->
+<div class="bg-surface-container border-2 border-dashed border-outline-variant/30 rounded-xl flex flex-col items-center justify-center p-12 text-center opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-5xl mb-4">add_circle</span>
+<p class="font-headline font-bold text-xl mb-2">Build Your Own</p>
+<p class="text-sm">Design custom sessions for your specific team needs</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#1c1b1b] flex justify-around items-center py-4 border-t border-outline-variant/20 z-50">
+<a class="flex flex-col items-center gap-1 opacity-60" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#95d4b3]" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Drills</span>
+</a>
+<a class="flex flex-col items-center gap-1 opacity-60" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Tactics</span>
+</a>
+<a class="flex flex-col items-center gap-1 opacity-60" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tactical Analysis | PitchSide Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#001c3b",
+                        "tertiary-fixed": "#ffe171",
+                        "tertiary-container": "#c9a800",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#9fb6de",
+                        "on-secondary": "#183152",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#e9c400",
+                        "secondary-fixed-dim": "#b0c8f0",
+                        "tertiary-fixed-dim": "#e9c400",
+                        "outline": "#8b938d",
+                        "primary-fixed": "#b1f0ce",
+                        "primary": "#95d4b3",
+                        "on-primary-fixed-variant": "#0e5138",
+                        "background": "#131313",
+                        "secondary-container": "#30486a",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#c1c8c2",
+                        "surface-variant": "#353534",
+                        "surface-tint": "#95d4b3",
+                        "secondary-fixed": "#d5e3ff",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#201f1f",
+                        "inverse-primary": "#2c694e",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "on-tertiary": "#3b2f00",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#30486a",
+                        "outline-variant": "#414844",
+                        "on-primary-container": "#76b394",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#b0c8f0",
+                        "primary-container": "#00452e",
+                        "on-primary-fixed": "#002114",
+                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary-container": "#4c3e00",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#221b00",
+                        "on-primary": "#003824",
+                        "primary-fixed-dim": "#95d4b3",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary-fixed-variant": "#554600"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pitch-pattern {
+            background-image: radial-gradient(#414844 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] flex justify-between items-center h-16 px-6 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#95d4b3] uppercase tracking-wider font-['Space_Grotesk']">PitchSide Pro</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Dashboard</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#95d4b3] border-b-2 border-[#95d4b3]" href="#">Tactics</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tight text-[#e5e2e1] opacity-70 hover:text-[#95d4b3] transition-colors duration-200" href="#">Drill Library</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#95d4b3]">notifications</button>
+<button class="material-symbols-outlined text-[#95d4b3]">account_circle</button>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 bg-[#1c1b1b] hidden md:flex flex-col py-6">
+<div class="px-6 mb-10 pt-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center border border-outline-variant/20">
+<img alt="Team Logo" class="w-6 h-6" data-alt="Rugby team shield logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0lTH9Q-ht9l04VcikgoQVhd-b4u2Pc0TkGFeDs6MaDzrMJ6toFN2wa0sTPT0YzNzR-jQpJcFEiYlXG4mRfPz2CBk7VWj_povhFiHaa4QAxgbRCmpYcIUw8KTCTsygnEoGBd8JOZP1buXRYraz1Kf1_0RdVoqq-P3UG_9OdcooaVJFL0brRowj5c2Zp0Bf5jWu9NQ-84-3p-9ur2HNM_HJA9GoVvzxcu1dog_9j4jtbJAo1GD-R4iBkCO5dNmasUhdgZe8X0u5PmwH"/>
+</div>
+<div>
+<h2 class="text-xl font-bold text-[#e5e2e1] font-['Space_Grotesk'] leading-none">PitchSide Pro</h2>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Elite Rugby Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-['Inter'] text-sm font-medium">Player Progress</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="font-['Inter'] text-sm font-medium">Drill Library</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] text-[#95d4b3] border-l-4 border-[#e9c400]" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span class="font-['Inter'] text-sm font-medium">Tactics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] hover:text-[#95d4b3] transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Inter'] text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-lg font-bold text-sm shadow-lg shadow-primary/10">
+                Submit Team Sheet
+            </button>
+<div class="pt-4 border-t border-outline-variant/10">
+<a class="flex items-center gap-3 px-4 py-2 text-[#e5e2e1] opacity-60 hover:text-primary text-sm" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+                    Support
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#e5e2e1] opacity-60 hover:text-error text-sm" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-16 min-h-screen">
+<div class="p-8 space-y-8">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-tertiary mb-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-xs font-bold tracking-[0.2em] uppercase">Upcoming Matchweek 14</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-bold tracking-tight text-on-surface">VS. NORTHERN TITANS</h1>
+<p class="text-on-surface-variant mt-2 font-medium">Tactical Analysis &amp; Opposition Scouting Report</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-md text-sm font-bold transition-all border-l-2 border-tertiary">
+                        EXPORT PDF
+                    </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-md text-sm font-bold transition-all">
+                        CONFIRM PLAN
+                    </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- 1. Opponent Scouting Summary (Col 1-4) -->
+<section class="md:col-span-4 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary/30">
+<h3 class="text-xs font-black tracking-widest text-on-surface-variant uppercase mb-4">Scouting Report</h3>
+<div class="space-y-4">
+<div>
+<p class="text-sm text-on-surface-variant mb-1">Recent Form</p>
+<div class="flex gap-1">
+<span class="w-8 h-8 rounded bg-primary-container text-primary flex items-center justify-center font-bold text-xs">W</span>
+<span class="w-8 h-8 rounded bg-primary-container text-primary flex items-center justify-center font-bold text-xs">W</span>
+<span class="w-8 h-8 rounded bg-error-container text-error flex items-center justify-center font-bold text-xs">L</span>
+<span class="w-8 h-8 rounded bg-primary-container text-primary flex items-center justify-center font-bold text-xs">W</span>
+<span class="w-8 h-8 rounded bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-xs">D</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container rounded-lg">
+<h4 class="text-sm font-bold text-on-surface mb-2">Tactical Profile</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">High-tempo offensive team. Reliance on quick wide-out releases and dominant set-piece scrumming. Vulnerable to fast transitions on the 22m line.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="text-center p-3 bg-surface-container-highest rounded">
+<span class="block text-2xl font-headline font-bold text-primary">84%</span>
+<span class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Lineout Success</span>
+</div>
+<div class="text-center p-3 bg-surface-container-highest rounded">
+<span class="block text-2xl font-headline font-bold text-tertiary">12.4</span>
+<span class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Avg Offloads</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Threat Analysis -->
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h3 class="text-xs font-black tracking-widest text-on-surface-variant uppercase mb-4">Threat Analysis</h3>
+<div class="space-y-4">
+<!-- Threat Player 1 -->
+<div class="flex items-center gap-4 group">
+<div class="relative">
+<img alt="Player" class="w-14 h-14 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Close up of professional rugby player" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHnB6jnx8YnDpqpCFrX8DVan_bCbXjJODMxtm20II90MfpFGyjdqX9IbHdhjWyaRiiy9YmfXnjEP9IPnxBuDUHfUrUD_pgjNCQj6MIuKgP08SCqoBXDHAFVjjdhHbn9D1eVnrzwWFHdqvQiEwfhqpB2oyXAlflpAC3R1-Mr41xaBjbFqiIl-rEOdq51_O7ujwwgYEeFXyL9gn4EJuSSg28qDZYxrx-HzNS_9_4FkbR1tLlzGtH8k-Kub9bv8d-jbpeK_I9oYBQ2UqE"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-tertiary rounded-full border-2 border-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-tertiary" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</div>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Marcus Vance</h4>
+<p class="text-xs text-on-surface-variant">Fullback | Speed Specialist</p>
+<div class="mt-1 w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Threat Player 2 -->
+<div class="flex items-center gap-4 group">
+<div class="relative">
+<img alt="Player" class="w-14 h-14 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="Rugby forward player profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkC9Dv_8s637G6fBGoxUjNKeoLHqKdgkBX5AZ10flYJusSCIfUtKOhKmnqCIF0_o_7MDNZLKSSXeXim5gHOb8r2jX0JaaxdABdJN1IN16qYaV0VOcB7lgB0-4p8rxXzpF8ak5J-pWBgLryv6_LWgNZ7jjM_NOj1y9h3L5VrWFfhLorFJWGlKLWheTAEUnWfC_GOCPi6WghwtDuzmuOl_4xFefJmGM-0OdLqinPtftMJJbi1JEY3KKJFj5iveQqu7qT5R3VQQ9x0kD"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-error rounded-full border-2 border-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Liam O'Conner</h4>
+<p class="text-xs text-on-surface-variant">Flanker | Turnover King</p>
+<div class="mt-1 w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[88%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Set-Piece Diagram (Col 5-12) -->
+<section class="md:col-span-8 space-y-6">
+<div class="bg-surface-container-low rounded-xl overflow-hidden flex flex-col h-full min-h-[500px]">
+<div class="p-6 flex justify-between items-center border-b border-outline-variant/10">
+<div>
+<h3 class="text-sm font-bold text-on-surface">Set-Piece Tactical View</h3>
+<p class="text-xs text-on-surface-variant">Attacking Lineout - Phase 1 Pattern</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 bg-surface-container-highest rounded-lg text-on-surface-variant">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<!-- The Tactical Pitch -->
+<div class="flex-1 relative pitch-pattern p-10 overflow-hidden flex items-center justify-center">
+<div class="w-full max-w-2xl aspect-[4/3] border-2 border-outline-variant/30 relative rounded-lg bg-surface-container-lowest/50">
+<!-- Field Markings -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-px h-full bg-outline-variant/20"></div>
+<div class="absolute left-1/4 w-px h-full border-l border-dashed border-outline-variant/20"></div>
+<div class="absolute right-1/4 w-px h-full border-l border-dashed border-outline-variant/20"></div>
+</div>
+<!-- Tactical Players (Your Team - Blue/Secondary) -->
+<div class="absolute left-1/4 top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-4">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-[10px] font-black text-on-secondary shadow-lg">2</div>
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-[10px] font-black text-on-secondary shadow-lg">4</div>
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-[10px] font-black text-on-secondary shadow-lg">5</div>
+</div>
+<!-- Movement Line -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none">
+<path class="drop-shadow-[0_0_8px_rgba(149,212,179,0.5)]" d="M 160 200 Q 300 100 450 200" fill="none" stroke="#95d4b3" stroke-dasharray="8,4" stroke-width="3"></path>
+<circle cx="450" cy="200" fill="#95d4b3" r="6"></circle>
+</svg>
+<!-- Opponent Markers (Red/Error) -->
+<div class="absolute left-[30%] top-[45%] flex flex-col gap-6 opacity-40">
+<div class="w-7 h-7 rounded bg-error-container border border-error flex items-center justify-center text-[10px] font-bold text-error">X</div>
+<div class="w-7 h-7 rounded bg-error-container border border-error flex items-center justify-center text-[10px] font-bold text-error">X</div>
+</div>
+<!-- Tactical Note Overlay (Glassmorphism) -->
+<div class="absolute bottom-6 right-6 glass-panel p-4 rounded-xl max-w-[200px] border border-outline-variant/20">
+<h5 class="text-[10px] font-black uppercase text-primary mb-1">Key Instruction</h5>
+<p class="text-[11px] text-on-surface leading-tight">Force the secondary jumper early to isolate their defensive flanker.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Tactical Drills Recommendation (Bottom Row) -->
+<section class="md:col-span-12">
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xs font-black tracking-widest text-on-surface-variant uppercase">Recommended Training Focus</h3>
+<span class="text-xs text-on-surface-variant font-medium">Based on Northern Titans' vulnerabilities</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Drill Card 1 -->
+<div class="bg-surface-container p-5 rounded-lg border-l-2 border-tertiary hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="material-symbols-outlined text-tertiary">fitness_center</span>
+<span class="text-[10px] font-bold bg-surface-container-highest px-2 py-1 rounded">20 MIN</span>
+</div>
+<h4 class="font-bold text-on-surface mb-2">High-Pressure Scrum Reset</h4>
+<p class="text-xs text-on-surface-variant mb-4">Focus on engagement speed to counter the Titans' front row fatigue in the 2nd half.</p>
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center text-[8px] border border-surface">JS</div>
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-[8px] border border-surface text-on-primary">HC</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Assign to Forwards Coach</span>
+</div>
+</div>
+<!-- Drill Card 2 -->
+<div class="bg-surface-container p-5 rounded-lg border-l-2 border-primary hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="material-symbols-outlined text-primary">sprint</span>
+<span class="text-[10px] font-bold bg-surface-container-highest px-2 py-1 rounded">35 MIN</span>
+</div>
+<h4 class="font-bold text-on-surface mb-2">Blindside Counter-Attack</h4>
+<p class="text-xs text-on-surface-variant mb-4">Utilize Marcus Vance's positioning weakness when retreating from defensive kicks.</p>
+<div class="flex items-center gap-2">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center text-[8px] border border-surface">RL</div>
+</div>
+<span class="text-[10px] text-on-surface-variant">Assign to Backs Coach</span>
+</div>
+</div>
+<!-- Drill Card 3 -->
+<div class="bg-surface-container p-5 rounded-lg border-l-2 border-outline hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<span class="material-symbols-outlined text-on-surface-variant">stadium</span>
+<span class="text-[10px] font-bold bg-surface-container-highest px-2 py-1 rounded">15 MIN</span>
+</div>
+<h4 class="font-bold text-on-surface mb-2">Set-Piece Exit Strategy</h4>
+<p class="text-xs text-on-surface-variant mb-4">Clean release drills from own 5m line to avoid Titans' heavy blitz defense.</p>
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-on-surface-variant italic">General Team Session</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden for this view as per hierarchy) -->
+</body></html>

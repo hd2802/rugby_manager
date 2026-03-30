@@ -8,20 +8,25 @@
     "dev": "nodemon --exec \"npx tsx src/server.ts \"  ",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
-    "format": "prettier --write 'src/**/*.ts'"
+    "format": "prettier --write 'src/**/*.ts'",
+    "prisma:seed": "tsx prisma/seed.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@prisma/adapter-pg": "^7.5.0",
-    "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "helmet": "^8.1.0",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.28"
   },
   "devDependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
     "@types/express": "^5.0.6",
     "@types/helmet": "^0.0.48",
     "@types/morgan": "^1.9.10",
@@ -29,11 +34,12 @@
     "@types/pg": "^8.20.0",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.57.2",
+    "dotenv": "^17.3.1",
     "eslint": "^10.1.0",
     "jest": "^25.0.0",
     "nodemon": "^3.1.14",
+    "pg": "^8.20.0",
     "prettier": "^3.8.1",
-    "prisma": "^6.19.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.21.0",

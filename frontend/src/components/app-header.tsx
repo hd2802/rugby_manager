@@ -7,7 +7,7 @@ import {
 
 export function AppHeader() {
     return (
-      <header className="w-full bg-background px-4 py-2 flex items-center relative z-20 md:pl-[5rem]">
+        <header className="w-full bg-background px-4 py-2 flex items-center">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>

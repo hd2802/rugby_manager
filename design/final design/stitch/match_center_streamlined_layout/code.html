@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match Center | RFC COMMAND</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "error-container": "#93000a",
+                "on-tertiary-fixed-variant": "#574500",
+                "on-secondary": "#003829",
+                "on-primary-container": "#74829d",
+                "on-primary-fixed-variant": "#39475f",
+                "on-tertiary-fixed": "#231b00",
+                "tertiary-fixed-dim": "#eec200",
+                "tertiary": "#eec200",
+                "surface": "#041329",
+                "inverse-on-surface": "#233148",
+                "primary-fixed": "#d6e3ff",
+                "background": "#041329",
+                "surface-container-lowest": "#010e24",
+                "surface-container": "#112036",
+                "error": "#ffb4ab",
+                "surface-container-highest": "#27354c",
+                "tertiary-fixed": "#ffe083",
+                "secondary-fixed": "#b0f0d6",
+                "surface-container-low": "#0d1c32",
+                "on-secondary-fixed": "#002117",
+                "on-primary-fixed": "#0d1c32",
+                "on-error": "#690005",
+                "primary-fixed-dim": "#b9c7e4",
+                "on-secondary-fixed-variant": "#0b513d",
+                "tertiary-container": "#cea700",
+                "inverse-primary": "#515f78",
+                "secondary-container": "#0b513d",
+                "on-primary": "#233148",
+                "secondary": "#95d3ba",
+                "on-surface": "#d6e3ff",
+                "surface-container-high": "#1c2a41",
+                "outline-variant": "#44474d",
+                "on-tertiary": "#3c2f00",
+                "outline": "#8f9097",
+                "surface-bright": "#2c3951",
+                "on-error-container": "#ffdad6",
+                "primary": "#b9c7e4",
+                "inverse-surface": "#d6e3ff",
+                "surface-tint": "#b9c7e4",
+                "surface-variant": "#27354c",
+                "primary-container": "#0a192f",
+                "on-surface-variant": "#c5c6cd",
+                "on-tertiary-container": "#4e3e00",
+                "on-background": "#d6e3ff",
+                "surface-dim": "#041329",
+                "secondary-fixed-dim": "#95d3ba",
+                "on-secondary-container": "#83c2a9"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(39, 53, 76, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #27354c;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary selection:text-on-secondary">
+<!-- Slim Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col z-40 bg-[#0d1c32] w-20 shadow-[40px_0_40px_-15px_rgba(4,19,41,0.08)]">
+<div class="py-6 flex justify-center">
+<h1 class="text-xl font-bold text-[#eec200] font-headline">RFC</h1>
+</div>
+<nav class="flex-1">
+<div class="space-y-1">
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-semibold tracking-tight font-label uppercase">Dashboard</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-[10px] font-semibold tracking-tight font-label uppercase">Squad</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="strategy">strategy</span>
+<span class="text-[10px] font-semibold tracking-tight font-label uppercase">Tactics</span>
+</div>
+<!-- Active Tab -->
+<div class="bg-[#112036] text-[#95d3ba] border-r-4 border-[#95d3ba] flex flex-col items-center justify-center gap-1 py-4 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="sports_rugby">sports_rugby</span>
+<span class="text-[10px] font-semibold tracking-tight font-label uppercase">Matches</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-semibold tracking-tight font-label uppercase">Market</span>
+</div>
+</div>
+</nav>
+<div class="mt-auto border-t border-[#112036] p-2 space-y-2">
+<div class="flex flex-col items-center gap-2 mb-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant/30">
+<img alt="Manager Portrait" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional rugby director in a sharp suit, cinematic lighting, focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYmXqxjwjUlQtXC9NvP6jvlBFn8Sd6Ohrr7N5WcnijUHywt06-xkiIPBn4TrvSCWbHkCGxHdEdI4xVrmwgCgaxhYj5l0CO2oX_YSrqGbzDwwgJEPCjetwQEdoCBlVJ3MNvfcdrORMrAo18TLD2KrBc0NCJwq8kiPpGzgE2y5oxOtXd_N1z1YmCXHq8DlYSkHAJBKh5NR9QjRSM9MSPF0-6ZYkBrEHVd5LYLrc3c4VYrK3v_nTiOmFji5iYUE7hNKm_lQPYzdFjGuY"/>
+</div>
+<p class="text-[8px] text-on-surface-variant font-label uppercase tracking-wider text-center">Elite Rank</p>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-3 hover:bg-[#1c2a41] hover:text-[#d6e3ff] cursor-pointer">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span class="text-[9px] font-semibold font-label uppercase">Settings</span>
+</div>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 left-20 h-16 bg-[#041329] z-30 flex justify-between items-center px-6 border-b border-[#0d1c32]">
+<div class="flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-[#c5c6cd] text-sm font-medium hover:text-[#95d3ba] transition-colors" href="#">Season 2024</a>
+<a class="text-[#eec200] font-bold border-b-2 border-[#eec200] text-sm pb-1" href="#">Premiership</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="px-4 py-1.5 rounded bg-surface-container-lowest border border-outline-variant/20 text-[#95d3ba] font-bold text-sm">
+                $42.5M
+            </div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity active:scale-95 duration-150">
+                Simulate Match
+            </button>
+<div class="flex gap-2 border-l border-[#0d1c32] ml-2 pl-4">
+<button class="p-2 text-[#c5c6cd] hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#c5c6cd] hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-20 pt-16 min-h-screen p-6 space-y-6">
+<!-- LIVE SCOREBOARD -->
+<section class="grid grid-cols-12 gap-1 items-center bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Rugby Pitch Background" class="w-full h-full object-cover" data-alt="abstract dark green and navy geometric patterns mimicking the top-down lines of a rugby stadium pitch under floodlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhHRLK2k8yjnDcakEtakZN6wQBAH92vVaeD0t1FLuUl-mgQBwmkFqx1WKv1C2K9L09I01Wk8ifdabwGpj61PMu_TILzxymQfO72syKS_eWeO_pJaezsq1r26gAeiAPys79vZqg6gMbHDCiJrS06AaakV_gj1d40KjJ936iw1A3r5qaY_bxDaeZczSPmsejT0QhO2pfkS4knnxq9LqyHma9T8ra49ghbuHw1zhM1_V4jM-nOAduKB1bEpso7o72t-YpJVMsB5G59AM"/>
+</div>
+<!-- Home Team -->
+<div class="col-span-4 flex flex-col items-center gap-4 z-10">
+<img alt="Club Crest" class="w-20 h-20" data-alt="Rugby club crest with a stylized golden lion on a navy blue shield, professional sports branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8YqyenWDc7Kgi5j4fACNdO19j3QqhcifdwL2r5hwQyRXqhTLOhz4DIGKik3mJl4uCDpTOiL4yBRcSX3lAwaIwiWfB-2Fm6Za2HLBsuN6looLyM7Qdfsp05MrutoLgFp8UNusSp0I-EWdRhfrzrbZHPssG01As0hjRhRzfAWDQz6n5fCAZlniOHHS1BI7AGpjUcReWCtriRavXaZo1iARPiv2NPo0T2PwN_KPqQA6mxRJMxTxYiAvd0mjaj4ZHCCsqhpM0r52hnG8"/>
+<h2 class="font-headline text-2xl font-extrabold tracking-tighter text-on-background">RICHMOND RFC</h2>
+<div class="flex gap-4 text-on-surface-variant font-label text-[10px] uppercase tracking-[0.2em]">
+<span>Tries: 3</span>
+<span>Conv: 2</span>
+<span>Pen: 1</span>
+</div>
+</div>
+<!-- Score & Clock -->
+<div class="col-span-4 flex flex-col items-center z-10">
+<div class="bg-surface-container-highest px-4 py-1 rounded-full text-tertiary font-bold text-sm mb-4">
+                    68:42
+                </div>
+<div class="flex items-center gap-8">
+<span class="font-headline text-7xl font-black text-on-background tracking-tighter">27</span>
+<span class="font-headline text-3xl font-bold text-outline-variant opacity-50">-</span>
+<span class="font-headline text-7xl font-black text-on-background tracking-tighter">19</span>
+</div>
+<p class="mt-4 text-secondary font-bold text-xs tracking-widest uppercase bg-secondary/10 px-3 py-1 rounded">2nd Half • Live</p>
+</div>
+<!-- Away Team -->
+<div class="col-span-4 flex flex-col items-center gap-4 z-10">
+<img alt="Away Crest" class="w-20 h-20" data-alt="Minimalist rugby club logo with a charging bull in emerald green, high contrast on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO3lNdHTz53lExTWi2X6vtNtNTbpndZj3TzTSYX1sEzGbAlaEYh-YHSnLydrsm7du-MuQzgj9GFkwHsTZb39Vp7-yj0Fl-E0Wj_uFe_7mLWnE1ZOaDjr6DRlYuaCnz2eb9zZtpccsdcSTqk1wHDTgv8G2hjVWippSpONCMw-TyHZ3OdQCBLBFJkYBInPXLM06rBQ-ydvk0_TwfW15PdFNg_qtKcp_JQdab5GaWpYlb5cUmRkjbkbrGa6H9kgn0VduZT5jdlk3HEp0"/>
+<h2 class="font-headline text-2xl font-extrabold tracking-tighter text-on-background">BATH UNITED</h2>
+<div class="flex gap-4 text-on-surface-variant font-label text-[10px] uppercase tracking-[0.2em]">
+<span>Tries: 2</span>
+<span>Conv: 2</span>
+<span>Pen: 3</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-6">
+<!-- LEFT: Match Simulation & Log -->
+<div class="col-span-8 space-y-6">
+<!-- Tactical View -->
+<div class="bg-surface-container h-[420px] rounded-xl relative group overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-lowest">
+<img alt="Match Simulation" class="w-full h-full object-cover opacity-60" data-alt="Top down tactical 2D rugby match view with glowing blue and gold player markers on a digital pitch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDICooLepVfcTGrn5lHqp6U7Z5nCov3Iz2w2s7C464C9PsaZ_892tUUgXGfE-URw5ha_gv0SXdrpiPB0E_XZAi6Wi5ZUDzS6XUYBae5QklTMf1fzFLJECRf5lP3m1QXmdDglpDH0fVR3GlvPfYkm-4iYVCWR_G3l_ZwUhqHZkImsDw29IrgtXigvVuO-b0gYgFy6Bognrcw1sOv-rKDOIjdf2nCgVJE_Y_2d42iFBXFVdsZaq9DS_OKiCpltvZQOoBgc2tq-CwPvPo"/>
+</div>
+<div class="absolute top-4 left-4 glass-panel px-4 py-2 rounded flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<span class="text-xs font-bold font-label uppercase">Simulating: Phase 4</span>
+</div>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<button class="p-3 bg-surface-container-highest/80 rounded-lg hover:bg-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</button>
+<button class="p-3 bg-surface-container-highest/80 rounded-lg hover:bg-secondary hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Match Log -->
+<div class="bg-surface-container rounded-xl p-6 h-[240px] overflow-y-auto space-y-4 custom-scrollbar">
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10">
+<span class="text-xs font-bold text-on-surface-variant pt-1">68'</span>
+<div>
+<p class="text-sm font-medium text-on-background"><span class="text-secondary font-bold">Try!</span> Richmond RFC - J. Thompson crashes over after a sustained build-up at the 5m line.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10">
+<span class="text-xs font-bold text-on-surface-variant pt-1">65'</span>
+<div>
+<p class="text-sm font-medium text-on-surface-variant">Penalty Awarded: Richmond RFC - Offside against Bath United #4.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start pb-4 border-b border-outline-variant/10">
+<span class="text-xs font-bold text-on-surface-variant pt-1">62'</span>
+<div>
+<p class="text-sm font-medium text-on-surface-variant">Substitution: Richmond RFC - M. Vunipola OFF, T. Genge ON.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: Stats & Tactical Controls -->
+<div class="col-span-4 space-y-6">
+<!-- Live Stats -->
+<div class="bg-surface-container p-6 rounded-xl space-y-6">
+<h3 class="font-headline text-lg font-bold text-tertiary">Match Statistics</h3>
+<!-- Possession -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-label uppercase tracking-widest font-bold">
+<span>Possession</span>
+<span class="text-secondary">54% - 46%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary" style="width: 54%"></div>
+</div>
+</div>
+<!-- Territory -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-label uppercase tracking-widest font-bold">
+<span>Territory</span>
+<span class="text-secondary">62% - 38%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary" style="width: 62%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div class="p-4 bg-surface-container-low rounded-lg text-center">
+<p class="text-on-surface-variant text-[10px] font-label uppercase mb-1">Tackles</p>
+<p class="text-xl font-headline font-extrabold text-on-background">112 <span class="text-xs text-outline-variant">/ 98</span></p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg text-center">
+<p class="text-on-surface-variant text-[10px] font-label uppercase mb-1">Penalties</p>
+<p class="text-xl font-headline font-extrabold text-on-background">6 <span class="text-xs text-outline-variant">/ 11</span></p>
+</div>
+</div>
+</div>
+<!-- Tactical Controls -->
+<div class="bg-surface-container p-6 rounded-xl space-y-4">
+<h3 class="font-headline text-lg font-bold text-tertiary">Tactical Shifts</h3>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="swap_horiz">swap_horiz</span>
+<span class="text-sm font-bold">Quick Substitutions</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-on-surface" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="settings_input_component">settings_input_component</span>
+<span class="text-sm font-bold">Aggressive Rucking</span>
+</div>
+<div class="w-10 h-5 bg-secondary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-on-secondary rounded-full"></div>
+</div>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-high rounded-lg hover:bg-surface-bright transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shield">shield</span>
+<span class="text-sm font-bold">Defensive Shape</span>
+</div>
+<span class="text-xs font-bold text-outline-variant">Balanced</span>
+</button>
+<div class="pt-4">
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Confirm Tactical Update
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Match Pause/Play) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-tertiary text-on-tertiary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-transform z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="pause" data-weight="fill" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+</body></html>

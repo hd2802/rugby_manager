@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFC COMMAND | Transfer Market &amp; Scouting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-secondary": "#003829",
+                        "on-primary-container": "#74829d",
+                        "on-primary-fixed-variant": "#39475f",
+                        "on-tertiary-fixed": "#231b00",
+                        "tertiary-fixed-dim": "#eec200",
+                        "tertiary": "#eec200",
+                        "surface": "#041329",
+                        "inverse-on-surface": "#233148",
+                        "primary-fixed": "#d6e3ff",
+                        "background": "#041329",
+                        "surface-container-lowest": "#010e24",
+                        "surface-container": "#112036",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#27354c",
+                        "tertiary-fixed": "#ffe083",
+                        "secondary-fixed": "#b0f0d6",
+                        "surface-container-low": "#0d1c32",
+                        "on-secondary-fixed": "#002117",
+                        "on-primary-fixed": "#0d1c32",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "on-secondary-fixed-variant": "#0b513d",
+                        "tertiary-container": "#cea700",
+                        "inverse-primary": "#515f78",
+                        "secondary-container": "#0b513d",
+                        "on-primary": "#233148",
+                        "secondary": "#95d3ba",
+                        "on-surface": "#d6e3ff",
+                        "surface-container-high": "#1c2a41",
+                        "outline-variant": "#44474d",
+                        "on-tertiary": "#3c2f00",
+                        "outline": "#8f9097",
+                        "surface-bright": "#2c3951",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#b9c7e4",
+                        "inverse-surface": "#d6e3ff",
+                        "surface-tint": "#b9c7e4",
+                        "surface-variant": "#27354c",
+                        "primary-container": "#0a192f",
+                        "on-surface-variant": "#c5c6cd",
+                        "on-tertiary-container": "#4e3e00",
+                        "on-background": "#d6e3ff",
+                        "surface-dim": "#041329",
+                        "secondary-fixed-dim": "#95d3ba",
+                        "on-secondary-container": "#83c2a9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            background: rgba(39, 53, 76, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .slim-sidebar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            padding: 1rem 0;
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar (Updated) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#041329] h-16 flex justify-between items-center px-6">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-[#eec200]">RFC COMMAND</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#c5c6cd] hover:bg-[#112036] hover:text-[#95d3ba] transition-colors font-body text-[1.125rem]" href="#">Season 2024</a>
+<a class="text-[#c5c6cd] hover:bg-[#112036] hover:text-[#95d3ba] transition-colors font-body text-[1.125rem]" href="#">Premiership</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-lowest px-3 py-1 rounded flex items-center gap-2">
+<span class="text-[#eec200] font-headline font-bold text-lg">$42.5M</span>
+</div>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-headline font-bold hover:opacity-90 active:scale-95 duration-150 ease-in-out">Simulate Match</button>
+<button class="bg-[#eec200] text-[#041329] px-6 py-2 rounded-lg font-headline font-black hover:brightness-110 active:scale-95 transition-all">CONTINUE</button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-[#c5c6cd] p-2 hover:bg-[#112036] rounded cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-[#c5c6cd] p-2 hover:bg-[#112036] rounded cursor-pointer">settings</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="Club Crest" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs7vG9se_ddco8TdGKrIsvTqDhM7a9OIo0mvTRK3k43p-mQ86CSkSVUlhERv5Y7IyKemogsOWjEjHHdajgO5JJbZdb-D4UDucMfy2SiIOxQWSPB8CVfPaAKjkGIOxDVZdXFSn637Rdqnx88S9CovDBjQ3TtR-djmpuX2-lUr2EZUf_qOfcJYcn2tVSaPyO2W4xFbVLj1Tx3WteWDU7_dv3XdNGdv_I9FmHOktDfbOHadBg0YCsfu2g9QXq4vLiFC2n-Yx_6UlhoII"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Updated Slim Version) -->
+<aside class="fixed left-0 top-0 h-screen w-20 bg-[#0d1c32] flex flex-col z-40 shadow-[40px_0_40px_-15px_rgba(4,19,41,0.08)]">
+<div class="pt-20 pb-4 border-b border-[#112036] flex justify-center">
+<div class="w-12 h-12 rounded bg-surface-container-highest overflow-hidden border border-[#eec200]/20">
+<img alt="Manager Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuOhkg9WqIiROAs7Yt5AaC9M9_UX1ycJKseRcz4u6a-YdtJF2_Ym64hj6XSzea4PElrMPulVWWxAUGIQUW8HezX_X6POsj8tMzM1KXP_V0LF4Pj8WG73d7V_T1QCjv7uYO01w9xLYXBndcWZPwAhZk-ssM2uw8aXPHxLI7kgM7bbdl2rqQwS09GqBbxEnf9gJqMUdDI22HLuUky8-K1J8NUwqWVnA5OXMa_Ta_zB2pD9Dq9P59-z-cn_TV6u-VZay80Bw9wibMoRNQ"/>
+</div>
+</div>
+<nav class="flex-grow mt-4 flex flex-col">
+<a class="slim-sidebar-item text-[#c5c6cd] hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Dash</span>
+</a>
+<a class="slim-sidebar-item text-[#c5c6cd] hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined text-2xl">groups</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Squad</span>
+</a>
+<a class="slim-sidebar-item text-[#c5c6cd] hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined text-2xl">strategy</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Tactics</span>
+</a>
+<a class="slim-sidebar-item text-[#c5c6cd] hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined text-2xl">sports_rugby</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Match</span>
+</a>
+<!-- Active Tab -->
+<a class="slim-sidebar-item bg-[#112036] text-[#95d3ba] border-r-4 border-[#95d3ba] translate-x-1" href="#">
+<span class="material-symbols-outlined text-2xl">payments</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Market</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-[#112036] pb-4">
+<a class="slim-sidebar-item text-[#c5c6cd] hover:bg-[#1c2a41]" href="#">
+<span class="material-symbols-outlined text-2xl">badge</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Staff</span>
+</a>
+<a class="slim-sidebar-item text-[#c5c6cd] hover:bg-[#1c2a41]" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Set</span>
+</a>
+</div>
+</aside>
+<!-- Main Content (Adjusted margin for slim sidebar) -->
+<main class="ml-20 pt-24 px-10 pb-12 transition-all">
+<!-- Search & Filter Header -->
+<div class="mb-10 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h1 class="font-headline text-3xl font-extrabold text-[#eec200] tracking-tight">Transfer &amp; Scouting Market</h1>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined">update</span>
+<span class="text-sm font-medium">Window closes in: 12d 04h</span>
+</div>
+</div>
+<!-- Advanced Filter Bar -->
+<div class="bg-surface-container p-4 rounded-xl flex flex-wrap gap-4 items-end">
+<div class="flex-1 min-w-[300px]">
+<label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Global Search</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 pr-4 py-3 text-sm focus:ring-1 focus:ring-tertiary transition-all placeholder:text-outline" placeholder="Search by name, club or nation..." type="text"/>
+</div>
+</div>
+<div class="w-40">
+<label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Position</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg py-3 text-sm focus:ring-1 focus:ring-tertiary">
+<option>Any Position</option>
+<option>Front Row</option>
+<option>Second Row</option>
+<option>Back Row</option>
+<option>Half Backs</option>
+<option>Centers</option>
+<option>Back Three</option>
+</select>
+</div>
+<div class="w-32">
+<label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Min Rating</label>
+<select class="w-full bg-surface-container-lowest border-none rounded-lg py-3 text-sm focus:ring-1 focus:ring-tertiary">
+<option>70+</option>
+<option>80+</option>
+<option>85+</option>
+<option>90+</option>
+</select>
+</div>
+<div class="w-48">
+<label class="block text-[0.6875rem] font-semibold text-on-surface-variant uppercase tracking-wider mb-2">Max Budget</label>
+<div class="flex items-center bg-surface-container-lowest rounded-lg px-3 py-2">
+<span class="text-tertiary-fixed-dim font-bold mr-2">$</span>
+<input class="w-full bg-transparent border-none p-0 text-sm focus:ring-0" placeholder="20.0" type="number"/>
+<span class="text-on-surface-variant text-xs ml-1">M</span>
+</div>
+</div>
+<button class="bg-surface-container-highest text-on-surface hover:bg-outline-variant px-6 py-3 rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span class="font-bold text-sm">All Filters</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Scouting Reports Feed -->
+<div class="col-span-12 lg:col-span-7 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-xl font-bold">Scouting Reports</h2>
+<span class="text-sm text-secondary font-semibold cursor-pointer">View All Staff (8)</span>
+</div>
+<!-- Report Card 1 -->
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Abstract rugby ball texture with close-up of leather stitching and dynamic motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoSjLUYr-Er0inZ5IuvWmtDvwxKkZuQxP6mBj6ajqnkL3LktLDSM2X6nSUj0CxJn42zbSQCF8CXbwOUFRYovBcXA52nXVRp3d4d8gaMy8CTFs6KOmpR75LfaxAMBXSfYOUJPp244lzG3LX0k1btIyKZCD-rUtcperRz0bXKLT41LKaWa1sff54Tp9PCUgDZCc9hWP01Eyfs-bEDn89DWB1-qeGvsJnPa0z_diUU9Ty3kZEGmCibmktC0LMeSNHf91RMHSxUc2W1Q8"/>
+</div>
+<div class="flex gap-6">
+<div class="w-24 h-32 rounded bg-surface-container-high relative flex-shrink-0">
+<img class="w-full h-full object-cover rounded" data-alt="Rugby player in training kit, determined expression, close-up portrait with dark cinematic mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANO5vyHEr4rc3ITVYar41u_8tiHO5QdKGG0L1pYBXwy2Yg4SwEjL-2mu0Nzt0vG7cPInDu_4FEzqYsQqlipV3aU-u7B1Ch7PDXyMcGWtBmQw2d3UKFJdwxeUFHFW-3r8xrDyLkcp1o6YRSqgax3LgNiBbPXHc_NX6PeKaO08rEMyVrOmr42l_nYd9x3_nvENaYGNBc9YYlyIkGy2wnoGsv7k7ZaBEmEaAZDB_jbnZK-ryFc0Se779ncZVu89V7lAl4a62rLzVWpKU"/>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 bg-tertiary text-on-tertiary flex items-center justify-center font-black rounded-sm border-2 border-surface">88</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-lg font-bold">Liam Van der Berg</h3>
+<p class="text-on-surface-variant text-sm">South Africa • Flanker • 23 years old</p>
+</div>
+<div class="text-right">
+<p class="text-[0.6875rem] uppercase text-outline font-bold tracking-widest">Market Value</p>
+<p class="text-secondary font-bold text-lg">$14.2M</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest/50 p-3 rounded-lg mb-4 border-l-4 border-secondary">
+<p class="text-sm italic text-on-surface/80">"Physically dominant at the breakdown. A generational talent for our defensive structure. High discipline rating but demands premium wage."</p>
+<div class="mt-2 flex items-center gap-2">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Senior scout headshot, grey hair, looking professional with headset, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPoQjxs1oUs7poKCgADW7r_Nnx88HZTiL9TpUY5Xx8B3cc4XDllOC7E0QdgJ3soUitgrfKjvJqUtMulsQI0oxERcVHUKMAOXWajJSNoP9ZIFXWdswFU5FNgHi697TRk7KSBKvKgG7NT5J34K73-V2gnDcbqM3B3tqd-MBGSKkJ2ztL319HZ4rG6XUn625-2SDAR3VAipVcKm_XlqIU6K3g6HmT2-cWs_-1sQMcF8vpLxzhEiRzZPzQKdzl0_N0APokX1PE8FWMrPQ"/>
+<span class="text-[0.6875rem] font-bold text-on-surface-variant uppercase">Head Scout: Marcus Thorne</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 bg-secondary text-on-secondary py-2 font-bold text-sm rounded hover:brightness-110 active:scale-95 transition-all">Quick Bid</button>
+<button class="flex-1 border border-outline-variant text-on-surface-variant py-2 font-bold text-sm rounded hover:bg-surface-container-highest transition-all">Detailed Analysis</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Report Card 2 -->
+<div class="bg-surface-container p-6 rounded-xl relative overflow-hidden group">
+<div class="flex gap-6">
+<div class="w-24 h-32 rounded bg-surface-container-high relative flex-shrink-0">
+<img class="w-full h-full object-cover rounded" data-alt="Young professional athlete portrait, athletic build, subtle smiling face with moody professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmomKLQbwBwbvJphMuWMngKT2YixCuZgRkJ_UZP7vBYsRkdoQoq81cN7PFCcPXq1MeRfWu67W_0LKuU8O3Q8dvOEhJyVfrNZyW1l08sK_NpwAoLd01rmyFjkuJsAvZVEDucPsDUW9rBop_IqDrLil3RZle0eD5lxvkNGUYFIz0Gl9YtJ9QyQpeoA3hVN3syzIEMzuh2FlIsOIVu4Ar5hLuaQqK7Udkke66a1QGrZZwB0pnZocOwQBBhiqChv_fQ5DSZyP5PkHWWyU"/>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 bg-tertiary text-on-tertiary flex items-center justify-center font-black rounded-sm border-2 border-surface">82</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-lg font-bold">Antoine Dupont Jr.</h3>
+<p class="text-on-surface-variant text-sm">France • Scrum Half • 19 years old</p>
+</div>
+<div class="text-right">
+<p class="text-[0.6875rem] uppercase text-outline font-bold tracking-widest">Market Value</p>
+<p class="text-secondary font-bold text-lg">$6.8M</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest/50 p-3 rounded-lg mb-4 border-l-4 border-tertiary">
+<p class="text-sm italic text-on-surface/80">"Extreme pace and tactical vision. Still developing physically but has 'Wonderkid' status in our database. Recommended for long-term project."</p>
+<div class="mt-2 flex items-center gap-2">
+<img class="w-5 h-5 rounded-full object-cover" data-alt="Sports analyst portrait, professional, wearing spectacles, corporate headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbeOG64netRr6RjT2JjLahUdpBt2oBduX-VvKj_w99MK1gE8kHstu0z_GkegH3KKsTRPv6YxM48V5hT0TRqhTc0JQp3fTNW62pCZ9qk3RE0PhFKJHpQe3al_2bIuV2-PcfG5LGor4FfG09-fmlHhd3RlHEyuUANdAoeI_PvT2cChDCcZXpcOWngX00ILHlVUxLhI0r0buuDscEYfoVjyanmrRKLc6JVkFL7QYajBqfGE7HymzAd0ZybTBeLulLnGJ2_KcM-0Xu510"/>
+<span class="text-[0.6875rem] font-bold text-on-surface-variant uppercase">Youth Scout: Sarah Jenkins</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 bg-secondary text-on-secondary py-2 font-bold text-sm rounded hover:brightness-110 active:scale-95 transition-all">Quick Bid</button>
+<button class="flex-1 border border-outline-variant text-on-surface-variant py-2 font-bold text-sm rounded hover:bg-surface-container-highest transition-all">Detailed Analysis</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Negotiation & Interface -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<div class="glass-panel p-8 rounded-2xl border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary">handshake</span>
+<h2 class="font-headline text-xl font-bold">Negotiation Terminal</h2>
+</div>
+<div class="mb-8">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a rugby player focused before a match, dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqgvMPoh-P3J20gCBq3yOPS2AK7TII_a4q15ej_dJ5hjytQmXRm3oBKC5-mdVrsz9sBwBr0ERicPCxK9rwlMWRgw_UmRwvYFu2WQBXFM34YM03TS3qPrz7K7MWwPBMYbx3reMBjyo2JrT8HZZGsv2p6aHf-NGzuYet1_WW_A80er98MqlU2RtsnkqJ2Lj5dx4ENr0fqY8rqqupMH8KgZrQNMCZo4GJ45gFGs80vAUO5ahsDwAyT9KieXSvEGVwhcLJKSY-WWPmvCc"/>
+</div>
+<div>
+<p class="text-xs uppercase font-bold text-outline tracking-tighter">Selected Player</p>
+<h3 class="text-xl font-headline font-bold">Liam Van der Berg</h3>
+</div>
+</div>
+<div class="space-y-8">
+<!-- Transfer Fee Slider -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="font-bold text-sm uppercase text-on-surface-variant tracking-wider">Transfer Fee</label>
+<span class="text-2xl font-black text-secondary font-headline">$15,500,000</span>
+</div>
+<div class="relative h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-[65%] bg-gradient-to-r from-on-secondary-fixed-variant to-secondary"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] uppercase font-bold text-outline">
+<span>Min: $12.0M</span>
+<span>Max: $20.0M</span>
+</div>
+</div>
+<!-- Wage Slider -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<label class="font-bold text-sm uppercase text-on-surface-variant tracking-wider">Weekly Wage</label>
+<span class="text-2xl font-black text-tertiary font-headline">$42,000</span>
+</div>
+<div class="relative h-2 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-[45%] bg-tertiary"></div>
+</div>
+<div class="flex justify-between mt-2 text-[10px] uppercase font-bold text-outline">
+<span>Current: $28k</span>
+<span>Asking: $45k</span>
+</div>
+</div>
+<!-- Contract Length -->
+<div class="grid grid-cols-4 gap-2">
+<button class="py-3 bg-surface-container-highest rounded border-2 border-transparent text-xs font-bold hover:border-outline-variant">1 YR</button>
+<button class="py-3 bg-surface-container-highest rounded border-2 border-transparent text-xs font-bold hover:border-outline-variant">2 YR</button>
+<button class="py-3 bg-surface-container-highest rounded border-2 border-secondary text-secondary text-xs font-bold">3 YR</button>
+<button class="py-3 bg-surface-container-highest rounded border-2 border-transparent text-xs font-bold hover:border-outline-variant">4 YR</button>
+</div>
+</div>
+</div>
+<!-- Likelihood Indicator -->
+<div class="mb-8 p-4 bg-surface-container-lowest rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-4 border-secondary border-t-transparent animate-[spin_2s_linear_infinite]"></div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase">Offer Likelihood</p>
+<p class="text-sm font-bold text-secondary">High Probability</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-3xl">trending_up</span>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-headline font-black text-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-secondary/10">SUBMIT OFFICIAL BID</button>
+<p class="text-center text-[10px] text-outline uppercase mt-4 font-semibold">Club Response expected in 48 hours</p>
+</div>
+<!-- Scouting Hub Mini-Nav -->
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h3 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">Market Operations</h3>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">list_alt</span>
+<span class="text-sm font-semibold">Shortlist</span>
+</div>
+<span class="text-xs bg-surface-container-highest px-2 py-0.5 rounded text-on-surface-variant">24</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">history</span>
+<span class="text-sm font-semibold">Recent Bids</span>
+</div>
+<span class="text-xs bg-error-container/30 text-error px-2 py-0.5 rounded">3 Rejected</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">public</span>
+<span class="text-sm font-semibold">Scouting Network</span>
+</div>
+<span class="text-xs font-bold text-secondary">ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

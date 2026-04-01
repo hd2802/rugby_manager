@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFC COMMAND | Tactics &amp; Lineup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "error-container": "#93000a",
+                "on-tertiary-fixed-variant": "#574500",
+                "on-secondary": "#003829",
+                "on-primary-container": "#74829d",
+                "on-primary-fixed-variant": "#39475f",
+                "on-tertiary-fixed": "#231b00",
+                "tertiary-fixed-dim": "#eec200",
+                "tertiary": "#eec200",
+                "surface": "#041329",
+                "inverse-on-surface": "#233148",
+                "primary-fixed": "#d6e3ff",
+                "background": "#041329",
+                "surface-container-lowest": "#010e24",
+                "surface-container": "#112036",
+                "error": "#ffb4ab",
+                "surface-container-highest": "#27354c",
+                "tertiary-fixed": "#ffe083",
+                "secondary-fixed": "#b0f0d6",
+                "surface-container-low": "#0d1c32",
+                "on-secondary-fixed": "#002117",
+                "on-primary-fixed": "#0d1c32",
+                "on-error": "#690005",
+                "primary-fixed-dim": "#b9c7e4",
+                "on-secondary-fixed-variant": "#0b513d",
+                "tertiary-container": "#cea700",
+                "inverse-primary": "#515f78",
+                "secondary-container": "#0b513d",
+                "on-primary": "#233148",
+                "secondary": "#95d3ba",
+                "on-surface": "#d6e3ff",
+                "surface-container-high": "#1c2a41",
+                "outline-variant": "#44474d",
+                "on-tertiary": "#3c2f00",
+                "outline": "#8f9097",
+                "surface-bright": "#2c3951",
+                "on-error-container": "#ffdad6",
+                "primary": "#b9c7e4",
+                "inverse-surface": "#d6e3ff",
+                "surface-tint": "#b9c7e4",
+                "surface-variant": "#27354c",
+                "primary-container": "#0a192f",
+                "on-surface-variant": "#c5c6cd",
+                "on-tertiary-container": "#4e3e00",
+                "on-background": "#d6e3ff",
+                "surface-dim": "#041329",
+                "secondary-fixed-dim": "#95d3ba",
+                "on-secondary-container": "#83c2a9"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .rugby-pitch-gradient {
+            background: radial-gradient(circle at center, #0b513d 0%, #041329 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#041329] flex justify-between items-center px-6 py-4 h-16">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-[#eec200]">RFC COMMAND</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#c5c6cd] hover:bg-[#112036] hover:text-[#95d3ba] transition-colors font-body text-sm font-medium" href="#">Season 2024</a>
+<a class="text-[#c5c6cd] hover:bg-[#112036] hover:text-[#95d3ba] transition-colors font-body text-sm font-medium" href="#">Premiership</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-xs text-on-surface-variant font-label font-bold uppercase tracking-widest">Budget</span>
+<span class="text-lg font-headline font-bold text-secondary">$42.5M</span>
+</div>
+<button class="bg-secondary text-on-secondary px-4 py-1.5 rounded-lg text-sm font-bold active:scale-95 transition-all">
+                Simulate Match
+            </button>
+<div class="flex gap-4 text-[#c5c6cd]">
+<span class="material-symbols-outlined cursor-pointer hover:text-white">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white">settings</span>
+<img alt="Club Crest" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="Official club crest with a golden lion and silver rugby ball on a dark navy shield background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgXqV5nRPUlqWtS8jCGRww-fCkUuax-L3gsWQdcUvTS4oKD2C6WPhQg2CThbjEzS2m2MB-K_vW-yQjLgBoeF6JHLFQLoQ87ir9alnFa5iourYC6lfmxTP2fDxkh9AIjSyCJ3hJwJSgdwSeGNED20NxOQGzBMPXjX9Vb_n9dQfVW4Rr7c23llfefPVTDucjnb3aTWbjauoomJWpqenRQeEOSyVzfwqjmXOAZ1XTQHsitBzEs4vm2ZbuwVxqztvEm43HUZCARdY3QHY"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-[#0d1c32] flex flex-col z-40 shadow-[40px_0_40px_-15px_rgba(4,19,41,0.08)]">
+<div class="pt-20 px-6 pb-6 border-b border-[#112036]">
+<div class="flex items-center gap-4">
+<img alt="Manager Portrait" class="w-12 h-12 rounded-lg object-cover" data-alt="Rugby manager portrait, intense expression, wearing a high-tech athletic tracksuit in dark colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6fknlwhqH38Ggbd8xIR2DB-Db221Z40tO8GvsNp5a9rFG3XDu_c7mi9N6giwzhz_9zNOaLfSqqCg6VnMB7zZc93naEGncRFWwVkyViVtDPTUUVjG7o7s-fcFtVaG_v08cdM9C-uBZzKsUXtCh8Ktra-_L_sLOwqxy-LALIRTn5GJmAH8--qU2f2BMtuS16kqrpyfBQGAk1lKHIH4SXFqQ1cO21haEvp8ybA1y4Kt8hZZp7gQm-3WiIBNDmTl6Ir17r1rN3batv5Q"/>
+<div>
+<h3 class="text-sm font-bold text-on-surface">Director of Rugby</h3>
+<p class="text-[10px] text-secondary font-label font-semibold tracking-widest uppercase">Elite Rank</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4">
+<a class="text-[#c5c6cd] flex items-center gap-4 px-6 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Dashboard</span>
+</a>
+<a class="text-[#c5c6cd] flex items-center gap-4 px-6 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Squad</span>
+</a>
+<a class="bg-[#112036] text-[#95d3ba] border-r-4 border-[#95d3ba] flex items-center gap-4 px-6 py-4 translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">strategy</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Tactics</span>
+</a>
+<a class="text-[#c5c6cd] flex items-center gap-4 px-6 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined">sports_rugby</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Match Center</span>
+</a>
+<a class="text-[#c5c6cd] flex items-center gap-4 px-6 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Transfer Market</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-[#112036]">
+<a class="text-[#c5c6cd] flex items-center gap-4 px-6 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Staff</span>
+</a>
+<a class="text-[#c5c6cd] flex items-center gap-4 px-6 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-xs font-semibold tracking-widest Inter uppercase">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 flex-1 overflow-hidden flex flex-col md:flex-row">
+<!-- Left: Tactics & Bench (Scrollable) -->
+<section class="w-full md:w-80 border-r border-surface-container flex flex-col h-full bg-surface-container-low">
+<div class="p-6 flex-1 overflow-y-auto space-y-8">
+<!-- Formation Selector -->
+<div>
+<label class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-widest mb-3 block">Tactical Formation</label>
+<div class="relative group">
+<div class="bg-surface-container-lowest p-3 flex justify-between items-center rounded-lg cursor-pointer border border-transparent group-hover:border-tertiary transition-all">
+<span class="font-bold text-sm">Heavy Scrum (Standard)</span>
+<span class="material-symbols-outlined text-tertiary">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Team Instructions -->
+<div class="space-y-4">
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-widest">Tactical Directives</h2>
+<div class="space-y-6">
+<!-- Attacking Style -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tighter">
+<span class="text-on-surface-variant">Attacking: Wide Width</span>
+<span class="text-secondary">75%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-3/4"></div>
+</div>
+</div>
+<!-- Defensive Line -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tighter">
+<span class="text-on-surface-variant">Defensive Line: High Press</span>
+<span class="text-tertiary">88%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[88%]"></div>
+</div>
+</div>
+<!-- Set-Piece Focus -->
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase tracking-tighter">
+<span class="text-on-surface-variant">Scrum Intensity</span>
+<span class="text-error">FATIGUE RISK</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-1/2"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bench/Substitutes -->
+<div class="space-y-4 pt-4">
+<h2 class="text-sm font-bold text-on-surface uppercase tracking-widest">Matchday Substitutes</h2>
+<div class="space-y-2">
+<!-- Sub Card -->
+<div class="bg-surface-container p-3 rounded-lg flex items-center gap-3 border-l-4 border-secondary/50 hover:bg-surface-container-high transition-colors cursor-move">
+<span class="text-xs font-bold text-secondary">16</span>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">MARCUS VAN DER MERWE</p>
+<p class="text-[10px] text-on-surface-variant">Hooker | OVR 82</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant scale-75">drag_indicator</span>
+</div>
+<div class="bg-surface-container p-3 rounded-lg flex items-center gap-3 border-l-4 border-secondary/50 hover:bg-surface-container-high transition-colors cursor-move">
+<span class="text-xs font-bold text-secondary">17</span>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">JULIEN CASTEIGNEDE</p>
+<p class="text-[10px] text-on-surface-variant">Prop | OVR 79</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant scale-75">drag_indicator</span>
+</div>
+<div class="bg-surface-container p-3 rounded-lg flex items-center gap-3 border-l-4 border-secondary/50 hover:bg-surface-container-high transition-colors cursor-move">
+<span class="text-xs font-bold text-secondary">18</span>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">FINLAY O'SHEA</p>
+<p class="text-[10px] text-on-surface-variant">Lock | OVR 85</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant scale-75">drag_indicator</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right: Interactive Pitch View -->
+<section class="flex-1 relative p-10 rugby-pitch-gradient overflow-hidden">
+<!-- Pitch Markings Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="h-full w-full border-[10px] border-white"></div>
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-white -translate-y-1/2"></div>
+<div class="absolute top-1/4 left-0 w-full h-[1px] bg-white border-dashed"></div>
+<div class="absolute bottom-1/4 left-0 w-full h-[1px] bg-white border-dashed"></div>
+</div>
+<!-- Player Grid (Rugby Union 15s) -->
+<div class="relative h-full w-full grid grid-cols-5 grid-rows-6 gap-4">
+<!-- Front Row (1, 2, 3) -->
+<div class="col-start-2 row-start-1 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">1</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">G. Smith</p>
+</div>
+</div>
+<div class="col-start-3 row-start-1 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">2</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">K. Marx</p>
+</div>
+</div>
+<div class="col-start-4 row-start-1 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">3</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">T. Furlong</p>
+</div>
+</div>
+<!-- Second Row (4, 5) -->
+<div class="col-start-2 row-start-2 flex flex-col items-center translate-y-[-20%]">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">4</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">E. Etzebeth</p>
+</div>
+</div>
+<div class="col-start-4 row-start-2 flex flex-col items-center translate-y-[-20%]">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">5</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">M. Itoje</p>
+</div>
+</div>
+<!-- Back Row (6, 7, 8) -->
+<div class="col-start-1 row-start-2 flex flex-col items-center translate-y-[20%]">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">6</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">P. Curry</p>
+</div>
+</div>
+<div class="col-start-3 row-start-2 flex flex-col items-center translate-y-[10%]">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">8</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">A. Savea</p>
+</div>
+</div>
+<div class="col-start-5 row-start-2 flex flex-col items-center translate-y-[20%]">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-secondary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-secondary">7</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">S. Kolisi</p>
+</div>
+</div>
+<!-- Half-Backs (9, 10) -->
+<div class="col-start-2 row-start-3 flex flex-col items-center translate-y-4">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-tertiary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-tertiary">9</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">A. Dupont</p>
+</div>
+</div>
+<div class="col-start-3 row-start-4 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-tertiary relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-tertiary">10</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">R. Ntamack</p>
+</div>
+</div>
+<!-- Centers (12, 13) -->
+<div class="col-start-2 row-start-5 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-on-surface relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-on-surface">12</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">D. De Allende</p>
+</div>
+</div>
+<div class="col-start-4 row-start-5 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-on-surface relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-on-surface">13</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">G. Ringrose</p>
+</div>
+</div>
+<!-- Outside Backs (11, 14, 15) -->
+<div class="col-start-1 row-start-4 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-on-surface relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-on-surface">11</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">M. Hansen</p>
+</div>
+</div>
+<div class="col-start-5 row-start-4 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-on-surface relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-on-surface">14</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">C. Kolbe</p>
+</div>
+</div>
+<div class="col-start-3 row-start-6 flex flex-col items-center">
+<div class="w-16 h-16 bg-surface-container-high rounded-lg flex flex-col items-center justify-center border-t-2 border-on-surface relative group cursor-pointer hover:scale-105 transition-transform shadow-xl">
+<span class="text-xs font-bold text-on-surface">15</span>
+<p class="text-[9px] font-bold text-center leading-none px-1 uppercase">F. Steward</p>
+</div>
+</div>
+</div>
+<!-- Dashboard Overlay (Floating HUD) -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-surface-variant/60 backdrop-blur-xl p-4 rounded-xl border border-outline-variant/15 flex justify-between items-center">
+<div class="flex gap-8">
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Team Chemistry</p>
+<p class="text-xl font-headline font-extrabold text-secondary">92%</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Average OVR</p>
+<p class="text-xl font-headline font-extrabold text-tertiary">84</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">Scrum Weight</p>
+<p class="text-xl font-headline font-extrabold text-on-surface">895kg</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 text-xs font-bold rounded-lg hover:bg-surface-bright transition-colors">
+                        Reset Tactics
+                    </button>
+<button class="bg-secondary text-on-secondary px-6 py-2 text-xs font-bold rounded-lg shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                        Confirm Selection
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile BottomNavBar (Hidden on MD up) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-low flex justify-around items-center py-2 z-50 border-t border-surface-container">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-secondary">
+<span class="material-symbols-outlined">strategy</span>
+<span class="text-[10px] font-bold">Tactics</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px] font-bold">Squad</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">sports_rugby</span>
+<span class="text-[10px] font-bold">Match</span>
+</button>
+</nav>
+</body></html>

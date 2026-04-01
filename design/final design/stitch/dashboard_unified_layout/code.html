@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFC COMMAND | Elite Tactical Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-secondary": "#003829",
+                        "on-primary-container": "#74829d",
+                        "on-primary-fixed-variant": "#39475f",
+                        "on-tertiary-fixed": "#231b00",
+                        "tertiary-fixed-dim": "#eec200",
+                        "tertiary": "#eec200",
+                        "surface": "#041329",
+                        "inverse-on-surface": "#233148",
+                        "primary-fixed": "#d6e3ff",
+                        "background": "#041329",
+                        "surface-container-lowest": "#010e24",
+                        "surface-container": "#112036",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#27354c",
+                        "tertiary-fixed": "#ffe083",
+                        "secondary-fixed": "#b0f0d6",
+                        "surface-container-low": "#0d1c32",
+                        "on-secondary-fixed": "#002117",
+                        "on-primary-fixed": "#0d1c32",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#b9c7e4",
+                        "on-secondary-fixed-variant": "#0b513d",
+                        "tertiary-container": "#cea700",
+                        "inverse-primary": "#515f78",
+                        "secondary-container": "#0b513d",
+                        "on-primary": "#233148",
+                        "secondary": "#95d3ba",
+                        "on-surface": "#d6e3ff",
+                        "surface-container-high": "#1c2a41",
+                        "outline-variant": "#44474d",
+                        "on-tertiary": "#3c2f00",
+                        "outline": "#8f9097",
+                        "surface-bright": "#2c3951",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#b9c7e4",
+                        "inverse-surface": "#d6e3ff",
+                        "surface-tint": "#b9c7e4",
+                        "surface-variant": "#27354c",
+                        "primary-container": "#0a192f",
+                        "on-surface-variant": "#c5c6cd",
+                        "on-tertiary-container": "#4e3e00",
+                        "on-background": "#d6e3ff",
+                        "surface-dim": "#041329",
+                        "secondary-fixed-dim": "#95d3ba",
+                        "on-secondary-container": "#83c2a9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #041329; color: #d6e3ff; }
+        .headline-font { font-family: 'Manrope', sans-serif; }
+        .glass-panel { background: rgba(39, 53, 76, 0.6); backdrop-filter: blur(20px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-surface overflow-x-hidden">
+<!-- Slim SideNavBar (Updated Component) -->
+<aside class="fixed left-0 top-0 h-screen flex flex-col z-40 bg-[#0d1c32] w-20 shadow-[40px_0_40px_-15px_rgba(4,19,41,0.08)]">
+<div class="p-4 flex justify-center">
+<span class="material-symbols-outlined text-3xl text-[#eec200]" data-icon="token">token</span>
+</div>
+<nav class="flex-grow">
+<div class="bg-[#112036] text-[#95d3ba] border-r-4 border-[#95d3ba] flex flex-col items-center justify-center gap-1 py-4 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Dash</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-active:translate-x-1 transition-transform" data-icon="groups">groups</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Squad</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-active:translate-x-1 transition-transform" data-icon="strategy">strategy</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Tactics</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-active:translate-x-1 transition-transform" data-icon="sports_rugby">sports_rugby</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Match</span>
+</div>
+<div class="text-[#c5c6cd] flex flex-col items-center justify-center gap-1 py-4 hover:bg-[#1c2a41] hover:text-[#d6e3ff] transition-colors cursor-pointer group">
+<span class="material-symbols-outlined group-active:translate-x-1 transition-transform" data-icon="payments">payments</span>
+<span class="text-[10px] font-semibold tracking-tight uppercase">Market</span>
+</div>
+</nav>
+<div class="p-2 border-t border-[#112036] space-y-4 pb-6">
+<div class="flex flex-col items-center">
+<img alt="Manager Portrait" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="professional portrait of a rugby director in a charcoal suit, focused expression, cinematic studio lighting with deep blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcPiaGyVUevTPCEjECJr38ZhvsMJfaz5ZIh5sfZwS-0mJ1mxtllnlF9N43M5XmTgWCHXg0RTXNc1caEJ1YQuyu2cXKtiTxQSEroOBY-uEk5_gDGILJ2gNb6XADDL9CU4MFJnYiBBnpru2RltOtgR-gIX6Ssxn7BNMTh-Az7G4KzyrrA0pj63nI9I1B2MJ3Kwrn9QySM-ji7Ieec8uiNU8ANebzMQoV1RtEIWLjp24sgwUP-Yfuc5OChZV1yU7GvHHBSGo4KzoU1oM"/>
+<p class="text-[8px] text-on-surface-variant uppercase tracking-widest mt-1">Elite</p>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-[#c5c6cd] cursor-pointer hover:text-white" data-icon="badge">badge</span>
+<span class="material-symbols-outlined text-[#c5c6cd] cursor-pointer hover:text-white" data-icon="settings">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-20 min-h-screen">
+<!-- TopNavBar (Updated Component) -->
+<header class="flex justify-between items-center w-full px-6 py-4 h-16 bg-[#041329] sticky top-0 z-30">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-black tracking-tighter text-[#eec200] headline-font">RFC COMMAND</h1>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#eec200] font-bold border-b-2 border-[#eec200] text-sm py-1" href="#">Season 2024</a>
+<a class="text-[#c5c6cd] hover:text-[#95d3ba] transition-colors text-sm py-1" href="#">Premiership</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[#95d3ba] font-bold text-lg leading-none">$42.5M</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Available Budget</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#112036] hover:text-[#95d3ba] transition-colors p-1.5 rounded" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#112036] hover:text-[#95d3ba] transition-colors p-1.5 rounded" data-icon="settings">settings</span>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-2 rounded font-bold text-sm transition-transform active:scale-95 duration-150 ease-in-out shadow-lg">
+                    Continue
+                </button>
+</div>
+</header>
+<div class="p-8 space-y-8">
+<!-- Hero Header Section: Club Overview -->
+<section class="grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low p-8 relative overflow-hidden flex items-end min-h-[320px]">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Rugby Pitch" class="w-full h-full object-cover" data-alt="dramatic aerial wide angle shot of a professional rugby stadium pitch at night under bright floodlights with a slight atmospheric haze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDscuVIzVo-uAMlebGnSVJy_NqFLHEetHSxcWaCMErl0vwxNfeaDaEiKQDhF71A0vpejXZEvyoL5KgBWuLaQO1iral7pjibUGmAEA7k_R4Egn8tCp3dWguAKSVG6WipEodQCI7OQPBLAa_ym-pXocCsiBhkpMW-5k9wrU02SltJUoPqZQvGImMm9JCHSCZiR5YaxwpNl884IdXOYPcL2eyaaYvFYn-8UymY7utF7yc5mGCT1QpEG1Scw2A6piL7u9l0IhT3wuCkL_s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 bg-surface-container-highest flex items-center justify-center rounded-lg border-t-4 border-tertiary transform -rotate-3">
+<span class="material-symbols-outlined text-5xl text-tertiary" data-icon="token">token</span>
+</div>
+<div>
+<h2 class="headline-font text-4xl font-extrabold text-on-surface tracking-tight">KINGSBRIDGE RUGBY</h2>
+<p class="text-secondary font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="workspace_premium">workspace_premium</span>
+                                    Premiership Rugby • 2nd Place
+                                </p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container/80 backdrop-blur-md p-4 rounded-lg text-center min-w-[80px]">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Played</p>
+<p class="text-2xl font-bold headline-font text-on-surface">14</p>
+</div>
+<div class="bg-surface-container/80 backdrop-blur-md p-4 rounded-lg text-center min-w-[80px]">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Points</p>
+<p class="text-2xl font-bold headline-font text-tertiary">52</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-surface-container p-8 flex flex-col justify-between">
+<div>
+<h3 class="text-on-surface-variant text-[10px] uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                            Recent Form
+                        </h3>
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/20 border border-secondary flex items-center justify-center font-bold text-secondary">W</div>
+<div class="w-10 h-10 rounded-full bg-secondary/20 border border-secondary flex items-center justify-center font-bold text-secondary">W</div>
+<div class="w-10 h-10 rounded-full bg-error-container/20 border border-error/50 flex items-center justify-center font-bold text-error">L</div>
+<div class="w-10 h-10 rounded-full bg-on-surface-variant/20 border border-on-surface-variant/50 flex items-center justify-center font-bold text-on-surface-variant">D</div>
+<div class="w-10 h-10 rounded-full bg-secondary/20 border border-secondary flex items-center justify-center font-bold text-secondary">W</div>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex justify-between items-end mb-2">
+<p class="text-xs text-on-surface-variant">Board Confidence</p>
+<p class="text-xs font-bold text-secondary">88%</p>
+</div>
+<div class="w-full h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary w-[88%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Dashboard Grid -->
+<section class="grid grid-cols-12 gap-8">
+<!-- Match Preview: Left Focus -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-surface-container-high p-8 rounded-lg border-l-4 border-tertiary relative overflow-hidden">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<h3 class="headline-font text-xl font-bold text-on-surface mb-1">Next Match Preview</h3>
+<p class="text-on-surface-variant text-sm">Round 15 • Gallagher Premiership</p>
+</div>
+<div class="text-right">
+<p class="text-tertiary text-2xl font-black headline-font">02 : 14 : 55</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Kick-off Countdown</p>
+</div>
+</div>
+<div class="mt-10 flex items-center justify-around">
+<div class="text-center group cursor-pointer">
+<div class="w-20 h-20 bg-surface-container-highest rounded-full flex items-center justify-center mb-3 group-hover:scale-105 transition-transform border border-outline-variant/20">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="token">token</span>
+</div>
+<p class="font-bold text-on-surface uppercase tracking-tight">Kingsbridge</p>
+<p class="text-[10px] text-secondary">HOME</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black text-on-surface-variant/30 italic headline-font">VS</span>
+<div class="mt-2 text-center">
+<p class="text-xs font-semibold text-on-surface-variant">Twickenham Stadium</p>
+<p class="text-[10px] text-on-surface-variant/60">London, UK</p>
+</div>
+</div>
+<div class="text-center group cursor-pointer">
+<div class="w-20 h-20 bg-surface-container-highest rounded-full flex items-center justify-center mb-3 group-hover:scale-105 transition-transform border border-outline-variant/20">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant" data-icon="shield">shield</span>
+</div>
+<p class="font-bold text-on-surface uppercase tracking-tight">Blackheath RFC</p>
+<p class="text-[10px] text-on-surface-variant">AWAY</p>
+</div>
+</div>
+<div class="mt-10 grid grid-cols-2 gap-4">
+<button class="bg-secondary text-on-secondary font-bold py-3 text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="assignment_ind">assignment_ind</span>
+                                SELECT SQUAD
+                            </button>
+<button class="bg-surface-container-highest text-on-surface-variant border border-outline-variant/20 font-bold py-3 text-sm hover:text-on-surface transition-colors">
+                                SCOUT OPPONENT
+                            </button>
+</div>
+</div>
+<!-- Quick Links & Status -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container p-6 group cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="groups">groups</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<h4 class="headline-font font-bold text-lg text-on-surface">Manage Squad</h4>
+<p class="text-on-surface-variant text-xs mt-2 leading-relaxed">Adjust player contracts, monitor recovery levels, and promote academy talents to the senior squad.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] rounded text-on-surface-variant">3 Injuries</span>
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] rounded text-on-surface-variant">2 Contracts Expiring</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 group cursor-pointer hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="strategy">strategy</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<h4 class="headline-font font-bold text-lg text-on-surface">Tactical Hub</h4>
+<p class="text-on-surface-variant text-xs mt-2 leading-relaxed">Refine your 80-minute game plan. Define set-piece plays, defensive width, and counter-attack triggers.</p>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-tertiary/10 text-[10px] rounded text-tertiary border border-tertiary/20">New Preset: Blitz Defense</span>
+</div>
+</div>
+</div>
+</div>
+<!-- News & Notifications: Right Column -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low h-full flex flex-col p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="headline-font font-bold text-on-surface">Intelligence Feed</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface" data-icon="filter_list">filter_list</span>
+</div>
+<div class="space-y-6 overflow-y-auto max-h-[600px] pr-2">
+<!-- News Item -->
+<div class="bg-surface-container p-4 border-l-2 border-secondary">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] text-secondary font-bold uppercase tracking-widest">Medical Room</span>
+<span class="text-[10px] text-on-surface-variant">2h ago</span>
+</div>
+<p class="text-sm font-semibold text-on-surface leading-tight">Tom Richards cleared for full-contact training</p>
+<p class="text-xs text-on-surface-variant mt-2">Physio reports 100% recovery from MCL strain. Available for selection.</p>
+</div>
+<!-- News Item -->
+<div class="bg-surface-container p-4 border-l-2 border-tertiary">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] text-tertiary font-bold uppercase tracking-widest">Transfer News</span>
+<span class="text-[10px] text-on-surface-variant">5h ago</span>
+</div>
+<p class="text-sm font-semibold text-on-surface leading-tight">Scouting Report: New Talent in Fiji</p>
+<p class="text-xs text-on-surface-variant mt-2">U20 winger identified with 95 Speed/Agility rating. Recommendation: Track.</p>
+</div>
+<!-- News Item -->
+<div class="bg-surface-container p-4 border-l-2 border-outline-variant">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">Club Admin</span>
+<span class="text-[10px] text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-sm font-semibold text-on-surface leading-tight">Season Ticket Sales record broken</p>
+<p class="text-xs text-on-surface-variant mt-2">Revenue forecast updated +12%. Budget adjustment pending board meeting.</p>
+</div>
+<!-- News Item -->
+<div class="bg-surface-container p-4 border-l-2 border-error">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] text-error font-bold uppercase tracking-widest">Tactical Alert</span>
+<span class="text-[10px] text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-sm font-semibold text-on-surface leading-tight">Training Intensity warning</p>
+<p class="text-xs text-on-surface-variant mt-2">Squad fatigue levels hitting critical threshold. Recommend 'Light' session tomorrow.</p>
+</div>
+</div>
+<button class="mt-auto pt-6 text-secondary text-sm font-bold flex items-center justify-center gap-2 hover:underline">
+                            View All Intel
+                            <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on Mobile) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-tertiary text-on-tertiary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="bolt">bolt</span>
+</button>
+</body></html>

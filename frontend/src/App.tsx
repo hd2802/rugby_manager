@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import useLeagueStore from "../src/services/leagueService"
+import Layout from "./layout";
 
 
 function App() {
@@ -10,14 +11,14 @@ function App() {
   }, [getLeagues])
 
   return (
-      <main className="bg-base text-text-primary h-screen">
+    <Layout>
       <h1>League List</h1>
       <ul>
         {leagues.map(league => (
           <li key={league.id}>{league.name}</li>
         ))}
       </ul>
-    </main>
+    </Layout>
   )
 }
 

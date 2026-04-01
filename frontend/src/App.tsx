@@ -10,14 +10,14 @@ function App() {
   }, [getLeagues])
 
   return (
-    <div>
+      <main className="bg-base text-text-primary h-screen">
       <h1>League List</h1>
       <ul>
         {leagues.map(league => (
           <li key={league.id}>{league.name}</li>
         ))}
       </ul>
-    </div>
+    </main>
   )
 }
 

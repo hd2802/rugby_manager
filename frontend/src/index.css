@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  /* Accents & Brand Colors */
+  --color-rosewater: #F2D5CF;
+  --color-flamingo: #EEBEBE;
+  --color-pink: #F4B8E4;
+  --color-mauve: #CA9EE6;
+  --color-red: #E78284;
+  --color-maroon: #EA999C;
+  --color-peach: #EF9F76;
+  --color-yellow: #EEC200;
+  --color-green: #95D3BA;
+  --color-teal: #81C8BE;
+  --color-sky: #99D1DB;
+  --color-sapphire: #85C1DC;
+  --color-blue: #8CAAEE;
+  --color-lavender: #BABBF1;
+
+  /* Typography */
+  --color-text-primary: #FFFFFF;
+  --color-subtext-1: #C5C6CD;
+  --color-subtext-0: #949CBB;
+
+  /* UI Elements & Overlays */
+  --color-overlay-2: #1C2A41;
+  --color-overlay-1: #112036;
+  --color-overlay-0: #0D1C32;
+
+  /* Surfaces & Backgrounds */
+  --color-surface-2: #16243A;
+  --color-surface-1: #09192F;
+  --color-surface-0: #071426;
+  --color-base: #0A192F;
+  --color-mantle: #041329;
+  --color-crust: #020C1B;
+
+  /* Functional Aliases */
+  --color-primary: var(--color-green);
+  --color-secondary: var(--color-yellow);
+  --color-accent: var(--color-peach);
+  --color-danger: var(--color-red);
+  --color-bg-main: var(--color-base);
+  --color-sidebar: var(--color-mantle);
+  --color-header: var(--color-mantle);
+}

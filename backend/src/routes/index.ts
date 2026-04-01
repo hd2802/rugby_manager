@@ -1,8 +1,8 @@
 import { Router } from "express";
-import leagueRoutes from "./leagueRoutes";
-import teamRoutes from "./teamRoutes";
-import playerRoutes from "./playerRoutes";
-import userRoutes from "./userRoutes";
+import leagueRoutes from "../modules/league/leagueRoutes";
+import teamRoutes from "../modules/team/teamRoutes";
+import playerRoutes from "../modules/player/playerRoutes";
+import userRoutes from "../modules/user/userRoutes";
 
 const router = Router();
 

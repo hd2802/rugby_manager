@@ -1,0 +1,21 @@
+import { Router } from "express";
+import { AppDataSource } from "../../data-source";
+import { User } from "./User";
+import bcrypt from "bcrypt";
+import { getUsers, getUserById, createNewUser } from "./userController"
+
+const router = Router();
+
+router.get("/users", async (req, res) => {
+    getUsers(req, res)
+});
+
+router.get("/users/:id", async (req, res) => {
+    getUserById(req, res)
+})
+
+router.post('/users/new', async (request, response) => {
+    createNewUser(request, response)
+})
+
+export default router;

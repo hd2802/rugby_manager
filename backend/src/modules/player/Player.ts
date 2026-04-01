@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm"
-import { Team } from "./Team"
+import { Team } from "../team/Team"
 
 @Entity({ name: "players" })
 export class Player {

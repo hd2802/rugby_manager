@@ -1,19 +1,13 @@
-import { Router } from "express";
-import { AppDataSource } from "../data-source";
-import { Player } from "../entities/Player";
+import type { Request, Response }from "express";
+import { AppDataSource } from "../../data-source";
+import { Player } from "./Player";
 
-const router = Router();
-
-router.get("/players", async (req, res) => {
+export const getPlayers = async (req: Request, res: Response) => {
     try {
         const playerRepository = AppDataSource.getRepository(Player);
         const players = await playerRepository.find();
         
-        res.json({
-            success: true,
-            data: players,
-            count: players.length
-        });
+        res.json(players);
 
     } catch (error) {
         console.error("Error fetching players:", error);
@@ -23,9 +17,9 @@ router.get("/players", async (req, res) => {
             details: error instanceof Error ? error.message : String(error)
         });
     }
-});
+}
 
-router.get("/players/:id", async (req, res, next) => {
+export const getPlayerById = async (req: Request, res: Response) => {
     const requestedId = req.params.id;
     try {
         const playerRepository = AppDataSource.getRepository(Player);
@@ -35,10 +29,7 @@ router.get("/players/:id", async (req, res, next) => {
             },
         })
         
-        res.json({
-            success: true,
-            data: player
-        });
+        res.json(player);
     } catch (error) {
         console.error("Error fetching player:", error);
         res.status(500).json({
@@ -47,6 +38,4 @@ router.get("/players/:id", async (req, res, next) => {
             details: error instanceof Error ? error.message : String(error)
         });
     }
-});
-
-export default router;
+}

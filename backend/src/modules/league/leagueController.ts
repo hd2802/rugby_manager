@@ -1,21 +1,15 @@
-import { Router } from "express";
-import { AppDataSource } from "../data-source";
-import { League } from "../entities/League";
+import type { Request, Response }from "express";
+import { AppDataSource } from "../../data-source";
+import { League } from "./League";
 
-const router = Router();
-
-router.get("/leagues", async (req, res) => {
+export const getLeagues = async (req: Request, res: Response) => {
     try {
         const leagueRepository = AppDataSource.getRepository(League);
+
         const leagues = await leagueRepository.find({
-            // Uncomment to return teams 
-            /*
-            relations: {
-                teams: true
-            }
-            */
+            // relations: { teams: true }
         });
-        
+
         res.json(leagues);
     } catch (error) {
         console.error("Error fetching leagues:", error);
@@ -25,24 +19,28 @@ router.get("/leagues", async (req, res) => {
             details: error instanceof Error ? error.message : String(error)
         });
     }
-});
+};
 
-router.get("/leagues/:id", async (req, res, next) => {
+export const getLeagueById = async (req: Request, res: Response) => {
     const requestedId = req.params.id;
+
     try {
         const leagueRepository = AppDataSource.getRepository(League);
-        const league = await leagueRepository.find({
+
+        const league = await leagueRepository.findOne({
             where: {
                 id: Number(requestedId)
             },
-            // Uncomment to return teams
-            /*
-            relations: {
-                teams: true
-            }
-            */
-        })
-        
+            // relations: { teams: true }
+        });
+
+        if (!league) {
+            return res.status(404).json({
+                success: false,
+                error: "League not found"
+            });
+        }
+
         res.json(league);
     } catch (error) {
         console.error("Error fetching league:", error);
@@ -52,6 +50,4 @@ router.get("/leagues/:id", async (req, res, next) => {
             details: error instanceof Error ? error.message : String(error)
         });
     }
-});
-
-export default router;
+};

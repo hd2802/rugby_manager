@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm"
+import { Save } from "../save/Save"
+
 
 @Entity({ name: "users" })
 export class User {
@@ -10,4 +12,7 @@ export class User {
 
     @Column({ type: "varchar", length: 511 })
     passwordHash: string = ""
+
+    @OneToMany(() => Save, (save) => save.user)
+    saves!: Save[]
 }

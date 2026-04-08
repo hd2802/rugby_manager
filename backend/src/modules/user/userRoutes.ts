@@ -1,7 +1,4 @@
 import { Router } from "express";
-import { AppDataSource } from "../../data-source";
-import { User } from "./User";
-import bcrypt from "bcrypt";
 import { getUsers, getUserById, createNewUser } from "./userController"
 
 const router = Router();

@@ -3,12 +3,15 @@ import leagueRoutes from "../modules/league/leagueRoutes";
 import teamRoutes from "../modules/team/teamRoutes";
 import playerRoutes from "../modules/player/playerRoutes";
 import userRoutes from "../modules/user/userRoutes";
+import saveRoutes from "../modules/save/saveRoutes"
 
 const router = Router();
 
 router.use("/api", leagueRoutes);
 router.use("/api", teamRoutes);
 router.use("/api", playerRoutes);
+router.use("/api", saveRoutes);
+
 router.use("/auth", userRoutes);
 
 router.get("/", (req, res) => {

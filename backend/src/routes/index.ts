@@ -1,10 +1,10 @@
 import { Router } from "express";
-import leagueRoutes from "./leagueRoutes";
-import teamRoutes from "./teamRoutes";
-import playerRoutes from "./playerRoutes";
-import saveRoutes from "./saveRoutes"
-import userRoutes from "./userRoutes";
-import loginRoutes from "./loginRoutes";
+import leagueRoutes from "./api/leagueRoutes";
+import teamRoutes from "./api/teamRoutes";
+import playerRoutes from "./api/playerRoutes";
+import saveRoutes from "./save/saveRoutes"
+import userRoutes from "./auth/userRoutes";
+import loginRoutes from "./auth/loginRoutes";
 
 const router = Router();
 

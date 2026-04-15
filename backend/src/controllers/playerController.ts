@@ -1,38 +1,35 @@
 import type { Request, Response }from "express";
-import { AppDataSource } from "../../../data-source";
-import { Team } from "./Team";
+import { AppDataSource } from "../data-source";
+import { Player } from "../models/Player";
 
-export const getTeams = async (req: Request, res: Response) => {
+export const getPlayers = async (req: Request, res: Response) => {
     try {
-        const teamRepository = AppDataSource.getRepository(Team);
+        const playerRepository = AppDataSource.getRepository(Player);
+        const players = await playerRepository.find();
+        
+        res.json(players);
 
-        const teams = await teamRepository.find({
-            // relations: { teams: true }
-        });
-
-        res.json(teams);
     } catch (error) {
-        console.error("Error fetching leagues:", error);
+        console.error("Error fetching players:", error);
         res.status(500).json({
             success: false,
-            error: "Failed to fetch leagues",
+            error: "Failed to fetch players",
             details: error instanceof Error ? error.message : String(error)
         });
     }
 }
 
-export const getTeamById = async (req: Request, res: Response) => {
+export const getPlayerById = async (req: Request, res: Response) => {
     const requestedId = req.params.id;
     try {
-        const teamRepository = AppDataSource.getRepository(Team);
-        const team = await teamRepository.find({
+        const playerRepository = AppDataSource.getRepository(Player);
+        const player = await playerRepository.find({
             where: {
                 id: Number(requestedId)
             },
         })
         
-        res.json(team);
-
+        res.json(player);
     } catch (error) {
         console.error("Error fetching player:", error);
         res.status(500).json({

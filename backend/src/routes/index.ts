@@ -1,11 +1,10 @@
 import { Router } from "express";
-import leagueRoutes from "../modules/api/league/leagueRoutes";
-import teamRoutes from "../modules/api/team/teamRoutes";
-import playerRoutes from "../modules/api/player/playerRoutes";
-import saveRoutes from "../modules/save/saveRoutes"
-
-import userRoutes from "../modules/auth/user/userRoutes";
-import loginRoutes from "../modules/auth/login/loginRoutes";
+import leagueRoutes from "./leagueRoutes";
+import teamRoutes from "./teamRoutes";
+import playerRoutes from "./playerRoutes";
+import saveRoutes from "./saveRoutes"
+import userRoutes from "./userRoutes";
+import loginRoutes from "./loginRoutes";
 
 const router = Router();
 

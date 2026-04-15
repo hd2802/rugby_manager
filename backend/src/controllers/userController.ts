@@ -1,6 +1,6 @@
 import type { Request, Response }from "express";
-import { AppDataSource } from "../../../data-source";
-import { User } from "./User";
+import { AppDataSource } from "../data-source";
+import { User } from "../models/User";
 import bcrypt from "bcrypt";
 
 export const getUsers = async (req: Request, res: Response) => {

@@ -1,7 +1,7 @@
 import type { Request, Response } from "express"
-import { AppDataSource } from "../../data-source"
-import { Save } from "./Save"
-import { User } from "../auth/user/User"
+import { AppDataSource } from "../data-source"
+import { Save } from "../models/Save"
+import { User } from "../models/User"
 
 import jwt from "jsonwebtoken"
 import type { JwtPayload } from "jsonwebtoken"

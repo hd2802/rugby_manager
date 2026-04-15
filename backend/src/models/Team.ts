@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
-import { League } from "../league/League"
-import { Player } from "../player/Player"
+import { League } from "./League"
+import { Player } from "./Player"
 
 @Entity({ name: "teams" })
 export class Team {

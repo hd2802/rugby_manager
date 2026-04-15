@@ -1,6 +1,6 @@
 import type { Request, Response } from "express"
-import { AppDataSource } from "../../data-source"
-import { User } from "../auth/user/User"
+import { AppDataSource } from "../data-source"
+import { User } from "../models/User"
 
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken"

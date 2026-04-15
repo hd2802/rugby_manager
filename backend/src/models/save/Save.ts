@@ -1,5 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
 import { User } from "../auth/User"
+import { SaveLeague } from "../save/SaveLeague";
+import { SaveTeam } from "../save/SaveTeam";
+import { SavePlayer } from "../save/SavePlayer";
 
 @Entity({ name: "saves" })
 export class Save {
@@ -9,4 +12,13 @@ export class Save {
     @ManyToOne(() => User, (user) => user.saves)
     @JoinColumn({ name: "save_id" })
     user!: User
+
+    @OneToMany(() => SaveLeague, (save_league) => save_league.save)
+    leagues!: SaveLeague[]
+
+    @OneToMany(() => SaveTeam, (save_team) => save_team.save)
+    teams!: SaveTeam[]
+
+    @OneToMany(() => SavePlayer, (save_player) => save_player.save)
+    players!: SavePlayer[]
 }

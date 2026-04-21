@@ -21,13 +21,20 @@ const getTokenFrom = (request: Request) => {
 }
 
 export const createNewSave = async (request: Request, response: Response) => {
-    const decodedToken = jwt.verify(
-        getTokenFrom(request) || "", process.env.SECRET || ""
-    ) as JwtPayload & { id: number }
+    let decodedToken: JwtPayload & { id: number }
 
-    if(!decodedToken.id) {
+    try {
+        decodedToken = jwt.verify(
+            getTokenFrom(request) || "", process.env.SECRET || ""
+        ) as JwtPayload & { id: number }
+    } catch (error) {
+        return response.status(401).json({ error: 'token invalid or missing' })
+    }
+
+    if (!decodedToken.id) {
         return response.status(401).json({ error: 'token invalid' })
     }
+
     const userRepository = AppDataSource.getRepository(User);
     const user = await userRepository.findOne({
         where: {
@@ -108,9 +115,14 @@ export const getSaveByIdWithAllInformation = async (request: Request, response: 
 
     try {
         const saveRepository = AppDataSource.getRepository(Save);
-        const save = await saveRepository.find({
-            where: {
-                id: Number(requestedId)
+        const save = await saveRepository.findOne({
+            where: { id: Number(requestedId) },
+            relations: {
+                leagues: {
+                    teams: {
+                        players: true
+                    }
+                }
             }
         })
         response.json(save)

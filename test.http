@@ -15,3 +15,8 @@ Content-Type: application/json
     "username": "test",
     "password": "test"
 }
+
+###
+POST http://localhost:3000/save/new
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6OCwiaWF0IjoxNzc2NzY1ODY4LCJleHAiOjE3NzY3Njk0Njh9.p4gkh_8qh7tVxIgkwT9kSK58KSUfMKDeNRkXmaqx5sQ

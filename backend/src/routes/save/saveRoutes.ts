@@ -1,9 +1,13 @@
 import { Router } from "express"
-import { getSaveByIdWithAllInformation } from "../../controllers/save/saveController"
+import { createNewSave, getSaveByIdWithAllInformation } from "../../controllers/save/saveController"
 
 const router = Router()
 
-router.get("/save/:id", async (request, response) => {
+router.post("/new", async(request, response) => {
+    createNewSave(request, response)
+})
+
+router.get("/:id", async (request, response) => {
     getSaveByIdWithAllInformation(request, response)
 })
 

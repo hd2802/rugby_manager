@@ -10,7 +10,7 @@ export class Save {
     id: number = -1
 
     @ManyToOne(() => User, (user) => user.saves)
-    @JoinColumn({ name: "save_id" })
+    @JoinColumn({ name: "user_id" })
     user!: User
 
     @OneToMany(() => SaveLeague, (save_league) => save_league.save, {cascade: true})

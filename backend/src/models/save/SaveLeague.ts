@@ -4,16 +4,19 @@ import { Save } from "./Save"
 
 @Entity({ name: "save_leagues" })
 export class SaveLeague {
-    @PrimaryGeneratedColumn()
-    id: number = -1
+  @PrimaryGeneratedColumn()
+  id: number = -1
 
-    @Column({ type: "varchar", length: 255})
-    name: string = ""
+  @Column({ type: "int4" })
+  templateId: number = -1
 
-    @OneToMany(() => SaveTeam, (save_team) => save_team.league)
-    teams!: SaveTeam[]
+  @Column({ type: "varchar", length: 255 })
+  name: string = ""
 
-    @ManyToOne(() => Save, (save) => save.leagues)
-    @JoinColumn({ name: "save_id" })
-    save!: Save
+  @OneToMany(() => SaveTeam, (save_team) => save_team.league)
+  teams!: SaveTeam[]
+
+  @ManyToOne(() => Save, (save) => save.leagues)
+  @JoinColumn({ name: "save_id" })
+  save!: Save
 }

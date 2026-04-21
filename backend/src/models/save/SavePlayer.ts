@@ -7,6 +7,9 @@ export class SavePlayer {
     @PrimaryGeneratedColumn()
     id: number = -1
 
+    @Column({ type: "int4" })
+    templateId: number = -1
+
     @Column({ type: "varchar", length: 255})
     name: string = ""
 

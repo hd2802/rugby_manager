@@ -44,7 +44,11 @@ export const getUserById = async (req: Request, res: Response) => {
 export const createNewUser = async (request: Request, response: Response) => {
     const userRepository = AppDataSource.getRepository(User);
     
-        const { username, password } = request.body;
+        const { username, password, passwordRepeated } = request.body;
+
+        if(password !== passwordRepeated) {
+            return response.status(400).end()
+        }
     
         const saltRounds = 10
         const passwordHash = await bcrypt.hash(password, saltRounds)

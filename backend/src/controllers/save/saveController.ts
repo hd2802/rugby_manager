@@ -3,11 +3,8 @@ import { AppDataSource } from "../../data-source"
 import { Save } from "../../models/save/Save"
 import { User } from "../../models/auth/User"
 import { League } from "../../models/api/League"
-import { SaveLeague } from "../../models/save/SaveLeague"
 import { Team } from "../../models/api/Team"
-import { SaveTeam } from "../../models/save/SaveTeam"
 import { Player } from "../../models/api/Player"
-import { SavePlayer } from "../../models/save/SavePlayer"
 
 import jwt from "jsonwebtoken"
 import type { JwtPayload } from "jsonwebtoken"
@@ -51,31 +48,29 @@ export const createNewSave = async (request: Request, response: Response) => {
         await manager.save(save)
 
         const templateLeagues = await manager.find(League)
-        const leagueMap = new Map<number, SaveLeague>()
+        const leagueMap = new Map<number, League>()
 
         for (const league of templateLeagues) {
-            const saveLeague = manager.create(SaveLeague, {
+            const saveLeague = manager.create(League, {
                 name: league.name,
-                templateId: league.id,
-                save
-            })
+                save: save
+            });
             const savedLeague = await manager.save(saveLeague)
             leagueMap.set(league.id, savedLeague)
         }
 
         const templateTeams = await manager.find(Team, {relations: ['league'] })
-        const teamMap = new Map<number, SaveTeam>()
+        const teamMap = new Map<number, Team>()
 
         for (const team of templateTeams) {
-            const saveLeague = leagueMap.get(team.league.id)
-            if (!saveLeague) throw new Error("No league found")
+            const league = leagueMap.get(team.league.id)
+            if (!league) throw new Error("No league found")
 
-            const saveTeam = manager.create(SaveTeam, {
+            const saveTeam = manager.create(Team, {
                 name: team.name,
-                templateId: team.id,
-                league: saveLeague,
-                save
-            })
+                save: save,
+                league: league
+            });
             const savedTeam = await manager.save(saveTeam)
             teamMap.set(team.id, savedTeam)
         }
@@ -83,11 +78,10 @@ export const createNewSave = async (request: Request, response: Response) => {
         const templatePlayers = await manager.find(Player, {relations: ['team'] })
 
         for (const player of templatePlayers) {
-            const saveTeam = teamMap.get(player.team.id)
-            if (!saveTeam) throw new Error("No team found")
+            const team = teamMap.get(player.team.id)
+            if (!team) throw new Error("No team found")
 
-            const savePlayer = manager.create(SavePlayer, {
-                templateId: player.id,
+            const savePlayer = manager.create(Player, {
                 name: player.name,
                 position: player.position,
                 dob: player.dob,
@@ -100,8 +94,8 @@ export const createNewSave = async (request: Request, response: Response) => {
                 passing: player.passing,
                 kicking: player.kicking,
                 tackling: player.tackling,
-                team: saveTeam,
-                save
+                team: team,
+                save: save
             })
             const savedPlayer = await manager.save(savePlayer)
         }

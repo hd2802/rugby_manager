@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
 import { User } from "../auth/User"
-import { SaveLeague } from "../save/SaveLeague";
-import { SaveTeam } from "../save/SaveTeam";
-import { SavePlayer } from "../save/SavePlayer";
+import { League } from "../api/League";
+import { Team } from "../api/Team";
+import { Player } from "../api/Player";
 
 @Entity({ name: "saves" })
 export class Save {
@@ -13,12 +13,12 @@ export class Save {
     @JoinColumn({ name: "user_id" })
     user!: User
 
-    @OneToMany(() => SaveLeague, (save_league) => save_league.save, {cascade: true})
-    leagues!: SaveLeague[]
+    @OneToMany(() => League, (league) => league.save, {cascade: true})
+    leagues!: League[]
 
-    @OneToMany(() => SaveTeam, (save_team) => save_team.save, {cascade: true})
-    teams!: SaveTeam[]
+    @OneToMany(() => Team, (team) => team.save, {cascade: true})
+    teams!: Team[]
 
-    @OneToMany(() => SavePlayer, (save_player) => save_player.save, {cascade: true})
-    players!: SavePlayer[]
+    @OneToMany(() => Player, (player) => player.save, {cascade: true})
+    players!: Player[]
 }

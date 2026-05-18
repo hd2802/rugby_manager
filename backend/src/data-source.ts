@@ -4,18 +4,15 @@ import { Team } from "./models/api/Team"
 import { Player } from "./models/api/Player"
 import { User } from "./models/auth/User"
 import { Save } from "./models/save/Save"
-import { SaveLeague } from "./models/save/SaveLeague"
-import { SaveTeam } from "./models/save/SaveTeam"
-import { SavePlayer } from "./models/save/SavePlayer"
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
-    port: 5432,
+    host: process.env.DB_HOST || "localhost",
+    port: Number(process.env.DB_PORT) || 5432,
     username: process.env.USER!,
-    password: "",
-    database: "rugby_manager",
-    entities: [ League, Team, Player, User, Save, SaveLeague, SaveTeam, SavePlayer ],
+    password: process.env.DB_PASS || "",
+    database: process.env.DATABASE || "rugby_manager",
+    entities: [ League, Team, Player, User, Save ],
     synchronize: true,
-    logging: true
-})
+    logging: false
+});

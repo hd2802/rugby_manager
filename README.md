@@ -8,9 +8,9 @@ A Football Manager-esque game for Rugby Union.
 
 **Client:** React, Redux, TailwindCSS
 
-**Server:** Node, Express
+**Server:** Python (FastAPI), SQLAlchemy, Pydantic
 
-**Databse:** PostgreSQL (run locally), TypeORM (for modelling)
+**Database**: PostgreSQL (run locally)
 
 
 ## Run Locally
@@ -33,16 +33,28 @@ Go to the backend
   cd backend
 ```
 
-Install dependencies
+Create your virtual environment
 
-```bash
-  npm install
+``` bash
+python3 -m venv venv
 ```
 
-Start the server
+Activate the virtual environment
 
-```bash
-  npm run dev
+``` bash
+source venv/bin/activate
+```
+
+Install the packages
+
+``` bash
+pip install -r requirements.txt
+```
+
+To run the Python backend 
+
+``` bash
+uvicorn app.main:app --reload 
 ```
 
 Note: this will fail until you create the database

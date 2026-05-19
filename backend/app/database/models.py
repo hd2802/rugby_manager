@@ -8,23 +8,14 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
 
-class User(Base):
-    __tablename__ = "users"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-
-    username: Mapped[str] = mapped_column(String(255))
-    passwordHash: Mapped[str] = mapped_column(String(511))
-
-    saves: Mapped[List["Save"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-
 class Save(Base):
     __tablename__ = "saves"
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-    user: Mapped["User"] = relationship(back_populates="saves")
+    # Removed the user table for now
+    #user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    #user: Mapped["User"] = relationship(back_populates="saves")
 
     leagues: Mapped[List["League"]] = relationship(back_populates="save", cascade="all, delete-orphan")
     teams: Mapped[List["Team"]] = relationship(back_populates="save", cascade="all, delete-orphan")

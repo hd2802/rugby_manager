@@ -5,14 +5,10 @@ class LeagueOut(BaseModel):
     id: int
     name: str
 
-    class Config:
-        orm_mode = True
 
 class LeagueDetailOut(LeagueOut):
     teams: List[TeamOut] = []
 
-    class Config:
-        orm_mode = True
 
 class TeamOut(BaseModel):
     id: int
@@ -20,14 +16,10 @@ class TeamOut(BaseModel):
     league_id: int
     save_id: Optional[int]
 
-    class Config:
-        orm_mode = True
 
 class TeamDetailOut(TeamOut):
     players: List[PlayerOut] = []
 
-    class Config:
-        orm_mode = True
 
 class PlayerOut(BaseModel):
     id: int
@@ -45,9 +37,3 @@ class PlayerOut(BaseModel):
     tackling: int
     save_id: Optional[int]
     team_id: int
-
-    class Config:
-        orm_mode = True
-
-
-

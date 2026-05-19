@@ -23,7 +23,7 @@ class Save(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
-    user_id = Mapped[int] = mapped_column(ForeignKey("users.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
     user: Mapped["User"] = relationship(back_populates="saves")
 
     leagues: Mapped[List["League"]] = relationship(back_populates="save", cascade="all, delete-orphan")
@@ -37,28 +37,28 @@ class League(Base):
 
     name: Mapped[str] = mapped_column(String(255))
 
-    save_id = Mapped[int] = mapped_column(ForeignKey("saves.id"))
+    save_id: Mapped[int] = mapped_column(ForeignKey("saves.id"))
     save: Mapped["Save"] = relationship(back_populates="leagues")
 
     teams: Mapped[List["Team"]] = relationship(back_populates="league", cascade="all, delete-orphan")
 
 class Team(Base):
-    __tablename__ = "leagues"
+    __tablename__ = "teams"
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
     name: Mapped[str] = mapped_column(String(255))
 
-    save_id = Mapped[int] = mapped_column(ForeignKey("saves.id"))
+    save_id: Mapped[int] = mapped_column(ForeignKey("saves.id"))
     save: Mapped["Save"] = relationship(back_populates="teams")
 
-    league_id = Mapped[int] = mapped_column(ForeignKey("leagues.id"))
+    league_id: Mapped[int] = mapped_column(ForeignKey("leagues.id"))
     league: Mapped["League"] = relationship(back_populates="teams")
 
     players: Mapped[List["Player"]] = relationship(back_populates="team", cascade="all, delete-orphan")
 
 class Player(Base):
-    __tablename__ = "leagues"
+    __tablename__ = "players"
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
@@ -75,8 +75,8 @@ class Player(Base):
     kicking: Mapped[int] = mapped_column()
     tackling: Mapped[int] = mapped_column()
 
-    save_id = Mapped[int] = mapped_column(ForeignKey("saves.id"))
+    save_id: Mapped[int] = mapped_column(ForeignKey("saves.id"))
     save: Mapped["Save"] = relationship(back_populates="players")
 
-    team_id = Mapped[int] = mapped_column(ForeignKey("teams.id"))
+    team_id: Mapped[int] = mapped_column(ForeignKey("teams.id"))
     team: Mapped["Team"] = relationship(back_populates="players")

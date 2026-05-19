@@ -10,7 +10,7 @@ player_router = APIRouter()
 async def get_player_service(db: AsyncSession = Depends(get_db)) -> PlayerService:
     return PlayerService(db)
 
-@player_router.get("/players", response_model=list[PlayerOut])
+@player_router.get("/", response_model=list[PlayerOut])
 async def get_all_players(player_service: PlayerService = Depends(get_player_service)):
     try:
         players = await player_service.get_all_players()
@@ -21,7 +21,7 @@ async def get_all_players(player_service: PlayerService = Depends(get_player_ser
             detail=f"An error occurred while fetching players: {e}"
         )
 
-@player_router.get("/players/{player_id}", response_model=PlayerOut)
+@player_router.get("/{player_id}", response_model=PlayerOut)
 async def get_player_by_id(player_id: int, player_service: PlayerService = Depends(get_player_service)):
     player = await player_service.get_player_by_id(player_id)
     if not player:

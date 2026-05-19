@@ -11,7 +11,7 @@ team_router = APIRouter()
 async def get_team_service(db: AsyncSession = Depends(get_db)) -> TeamService:
     return TeamService(db)
 
-@team_router.get("/teams", response_model=list[TeamOut])
+@team_router.get("/", response_model=list[TeamOut])
 async def get_all_teams(team_service: TeamService = Depends(get_team_service)):
     try:
         teams = await team_service.get_all_teams()
@@ -22,7 +22,7 @@ async def get_all_teams(team_service: TeamService = Depends(get_team_service)):
             detail=f"An error occurred while fetching teams: {e}"
         )
 
-@team_router.get("/teams/{team_id}", response_model=TeamDetailOut)
+@team_router.get("/{team_id}", response_model=TeamDetailOut)
 async def get_team_by_id(team_id: int, team_service: TeamService = Depends(get_team_service)):
     team = await team_service.get_team_by_id(team_id)
     if not team:

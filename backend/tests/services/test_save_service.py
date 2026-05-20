@@ -1,5 +1,6 @@
 import pytest
 from unittest.mock import AsyncMock, MagicMock, patch
+from fastapi import HTTPException
 from app.database.models import Save, League, Team, Player
 from app.services.save_service import SaveService
 
@@ -92,3 +93,81 @@ async def test_get_save_by_id_all_information(mocker):
     assert result.leagues[0].name == "Premiership"
     assert result.teams[0].name == "Saracens"
     assert result.players[0].name == "Owen Farrell"
+
+
+
+@pytest.mark.asyncio
+async def test_create_new_save_template_team_not_found(mocker):
+    mock_db = AsyncMock()
+    mock_db.flush = AsyncMock()
+    mock_db.commit = AsyncMock()
+    mock_db.refresh = AsyncMock()
+    mock_db.rollback = AsyncMock()
+    mock_db.add = MagicMock()
+
+    new_save = Save(id=1)
+    mocker.patch("app.services.save_service.Save", return_value=new_save)
+
+    template_league = League(id=10, name="Premiership", save_id=None)
+    template_team = Team(id=20, name="Saracens", league=template_league, save_id=None)
+    template_player = Player(id=30, name="Orphan Player", team=template_team, save_id=None,
+                             position="", dob="", height="", weight="", contract="", raw_price=0,
+                             strength=0, speed=0, passing=0, kicking=0, tackling=0)
+    mock_league_result = MagicMock()
+    mock_league_result.scalars.return_value.all.return_value = [template_league]
+    mock_team_result = MagicMock()
+    mock_team_result.scalars.return_value.all.return_value = [template_team]
+    mock_player_result = MagicMock()
+    mock_player_result.scalars.return_value.all.return_value = [template_player]
+
+    mock_db.execute.side_effect = [mock_league_result, mock_team_result, mock_player_result]
+
+    async def fake_flush():
+        pass
+    mock_db.flush.side_effect = fake_flush
+
+    service = SaveService(mock_db)
+
+    with pytest.raises(HTTPException) as exc_info:
+        await service.create_new_save()
+    assert exc_info.value.status_code == 500
+    assert "Template league not found for team" in exc_info.value.detail
+    assert mock_db.rollback.called
+
+@pytest.mark.asyncio
+async def test_create_new_save_template_team_not_found(mocker):
+    mock_db = AsyncMock()
+    mock_db.flush = AsyncMock()
+    mock_db.commit = AsyncMock()
+    mock_db.refresh = AsyncMock()
+    mock_db.rollback = AsyncMock()
+    mock_db.add = MagicMock()
+
+    new_save = Save(id=1)
+    mocker.patch("app.services.save_service.Save", return_value=new_save)
+
+    template_league = League(id=10, name="Premiership", save_id=None)
+    template_team = Team(id=20, name="Saracens", league=template_league, save_id=None)
+    template_player = Player(id=30, name="Orphan Player", team=template_team, save_id=None,
+                             position="", dob="", height="", weight="", contract="", raw_price=0,
+                             strength=0, speed=0, passing=0, kicking=0, tackling=0)
+    mock_league_result = MagicMock()
+    mock_league_result.scalars.return_value.all.return_value = [template_league]
+    mock_team_result = MagicMock()
+    mock_team_result.scalars.return_value.all.return_value = [template_team]
+    mock_player_result = MagicMock()
+    mock_player_result.scalars.return_value.all.return_value = [template_player]
+
+    mock_db.execute.side_effect = [mock_league_result, mock_team_result, mock_player_result]
+
+    async def fake_flush():
+        pass
+    mock_db.flush.side_effect = fake_flush
+
+    service = SaveService(mock_db)
+
+    with pytest.raises(HTTPException) as exc_info:
+        await service.create_new_save()
+    assert exc_info.value.status_code == 500
+    assert "Template league not found for team" in exc_info.value.detail
+    assert mock_db.rollback.called

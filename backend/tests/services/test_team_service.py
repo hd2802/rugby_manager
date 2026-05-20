@@ -7,7 +7,7 @@ from app.services.team_service import TeamService
 async def test_get_all_teams(mocker):
     mock_db = AsyncMock()
     mock_result = MagicMock()
-    mock_teams = [League(id=1, name="Bath Rugby"), League(id=2, name="Bristol Bears")]
+    mock_teams = [Team(id=1, name="Bath Rugby"), Team(id=2, name="Bristol Bears")]
     mock_result.scalars.return_value.all.return_value = mock_teams
     mock_db.execute.return_value = mock_result
 
@@ -22,7 +22,7 @@ async def test_get_all_teams(mocker):
 async def test_get_team_by_id(mocker):
     mock_db = AsyncMock()
     mock_result = MagicMock()
-    team = League(id=1, name="Bath Rugby")
+    team = Team(id=1, name="Bath Rugby")
     mock_result.scalar_one_or_none.return_value = team
     mock_db.execute.return_value = mock_result
 

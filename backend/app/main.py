@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Depends
-from fastapi_plugin.fast_api_client import Auth0FastAPI
 from contextlib import asynccontextmanager
 from app.database.connection import init_models
 from fastapi.middleware.cors import CORSMiddleware

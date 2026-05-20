@@ -11,12 +11,13 @@ interface LeagueState {
     getLeagues: () => void;
 }
 
-const PORT = import.meta.env.VITE_BACKEND_PORT || 3001
+const PORT = import.meta.env.VITE_BACKEND_PORT || 8000
 
 const useLeagueStore = create<LeagueState>((set) => ({
     leagues: [],
     getLeagues: async () => {
         const response = await axios.get(`http://localhost:${PORT}/api/leagues`);
+        console.log(response.data)
         set({ leagues: response.data})
     }
 }))

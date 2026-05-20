@@ -15,21 +15,21 @@ class SaveService:
     async def create_new_save(self):
         try:
             new_save = Save()
-            db.add(new_save)
-            await db.flush()
+            self.db.add(new_save)
+            await self.db.flush()
 
-            template_leagues_result = await db.execute(
+            template_leagues_result = await self.db.execute(
                 select(League).filter(League.save_id == None)
             )
             template_leagues = template_leagues_result.scalars().all()
 
-            template_teams_results = await db.execute(
+            template_teams_results = await self.db.execute(
                 select(Team).filter(Team.save_id == None).options(selectinload(Team.league))
             )
 
             template_teams = template_teams_results.scalars().all()
 
-            template_players_result = await db.execute(
+            template_players_result = await self.db.execute(
                 select(Player).filter(Player.save_id == None
                 ).options(selectinload(Player.team))
             )
@@ -43,8 +43,8 @@ class SaveService:
                     name=t_league.name,
                     save_id=new_save.id
                 )
-                db.add(s_league)
-                await db.flush()
+                self.db.add(s_league)
+                await self.db.flush()
                 league_id_map[t_league.id] = s_league.id
             
             for t_team in template_teams:
@@ -57,8 +57,8 @@ class SaveService:
                     league_id=new_league_id,
                     save_id=new_save.id
                 )
-                db.add(s_team)
-                await db.flush()
+                self.db.add(s_team)
+                await self.db.flush()
                 team_id_map[t_team.id] = s_team.id
 
             for t_player in template_players:
@@ -82,22 +82,26 @@ class SaveService:
                     team_id=new_team_id,
                     save_id=new_save.id
                 )
-                db.add(s_player)
+                self.db.add(s_player)
 
-            await db.commit()
-            await db.refresh(new_save)
+            await self.db.commit()
+            await self.db.refresh(new_save)
 
             return {"message": "Game save created successfully", "save_id": new_save.id}
 
         except Exception as e:
-            await db.rollback()
+            await self.db.rollback()
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Failed to create save: {e}")
 
     async def get_save_by_id_all_information(self, save_id: int) -> Save | None:
         result = await self.db.execute(
-            select(Save)
-            .options(
-                selectinload(Save.leagues).selectinload(Save.teams).selectinload(Save.players)
+            select(Save).options(
+                selectinload(Save.leagues)
+                    .selectinload(League.teams)
+                    .selectinload(Team.players),
+                selectinload(Save.teams)
+                    .selectinload(Team.players),
+                selectinload(Save.players)
             )
         )
         return result.scalar_one_or_none()

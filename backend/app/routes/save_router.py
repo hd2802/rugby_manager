@@ -1,10 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Body
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
 from typing import List, Optional
 from app.database.connection import get_db
 from app.services.save_service import SaveService
-from app.schema.schema import TeamOut, TeamDetailOut
+from app.schema.schema import TeamOut, TeamDetailOut, SaveCreateRequest
 
 save_router = APIRouter()
 
@@ -12,8 +12,8 @@ async def get_save_service(db: AsyncSession = Depends(get_db)) -> SaveService:
     return SaveService(db)
 
 @save_router.post("/new", status_code=status.HTTP_201_CREATED)
-async def create_new_save_endpoint(save_service: SaveService = Depends(get_save_service)):
-    return await save_service.create_new_save()
+async def create_new_save_endpoint(request: SaveCreateRequest, save_service: SaveService = Depends(get_save_service)):
+    return await save_service.create_new_save(request.template_managed_team_id)
 
 @save_router.get("/{save_id}")
 async def get_save_by_id_endpoint(save_id: int,save_service: SaveService = Depends(get_save_service)):

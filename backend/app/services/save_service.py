@@ -1,18 +1,14 @@
-from fastapi import FastAPI, Depends, HTTPException, status, APIRouter
-from contextlib import asynccontextmanager
-from app.database.connection import init_models, get_db
-from app.database.models import Save, League, Team, Player
+from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import selectinload
-from fastapi.middleware.cors import CORSMiddleware
-import os
+from app.database.models import Save, League, Team, Player
 
 class SaveService:
     def __init__(self, db: AsyncSession):
         self.db = db
-    
-    async def create_new_save(self):
+
+    async def create_new_save(self, template_managed_team_id: int):
         try:
             new_save = Save()
             self.db.add(new_save)
@@ -23,15 +19,13 @@ class SaveService:
             )
             template_leagues = template_leagues_result.scalars().all()
 
-            template_teams_results = await self.db.execute(
+            template_teams_result = await self.db.execute(
                 select(Team).filter(Team.save_id == None).options(selectinload(Team.league))
             )
-
-            template_teams = template_teams_results.scalars().all()
+            template_teams = template_teams_result.scalars().all()
 
             template_players_result = await self.db.execute(
-                select(Player).filter(Player.save_id == None
-                ).options(selectinload(Player.team))
+                select(Player).filter(Player.save_id == None).options(selectinload(Player.team))
             )
             template_players = template_players_result.scalars().all()
 
@@ -46,12 +40,14 @@ class SaveService:
                 self.db.add(s_league)
                 await self.db.flush()
                 league_id_map[t_league.id] = s_league.id
-            
+
             for t_team in template_teams:
                 new_league_id = league_id_map.get(t_team.league.id)
                 if not new_league_id:
-                    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Template league not found for team")
-
+                    raise HTTPException(
+                        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                        detail="Template league not found for team"
+                    )
                 s_team = Team(
                     name=t_team.name,
                     league_id=new_league_id,
@@ -60,12 +56,16 @@ class SaveService:
                 self.db.add(s_team)
                 await self.db.flush()
                 team_id_map[t_team.id] = s_team.id
+            
+            new_save.managed_team_id = team_id_map[template_managed_team_id]
 
             for t_player in template_players:
                 new_team_id = team_id_map.get(t_player.team.id)
                 if not new_team_id:
-                    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Template team not found for player")
-
+                    raise HTTPException(
+                        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                        detail="Template team not found for player"
+                    )
                 s_player = Player(
                     name=t_player.name,
                     position=t_player.position,
@@ -86,16 +86,18 @@ class SaveService:
 
             await self.db.commit()
             await self.db.refresh(new_save)
-
             return {"message": "Game save created successfully", "save_id": new_save.id}
 
         except Exception as e:
             await self.db.rollback()
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Failed to create save: {e}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to create save: {e}"
+            )
 
-    async def get_save_by_id_all_information(self, save_id: int) -> Save | None:
+    async def get_save_by_id_all_information(self, save_id: int):
         result = await self.db.execute(
-            select(Save).options(
+            select(Save).where(Save.id == save_id).options(
                 selectinload(Save.leagues)
                     .selectinload(League.teams)
                     .selectinload(Team.players),

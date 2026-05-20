@@ -37,3 +37,6 @@ class PlayerOut(BaseModel):
     tackling: int
     save_id: Optional[int]
     team_id: int
+
+class SaveCreateRequest(BaseModel):
+    template_managed_team_id: int

@@ -6,19 +6,14 @@ from app.services.save_service import SaveService
 
 @pytest.mark.asyncio
 async def test_create_new_save_success(mocker):
-
     mock_db = AsyncMock()
     mock_db.flush = AsyncMock()
     mock_db.commit = AsyncMock()
     mock_db.refresh = AsyncMock()
     mock_db.rollback = AsyncMock()
     mock_db.add = MagicMock()
-
-
     new_save = Save(id=1)
-
     mocker.patch("app.services.save_service.Save", return_value=new_save)
-
     template_league = League(id=10, name="Premiership", save_id=None)
     template_team = Team(id=20, name="Saracens", league=template_league, save_id=None)
     template_player = Player(
@@ -38,7 +33,6 @@ async def test_create_new_save_success(mocker):
         team=template_team,
         save_id=None
     )
-
     mock_league_result = MagicMock()
     mock_league_result.scalars.return_value.all.return_value = [template_league]
     mock_team_result = MagicMock()
@@ -59,9 +53,7 @@ async def test_create_new_save_success(mocker):
     mock_db.flush.side_effect = flush_side_effect
 
     service = SaveService(mock_db)
-
-    result = await service.create_new_save()
-
+    result = await service.create_new_save(20)
     assert result["message"] == "Game save created successfully"
     assert result["save_id"] == 1
     assert mock_db.commit.called
@@ -129,7 +121,7 @@ async def test_create_new_save_template_team_not_found(mocker):
     service = SaveService(mock_db)
 
     with pytest.raises(HTTPException) as exc_info:
-        await service.create_new_save()
+        await service.create_new_save(20)
     assert exc_info.value.status_code == 500
     assert "Template league not found for team" in exc_info.value.detail
     assert mock_db.rollback.called
@@ -167,7 +159,7 @@ async def test_create_new_save_template_team_not_found(mocker):
     service = SaveService(mock_db)
 
     with pytest.raises(HTTPException) as exc_info:
-        await service.create_new_save()
+        await service.create_new_save(20)
     assert exc_info.value.status_code == 500
     assert "Template league not found for team" in exc_info.value.detail
     assert mock_db.rollback.called

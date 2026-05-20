@@ -7,10 +7,12 @@ client = TestClient(app)
 
 def test_create_new_save(mock_save_service):
     app.dependency_overrides[get_save_service] = lambda: mock_save_service
-    response = client.post("/api/saves/new")
+
+    response = client.post("/api/saves/new", json={"template_managed_team_id": 20})
+
     assert response.status_code == 201
     assert response.json() == {"message": "Game save created successfully", "save_id": 1}
-    mock_save_service.create_new_save.assert_called_once()
+    mock_save_service.create_new_save.assert_called_once_with(20)
     app.dependency_overrides = {}
 
 def test_get_save_by_id_found(mock_save_service):

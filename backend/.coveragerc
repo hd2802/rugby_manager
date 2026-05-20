@@ -1,0 +1,12 @@
+[run]
+source = app
+
+[report]
+omit =
+    tests/*
+    */tests/*
+    */__init__.py
+    app/database/*
+    app/schema/*
+    app/main.py
+    app/config.py

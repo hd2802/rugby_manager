@@ -10,7 +10,7 @@ league_router = APIRouter()
 async def get_league_service(db: AsyncSession = Depends(get_db)) -> LeagueService:
     return LeagueService(db)
 
-@league_router.get("/", response_model=list[LeagueOut])
+@league_router.get("/", response_model=list[LeagueDetailOut])
 async def get_all_leagues(league_service: LeagueService = Depends(get_league_service)):
     try:
         leagues = await league_service.get_all_leagues()

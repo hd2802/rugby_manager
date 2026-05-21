@@ -8,7 +8,7 @@ class LeagueService:
         self.db = db
 
     async def get_all_leagues(self) -> list[League]:
-        result = await self.db.execute(select(League))
+        result = await self.db.execute(select(League).options(selectinload(League.teams)))
         return result.scalars().all()
 
     async def get_league_by_id(self, league_id: int) -> League | None:

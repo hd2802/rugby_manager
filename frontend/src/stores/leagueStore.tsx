@@ -3,6 +3,12 @@ import axios from "axios"
 
 type League = {
     id: number,
+    name: string,
+    teams: Team[]
+}
+
+type Team = {
+    id: number,
     name: string
 }
 

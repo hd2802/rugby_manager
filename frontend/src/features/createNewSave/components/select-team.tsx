@@ -8,31 +8,35 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useEffect, useState } from "react";
-import useLeagueStore from "@/features/createNewSave/stores/leagueStore";
+import useTeamStore from "@/features/createNewSave/stores/teamStore";
 import { TeamGrid } from "@/features/createNewSave/components/team-grid";
+import type { Team } from "@/types/types"
 
 export function SelectTeam() {
-    const { leagues, getLeagues } = useLeagueStore();
+    const { teams, getTeams } = useTeamStore();
     const [searchTeam, setSearchTeam] = useState("");
-    const [searchLeague, setSearchLeague] = useState("");
+    const [searchLeague, setSearchLeague] = useState("All Leagues");
+    const [selectedTeam, setSelectedTeam] = useState<Team | null>(null);
 
     useEffect(() => {
-        getLeagues();
-    }, [getLeagues]);
+        getTeams();
+    }, [getTeams]);
 
-    if (!leagues || leagues.length === 0) {
+    if (!teams || teams.length === 0) {
         return <div>No teams found</div>;
     }
 
-    const filteredLeagues = leagues
-        .filter(league => searchLeague == "All Leagues" ? league : league.name == searchLeague)
-        .map((league) => ({
-            ...league,
-            teams: league.teams.filter((team) =>
-                team.name.toLowerCase().includes(searchTeam.toLowerCase()),
-            ),
-        }))
-        .filter((league) => league.teams.length > 0);
+    const filteredTeams = teams
+        .filter((team: Team) =>
+            team.league &&
+            (searchLeague === "All Leagues" || team.league.name === searchLeague) &&
+            team.name.toLowerCase().includes(searchTeam.toLowerCase())
+        )
+        .sort((a, b) => a.name.localeCompare(b.name));
+    
+    const handleSelectTeam = (team: Team) => {
+        setSelectedTeam(team);
+    };
 
     return (
         <div>
@@ -63,7 +67,7 @@ export function SelectTeam() {
                     </Select>
                 </div>
             </div>
-            <TeamGrid leagues={filteredLeagues} />
+            <TeamGrid teams={filteredTeams} handleSelectTeam={handleSelectTeam}/>
         </div>
     );
 }

@@ -13,6 +13,7 @@ const useTeamStore = create<TeamState>((set) => ({
     teams: [],
     getTeams: async () => {
         const response = await axios.get(`http://localhost:${PORT}/api/teams`);
+        console.log(response.data)
         set({ teams: response.data})
     }
 }))

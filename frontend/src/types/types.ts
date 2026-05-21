@@ -13,8 +13,10 @@ export type Team = {
 export interface TeamDataProps {
   teamData: Team;
   leagueName: string,
+  handleSelectTeam: (team: Team) => void;
 }
 
 export interface TeamGridProps {
-  leagues: League[];
+  teams: Team[];
+  handleSelectTeam: (team: Team) => void;
 }

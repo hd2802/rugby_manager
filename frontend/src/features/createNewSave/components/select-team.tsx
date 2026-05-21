@@ -67,7 +67,11 @@ export function SelectTeam() {
                     </Select>
                 </div>
             </div>
-            <TeamGrid teams={filteredTeams} handleSelectTeam={handleSelectTeam}/>
+            <TeamGrid 
+                teams={filteredTeams} 
+                handleSelectTeam={handleSelectTeam}
+                selectedTeam={selectedTeam}
+            />
         </div>
     );
 }

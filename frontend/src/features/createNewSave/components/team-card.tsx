@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import type { TeamDataProps } from "@/types/types";
 
-export function TeamCard({ teamData, leagueName, handleSelectTeam }: TeamDataProps) {
+export function TeamCard({ teamData, leagueName, handleSelectTeam, selectedTeam }: TeamDataProps) {
     return (
         <Card className="relative mx-auto w-full max-w-sm pt-0">
             <div className="absolute inset-0 z-30 aspect-video bg-black/35" />

@@ -14,6 +14,7 @@ class TeamOut(BaseModel):
     id: int
     name: str
     league_id: int
+    league: LeagueOut
     save_id: Optional[int]
 
 

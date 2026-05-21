@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import axios from "axios"
 
+import type { League } from "@/types/types.ts"
+
 interface LeagueState {
     leagues: League[],
     getLeagues: () => void;

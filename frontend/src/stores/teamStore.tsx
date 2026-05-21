@@ -1,14 +1,10 @@
 import { create } from "zustand";
 import axios from "axios"
-
-interface LeagueState {
-    leagues: League[],
-    getLeagues: () => void;
-}
+import type { TeamState } from "@/types/types"
 
 const PORT = import.meta.env.VITE_BACKEND_PORT || 8000
 
-const useLeagueStore = create<LeagueState>((set) => ({
+const useLeagueStore = create<TeamState>((set) => ({
     leagues: [],
     getLeagues: async () => {
         const response = await axios.get(`http://localhost:${PORT}/api/leagues`);
